@@ -1,0 +1,49 @@
+%
+\section{Introduction}\label{sect:introduction}
+Object-oriented domain-driven design (DDD)~\cite{evans_domain-driven_2004} aims to iteratively develop software around a realistic model of the problem domain, which both thoroughly captures the domain requirements and is technically feasible for implementation.
+%
+Recent works in DDD~\cite{dan_haywood_apache_2013, paniza_learn_2011} have been focusing on using annotation-based domain-specific languages (aDSLs) to build the domain model. An aDSL is internal to a host object-oriented programming language (OOPL) and consists in a set of annotations specifically designed to express the domain concepts. The resulted domain model is used as the base input for a code generator to generate the entire software. 
+%
+% \\TODO: The UML also provides means to capture structural and behavioral aspects of the system, towards a unified model of the system. So what? and why do we need a new DSL for behavioral modeling? (activity diagrams, state machines) 
+%
+% However, the above works lack support for behavioral modeling and do not address the problem of combining both structured and behavioral models into one unified domain model, expressed in aDSL(s).
+Within these works behavioral aspects, that are often represented using UML activity diagrams and statecharts, are not explicitly captured as part of the domain model. They are either implicitly embedded into the code generator or incorporated at the code level. 
+
+%In this paper, we propose anovel unified domain modeling method to tackle this. We employ our previously-developed aDSL, namedDCSL, in order to express our unified domain model, that includes new domain classes extracted from theunderlying behavioral models within the context of a module-based software architecture (MOSA). Wethen define a novel aDSL, named activity graph  language (agl), to capture the remaining behavioral aspects. The mapping between the two aDSL models allows us to obtain a unified and realisticdomain model as an incoporation of the behavioral models and the original domain model. To realize ourmethod, we define a compact annotation-based syntax meta-model and then a formal semantics foragl.We demonstrate our method with an implementation in a Java framework namedjDomainAppand evaluateaglto show that it is essentially expressive and usable for real-world software.
+
+In this paper, we propose a novel unified domain modeling method to tackle these. 
+We view unified model as an extended domain model in a module-based software architecture (MOSA)~\cite{le_tree-based_2015, le_generative_2017, le_generative_2018} that we have recently developed for DDD.
+Our method both complements and extends another previous work~\cite{le_domain_2018}, in which we use 
+UML activity diagram~\cite{omg_unified_2015} to model software behavior and introduce the notion of a unified domain model.
+We choose UML activity diagram for behavioral modeling because this language has been shown to be domain-expert-friendly~\cite{dumas_uml_2001} and that it can be used to design at different layers of abstraction. 
+However, we define in~\cite{le_domain_2018} only an abstract unified model and take for granted the UML activity graph that helps integrate this model into the architecture.
+
+Our approach in this paper is to first provide a precise definition of unified model using a horizontal aDSL named \dcsl~\cite{le_domain_2018}. We consider horizontal aDSL (a.k.a technical aDSL) as an aDSL that targets a technical (low-level) domain, whose concepts describe design patterns that often underlie a class of real-world (high-level) domains. 
+%
+We then propose a novel horizontal aDSL, named activity graph language (\agl), for expressing the UML activity graph. \agl's domain is a restricted domain of the UML's activity graph language~\cite{omg_unified_2015}. The restriction is necessary only to incorporate this language into MOSA. We assert that executable nodes of the activity graph execute actions on the software modules in MOSA. To enable this, we define a set of essential module actions which concern the manipulation of the domain objects of the domain class that is owned by each software module.
+
+A key benefit from combining \dcsl~and \agl~in MOSA is that it helps define a complete executable model for the software. Further, this software is automatically generated using a Java software framework, named \jdomainapp~\cite{le_jdomainapp_2017}, that we have developed.
+
+As far as language specification is concerned, we adopt the meta-modeling approach for DSLs~\cite{kleppe_software_2008} and use UML/OCL~\cite{omg_unified_2015, omg_object_2014} to specify the abstract and concrete syntax models of \agl. In particular, we propose a compact annotation-based concrete syntax model that includes a very few number of concepts. We systematically develop this syntax using a transformation from a conceptual model of the activity graph domain.
+%
+We demonstrate our method with an implementation in \jdomainapp~and evaluate \agl~to show that it is essentially expressive and usable for designing real-world software. 
+
+In brief, our paper makes the following contributions:
+%
+\begin{itemize}[leftmargin=*]
+	\item precisely define unified model in the context of MOSA
+	\item define a set of essential module actions for the software modules of MOSA
+	\item specify an aDSL (named \agl) for constructing the activity graph. \agl~has a compact syntax.
+	\item demonstrate our method with an implementation in the \jdomainapp~framework 
+  \item evaluate \agl~to show that it is essentially expressive and usable for designing real-world software
+\end{itemize}
+
+The rest of the paper is structured as follows. Section~\ref{sect:background} presents our motivating example and a technical background. 
+Section~\ref{sect:incorporateDomainBehavior} explains our approach to incorporating behavioral aspects into a domain model. 
+Section~\ref{sect:arch-module-actions} defines the essential module actions. 
+Section~\ref{sect:agl} specifies \agl. 
+Section~\ref{sect:tool} discusses tool support.
+Section~\ref{sect:evaluation} presents the \agl's evaluation. 
+Section~\ref{sect:threats} discusses threats to validity of our work.
+Section~\ref{sect:relatedwork} reviews the related work and 
+Section~\ref{sect:conclusion} concludes the paper.

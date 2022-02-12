@@ -1,0 +1,23 @@
+%squeeze document gaps
+%-headings
+%- change gaps between floats and text
+%  SPECIFIC FOR IEEETRAN
+\setlength{\textfloatsep}{0pt} %space between top float and texts that follow
+\setlength{\dblfloatsep}{0pt} %Space between floats. \dblfloatsep for 2 column
+% END IEEE TRAN
+\setlength{\floatsep}{0pt} %Space between floats. \dblfloatsep for 2 column format
+\setlength{\intextsep}{0pt} % Space above and below in-line text floats
+\setlength{\abovecaptionskip}{0pt} % Space above float caption
+\setlength{\belowcaptionskip}{0pt} 
+%-change default behaviour to fill page with pictures and graphics
+\renewcommand\floatpagefraction{.9}
+\renewcommand\dblfloatpagefraction{.9} % for two column documents
+\renewcommand\topfraction{.9}
+\renewcommand\dbltopfraction{.9} % for two column documents
+\renewcommand\bottomfraction{.9}
+\renewcommand\textfraction{.1}   
+\setcounter{totalnumber}{50}
+\setcounter{topnumber}{50}
+\setcounter{bottomnumber}{50}
+%-all the extra white space to appear at the bottom of pages
+\raggedbottom
