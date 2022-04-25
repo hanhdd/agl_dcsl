@@ -8,7 +8,7 @@ Run:
 # 2. import maven MBSL -> running a pattern form: Decisional, forked, joined, merged, sequential
 '' Note:
 config built path: Postgresql (https://mvnrepository.com/artifact/org.postgresql/postgresql)'
-# Code:
+
 ## Unified model:
 ![Conceptual Model: CM](https://github.com/hanhdd/agl_dcsl/tree/main/sourceCode/image/agl_cm.PNG)
 ``private void genGraph()`` 
