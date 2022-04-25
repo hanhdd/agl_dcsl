@@ -16,4 +16,4 @@ config built path: Postgresql (https://mvnrepository.com/artifact/org.postgresql
 ![ Abstract Syntax Model: ASM](https://github.com/hanhdd/agl_dcsl/tree/main/sourceCode/image/agl_cmt.PNG)
 ### Result: Concrete Syntax Model (CSM) in the class: EnrolmentMgmt
 
-![Concrete Syntax Model: CSM](https://github.com/hanhdd/agl_dcsl/tree/main/sourceCode/image/afl_csm.PNG)
+![Concrete Syntax Model: CSM](https://github.com/hanhdd/agl_dcsl/tree/main/sourceCode/image/agl_csm.PNG)
