@@ -5,45 +5,45 @@ The style file: elsarticle-num.bst
 Database file #1: resources/bib/behmod.bib
 Warning--empty journal in beck_manifesto_2017
 Warning--empty pages in cepa_representing_2005
-You've used 44 entries,
+You've used 45 entries,
             2937 wiz_defined-function locations,
-            933 strings with 13426 characters,
-and the built_in function-call counts, 14364 in all, are:
-= -- 1342
-> -- 386
+            939 strings with 13615 characters,
+and the built_in function-call counts, 14573 in all, are:
+= -- 1366
+> -- 390
 < -- 30
-+ -- 152
-- -- 108
-* -- 911
-:= -- 1803
-add.period$ -- 52
-call.type$ -- 44
-change.case$ -- 49
++ -- 154
+- -- 109
+* -- 917
+:= -- 1835
+add.period$ -- 53
+call.type$ -- 45
+change.case$ -- 51
 chr.to.int$ -- 42
-cite$ -- 46
-duplicate$ -- 546
-empty$ -- 1752
-format.name$ -- 138
-if$ -- 3867
+cite$ -- 47
+duplicate$ -- 553
+empty$ -- 1777
+format.name$ -- 139
+if$ -- 3926
 int.to.chr$ -- 0
-int.to.str$ -- 44
+int.to.str$ -- 45
 missing$ -- 48
-newline$ -- 159
-num.names$ -- 52
-pop$ -- 416
+newline$ -- 162
+num.names$ -- 53
+pop$ -- 421
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 985
+skip$ -- 1005
 stack$ -- 0
 substring$ -- 631
-swap$ -- 179
+swap$ -- 180
 text.length$ -- 16
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 2
-while$ -- 116
-width$ -- 46
-write$ -- 401
+while$ -- 117
+width$ -- 47
+write$ -- 411
 (There were 2 warnings)

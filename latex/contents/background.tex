@@ -17,7 +17,7 @@ This section motivates our work by means of example and reviews the background c
 %	\caption{Simplified UML/OCL class and activity diagrams to specify a \courseman software variant that handles the enrolment management activity.} %
 %	\label{fig:motivatingExample}
 %\end{figure*} 
-We adapt a compact and essential software domain from a previous work \cite{le_domain_2018}, named course management domain (\courseman) as our motivating example. We will introduce here the basic \courseman requirements and use it to illustrate the background concepts. In the rest of the paper, we will use this example to illustrate our proposed method. Where necessary, we will also with consider some extensions of these requirements.
+We adapt a compact and essential software domain from a previous work \cite{le_domain_2018}, named course management domain (\courseman) as our motivating example. We will introduce here the basic \courseman requirements and use it to illustrate the background concepts. In the rest of the paper, we will use this example and, where necessary, some extensions of it to illustrate our proposed method.
 
 \begin{figure}[th]
 \begin{center}
@@ -38,7 +38,9 @@ The top part of Figure~\ref{fig:motivatingExample} (the area containing a star-l
   %\\
 \end{itemize}
 
-A number of invariant constraints on \clazz{Student} and \clazz{CourseModule} are expressed in OCL \cite{omg_object_2014} as follows:
+We illustrate below how a number of common invariant constraints on \clazz{Student} and \clazz{CourseModule} are expressed in OCL \cite{omg_object_2014}. Other constraints are expressed using more complex OCL expressions and techniques, whose details (see \cite{le_domain_2018}) are beyond the scope of this paper.
+
+%
 \begin{lstrulex}
 context (@\hterm{Student inv}@):
   -- constraint (@\hterm{(3)}@):
@@ -53,8 +55,8 @@ context (@\hterm{CourseModule inv}@):
   semester <= 8
 \end{lstrulex}
 
-In a practical applications, the class model is often combined with a behavioural model (\eg a UML activity diagram) to describe a unified view of the domain requirements. Figure~\ref{fig:motivatingExample2} illustrates this with a somewhat simplied class diagram of \courseman (displayed at the bottom) and an activity diagram of the enrolment management function. This activity involves registering \clazz{Student}s, enrolling them into \clazz{CourseModule}s and registering them into \clazz{SClass}es. In addition, it would allow a \clazz{Student} to raise a \clazz{HelpRequest}. 
-The right-hand side of Fig.~\ref{fig:motivatingExample2} depicts a combined model, which we will refer to in this paper as \textit{unified domain model}. We will state shortly a number of research questions relating to this model that our work aims to address.
+In practical applications, the class model is often combined with a behavioural model (\eg a UML activity diagram) to describe a unified view of the domain requirements. Throughout this paper, we will refer to this combined model as \textit{unified domain model}. For instance, the left-hand side of Fig.~\ref{fig:motivatingExample2} illustrates the combination of a simplied class diagram of \courseman (displayed at the bottom) and an activity diagram of the enrolment management function. This activity involves registering \clazz{Student}s, enrolling them into \clazz{CourseModule}s and registering them into \clazz{SClass}es. In addition, it would allow a \clazz{Student} to raise a \clazz{HelpRequest} during the enrolment process. 
+The right-hand side of Fig.~\ref{fig:motivatingExample2} depicts an unspecified unified domain model of the \courseman example. What this model entails and how this can be specified are the main questions that we seek to answer in this paper. We will state shortly a number of research questions relating to this model that we will specifically focus on investigating.
 
 \begin{figure}[th]
 \begin{center}
