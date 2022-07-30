@@ -17,8 +17,8 @@ In this paper, we extended the DDD method~\cite{evans_domain-driven_2004} to con
 %%
 %On the other hand, existing DDD frameworks (ApacheIsis~\cite{dan_haywood_apache_2013} and OpenXava~\cite{paniza_learn_2011}) has only a partial support for behavioural modeling through the use of action. They lack support for a behavioural modeling method. Our combination of two aDSLs (\dcsl~and \agl) helps fills this gap. 
 
-\textbf{\textit{Behavioural modeling with UML activity diagram.}}
-Although in his book~\cite{evans_domain-driven_2004} Evans does not explicitly mention behavioural modeling as an element of the DDD method, he does consider object behavior as an essential part of the domain model and that UML interaction diagrams would be used to model this behavior. For example, in Chapter 2 of the book, when discussing the use of documents and diagrams (\ie models) in the ubiquitous language, Evans states the followings:
+\textbf{\textit{Behavioral modeling with UML activity diagram.}}
+Although in his book~\cite{evans_domain-driven_2004} Evans does not explicitly mention behavioral modeling as an element of the DDD method, he does consider object behavior as an essential part of the domain model and that UML interaction diagrams would be used to model this behavior. For example, in Chapter 2 of the book, when discussing the use of documents and diagrams (\ie models) in the ubiquitous language, Evans states the followings:
 
 \begin{itemize}
   \item ``the attributes and relationships are only half the story of an object model. But the behavior of those objects and the constraints on them are not so easily illustrated. Object interaction diagrams can illustrate some tricky hotspots in the design...''
@@ -29,10 +29,10 @@ Although in his book~\cite{evans_domain-driven_2004} Evans does not explicitly m
 \end{itemize}
 
 In UML~\cite{omg_unified_2015} (\S{13.2.1}), interaction diagrams (such as sequence diagram) are only one of three main diagram types that are used to model the system behavior. The other two types are state machine (\S{14}) and activity diagram (\S{15, 16}). Although in the book, Evans only uses sequence diagram as an example, in the ApacheIsIs framework~\cite{dan_haywood_apache_2013} that directly implements the DDD's philosophy, a simple action language is used to model the object behavior. This language is arguably a specific implementation of the action sub-language (\S{16}) of UML activity diagram. It leverages the annotation construct of OOPL to specify a class operation with a pre-defined behavior type. 
-However, ApacheIsIs lacks support for a behavioural modeling method. Our combination of two aDSLs in this paper helps fills this gap.
+However, ApacheIsIs lacks support for a behavioral modeling method. Our combination of two aDSLs in this paper helps fills this gap.
 
-Our definition of module action in this paper incorporates the notion of state, which is more formally modelled in another UML behavioural modeling language called Behavior State Machines (BSM) (\S{14.2}~\cite{omg_unified_2015}). The reason that this is possible is because Activity diagram and BSM are tightly linked insofar as behavior is tightly linked to state and state transition. Indeed, these languages represent two sides of the same coin: the former emphasises the actual behavior, while the latter focuses on the behavior's effects (states and state transitions). More specifically, a close inspection of the BSM's abstract syntax (\S{14.2.2}) reveals that both \clazz{State} and \membern{Transition} have associated \clazz{Behavior}(s) that describe what actually takes place when a particular state is reached or during a transition between some two states.
-Our notion of module action's pre- and post-states simply looks at the same view but from the behavior's perspective.
+Our definition of module action in this paper incorporates the notion of state, which is more formally modelled in another UML behavioral modeling language called Behavior State Machines (BSM) (\S{14.2}~\cite{omg_unified_2015}). 
+As discussed in~\ref{sect:actSemantics}, our notion of module action's pre- and post-states looks at the similar view with BSM. The difference is that our notation emphasizes the actual behavior, while BSM focuses on the behavior's effects in terms of states and state transitions.
 
 %page break
 %\pagebreak
