@@ -99,6 +99,15 @@ G.~Booch, Object-{Oriented} {Development}, IEEE Transactions on Software
 \newblock \href {http://dx.doi.org/10.1109/TSE.1986.6312937}
   {\path{doi:10.1109/TSE.1986.6312937}}.
 
+\bibitem{riehle_understanding_1996}
+D.~Riehle, H.~Züllighoven, Understanding and {Using} {Patterns} in {Software}
+  {Development}, Theory Pract. Obj. Syst. 2~(1) (1996) 3--13.
+
+\bibitem{gamma_design_1994}
+E.~Gamma, R.~Helm, R.~Johnson, J.~Vlissides, G.~Booch, Design {Patterns}:
+  {Elements} of {Reusable} {Object}-{Oriented} {Software}, 1st Edition,
+  Addison-Wesley Professional, Reading, Mass, 1994.
+
 \bibitem{stevens_landscape_2008}
 P.~Stevens, \href{https://doi.org/10.1007/978-3-540-88643-3_10}{A {Landscape}
   of {Bidirectional} {Model} {Transformations}}, in: R.~Lämmel, J.~Visser,
@@ -131,23 +140,6 @@ Z.~Daw, R.~Cleaveland,
 A.~v. Lamsweerde, Formal {Specification}: {A} {Roadmap}, in: Proceedings of the
   {Conference} on {The} {Future} of {Software} {Engineering}, {ICSE} '00, ACM,
   New York, NY, USA, 2000, pp. 147--159.
-
-\bibitem{riehle_understanding_1996}
-D.~Riehle, H.~Züllighoven, Understanding and {Using} {Patterns} in {Software}
-  {Development}, Theory Pract. Obj. Syst. 2~(1) (1996) 3--13.
-
-\bibitem{gamma_design_1994}
-E.~Gamma, R.~Helm, R.~Johnson, J.~Vlissides, G.~Booch, Design {Patterns}:
-  {Elements} of {Reusable} {Object}-{Oriented} {Software}, 1st Edition,
-  Addison-Wesley Professional, Reading, Mass, 1994.
-
-\bibitem{le_domain_2017}
-D.~M. Le, D.-H. Dang, V.-H. Nguyen,
-  \href{https://drive.google.com/open?id=1536zs32lO66sR2azLgTU_pifjJY7sK-2}{On
-  {Domain} {Driven} {Design} {Using} {Annotation}-{Based} {Domain} {Specific}
-  {Language} [{Extended}]}, Tech. rep., VNU University of Engineering and
-  Technology (2017).
-\newline\urlprefix\url{https://drive.google.com/open?id=1536zs32lO66sR2azLgTU_pifjJY7sK-2}
 
 \bibitem{larman_applying_2004}
 C.~Larman, Applying {UML} and {Patterns}: {An} {Introduction} to
