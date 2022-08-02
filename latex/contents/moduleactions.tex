@@ -207,14 +207,16 @@ Further, SAA is significantly shorter to compose than an ASE set -- all we need 
 For example, let us consider the SAA $ (\code{newObject}, \{ \code{Created},\code{Cancelled} \}) $, which represents a common ASE set that starts with action \membern{newObject} and ends only when either the state \code{Created} or the state \code{Cancelled} is detected. The ASE set consists of the following frequently-occurring ASEs. The 
 first ASE is the one described earlier in Figure~\ref{fig:ase-example} but excludes the first action. We assume here that the module's view is already opened. The remaining ASEs model alternative scenarios in which the user wants to cancel creating the object at some point between performing the \membern{newObject} action and the \membern{createObject} action.
 %
-\subsubsection*{Discussion} \label{sect:module-act-discussion}
+%\subsubsection*{Discussion} %\label{sect:module-act-discussion}
+
 \begin{figure}[ht]
 	\centering
 	\includegraphics[scale=0.28]{statemachine-example}
-	\caption{The state machine to represent module actions specified in Table~\ref{tab:core-atomic-actions}.} %
+	\caption{Sequences of module action as shown in Table~\ref{tab:core-atomic-actions} could be captured by a state machine.} %
 	\label{fig:statemachine-example}
 \end{figure}
-We wish to stress that our definition of module action incorporates the notion of state, which is more formally modelled in another UML behavioral modeling language called Behavior State Machines (BSM) (\S{14.2}~\cite{omg_unified_2015}). The main reason is that Activity diagram and BSM are tightly linked to states and state transitions to represent behaviors. Indeed, these languages represent two sides of the same coin: the former emphasizes the actual behavior, while the latter focuses on the behavior's effects (states and state transitions). More specifically, a close inspection of the BSM's abstract syntax (\S{14.2.2}) reveals that both \clazz{State} and \membern{Transition} have associated \clazz{Behavior}(s) that describe what actually takes place when a particular state is reached or during a transition between some two states. Figure~\ref{fig:statemachine-example} shows a state machine that could allow us to capture the SAA as specified in Table~\ref{tab:reachable-states}.
+
+\noindent {\bf Discussion.} We wish to stress that our definition of module action incorporates the notion of state, which is more formally modelled in another UML behavioral modeling language called Behavior State Machines (BSM) (\S{14.2}~\cite{omg_unified_2015}). The main reason is that Activity diagram and BSM are tightly linked to states and state transitions to represent behaviors. Indeed, these languages represent two sides of the same coin: the former emphasizes the actual behavior, while the latter focuses on the behavior's effects (states and state transitions). More specifically, a close inspection of the BSM's abstract syntax (\S{14.2.2}) reveals that both \clazz{State} and \membern{Transition} have associated \clazz{Behavior}(s) that describe what actually takes place when a particular state is reached or during a transition between some two states. Figure~\ref{fig:statemachine-example} shows a state machine that could allow us to capture sequences of module actions as shown in Table~\ref{tab:reachable-states}.
 
 %Our notion of module action's pre- and post-states simply looks at the same view but from the behavior's perspective.
 
