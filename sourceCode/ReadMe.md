@@ -1,12 +1,12 @@
-# JDA Module: MBSL
+# JDA Module: AGL
 
-Implements the MBSL language.
+Implements the AGL language.
 Run:
 # 1. PostgreSQL:
 ## - Create User: admin; Pass: password
 ## - Create a database name: domainds
 # 2. import maven MBSL -> running a pattern form: Decisional, forked, joined, merged, sequential
-'' Note:
+' ' Note:
 config built path: Postgresql (https://mvnrepository.com/artifact/org.postgresql/postgresql)'
 
 ## Unified model:
