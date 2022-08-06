@@ -301,14 +301,25 @@ In OpenXava you only have to write the domain classes in plain Java to get a web
 	optfile = {IEEE Xplore Abstract Record:/data/docs/refman/storage/UREWZ9FY/8119438.html:text/html;Le et al. - 2017 - Generative software module development A domain-d.pdf:/data/docs/refman/storage/QVEU48CR/Le et al. - 2017 - Generative software module development A domain-d.pdf:application/pdf}
 }
 
-
 @article{le_generative_2018,
 	title = {Generative {Software} {Module} {Development} for {Domain}-{Driven} {Design} with {Annotation}-{Based} {Domain} {Specific} {Language}},
-	url = {https://www.sciencedirect.com/science/article/abs/pii/S0950584919302563?via3Dihub},
-	journal = {Journal of Information and Software Technology},
+	volume = {120},
+	issn = {0950-5849},
+	url = {http://www.sciencedirect.com/science/article/pii/S0950584919302563},
+	doi = {https://doi.org/10.1016/j.infsof.2019.106239},
+	abstract = {Context: Object-oriented domain-driven design (DDD) aims to iteratively develop software around a realistic model of the application domain, which both thoroughly captures the domain requirements and is technically feasible for implementation. The main focus of recent work in DDD has been on using a form of annotation-based domain specific language (aDSL), internal to an object-oriented programming language, to build the domain model. However, these work do not consider software modules as first-class objects and thus lack a method for their development. Objective: In this paper, we tackle software module development with the DDD method by adopting a generative approach that uses aDSL. To achieve this, we first extend a previous work on module-based software architecture with three enhancements that make it amenable to generative development. We then treat module configurations as first-class objects and define an aDSL, named MCCL, to express module configuration classes. To improve productivity, we define function MCCGen to automatically generate each configuration class from the module’s domain class. Method:We define our method as a refinement of an aDSL-based software development method from a previous work. We apply meta-modelling with UML/OCL to define MCCL and implement MCCL in a Java software framework. We evaluate the applicability of our method using a case study and formally define an evaluation framework for module generativity. We also analyse the correctness and performance of function MCCGen. Results:MCCL is an aDSL for module configurations. Our evaluation shows MCCL is applicable to complex problem domains. Further, the MCCs and software modules can be generated with a high and quantifiable degree of automation. Conclusion:Our method bridges an important gap in DDD with a software module development method that uses a novel aDSL with a module-based software architecture and a generative technique for module configuration.},
+	language = {en},
+	urldate = {2019-12-06},
+	journal = {Information and Software Technology},
 	author = {Le, Duc Minh and Dang, Duc-Hanh and Nguyen, Viet-Ha},
-	year = {2018}
+	month = apr,
+	year = {2020},
+	keywords = {Attribute-oriented Programming (AtOP), Domain-driven design (DDD), Domain-specific language (DSL), Object-oriented programming language (OOPL), UML-based domain modelling, Module-based architecture},
+	pages = {106--239},
+	file = {Le et al. - 2020 - Generative Software Module Development for Domain-.pdf:/data/docs/refman/storage/LNQGLFCL/Le et al. - 2020 - Generative Software Module Development for Domain-.pdf:application/pdf;ScienceDirect Snapshot:/data/docs/refman/storage/C5HQH8EC/S0950584919302563.html:text/html},
 }
+
+
 
 @phdthesis{le_unified_2019,
 	address = {Hanoi},
@@ -519,26 +530,35 @@ In OpenXava you only have to write the domain classes in plain Java to get a web
 	optfile = {DCSL-formal-extended.pdf:/home/dmle/projects/domainapp/docs/reports/8_dcsl-and-behavioural-modelling/extended-version/DCSL-formal-extended.pdf:application/pdf}
 }
 
-@techreport{le_jdomainapp_2017,
-	title = {{jDomainApp} version 5.0: {A} {Java}  {Domain}-{Driven} {Software} {Development} {Framework}},
-	optUrl = {https://drive.google.com/open?id=0B3C14WpmosISM2MyWUFMRWhzNFE},
-	institution = {Hanoi University},
-	author = {Le, Duc Minh},
-	year = {2017},
-	optfile = {jDomainApp-framework_5.0.pdf:/home/dmle/projects/domainapp/docs/reports/2_jdomainapp/jDomainApp-framework_5.0.pdf:application/pdf}
+@inproceedings{le_jdomainapp_2017,
+  address = {New York, USA},
+	title = {{jDomainApp}: {A} {Module}-{Based} {Domain}-{Driven} {Software} {Framework}},
+	shorttitle = {{jDomainApp}: {A} {Module}-based {Domain}-{Driven} {Software} {Framework}},
+	optdoi = {https://doi.org/10.1145/3368926.3369657},
+	abstract = {Object-oriented domain-driven design (DDD) has been advocated to be the most common form of DDD, thanks to the popularity of object-oriented development methodologies and languages. Although the DDD method prescribes a set of design patterns for the domain model, it provides no languages or tools that realise these patterns. There have been several software frameworks developed to address this gap. However, these frameworks have not tackled two important software construction issues: generative, module-based software construction and development environ ment integration. In this paper, we propose a framework, named jDomainApp, and an Eclipse IDE plugin to address these issues. In particular, we extend our recent works on DDD to propose a software configuration language that expresses the software configuration, needed to automatically generate software from a set of modules. The modules are automatically generated using a module configuration language that we defined in a previous work. We demonstrate the framework and plug-in using a real-world software example. Further, we evaluate the performance of software construction to show that it is scalable to handle large software.},
+	booktitle = {Proc. 10th {Int}. {Symp}. on {Information} and {Communication} {Technology} ({SOICT})},
+	publisher = {ACM},
+	author = {Le, Duc Minh and Dang, Duc-Hanh and Vu, Ha Thanh},
+	year = {2019},
+	keywords = {DSL, Java, Object oriented modeling, Software, Unified modeling language, Generators, Software engineering},
+	pages = {399--406},
+	file = {front.pdf:/data/docs/refman/storage/HMY98HF5/front.pdf:application/pdf;Le et al. - 2019 - jDomainApp A Module-Based Domain-Driven Software .pdf:/data/docs/refman/storage/4LWMY7XN/Le et al. - 2019 - jDomainApp A Module-Based Domain-Driven Software .pdf:application/pdf},
 }
 
 @article{le_domain_2018,
 	title = {On {Domain} {Driven} {Design} {Using} {Annotation}-{Based} {Domain} {Specific} {Language}},
+	volume = {54},
 	issn = {1477-8424},
 	url = {https://www.sciencedirect.com/science/article/pii/S147784241730204X},
+	doi = {https://doi.org/10.1016/j.cl.2018.05.001},
 	abstract = {The aim of object-oriented domain-driven design (DDD) is to iteratively develop software around a realistic domain model. Recent work in DDD use an annotation-based extension of object-oriented programming language to build the domain model. This model becomes the basis for a ubiquitous language and is used as input to generate software. However, the annotation-based extensions of these work do not adequately address the primitive and essential structural and behavioural modelling requirements of practical software. Further, they do not precisely characterise the software that is generated from the domain model. In this paper, we propose a DSL-based DDD method to address these limitations. We make four contributions: (1) An annotation-based domain-specific language (DSL) named DCSL, whose annotation extension expresses a set of essential structural constraints and the essential behaviour of a domain class. (2) A structural mapping between the state and behaviour spaces of a domain class. This mapping enables a technique for generating the behavioural specification. (3) A technique that uses DCSL to support behavioural modelling with UML activity diagram. (4) A 4-property characterisation of the software generated from the domain model. We demonstrate our method with a Java software tool and evaluate DCSL in the context of DDD.},
 	urldate = {2018-05-14},
 	journal = {Computer Languages, Systems \& Structures},
 	author = {Le, Duc Minh and Dang, Duc-Hanh and Nguyen, Viet-Ha},
 	year = {2018},
 	keywords = {Attribute-oriented Programming (AtOP), Domain-driven design (DDD), Domain-specific language (DSL), Object-oriented programming language (OOPL), UML-based domain modelling},
-	file = {ScienceDirect Snapshot:/data/docs/refman/storage/JAYIY5ZT/S147784241730204X.html:text/html}
+	pages = {199--235},
+	file = {Le et al. - 2018 - On Domain Driven Design Using Annotation-Based Dom.pdf:/data/docs/refman/storage/3TIYRRWW/Le et al. - 2018 - On Domain Driven Design Using Annotation-Based Dom.pdf:application/pdf;ScienceDirect Snapshot:/data/docs/refman/storage/JAYIY5ZT/S147784241730204X.html:text/html},
 }
 
 @misc{omg_object_2014,
