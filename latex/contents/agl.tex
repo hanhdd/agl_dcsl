@@ -146,7 +146,7 @@ Actual implementations of the interfaces \clazz{Decision} and \clazz{Join} are p
 
 The right-hand side of Figure~\ref{fig:activity-graph-example} is an activity graph of the enrollment management activity of the \courseman~software variant introduced earlier in Section~\ref{sect:background}. The left-hand side of the figure is the corresponding unified model of this activity, which is repeated from Figure~\ref{fig:unified-model-example} to show links with the activity graph. 
 %We will discuss other example graphs that include control nodes later in Section~\ref{sect:eval-expressiveness}. 
-Other example graphs that include control notes are mentioned in SubSection~\ref{sect:incorporatePatterns}.
+%Other example graphs that include control notes are mentioned in SubSection~\ref{sect:incorporatePatterns}.
 Tables~\ref{tab:activity-graph-example}(A) and (B) list the states of the nodes and edges (\resp) of the activity graph. Table~\ref{tab:activity-graph-example}(C) lists the \clazz{ModuleAct} objects that are referenced by the \clazz{Node}s in Table~\ref{tab:activity-graph-example}(A). A \clazz{ModuleAct} object represents an SAA. Each table column lists the values of a representative field of an object.
 %
 For instance, node \objid{1}{Node} references the domain class \clazz{Student} (hence also references \clazz{ModuleStudent}) and has \membern{serviceCls} = \clazz{DataController}. It also references object \objid{1}{ModuleAct}. The \membern{refCls}'s value of each node is depicted in the figure by a dashed curve (labelled \strq{refCls}) that connects the node to the referenced domain class in the unified model.
