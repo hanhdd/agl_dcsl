@@ -23,27 +23,24 @@ D.~M. Le, A {Tree}-{Based}, {Domain}-{Oriented} {Software} {Architecture} for
   {Conf}. {Knowledge} and {Systems} {Engineering} ({KSE}), IEEE, 2015, pp.
   19--24.
 
-\bibitem{le_generative_2017}
-D.~M. Le, D.-H. Dang, V.-H. Nguyen, Generative {Software} {Module}
-  {Development}: {A} {Domain}-{Driven} {Design} {Perspective}, in: Proc. 9th
-  {Int}. {Conf}. on {Knowledge} and {Systems} {Engineering} ({KSE}), 2017, pp.
-  77--82.
-
 \bibitem{le_generative_2018}
 D.~M. Le, D.-H. Dang, V.-H. Nguyen,
-  \href{https://drive.google.com/open?id=1v-A-v92Uo2hMPNtgY4seeYoijAf0wI9y}{Generative
+  \href{http://www.sciencedirect.com/science/article/pii/S0950584919302563}{Generative
   {Software} {Module} {Development} for {Domain}-{Driven} {Design} with
-  {Annotation}-{Based} {Domain} {Specific} {Language}}, (Submitted to) Journal
-  of Information and Software Technology.
-\newline\urlprefix\url{https://drive.google.com/open?id=1v-A-v92Uo2hMPNtgY4seeYoijAf0wI9y}
+  {Annotation}-{Based} {Domain} {Specific} {Language}}, Information and
+  Software Technology 120 (2020) 106--239.
+\newblock \href
+  {http://dx.doi.org/https://doi.org/10.1016/j.infsof.2019.106239}
+  {\path{doi:https://doi.org/10.1016/j.infsof.2019.106239}}.
+\newline\urlprefix\url{http://www.sciencedirect.com/science/article/pii/S0950584919302563}
 
 \bibitem{le_domain_2018}
 D.~M. Le, D.-H. Dang, V.-H. Nguyen,
   \href{https://www.sciencedirect.com/science/article/pii/S147784241730204X}{On
   {Domain} {Driven} {Design} {Using} {Annotation}-{Based} {Domain} {Specific}
-  {Language}}, Computer Languages, Systems \& Structures\href
-  {http://dx.doi.org/10.1016/j.cl.2018.05.001}
-  {\path{doi:10.1016/j.cl.2018.05.001}}.
+  {Language}}, Computer Languages, Systems \& Structures 54 (2018) 199--235.
+\newblock \href {http://dx.doi.org/https://doi.org/10.1016/j.cl.2018.05.001}
+  {\path{doi:https://doi.org/10.1016/j.cl.2018.05.001}}.
 \newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S147784241730204X}
 
 \bibitem{omg_unified_2015}
@@ -55,8 +52,10 @@ M.~Dumas, A.~H. M.~t. Hofstede, {UML} {Activity} {Diagrams} as a {Workflow}
   {LNCS}, Springer, 2001, pp. 76--90.
 
 \bibitem{le_jdomainapp_2017}
-D.~M. Le, {jDomainApp} version 5.0: {A} {Java} {Domain}-{Driven} {Software}
-  {Development} {Framework}, Tech. rep., Hanoi University (2017).
+D.~M. Le, D.-H. Dang, H.~T. Vu, {jDomainApp}: {A} {Module}-{Based}
+  {Domain}-{Driven} {Software} {Framework}, in: Proc. 10th {Int}. {Symp}. on
+  {Information} and {Communication} {Technology} ({SOICT}), ACM, New York, USA,
+  2019, pp. 399--406.
 
 \bibitem{kleppe_software_2008}
 A.~Kleppe, Software {Language} {Engineering}: {Creating} {Domain}-{Specific}
