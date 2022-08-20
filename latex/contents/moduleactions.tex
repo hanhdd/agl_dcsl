@@ -4,19 +4,19 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %(Module Action)
-Using the unified model at the core of a MOSA model requires defining for the modules a set of essential actions for manipulating the domain objects of a domain class.
+Using the unified model at the core of a MOSA model requires defining for the modules of the MOSA model a set of essential actions to manipulate the domain objects of a domain class.
 %
 We consider these actions as forming a module interface, which is represented by a UML interface named  \clazz{ModuleService}. In this way the behavior of a module can be defined. Section~\ref{sect:actSemantics} presents a formal action-based semantics of modules.
 
 %- (Module Interaction Patterns)
-To incorporate domain behaviors in terms of module interactions into a domain model, we propose to employ the five essential UML activity modeling patterns as presented in~\cite{le_domain_2018} to capture such behaviors. In other word, our pattern-based approach could support domain behaviors that are specified by a UML activity with basic constructs corresponding to these patterns. We named the patterns after these five elementary activity flows: sequential, decisional, forked, joined and merged. This paper extends each pattern solution (presented in~\cite{le_domain_2018}) with a specification of the activity graph in the \agl~that is explained in Section~\ref{sect:agl}. 
+In order to incorporate domain behaviors in terms of module interactions into a domain model, we propose to employ the five essential UML activity modeling patterns as presented in~\cite{le_domain_2018} to represent such behaviors. In other word, our pattern-based approach could support domain behaviors that are specified by a UML activity with basic constructs corresponding to these patterns. We named the patterns after these five elementary activity flows: sequential, decisional, forked, joined and merged. This paper extends each pattern solution with a specification of the activity graph in the \agl~that is explained in Section~\ref{sect:agl}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Module Action Semantics}
 \label{sect:actSemantics}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-This section provides a formal definition of module action.
+This section provides a formal definition of \textit{module action}.
 %, which is suitable for use with the activity graph language \agl~that we propose in Section~\ref{sect:agl}. 
 Our definition focuses on describing the structure of module action and its pre- and post-states. We base our formalism on the UML Action language (\S{16}\footnote{We use `\S{}' to denote both Chapter and Section, which is interpreted from the context.}~\cite{omg_unified_2015}), which incorporates the notion of state. State is argued to be an intrinsic part of behavioral specification (\S{14}~\cite{omg_unified_2015}).
 %
@@ -93,13 +93,13 @@ The second group include three essential domain object manipulation actions: \me
 %
 %We will illustrate the atomic actions in various examples that will be presented later in this paper.
 
-Note from Table~\ref{tab:core-atomic-actions} that only action \membern{setDataFieldValues} requires the \membern{fieldValSet} to be specified as input. Other actions do not require any input and thus, for them, this set is empty. Note also how the two module states \code{ObjIsPresent} and \code{ObjIsNotPresent} can each occur concurrently with any one of the following states: \code{Editing}, \code{Reset} and \code{Cancelled}. For example, the concurrent state \code{Editing} + \code{ObjIsPresent} means that the module is currently presenting an object on the view and that this object is being edited by the user. In contrast, \code{Editing} + \code{ObjIsNotPresent} means that the module is currently prompting the user to enter input data for a new object. This object has not yet been created.
+Note from Table~\ref{tab:core-atomic-actions} that only action \membern{setDataFieldValues} requires the \membern{fieldValSet} to be specified as input. Other actions do not require any input and thus, for them, this set is empty. Note also how the two module states \code{ObjIsPresent} and \code{ObjIsNotPresent} can each occur concurrently with any one of the following states: \code{Editing}, \code{Reset}, and \code{Cancelled}. For example, the concurrent state \code{Editing} + \code{ObjIsPresent} means that the module is currently presenting an object on the view and that this object is being edited by the user. In contrast, \code{Editing} + \code{ObjIsNotPresent} means that the module is currently prompting the user to enter input data for a new object. This object has not yet been created.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Atomic Action Sequence (ASE)} \label{sect:arch-ase}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 In practice, the core atomic actions are combined in sequence to form more useful behavior. This behavior, which we call \textit{atomic action sequence}, corresponds with an interaction scenario. We model this sequence using structured action of UML activity diagram (\S{16.11}~\cite{omg_unified_2015}).
 %
-Denote by $ \func{first}$ and $ \func{last}$ two functions that return the first and last elements (\resp) in a sequence.
+We denote by $ \func{first}$ and $ \func{last}$ two functions that return the first and last elements (\resp) in a sequence.
 %
 \begin{definition} \label{def:ase}
 An \abbrv{atomic action sequence}{ASE} $S = (a_1,\dots,a_n)$ is a module action iff $a_i.\membern{postStates} \subseteq a_{i+1}.\membern{preStates} ~(\forall a_i, a_{i+1} \in S)$.
@@ -193,8 +193,8 @@ More generally, we observe that a set of related ASEs form a \textit{structured 
   \item $A.\membern{output}$ = $\bigcup_{S \in A} (S.\attribn{output})$
   \end{itemize}
 
-  %Abstractly, we write $ A = (a, \{ s_{1},\dots,s_{n} \}, i) $. If $i$ = $\emptyset$ then we omit it and simply write $A$ as $(a, \{ s_{1},\dots,s_{n} \})$. \qed
-  Abstractly, we write $ A = (a, \{ s_{1},\dots,s_{n} \}) $. \qed
+  Abstractly, we write $ A = (a, \{ s_{1},\dots,s_{n} \}, i) $. If the \membern{fieldValSet} $i$ is $\emptyset$ then we omit it and simply write $A$ as $(a, \{ s_{1},\dots,s_{n} \})$. \qed
+  %Abstractly, we write $ A = (a, \{ s_{1},\dots,s_{n} \}) $. \qed
 \end{definition}
 
 Clearly, SAA generalizes both atomic action and ASE: an ASE is a single-member SAA, while an atomic action $ a $ is the SAA 
@@ -227,7 +227,7 @@ first ASE is the one described earlier in Figure~\ref{fig:ase-example} but exclu
 \label{sect:behaviorPatterns}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-As explained in SubSection~\ref{sect:domainBehaviors}, we employ the five essential UML activity modeling patterns as presented in~\cite{le_domain_2018} in order to express domain behaviors, that need to be incorporated for a unified domain model. In this section, we concentrate on explaining how we can translate a behavior specification in UML activity diagram into a corresponding pattern-based specification for the goal. Specifically, such a specification is defined as a combination of pattern solutions. This paper extends each pattern solution (presented in~\cite{le_domain_2018}) with an AGC, i.e., an activity graph specification in the \agl (A detailed explaination of AGC and \agl is shown in Section~\ref{sect:agl}).
+As explained in SubSection~\ref{sect:domainBehaviors}, we employ the five essential UML activity modeling patterns as presented in~\cite{le_domain_2018} in order to express domain behaviors, that need to be incorporated for a unified domain model. This section concentrates on explaining how we can translate a behavior specification in UML activity diagram into a corresponding specification defined as a combination of pattern solutions. This paper extends each pattern solution with an AGC, i.e., an activity graph specification in the \agl. A detailed explanation of AGC and \agl~is shown in Section~\ref{sect:agl}.
 
 We are particularly interested in the design of the \textit{pattern form}~\cite{riehle_understanding_1996, gamma_design_1994}. To keep the patterns generic, we present for each pattern form a UML activity model and a \textbf{template configured unified model} that realizes it. The template model is a `parameterized' configured unified model, in which elements of the nonannotation meta-concepts are named after the generic roles that they play. 
 %
@@ -240,35 +240,36 @@ We illustrate each pattern with a variant of the unified model for the enrolment
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Sequential Pattern Form} \label{sect:sequential-pattern}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\todo{recapture pattern form image to match other figures}
+%\todo{recapture pattern form image to match other figures}
 
 The top-left of Figure~\ref{fig:sequential-form} shows the UML activity model, while the top-right shows the template configured unified model.
 This model consists of three classes \clazz{Ca}, \clazz{Cs}, and \clazz{Cn}. Class \clazz{Ca} is the activity class and has two associations with the two data classes \clazz{Cs} and \clazz{Cn}. These are the \textit{ref} domain classes of the two action nodes $ e_s $ and $ e_n $, \resp
 
-\begin{figure*}[ht]
-\begin{center}
-\includegraphics[scale=0.33]{case-study/sequential-form}
-\end{center}
-\caption{The sequential pattern form.} %
-\label{fig:sequential-form}
-\end{figure*}
-%
-\begin{figure*}[ht]
-\begin{center}
-\includegraphics[scale=0.5]{case-study/sequential-form-eg-gui}
-\end{center}
-\caption{The sequential pattern form view of enrolment management activity.} %
-\label{fig:sequential-form-eg-gui}
-\end{figure*}
-
 The AGC is given in the \clazz{AGraph}'s note box in the top-right corner of the figure. It consists of two \clazz{ANode}s. The first \clazz{ANode} specifies node $ e_s $, and the second specifies node $ e_n $. The \clazz{ANode}s are quite self-explanatory except for the three \clazz{MAct}s, which are worth some explanation. The first \clazz{MAct}'s configuration specifies the SAA \amos{newObject}{Created}). This SAA is a subset of the one presented in Section~\ref{sect:arch-saa}. It involves performing \atomact{newObject}{ NewObject} and any combination of \atomact{setDataFieldValues}{Editing} and \atomact{createObject}{Created}. Action \membern{newObject} is to prepare \clazz{Cs}' view for user to enter input. Action \membern{setDataFieldValues} is to set a view field's value from each user input (allowing user to re-enter if an error occurs). And action \membern{createObject} is to create a new \clazz{Cs}' object from the input.
 
 The second and third \clazz{MAct}s together perform a similar logic over \clazz{Cn}, except for the need to break the \membern{setDataFieldValues} operation into two steps: \textit{(a)} set the \clazz{Cs} object created by the first \clazz{MAct} (and offered by $ e_s $ to $ e_n $ via its output pin) into a suitable view field of \clazz{Cn}'s view and (\textit{b)} set values of other view fields (allowing user to re-enter if an error occurs). To achieve this, the second \clazz{MAct} first specifies \amos{newObject}{NewObject}. The third \clazz{MAct} then specifies the rest of the logic. Step \textit{(a)} is performed by the operation \membern{setDataFieldValues}, which uses the field named \strq{as} to identify the view field of \clazz{Cn}'s view whose value needs to be set. Step \textit{(b)} is performed by \membern{setDataFieldValues} (as explained above) for other view fields.
+
+\begin{figure*}[ht]
+	\begin{center}
+		\includegraphics[scale=0.33]{case-study/sequential-form}
+	\end{center}
+	\caption{The sequential pattern form.} %
+	\label{fig:sequential-form}
+\end{figure*}
+
 %
 \subsubsection*{Example}
-The bottom of Figure~\ref{fig:sequential-form} shows how the pattern is applied to a simple variant of the \courseman's enrolment management activity. The UML activity model involves performing two actions in sequence. The first action (\clazz{Student}) registers a student into course modules, while the second action (\clazz{SClassRegistration}) registers the student into a preferred class.
-
+The bottom of Figure~\ref{fig:sequential-form} shows how the pattern is applied to a simple variant of the \courseman's enrolment management activity. The UML activity model involves performing two actions in sequence. The first action (\clazz{Student}) registers a student into course modules, while the second action (\clazz{SClassRegistration}) registers the student into a preferred class. 
+%
 In this example: \clazz{Ca} = \clazz{EnrolmentMgmt}, \clazz{Cs} = \clazz{Student}, $ n $ = 1, \clazz{C1} = \clazz{SClassRegistration}.
+
+\begin{figure*}[ht]
+	\begin{center}
+		\includegraphics[scale=0.5]{case-study/sequential-form-eg-gui}
+	\end{center}
+	\caption{The sequential pattern form view of enrolment management activity.} %
+	\label{fig:sequential-form-eg-gui}
+\end{figure*}
 
 The two GUI snapshots of the example are shown in Figure~\ref{fig:sequential-form-eg-gui}: one snapshot for the view of the one action. Each view is embedded in the \clazz{EnrolmentMgmt}'s view. The overall layout is a tab layout and the view of each associated module is contained in a tab of this layout. The left-hand-side figure shows the tab containing the \clazz{Student}'s view, while the right-hand-side one shows the tab containing the \clazz{SClassRegistration}'s view. Note, in particular, that the view field of the field \clazz{SClassRegistration}.\attribn{student} (field \attrib{Cn}{as} in the template model) is automatically set to the \objc{Student}{\attribn{name}=\strq{Nguyen~Van~Anh}}, which is created on the \clazz{Student}'s view.
 
@@ -289,15 +290,6 @@ Since the decision's logic may require knowledge of the domain classes involved 
 \caption{The decisional pattern form.} %
 \label{fig:decisional-form}
 \end{figure*}
-%
-\begin{figure*}[ht]
-\begin{center}
-\includegraphics[scale=0.42
-  ]{case-study/decisional-form-eg-gui}
-\end{center}
-\caption{The decisional pattern form view of enrolment management.} %
-\label{fig:decisional-form-eg-gui}
-\end{figure*}
 
 Class \clazz{Ca} has one-many associations to the other four domain classes. 
 Note that the association to \clazz{Ck} can be used as a bridge in a larger activity model to other activity flow blocks. This association is applied differently if $ c_k $ is a decision node. In this case, \clazz{Ck} has no associations and thus the association to \clazz{Ck} is replaced by (or ``unfolded'' into) a set of associations that connect \clazz{Ca} directly to the domain classes of the model containing \clazz{Ck}.
@@ -312,6 +304,24 @@ The bottom of Figure~\ref{fig:decisional-form} shows how the pattern is applied 
 In this example: \clazz{Ca} = \clazz{EnrolmentMgmt}, \clazz{Cd} = \clazz{Student}, \clazz{D} = \clazz{DHelpOrSClass}, $ n $ = 2, \clazz{C1} = \clazz{HelpRequest}, \clazz{C2} = \clazz{SClassRegistration}.
 The control node $ c_k $ is not specified.
 
+\begin{figure}[ht]
+	\begin{center}
+		\includegraphics[scale=0.42
+		]{case-study/decisional-form-eg-gui}
+	\end{center}
+	\caption{The decisional pattern form view of enrolment management.} %
+	\label{fig:decisional-form-eg-gui}
+\end{figure}
+
+\begin{figure}%[ht]
+	\begin{center}
+		\includegraphics[scale=0.27 % 0.3
+		]{case-study/forked-form}
+	\end{center}
+	\caption{The forked pattern form.} %
+	\label{fig:forked-form}
+\end{figure}
+
 The three GUI snapshots of the example are shown in Figure~\ref{fig:decisional-form-eg-gui}. The first GUI is for student registration. The second and third GUIs are for the cases that help request is and is not requested (\resp). Similar to the GUI of the sequential pattern, the activity's GUI contains the GUIs of the three actions in separate tabs. Under both cases of the decision, the \clazz{Student} object that is created in the first action (\eg \clazz{Student}(\attribn{name}=``Nguyen Van Anh'')) is passed on to the next action. This object is then presented in the data field of the associative field \attribn{student} of the domain class referenced by this action.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -319,35 +329,27 @@ The three GUI snapshots of the example are shown in Figure~\ref{fig:decisional-f
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The top-left of Figure~\ref{fig:forked-form} shows the UML activity model, while the top-right shows the template configured unified model. The activity class \clazz{Ca} has two associations to domain class \clazz{Cf} (referenced by node $ e_f $) and control class \clazz{Co} (referenced by the forked node). Class \clazz{Co} in turn has associations to the other three domain classes, namely \clazz{C1}, \clazz{Cn}, and \clazz{Ck}. In addition to these, class \clazz{Cf} has two associations to \clazz{C1} and \clazz{Cn}, as these classes need to know \clazz{Cf} through object passing.
-
-\begin{figure*}[ht]
-\begin{center}
-\includegraphics[scale=0.28 % 0.3
-  ]{case-study/forked-form}
-\end{center}
-\caption{The forked pattern form.} %
-\label{fig:forked-form}
-\end{figure*}
 %
-\begin{figure*}[ht]
-\begin{center}
-\includegraphics[scale=0.37 %0.4
-  ]{case-study/forked-form-eg-gui}
-\end{center}
-\caption{The forked pattern form view of enrolment management activity.} %
-\label{fig:forked-form-eg-gui}
-\end{figure*}
-
 Similar to the decisional activity's template model, we consider the case that the class \clazz{Ck} is not a decision class. When this class is a decision class, we unfold it into the template model.
-
-The AGC is very similar to that of the decisional activity's template model, except for in the second \clazz{ANode}: the reference class is \clazz{Co} (as opposed to \clazz{D}), the node type is \code{Fork} and property \attribn{serviceCls} is \clazz{DataController}. This property configuration makes explicit the fact that \clazz{Co}'s module service is available for use if needed.
 %
+The AGC is very similar to that of the decisional activity's template model, except for in the second \clazz{ANode}: the reference class is \clazz{Co} (as opposed to \clazz{D}), the node type is \code{Fork} and property \attribn{serviceCls} is \clazz{DataController}. This property configuration makes explicit the fact that \clazz{Co}'s module service is available for use if needed.
+
 \subsubsection*{Example}
 The bottom of Figure~\ref{fig:forked-form} shows how the pattern is applied to another variant of the \courseman's enrolment management. The UML activity model of this variant involves performing student registration ($ e_f $) and then two support actions concurrently: payment processing ($ e_1 $) and enrolment authorisation ($ e_2 $). These actions must be completed in order for any subsequent actions to proceed.
-
+%
 In this example: \clazz{Ca} = \clazz{EnrolmentMgmt}, \clazz{Cf} = \clazz{Student}, \clazz{Co} = \clazz{FEnrolmentProcessing}, $ n = 2 $, \clazz{C1} = \clazz{Payment}, \clazz{C2} = \clazz{Auhorisation}.
 
-The three GUI snapshots of the example are shown in Figure~\ref{fig:forked-form-eg-gui}: one snapshot for one action. The first snapshot is for the first action (student registration). The second and third snapshots are for the two concurrent actions (\resp): making payment and enrolment authorisation. A difference between this GUI and the GUIs of the previous two patterns is that it has a 2-level containment. This 2-level containment reflects the length-2 association chain from \clazz{EnrolmentMgmt} (the activity class) to \clazz{Payment} and \clazz{Authorisation}. The first-level containment is that between the activity's GUI and \clazz{Student}'s and enrolment processing's GUI. The second-level containment is that between enrolment processing's GUI and \clazz{Payment}'s and \clazz{Authorisation}'s GUI.
+
+\begin{figure*}
+	\begin{center}
+		\includegraphics[scale=0.37 %0.4
+		]{case-study/forked-form-eg-gui}
+	\end{center}
+	\caption{The forked pattern form view of enrolment management activity.} %
+	\label{fig:forked-form-eg-gui}
+\end{figure*}
+
+The three GUI snapshots of the example are shown in Figure~\ref{fig:forked-form-eg-gui}: one snapshot for one action. The first snapshot is for the first action \textit{student registration}. The second and third snapshots are for the two concurrent actions (\resp): \textit{making payment} and \textit{enrolment authorisation}. A difference between this pattern and the the previous two patterns is that this GUI has a 2-level containment. This 2-level containment reflects the length-2 association chain from \clazz{EnrolmentMgmt} (the activity class) to \clazz{Payment} and \clazz{Authorisation}. The first-level containment connects the activity's GUI with \clazz{Student}'s and enrolment processing's GUI. The second-level containment connects enrolment processing's GUI with \clazz{Payment}'s and \clazz{Authorisation}'s GUI.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Joined Pattern Form} \label{sect:joined-pattern}
@@ -363,25 +365,25 @@ The top-left of Figure~\ref{fig:joined-form} shows the UML activity model, while
 \caption{The joined pattern form.} %
 \label{fig:joined-form}
 \end{figure*}
-%
-\begin{figure*}[ht]
-\begin{center}
-\includegraphics[scale=0.38 %0.4
-  ]{case-study/joined-form-eg-gui}
-\end{center}
-\caption{The joined pattern form view of enrolment management activity.} %
-\label{fig:joined-form-eg-gui}
-\end{figure*}
 
 Similar to the decisional activity's template model, we create three (optional) weak dependency associations between class \clazz{J} and three domain classes \clazz{C1}, \clazz{Cn}, and \clazz{Ck}. In addition, we consider the case that the class \clazz{Ck} is not a decision class. When this class is a decision class, we unfold it into the template model.
 
-The AGC consists of five \clazz{ANode}s. The first three \clazz{ANode}s configure the three start nodes $ e_1 $, $ e_n $, and $ c_k $; and thus they all have \attribn{init}=\code{true} and \attribn{outClses} pointing to the domain class \clazz{J}. This class, which realises the interface \clazz{Join}, is referenced by the fourth \clazz{ANode}. This \clazz{ANode} configures the join node, and thus has \attribn{nodeType}=\clazz{Join}. The last \clazz{ANode} configures the last node $ e_j $. It specifies two \clazz{MAct}, the second of which references the action  \membern{setDataFieldValues} which sets the view field values of the two fields \strq{a1} and \strq{an}. The input for this operation is the output of the operation \clazz{Join}.\membern{transf}.
+The AGC consists of five \clazz{ANode}s. The first three \clazz{ANode}s configure the three start nodes $ e_1 $, $ e_n $, and $ c_k $; and thus they all have \attribn{init}=\code{true} and \attribn{outClses} pointing to the domain class \clazz{J}. This class, which realises the interface \clazz{Join}, is referenced by the fourth \clazz{ANode}. This \clazz{ANode} configures the join node, and thus has \attribn{nodeType}=\clazz{Join}. The last \clazz{ANode} configures the last node $ e_j $. It specifies two \clazz{MAct}s, the second of which references the action  \membern{setDataFieldValues} which sets the view field values of the two fields \strq{a1} and \strq{an}. The input for this operation is the output of the operation \clazz{Join}.\membern{transf}.
 %
 \subsubsection*{Example}
 The bottom of Figure~\ref{fig:joined-form} shows how the pattern is applied to another variant of the \courseman's enrolment management activity. The UML activity model of this variant involves joining two actions that concern the same \clazz{Student}, namely making payment ($e_1$) and registration authorisation ($e_2$), before concluding at the enrolment approval action. This last action decides, based on the results of the other two actions, whether or not to approve the student enrolment.
 
 In this example: \clazz{Ca} = \clazz{EnrolmentMgmt}, $ n = 2 $, \clazz{C1} = \clazz{Payment}, \clazz{C2} = \clazz{Auhorisation}, \clazz{J} = \clazz{JPaymentAuthorise}, \clazz{Cj} = \clazz{EnrolmentApproval}.
 Note that in addition to the newly added associations in the example model, class \clazz{EnrolmentProcessing} is added with a domain field \attribn{student}, which is used to obtain input from the user for a \clazz{Student}. This \clazz{Student} object is needed to initialise the payment and authorisation processes.
+
+\begin{figure*}[ht]
+	\begin{center}
+		\includegraphics[scale=0.38 %0.4
+		]{case-study/joined-form-eg-gui}
+	\end{center}
+	\caption{The joined pattern form view of enrolment management activity.} %
+	\label{fig:joined-form-eg-gui}
+\end{figure*}
 
 The three GUI snapshots of the example are shown in Figure~\ref{fig:joined-form-eg-gui}: the first snapshot is for making payment, the second is for registration authorisation, and the third is for enrolment approval.
 
@@ -391,22 +393,13 @@ The three GUI snapshots of the example are shown in Figure~\ref{fig:joined-form-
 
 The top-left of Figure~\ref{fig:merged-form} shows the UML activity model, while the top-right shows the template configured unified model. The activity class \clazz{Ca} has associations to the domain classes \clazz{Cg} and \clazz{Cm}. These classes are referenced by the merge node and the activity node $ e_m $ (\resp). Class \clazz{Cg} has associations to the domain classes of the other nodes, namely \clazz{C1}, \clazz{Cn}, and \clazz{Ck}. Class \clazz{Cm} has associations to class \clazz{C1} and \clazz{Cn} as it knows these two classes through object passing.
 
-\begin{figure*}[ht]
+\begin{figure*}%[ht]
 \begin{center}
 \includegraphics[scale=0.30 %0.3
   ]{case-study/merged-form}
 \end{center}
 \caption{The merged pattern form.} %
 \label{fig:merged-form}
-\end{figure*}
-%
-\begin{figure*}[ht]
-\begin{center}
-\includegraphics[scale=0.38 %0.4
-  ]{case-study/merged-form-eg-gui}
-\end{center}
-\caption{The merged pattern form view of enrolment management activity.} %
-\label{fig:merged-form-eg-gui}
 \end{figure*}
 
 Similar to the decisional activity's template model, we consider the case that class \clazz{Ck} is not a decision class. When this class is a decision class, we unfold it into the template model.
@@ -418,4 +411,15 @@ The bottom of Figure~\ref{fig:merged-form} shows how the pattern is applied to a
 
 Action $e_2$ requires adding a new domain class named \clazz{Orientation} to the \Name{CourseMan}'s domain model. This class is displayed at the bottom right of Figure~\ref{fig:merged-form}. Thus, in this example: \clazz{Ca} = \clazz{EnrolmentMgmt}, $ n = 2 $, \clazz{C1} = \clazz{SClassRegistration}, \clazz{C2} = \clazz{Orientation}, \clazz{Cg} = \clazz{MgEnrolmentProcessing}, \clazz{Cm} = \clazz{EnrolmentClosure}. 
 
-The GUI snapshots of the example are shown in Figure~\ref{fig:merged-form-eg-gui}. It shows a length-2 association chain from \clazz{EnrolmentMgmt} to \clazz{SClassRegistration} and \clazz{Orientation}. The first-level containment is that between the \clazz{EnrolmentMgmt}'s GUI and \clazz{MgEnrolmentProcessing}'s and \clazz{EnrolmentClosure}'s GUI. The second-level containment is that between \clazz{MgEnrolmentProcessing}'s GUI and \clazz{SClassRegistration}'s and \clazz{Orientation}'s GUI (the first and second snapshots). The \clazz{EnrolmentClosure}'s GUI is the third snapshot
+\begin{figure*}%[ht]
+	\begin{center}
+		\includegraphics[scale=0.38 %0.4
+		]{case-study/merged-form-eg-gui}
+	\end{center}
+	\caption{The merged pattern form view of enrolment management activity.} %
+	\label{fig:merged-form-eg-gui}
+\end{figure*}
+
+The GUI snapshots of the example are shown in Figure~\ref{fig:merged-form-eg-gui}. It shows a length-2 association chain from \clazz{EnrolmentMgmt} to \clazz{SClassRegistration} and \clazz{Orientation}. 
+%The first-level containment is that between the \clazz{EnrolmentMgmt}'s GUI and \clazz{MgEnrolmentProcessing}'s and \clazz{EnrolmentClosure}'s GUI. The second-level containment is that between \clazz{MgEnrolmentProcessing}'s GUI and \clazz{SClassRegistration}'s and \clazz{Orientation}'s GUI (the first and second snapshots). 
+The first-level containment connects the \clazz{EnrolmentMgmt}'s GUI with \clazz{MgEnrolmentProcessing}'s and \clazz{EnrolmentClosure}'s GUI. The second-level containment connects the \clazz{MgEnrolmentProcessing}'s GUI and \clazz{SClassRegistration}'s and \clazz{Orientation}'s GUI (the first and second snapshots). The \clazz{EnrolmentClosure}'s GUI is the third snapshot.

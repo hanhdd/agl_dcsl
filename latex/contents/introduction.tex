@@ -19,7 +19,7 @@ We choose UML activity diagram for behavioral modeling because this language has
 
 Our approach in this paper is to first provide a precise definition of unified model using a horizontal aDSL named \dcsl~\cite{le_domain_2018}. We consider horizontal aDSL (a.k.a technical aDSL) as an aDSL that targets a technical (low-level) domain, whose concepts describe design patterns that often underlie a class of real-world (high-level) domains. 
 %
-We then propose a novel horizontal aDSL, named activity graph language (\agl) to express the UML activity graph. \agl is scoped around a restricted domain of the UML activity graph language that is defined based on essential UML activity modeling patterns~\cite{omg_unified_2015}. 
+We then propose a novel horizontal aDSL, named activity graph language (\agl) to express the UML activity graph. \agl~is scoped around a restricted domain of the UML activity graph language that is defined based on essential UML activity modeling patterns~\cite{omg_unified_2015}. 
 Further, the executable nodes of the activity graphs of these patterns perform a set of core actions on the software modules in MOSA. These actions concern the manipulation of the domain objects of the domain class that is owned by each software module.
 
 A key benefit from combining \dcsl~and \agl~in MOSA is that it helps define a complete executable model for the software. Further, this software is automatically generated using a Java software framework, named \jdomainapp~\cite{le_jdomainapp_2017}, that we have developed.

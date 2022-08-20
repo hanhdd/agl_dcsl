@@ -27,7 +27,7 @@ We adapt a compact and essential software domain from a previous work \cite{le_d
 \label{fig:motivatingExample}
 \end{figure}
 
-The bottom part of the Fig.~\ref{fig:motivatingExample} shows four classes and two association classes of \Name{CourseMan}. Class \clazz{Student} represents students that register to study in an academic institution. Class \clazz{CourseModule} represents the course modules that are offered by the institution. Class \clazz{ElectiveModule} represents a specialised type of \clazz{CourseModule}. Class \clazz{SClass} represents the student class type for students to choose. Association class \clazz{\clazz{SClass}Registration} captures details about the many-many association between \clazz{Student} and \clazz{SClass}. Finally, association class \clazz{Enrolment} captures details about the many-many association between \clazz{Student} and \clazz{CourseModule}.
+The bottom part of Figure~\ref{fig:motivatingExample} shows four classes and two association classes of \Name{CourseMan}. Class \clazz{Student} represents students that register to study in an academic institution. Class \clazz{CourseModule} represents the course modules that are offered by the institution. Class \clazz{ElectiveModule} represents a specialised type of \clazz{CourseModule}. Class \clazz{SClass} represents the student class type for students to choose. Association class \clazz{\clazz{SClass}Registration} captures details about the many-many association between \clazz{Student} and \clazz{SClass}. Finally, association class \clazz{Enrolment} captures details about the many-many association between \clazz{Student} and \clazz{CourseModule}.
 The top part of Figure~\ref{fig:motivatingExample} (the area containing a star-like shape labelled ``?'') shows three other classes that are intended to capture the design of an enrolment management activity. Suppose that we know some design details (the attributes shown in the figure) and the following description about these classes:
 %
 \begin{itemize}[noitemsep]
@@ -55,7 +55,7 @@ context (@\hterm{CourseModule inv}@):
   semester <= 8
 \end{lstrulex}
 
-In practical applications, the class model is often combined with a behavioural model (\eg a UML activity diagram) to describe a unified view of the domain requirements. Throughout this paper, we will refer to this combined model as \textit{unified domain model}. For instance, the left-hand side of Fig.~\ref{fig:motivatingExample2} illustrates the combination of a simplied class diagram of \courseman (displayed at the bottom) and an activity diagram of the enrolment management function. This activity involves registering \clazz{Student}s, enrolling them into \clazz{CourseModule}s and registering them into \clazz{SClass}es. In addition, it would allow a \clazz{Student} to raise a \clazz{HelpRequest} during the enrolment process. 
+In practical applications, the class model is often combined with a behavioral model (\eg a UML activity diagram) to describe a unified view of the domain requirements. Throughout this paper, we will refer to this combined model as \textit{unified domain model}. For instance, the left-hand side of Fig.~\ref{fig:motivatingExample2} illustrates the combination of a simplied class diagram of \courseman (displayed at the bottom) and an activity diagram of the enrolment management function. This activity involves registering \clazz{Student}s, enrolling them into \clazz{CourseModule}s and registering them into \clazz{SClass}es. In addition, it would allow a \clazz{Student} to raise a \clazz{HelpRequest} during the enrolment process. 
 The right-hand side of Fig.~\ref{fig:motivatingExample2} depicts an unspecified unified domain model of the \courseman example. What this model entails and how this can be specified are the main questions that we seek to answer in this paper. We will state shortly a number of research questions relating to this model that we will specifically focus on investigating.
 
 \begin{figure}[th]
@@ -76,7 +76,6 @@ The right-hand side of Fig.~\ref{fig:motivatingExample2} depicts an unspecified 
 %Class \clazz{EnrolmentMgmt} represents the enrolment management activity. This essentially involves registering \clazz{Student}s, enrolling them into \clazz{CourseModule}s and registering them into \clazz{SClass}es. In addition, it allows each \clazz{Student} to raise a \clazz{HelpRequest}. Throughout this paper, we will discuss different variants of this activity.
 %The right-hand side of Fig.~\ref{fig:motivatingExample} depicts an activity diagram that captures behavioral aspects from the enrolment management activity.
 
-\noindent 
 % + (done) TODO: Duc
 % - copy example from the 2018 Journal paper here
 % - add the activity diagram EnrolmentMgmt (in this paper, we will extend this basic example to handle all the basic activity diagram patterns)
@@ -158,7 +157,7 @@ However, in~\cite{le_domain_2018} we scoped our use of MOSA at the boundary of t
 \subsection{Motivating Questions}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-As illustrated by the motivating example, a unified domain model could be defined as a loose combination of (1)~a class diagram for a domain model, (2)~an activity diagram for domain behaviors, and (3)~OCL constraints attached to these specifications. \todo{not clear} However, such a unified domain model does not contain the three features: feasibility, productivity, and understandability, as explained in Section~\ref{sect:bg-dcsl}. A promising approach for this goal is to incorporate domain behaviors into the domain model specified by the DCSL framework~\cite{le_domain_2018}, an initial effort to obtain the three key features for the domain model. The basic idea of the DCSL framework is to extend the class metamodel with new meta-concepts that allows to express OCL-like constraints in the form of annotations in the host language. Specifically, to realize this approach, we need to tackle the following challenges:
+As illustrated by the motivating example, a unified domain model could be defined as a loose combination of (1)~a class diagram for a domain model, (2)~an activity diagram for domain behaviors, and (3)~OCL constraints attached to these specifications. This puts forward a need to incorporate domain behaviors into the domain model specified by the DCSL framework~\cite{le_domain_2018} so that the unified model could obtain the three features, as explained in Section~\ref{sect:bg-dcsl}, feasibility, productivity, and understandability. Note that the DCSL framework has been defined as an initial effort for the three key features by extending the class metamodel with new meta-concepts to express OCL-like constraints in the form of annotations in the host language. Specifically, to realize this approach, we need to tackle the following challenges:
 
 \begin{itemize}
     \item How can we extend the DCSL framework with new constructs to represent domain behaviors that could be captured by activity diagrams?

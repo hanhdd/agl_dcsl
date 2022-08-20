@@ -24,9 +24,9 @@ This section presents our basic idea of incorporating behavior aspects into a do
 %
 Figure~\ref{fig:method-overview} shows our proposed method.
 %, which has been refined from the method that we introduced in~\cite{le_domain_2018}. 
-The figure highlights a unified model and its combination with an activity graph. Here, we consider the unified model as an extended domain model in MOSA~\cite{le_domain_2018}. This model, which is expressed in \dcsl, extends the conventional DDD's domain model~\cite{evans_domain-driven_2004} with the domain-specific features of UML activity diagram. Among the essential features that are supported include activity class (\eg class \clazz{C_a} in Figure~\ref{fig:method-overview}), which represents an activity. We use the activity class of each unified model as a pivot with which to define the activity graph. Each activity class is attached to an activity graph that describes the behavioral logic of the represented activity. The activity graphs are expressed in the language \agl~that will be explained in Section~\ref{sect:agl}.
+The figure highlights a unified model and its combination with an activity graph. Here, we consider the unified model as an extended domain model in MOSA~\cite{le_domain_2018}. This model, which is expressed in \dcsl, extends the conventional DDD's domain model~\cite{evans_domain-driven_2004} with the domain-specific features of UML activity diagram. Among the essential features that are supported, an activity class (\eg class \clazz{C_a} in Figure~\ref{fig:method-overview}) is defined for each unified model to represent an activity. We use the activity class as a pivot with which to define the activity graph. Each activity class is attached to an activity graph that describes the behavioral logic of the represented activity. The activity graphs are expressed in the language \agl~that will be explained in Section~\ref{sect:agl}.
 
-Hence, conceptually our method consists in iteratively performing three steps. The first step takes as input the domain requirements, optionally expressed in some high-level models (\eg, UML class and activity diagrams), and creates a set of initial unified models and associated activity graphs. At this stage, the models and their graphs may be incomplete and, thus, need to be refined in subsequent iterations. The second step takes as input the unified models and graphs and uses MOSA to automatically generate a GUI- and module-based software. This software is presented to the domain expert to get feedbacks. If there are feedbacks, then the third step updates the unified models and graphs and the cycle continues. If, on the other hand, the domain expert is satisfied with the models and graphs, then the cycle ends.
+Hence, conceptually our method consists in iteratively performing three steps. The first step takes as input the domain requirements, optionally expressed in some high-level models (\eg, UML class and activity diagrams), and creates a set of initial unified models and associated activity graphs. At this stage, the models and their graphs may be incomplete and, thus, need to be refined in subsequent iterations. The second step takes as input the unified models and graphs and uses MOSA to automatically generate a GUI- and module-based software. This software is presented to the domain expert in order to get feedbacks. If there are feedbacks, then the third step updates the unified models and graphs and the cycle continues. If, on the other hand, the domain expert is satisfied with the models and graphs, then the cycle ends.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Unified Model}
@@ -40,12 +40,12 @@ In principle, unified model is a \dcsl~model that realizes what we term the UML 
 	\begin{itemize}%[leftmargin=*]
 		\item \textbf{activity class}: a domain class that represents the activity.
 		\item \textbf{data component class} (or \textbf{data class} for short): a domain class that represents each data store.
-		\item \textbf{control component class} (or \textbf{control class}): captures the domain-specific state of a control node. A control class that represents (does not represent) a control node is named after (resp. the negation of) the node type; \eg, decision (non-decision) class, join (non-join) class, \etc
+		\item \textbf{control component class} (or \textbf{control class}): captures the domain-specific state of a control node. A control class that represents (\wrt does not represent) a control node is named after (\wrt. the negation of) the node type; \eg, decision (\wrt non-decision) class, join (\wrt non-join) class, \etc
 		\item \textbf{activity-specific association}: an association between each of the following class pairs:
 		\begin{itemize}
 			\item activity class and a merge class.
 			\item activity class and a fork class.
-			\item a merge (resp. fork) class and a data class that represents the data store of an action node connected to the merge (resp. fork) node.
+			\item a merge (\wrt fork) class and a data class that represents the data store of an action node connected to the merge (\wrt fork) node.
 			\item activity class and a data class that does not represent the data store of an action node connected to either a merge or fork node.
 		\end{itemize}        	
 	\end{itemize}
@@ -83,7 +83,7 @@ In the remainder of this paper, to ease notation we will use \textbf{activity cl
 	\label{fig:unified-model-example}
 \end{figure*} 
 
-To illustrate, Figure~\ref{fig:unified-model-example}(A) shows the UML activity and class models of a \courseman~variant that handles the enrollment management activity. In this variant, students are allowed to request help after the initial registration. The accompanied class model is extracted from the \courseman's conceptual model shown in Figure~\ref{fig:arch-model-courseman}.
+To illustrate, Figure~\ref{fig:unified-model-example}(A) shows the UML activity and class models of a \courseman~variant that handles the enrollment management activity. In this variant, students are allowed to request help after the initial registration. The accompanied class model is extracted from the \courseman's conceptual model as shown in Figure~\ref{fig:arch-model-courseman}.
 %
 Figure~\ref{fig:unified-model-example}(B) shows the resulted unified model of the activity.
 This model consists of five domain classes and realizations of five activity-specific associations. To ease reading, we omit the domain-specific associations that are shown in the UML class model in Figure~\ref{fig:unified-model-example}(A). Class \clazz{EnrolmentMgmt} is the activity class. Class \clazz{DHelpOrSClass} is a decision class, which captures the domain-specific decision logic. The remaining three classes are data classes that realize the three data stores. These data classes also correspond to three domain classes in the UML class model. 

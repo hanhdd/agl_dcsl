@@ -17,11 +17,8 @@ E.~Evans, Domain-Driven Design: {Tackling} {Complexity} in the {Heart} of
 \bibitem{paniza_learn_2011}
 J.~Paniza, Learn {OpenXava} by {Example}, CreateSpace, Paramount, CA, 2011.
 
-\bibitem{le_tree-based_2015}
-D.~M. Le, A {Tree}-{Based}, {Domain}-{Oriented} {Software} {Architecture} for
-  {Interactive} {Object}-{Oriented} {Applications}, in: Proc. 7th {Int}.
-  {Conf}. {Knowledge} and {Systems} {Engineering} ({KSE}), IEEE, 2015, pp.
-  19--24.
+\bibitem{omg_unified_2015}
+{OMG}, Unified {Modeling} {Language} version 2.5 (2015).
 
 \bibitem{le_generative_2018}
 D.~M. Le, D.-H. Dang, V.-H. Nguyen,
@@ -42,9 +39,6 @@ D.~M. Le, D.-H. Dang, V.-H. Nguyen,
 \newblock \href {http://dx.doi.org/https://doi.org/10.1016/j.cl.2018.05.001}
   {\path{doi:https://doi.org/10.1016/j.cl.2018.05.001}}.
 \newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S147784241730204X}
-
-\bibitem{omg_unified_2015}
-{OMG}, Unified {Modeling} {Language} version 2.5 (2015).
 
 \bibitem{dumas_uml_2001}
 M.~Dumas, A.~H. M.~t. Hofstede, {UML} {Activity} {Diagrams} as a {Workflow}
@@ -91,6 +85,12 @@ V.~Vernon, Implementing {Domain}-{Driven} {Design}, 1st Edition, Addison-Wesley
 G.~E. Krasner, S.~T. Pope, A {Description} of the {Model}-{View}-{Controller}
   {User} {Interface} {Paradigm} in the {Smalltalk}-80 {System}, {J.} of
   object-oriented programming 1~(3) (1988) 26--49.
+
+\bibitem{le_tree-based_2015}
+D.~M. Le, A {Tree}-{Based}, {Domain}-{Oriented} {Software} {Architecture} for
+  {Interactive} {Object}-{Oriented} {Applications}, in: Proc. 7th {Int}.
+  {Conf}. {Knowledge} and {Systems} {Engineering} ({KSE}), IEEE, 2015, pp.
+  19--24.
 
 \bibitem{booch_object-oriented_1986}
 G.~Booch, Object-{Oriented} {Development}, IEEE Transactions on Software
