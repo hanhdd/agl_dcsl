@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=latex 2022.5.6)  20 AUG 2022 09:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=latex 2022.5.6)  20 AUG 2022 10:34
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -1041,74 +1041,74 @@ File: images//agl-cm.eps Graphic file (type eps)
 File: images//activity-graph-example.eps Graphic file (type eps)
 
 <images//activity-graph-example.eps>
-Overfull \hbox (6.09454pt too wide) in paragraph at lines 117--117
+Overfull \hbox (6.09454pt too wide) in paragraph at lines 113--113
  []|[]\T1/lmr/bx/n/8 Node- 
  []
 
 
-Overfull \hbox (4.60532pt too wide) in paragraph at lines 128--128
+Overfull \hbox (4.60532pt too wide) in paragraph at lines 124--124
  []|[]\T1/lmr/bx/n/8 Edge- 
  []
 
 
-Overfull \hbox (2.65536pt too wide) in paragraph at lines 113--145
+Overfull \hbox (2.65536pt too wide) in paragraph at lines 109--141
  [][] 
  []
 
 [25]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 162.
+(hyperref)                removing `math shift' on input line 163.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 162.
+(hyperref)                removing `subscript' on input line 163.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 162.
+(hyperref)                removing `math shift' on input line 163.
 
 File: images//agl-cmt.eps Graphic file (type eps)
 <images//agl-cmt.eps> [26]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 217.
+(hyperref)                removing `math shift' on input line 218.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 217.
+(hyperref)                removing `subscript' on input line 218.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 217.
+(hyperref)                removing `math shift' on input line 218.
 
 
-Overfull \hbox (2.93694pt too wide) in paragraph at lines 262--262
+Overfull \hbox (2.93694pt too wide) in paragraph at lines 263--263
  |[][][][]$\OML/lmm/m/it/8 M[]$| 
  []
 
 
-Overfull \hbox (2.93694pt too wide) in paragraph at lines 273--273
+Overfull \hbox (2.93694pt too wide) in paragraph at lines 274--274
  |[][][][]$\OML/lmm/m/it/8 M[]$| 
  []
 
 
-Overfull \hbox (2.93694pt too wide) in paragraph at lines 276--276
+Overfull \hbox (2.93694pt too wide) in paragraph at lines 277--277
  |[][][][]$\OML/lmm/m/it/8 M[]$| 
  []
 
 
-Overfull \hbox (2.93694pt too wide) in paragraph at lines 278--278
+Overfull \hbox (2.93694pt too wide) in paragraph at lines 279--279
  |[][][][]$\OML/lmm/m/it/8 M[]$| 
  []
 
 
-Overfull \hbox (2.93694pt too wide) in paragraph at lines 282--282
+Overfull \hbox (2.93694pt too wide) in paragraph at lines 283--283
  |[][][][]$\OML/lmm/m/it/8 M[]$| 
  []
 
 [27] [28]
-Overfull \hbox (15.23979pt too wide) in paragraph at lines 342--343
+Overfull \hbox (15.23979pt too wide) in paragraph at lines 343--344
 \T1/lmr/m/n/10 whose ex-tent is de-fined by the func-tion $[]$. Then, the map-p
 ing be-tween two fields ($[] \OMS/lmsy/m/n/10 !
  []
@@ -1118,8 +1118,6 @@ File: images//agl-asm.eps Graphic file (type eps)
 File: images//agc-enrolmentmgmt.eps Graphic file (type eps)
  <images//agc-enrolmentmgmt.eps> [30])
 (./contents/tool.tex
-Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
-ine 5.
 File: images//software-tool.eps Graphic file (type eps)
  <images//software-tool.eps> [31]) (./contents/eval.tex
 [32]) (./contents/threats.tex [33]) (./contents/relatedwork.tex [34] [35])
@@ -1142,12 +1140,12 @@ Package rerunfilecheck Info: File `agl_dcsl.out' has not changed.
 (rerunfilecheck)             Checksum: BD17E12C5BC3C48B30408BADFC34506F;7578.
  ) 
 Here is how much of TeX's memory you used:
- 24683 strings out of 480248
- 451778 string characters out of 5896178
- 1011996 words of memory out of 5000000
- 42095 multiletter control sequences out of 15000+600000
+ 24578 strings out of 480248
+ 449341 string characters out of 5896178
+ 1010851 words of memory out of 5000000
+ 41990 multiletter control sequences out of 15000+600000
  582619 words of font info for 91 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  99i,15n,94p,120700b,1907s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on agl_dcsl.dvi (40 pages, 373172 bytes).
+Output written on agl_dcsl.dvi (40 pages, 370768 bytes).
