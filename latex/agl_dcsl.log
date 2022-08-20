@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=latex 2022.5.6)  20 AUG 2022 10:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=latex 2022.6.21)  20 AUG 2022 17:24
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -1122,17 +1122,18 @@ File: images//software-tool.eps Graphic file (type eps)
  <images//software-tool.eps> [31]) (./contents/eval.tex
 [32]) (./contents/threats.tex [33]) (./contents/relatedwork.tex [34] [35])
 (./contents/conclusion.tex) [36] (./agl_dcsl.bbl
-Overfull \hbox (137.96683pt too wide) in paragraph at lines 24--33
-[][]\T1/lmr/m/n/8 D. M. Le, D.-H. Dang, V.-H. Nguyen, [][][][][][],
+Underfull \hbox (badness 1590) in paragraph at lines 24--30
+[][]\T1/lmr/m/n/8 D. M. Le, D.-H. Dang, V.-H. Nguyen, Gen-er-a-tive Soft-ware M
+od-ule De-vel-op-ment for Domain-Driven De-sign
  []
 
-[37]
-Underfull \hbox (badness 1642) in paragraph at lines 202--208
-[][]\T1/lmr/m/n/8 P. Selo-nen, K. Koskimies, M. Sakki-nen, [][][][][][], JDM 14
- (3) (2003) 37--55.
+
+Underfull \hbox (badness 1571) in paragraph at lines 24--30
+\T1/lmr/m/n/8 with Annotation-Based Do-main Spe-cific Lan-guage, In-for-ma-tion
+ and Soft-ware Tech-nol-ogy 120 (2020) 106--239.
  []
 
-) (./contents/apex-agl.tex [38] [39]) [40] (./agl_dcsl.aux)
+[37]) (./contents/apex-agl.tex [38] [39]) [40] (./agl_dcsl.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1140,12 +1141,12 @@ Package rerunfilecheck Info: File `agl_dcsl.out' has not changed.
 (rerunfilecheck)             Checksum: BD17E12C5BC3C48B30408BADFC34506F;7578.
  ) 
 Here is how much of TeX's memory you used:
- 24578 strings out of 480248
- 449341 string characters out of 5896178
- 1010851 words of memory out of 5000000
- 41990 multiletter control sequences out of 15000+600000
+ 24578 strings out of 480172
+ 449341 string characters out of 5894515
+ 1024096 words of memory out of 5000000
+ 41999 multiletter control sequences out of 15000+600000
  582619 words of font info for 91 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
- 99i,15n,94p,120700b,1907s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 59 hyphenation exceptions out of 8191
+ 99i,15n,94p,120700b,1915s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on agl_dcsl.dvi (40 pages, 370768 bytes).
+Output written on agl_dcsl.dvi (40 pages, 363832 bytes).

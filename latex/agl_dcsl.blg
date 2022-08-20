@@ -7,37 +7,37 @@ Warning--empty journal in beck_manifesto_2017
 Warning--empty pages in cepa_representing_2005
 You've used 43 entries,
             2937 wiz_defined-function locations,
-            939 strings with 13422 characters,
-and the built_in function-call counts, 14460 in all, are:
-= -- 1362
+            930 strings with 12868 characters,
+and the built_in function-call counts, 14180 in all, are:
+= -- 1327
 > -- 382
 < -- 30
 + -- 150
 - -- 107
-* -- 948
-:= -- 1807
-add.period$ -- 53
+* -- 894
+:= -- 1761
+add.period$ -- 54
 call.type$ -- 43
 change.case$ -- 47
 chr.to.int$ -- 42
 cite$ -- 45
-duplicate$ -- 546
-empty$ -- 1755
+duplicate$ -- 526
+empty$ -- 1717
 format.name$ -- 137
-if$ -- 3878
+if$ -- 3805
 int.to.chr$ -- 0
 int.to.str$ -- 43
 missing$ -- 48
-newline$ -- 158
+newline$ -- 149
 num.names$ -- 51
-pop$ -- 409
+pop$ -- 398
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 966
+skip$ -- 987
 stack$ -- 0
 substring$ -- 689
-swap$ -- 184
+swap$ -- 176
 text.length$ -- 16
 text.prefix$ -- 0
 top$ -- 0
@@ -45,5 +45,5 @@ type$ -- 0
 warning$ -- 2
 while$ -- 119
 width$ -- 45
-write$ -- 397
+write$ -- 389
 (There were 2 warnings)

@@ -21,24 +21,19 @@ J.~Paniza, Learn {OpenXava} by {Example}, CreateSpace, Paramount, CA, 2011.
 {OMG}, Unified {Modeling} {Language} version 2.5 (2015).
 
 \bibitem{le_generative_2018}
-D.~M. Le, D.-H. Dang, V.-H. Nguyen,
-  \href{http://www.sciencedirect.com/science/article/pii/S0950584919302563}{Generative
-  {Software} {Module} {Development} for {Domain}-{Driven} {Design} with
-  {Annotation}-{Based} {Domain} {Specific} {Language}}, Information and
-  Software Technology 120 (2020) 106--239.
-\newblock \href
-  {http://dx.doi.org/https://doi.org/10.1016/j.infsof.2019.106239}
-  {\path{doi:https://doi.org/10.1016/j.infsof.2019.106239}}.
-\newline\urlprefix\url{http://www.sciencedirect.com/science/article/pii/S0950584919302563}
+D.~M. Le, D.-H. Dang, V.-H. Nguyen, Generative {Software} {Module}
+  {Development} for {Domain}-{Driven} {Design} with {Annotation}-{Based}
+  {Domain} {Specific} {Language}, Information and Software Technology 120
+  (2020) 106--239.
+\newblock \href {http://dx.doi.org/10.1016/j.infsof.2019.106239}
+  {\path{doi:10.1016/j.infsof.2019.106239}}.
 
 \bibitem{le_domain_2018}
-D.~M. Le, D.-H. Dang, V.-H. Nguyen,
-  \href{https://www.sciencedirect.com/science/article/pii/S147784241730204X}{On
-  {Domain} {Driven} {Design} {Using} {Annotation}-{Based} {Domain} {Specific}
-  {Language}}, Computer Languages, Systems \& Structures 54 (2018) 199--235.
-\newblock \href {http://dx.doi.org/https://doi.org/10.1016/j.cl.2018.05.001}
-  {\path{doi:https://doi.org/10.1016/j.cl.2018.05.001}}.
-\newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S147784241730204X}
+D.~M. Le, D.-H. Dang, V.-H. Nguyen, On {Domain} {Driven} {Design} {Using}
+  {Annotation}-{Based} {Domain} {Specific} {Language}, Computer Languages,
+  Systems \& Structures 54 (2018) 199--235.
+\newblock \href {http://dx.doi.org/10.1016/j.cl.2018.05.001}
+  {\path{doi:10.1016/j.cl.2018.05.001}}.
 
 \bibitem{dumas_uml_2001}
 M.~Dumas, A.~H. M.~t. Hofstede, {UML} {Activity} {Diagrams} as a {Workflow}
@@ -108,16 +103,14 @@ E.~Gamma, R.~Helm, R.~Johnson, J.~Vlissides, G.~Booch, Design {Patterns}:
   Addison-Wesley Professional, Reading, Mass, 1994.
 
 \bibitem{stevens_landscape_2008}
-P.~Stevens, \href{https://doi.org/10.1007/978-3-540-88643-3_10}{A {Landscape}
-  of {Bidirectional} {Model} {Transformations}}, in: R.~Lämmel, J.~Visser,
-  J.~Saraiva (Eds.), Generative and {Transformational} {Techniques} in
-  {Software} {Engineering} {II}: {International} {Summer} {School}, {GTTSE}
-  2007, {Braga}, {Portugal}, {July} 2-7, 2007. {Revised} {Papers}, Lecture
-  {Notes} in {Computer} {Science}, Springer Berlin Heidelberg, Berlin,
-  Heidelberg, 2008, pp. 408--424.
+P.~Stevens, A {Landscape} of {Bidirectional} {Model} {Transformations}, in:
+  R.~Lämmel, J.~Visser, J.~Saraiva (Eds.), Generative and {Transformational}
+  {Techniques} in {Software} {Engineering} {II}: {International} {Summer}
+  {School}, {GTTSE} 2007, {Braga}, {Portugal}, {July} 2-7, 2007. {Revised}
+  {Papers}, Lecture {Notes} in {Computer} {Science}, Springer Berlin
+  Heidelberg, Berlin, Heidelberg, 2008, pp. 408--424.
 \newblock \href {http://dx.doi.org/10.1007/978-3-540-88643-3_10}
   {\path{doi:10.1007/978-3-540-88643-3_10}}.
-\newline\urlprefix\url{https://doi.org/10.1007/978-3-540-88643-3_10}
 
 \bibitem{weisstein_bijective_2018}
 E.~W. Weisstein, \href{http://mathworld.wolfram.com/Bijective.html}{Bijective}
@@ -125,15 +118,12 @@ E.~W. Weisstein, \href{http://mathworld.wolfram.com/Bijective.html}{Bijective}
 \newline\urlprefix\url{http://mathworld.wolfram.com/Bijective.html}
 
 \bibitem{daw_extensible_2015}
-Z.~Daw, R.~Cleaveland,
-  \href{http://link.springer.com/chapter/10.1007/978-3-319-22969-0_25}{An
-  {Extensible} {Operational} {Semantics} for {UML} {Activity} {Diagrams}}, in:
-  R.~Calinescu, B.~Rumpe (Eds.), Software {Engineering} and {Formal} {Methods},
-  no. 9276 in Lecture {Notes} in {Computer} {Science}, Springer International
-  Publishing, 2015, pp. 360--368.
+Z.~Daw, R.~Cleaveland, An {Extensible} {Operational} {Semantics} for {UML}
+  {Activity} {Diagrams}, in: R.~Calinescu, B.~Rumpe (Eds.), Software
+  {Engineering} and {Formal} {Methods}, no. 9276 in Lecture {Notes} in
+  {Computer} {Science}, Springer International Publishing, 2015, pp. 360--368.
 \newblock \href {http://dx.doi.org/10.1007/978-3-319-22969-0_25}
   {\path{doi:10.1007/978-3-319-22969-0_25}}.
-\newline\urlprefix\url{http://link.springer.com/chapter/10.1007/978-3-319-22969-0_25}
 
 \bibitem{lamsweerde_formal_2000}
 A.~v. Lamsweerde, Formal {Specification}: {A} {Roadmap}, in: Proceedings of the
@@ -147,19 +137,15 @@ C.~Larman, Applying {UML} and {Patterns}: {An} {Introduction} to
 
 \bibitem{beck_manifesto_2017}
 K.~Beck, M.~Beedle, A.~van Bennekum, A.~Cockburn, W.~Cunningham, M.~Fowler,
-  J.~Grenning, J.~Highsmith, A.~Hunt, R.~Jeffries,
-  \href{http://agilemanifesto.org/}{Manifesto for {Agile} {Software}
-  {Development}}.
-\newline\urlprefix\url{http://agilemanifesto.org/}
+  J.~Grenning, J.~Highsmith, A.~Hunt, R.~Jeffries, Manifesto for {Agile}
+  {Software} {Development}.
 
 \bibitem{kent_model_2002}
-S.~Kent, \href{http://link.springer.com/chapter/10.1007/3-540-47884-1_16}{Model
-  {Driven} {Engineering}}, in: M.~Butler, L.~Petre, K.~Sere (Eds.), Integrated
-  {Formal} {Methods}, no. 2335 in Lecture {Notes} in {Computer} {Science},
-  Springer Berlin Heidelberg, 2002, pp. 286--298.
+S.~Kent, Model {Driven} {Engineering}, in: M.~Butler, L.~Petre, K.~Sere (Eds.),
+  Integrated {Formal} {Methods}, no. 2335 in Lecture {Notes} in {Computer}
+  {Science}, Springer Berlin Heidelberg, 2002, pp. 286--298.
 \newblock \href {http://dx.doi.org/10.1007/3-540-47884-1_16}
   {\path{doi:10.1007/3-540-47884-1_16}}.
-\newline\urlprefix\url{http://link.springer.com/chapter/10.1007/3-540-47884-1_16}
 
 \bibitem{brambilla_model-driven_2012}
 M.~Brambilla, J.~Cabot, {Manuel Wimmer}, Model-{Driven} {Software}
@@ -167,13 +153,10 @@ M.~Brambilla, J.~Cabot, {Manuel Wimmer}, Model-{Driven} {Software}
   2012.
 
 \bibitem{folmer_architecting_2004}
-E.~Folmer, J.~Bosch,
-  \href{http://www.sciencedirect.com/science/article/pii/S0164121202001590}{Architecting
-  for {Usability}: {A} {Survey}}, Journal of Systems and Software 70~(1–2)
-  (2004) 61--78.
+E.~Folmer, J.~Bosch, Architecting for {Usability}: {A} {Survey}, Journal of
+  Systems and Software 70~(1–2) (2004) 61--78.
 \newblock \href {http://dx.doi.org/10.1016/S0164-1212(02)00159-0}
   {\path{doi:10.1016/S0164-1212(02)00159-0}}.
-\newline\urlprefix\url{http://www.sciencedirect.com/science/article/pii/S0164121202001590}
 
 \bibitem{van_deursen_domain-specific_2000}
 A.~van Deursen, P.~Klint, J.~Visser, Domain-specific {Languages}: {An}
@@ -182,16 +165,16 @@ A.~van Deursen, P.~Klint, J.~Visser, Domain-specific {Languages}: {An}
 \bibitem{mernik_when_2005}
 M.~Mernik, J.~Heering, A.~M. Sloane, When and {How} to {Develop}
   {Domain}-specific {Languages}, ACM Comput. Surv. 37~(4) (2005) 316--344.
+\newblock \href {http://dx.doi.org/10.1145/1118890.1118892}
+  {\path{doi:10.1145/1118890.1118892}}.
 
 \bibitem{kohler_integrating_2000}
-H.~J. Köhler, U.~Nickel, J.~Niere, A.~Zündorf,
-  \href{http://doi.acm.org/10.1145/337180.337207}{Integrating {UML} {Diagrams}
-  for {Production} {Control} {Systems}}, in: Proc. 22nd {Int}. {Conf}. on
+H.~J. Köhler, U.~Nickel, J.~Niere, A.~Zündorf, Integrating {UML} {Diagrams}
+  for {Production} {Control} {Systems}, in: Proc. 22nd {Int}. {Conf}. on
   {Software} {Engineering}, {ICSE} '00, ACM, New York, NY, USA, 2000, pp.
   241--251.
 \newblock \href {http://dx.doi.org/10.1145/337180.337207}
   {\path{doi:10.1145/337180.337207}}.
-\newline\urlprefix\url{http://doi.acm.org/10.1145/337180.337207}
 
 \bibitem{niaz_object-oriented_2005}
 I.~A. Niaz, J.~Tanaka, An {Object}-{Oriented} {Approach} to {Generate} {Java}
@@ -199,21 +182,17 @@ I.~A. Niaz, J.~Tanaka, An {Object}-{Oriented} {Approach} to {Generate} {Java}
   Information Science 6~(2) (2005) 83--98.
 
 \bibitem{selonen_transformations_2003}
-P.~Selonen, K.~Koskimies, M.~Sakkinen,
-  \href{https://www.igi-global.com/article/transformations-between-uml-diagrams/3298}{Transformations
-  {Between} {UML} {Diagrams}}, JDM 14~(3) (2003) 37--55.
+P.~Selonen, K.~Koskimies, M.~Sakkinen, Transformations {Between} {UML}
+  {Diagrams}, JDM 14~(3) (2003) 37--55.
 \newblock \href {http://dx.doi.org/10.4018/jdm.2003070103}
   {\path{doi:10.4018/jdm.2003070103}}.
-\newline\urlprefix\url{https://www.igi-global.com/article/transformations-between-uml-diagrams/3298}
 
 \bibitem{fuggetta_software_2014}
-A.~Fuggetta, E.~Di~Nitto,
-  \href{http://doi.acm.org/10.1145/2593882.2593883}{Software {Process}}, in:
-  Proceedings of the on {Future} of {Software} {Engineering}, {FOSE} 2014, ACM,
-  New York, NY, USA, 2014, pp. 1--12.
+A.~Fuggetta, E.~Di~Nitto, Software {Process}, in: Proceedings of the on
+  {Future} of {Software} {Engineering}, {FOSE} 2014, ACM, New York, NY, USA,
+  2014, pp. 1--12.
 \newblock \href {http://dx.doi.org/10.1145/2593882.2593883}
   {\path{doi:10.1145/2593882.2593883}}.
-\newline\urlprefix\url{http://doi.acm.org/10.1145/2593882.2593883}
 
 \bibitem{calvary_single-user_1997}
 G.~Calvary, J.~Coutaz, L.~Nigay, From {Single}-user {Architectural} {Design} to
