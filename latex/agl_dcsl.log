@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=latex 2022.6.21)  20 AUG 2022 17:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=latex 2022.6.21)  22 AUG 2022 16:29
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -919,7 +919,7 @@ LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 3
 
 (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)) (./contents/background.tex
+)) (./contents/background.tex [2]
 File: images//motivating-example.eps Graphic file (type eps)
 
 <images//motivating-example.eps>
@@ -928,29 +928,29 @@ LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line
  (/usr/share/texmf/tex/latex/lm/ot1lmtt.fd
 File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-[2]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <8> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 45.
- [3]
+
+[3]
 File: images//motivating-example2.eps Graphic file (type eps)
  <images//motivating-example2.eps>
 
 LaTeX Font Warning: Font shape `T1/lmr/m/scit' undefined
 (Font)              using `T1/lmr/m/scsl' instead on input line 84.
 
+[4]
 
 LaTeX Font Warning: Font shape `T1/lmr/bx/sc' undefined
 (Font)              using `T1/lmr/bx/n' instead on input line 101.
 
-[4]
 File: images//dcsl-model-courseman.eps Graphic file (type eps)
- <images//dcsl-model-courseman.eps> [5]
+<images//dcsl-model-courseman.eps> [5]
 File: images//sw-arch/arch-model-courseman.eps Graphic file (type eps)
 
 <images//sw-arch/arch-model-courseman.eps> [6]) (./contents/domainBehavior.tex
+[7]
 File: images//method-overview.eps Graphic file (type eps)
-
-<images//method-overview.eps> [7] [8]
+ <images//method-overview.eps> [8]
 
 LaTeX Font Warning: Font shape `T1/lmr/m/scit' undefined
 (Font)              using `T1/lmr/m/scsl' instead on input line 65.
@@ -964,7 +964,7 @@ n-decision and non-join com-po-nent classes, then $\OML/lmm/m/it/10 c[]; c[]; [
  []
 
 File: images//unified-model-example.eps Graphic file (type eps)
-<images//unified-model-example.eps>) (./contents/moduleactions.tex [9] [10]
+<images//unified-model-example.eps>) [9] (./contents/moduleactions.tex [10]
 [11]
 Overfull \hbox (1.53456pt too wide) in paragraph at lines 105--106
 [][][][]\T1/lmr/bx/n/10 Definition 4. [][]\T1/lmr/m/it/10 An \T1/lmr/bx/it/10 a
@@ -978,12 +978,12 @@ File: images//ase-example.eps Graphic file (type eps)
 <images//ase-example.eps> [12] [13]
 File: images//statemachine-example.eps Graphic file (type eps)
  <images//statemachine-example.eps> [14]
+[15]
 File: images//case-study/sequential-form.eps Graphic file (type eps)
-
-<images//case-study/sequential-form.eps>
+ <images//case-study/sequential-form.eps>
 File: images//case-study/sequential-form-eg-gui.eps Graphic file (type eps)
 
-<images//case-study/sequential-form-eg-gui.eps> [15] [16]
+<images//case-study/sequential-form-eg-gui.eps> [16]
 File: images//case-study/decisional-form.eps Graphic file (type eps)
 
 <images//case-study/decisional-form.eps>
@@ -991,18 +991,17 @@ Overfull \hbox (1.25311pt too wide) in paragraph at lines 287--289
  [][] 
  []
 
-[17]
 File: images//case-study/decisional-form-eg-gui.eps Graphic file (type eps)
- <images//case-study/decisional-form-eg-gui.eps>
+<images//case-study/decisional-form-eg-gui.eps>
 Overfull \hbox (5.84822pt too wide) in paragraph at lines 309--311
  [][] 
  []
 
 File: images//case-study/forked-form.eps Graphic file (type eps)
-<images//case-study/forked-form.eps>
+<images//case-study/forked-form.eps> [17]
 File: images//case-study/forked-form-eg-gui.eps Graphic file (type eps)
 
-<images//case-study/forked-form-eg-gui.eps> [18] [19]
+<images//case-study/forked-form-eg-gui.eps> [18]
 File: images//case-study/joined-form.eps Graphic file (type eps)
 
 <images//case-study/joined-form.eps>
@@ -1010,7 +1009,7 @@ Overfull \hbox (10.19135pt too wide) in paragraph at lines 362--364
  [][] 
  []
 
-[20]
+
 Overfull \hbox (10.16864pt too wide) in paragraph at lines 376--378
 [][]\T1/lmr/m/n/10 In this ex-am-ple: $[]$ = $[]$, $\OML/lmm/m/it/10 n \OT1/lmr
 /m/n/10 = 2$\T1/lmr/m/n/10 , $[]$ = $[]$, $[]$ = $[]$, $\OT1/lmtt/m/n/10 J$ \T1
@@ -1023,8 +1022,9 @@ Overfull \hbox (8.0245pt too wide) in paragraph at lines 381--383
  [][] 
  []
 
+[19] [20]
 File: images//case-study/merged-form.eps Graphic file (type eps)
-<images//case-study/merged-form.eps>
+ <images//case-study/merged-form.eps>
 Overfull \hbox (11.99812pt too wide) in paragraph at lines 398--400
  [][] 
  []
@@ -1035,9 +1035,9 @@ Overfull \hbox (8.0245pt too wide) in paragraph at lines 416--418
  [][] 
  []
 
-) [21] [22] (./contents/agl.tex
+) [21] (./contents/agl.tex
 File: images//agl-cm.eps Graphic file (type eps)
- <images//agl-cm.eps> [23] [24]
+ <images//agl-cm.eps> [22] [23] [24]
 File: images//activity-graph-example.eps Graphic file (type eps)
 
 <images//activity-graph-example.eps>
@@ -1069,7 +1069,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 163.
 
 File: images//agl-cmt.eps Graphic file (type eps)
-<images//agl-cmt.eps> [26]
+<images//agl-cmt.eps> [26] [27]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 218.
@@ -1082,45 +1082,20 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 218.
 
-
-Overfull \hbox (2.93694pt too wide) in paragraph at lines 263--263
- |[][][][]$\OML/lmm/m/it/8 M[]$| 
- []
-
-
-Overfull \hbox (2.93694pt too wide) in paragraph at lines 274--274
- |[][][][]$\OML/lmm/m/it/8 M[]$| 
- []
-
-
-Overfull \hbox (2.93694pt too wide) in paragraph at lines 277--277
- |[][][][]$\OML/lmm/m/it/8 M[]$| 
- []
-
-
-Overfull \hbox (2.93694pt too wide) in paragraph at lines 279--279
- |[][][][]$\OML/lmm/m/it/8 M[]$| 
- []
-
-
-Overfull \hbox (2.93694pt too wide) in paragraph at lines 283--283
- |[][][][]$\OML/lmm/m/it/8 M[]$| 
- []
-
-[27] [28]
+[28]
 Overfull \hbox (15.23979pt too wide) in paragraph at lines 343--344
 \T1/lmr/m/n/10 whose ex-tent is de-fined by the func-tion $[]$. Then, the map-p
 ing be-tween two fields ($[] \OMS/lmsy/m/n/10 !
  []
 
 File: images//agl-asm.eps Graphic file (type eps)
-<images//agl-asm.eps> [29]
+<images//agl-asm.eps> [29] [30]
 File: images//agc-enrolmentmgmt.eps Graphic file (type eps)
- <images//agc-enrolmentmgmt.eps> [30])
+ <images//agc-enrolmentmgmt.eps> [31])
 (./contents/tool.tex
 File: images//software-tool.eps Graphic file (type eps)
- <images//software-tool.eps> [31]) (./contents/eval.tex
-[32]) (./contents/threats.tex [33]) (./contents/relatedwork.tex [34] [35])
+ <images//software-tool.eps>) [32] (./contents/eval.tex)
+(./contents/threats.tex [33]) (./contents/relatedwork.tex [34] [35])
 (./contents/conclusion.tex) [36] (./agl_dcsl.bbl
 Underfull \hbox (badness 1590) in paragraph at lines 24--30
 [][]\T1/lmr/m/n/8 D. M. Le, D.-H. Dang, V.-H. Nguyen, Gen-er-a-tive Soft-ware M
@@ -1141,12 +1116,12 @@ Package rerunfilecheck Info: File `agl_dcsl.out' has not changed.
 (rerunfilecheck)             Checksum: BD17E12C5BC3C48B30408BADFC34506F;7578.
  ) 
 Here is how much of TeX's memory you used:
- 24578 strings out of 480172
- 449341 string characters out of 5894515
- 1024096 words of memory out of 5000000
- 41999 multiletter control sequences out of 15000+600000
- 582619 words of font info for 91 fonts, out of 8000000 for 9000
+ 24576 strings out of 480172
+ 449318 string characters out of 5894515
+ 1023037 words of memory out of 5000000
+ 41998 multiletter control sequences out of 15000+600000
+ 582300 words of font info for 90 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  99i,15n,94p,120700b,1915s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on agl_dcsl.dvi (40 pages, 363832 bytes).
+Output written on agl_dcsl.dvi (40 pages, 365900 bytes).
