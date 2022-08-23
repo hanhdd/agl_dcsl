@@ -9,15 +9,6 @@ This section presents our basic idea of incorporating behavior aspects into a do
 \subsection{Basic Idea}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[scale=0.37 %0.26
-  ]{method-overview}
-\end{center}
-\caption{An overview of our method.} %
-\label{fig:method-overview}
-\end{figure}
-
 %Modeling a software system in DDD requires a domain model to represent both structural and behavioral aspects of the system.
 %
 %Within our method, we express these using a combination of \textbf{unified domain model} and \textbf{activity graph}.
@@ -25,6 +16,15 @@ This section presents our basic idea of incorporating behavior aspects into a do
 Figure~\ref{fig:method-overview} shows our proposed method.
 %, which has been refined from the method that we introduced in~\cite{le_domain_2018}. 
 The figure highlights a unified model and its combination with an activity graph. Here, we consider the unified model as an extended domain model in MOSA~\cite{le_domain_2018}. This model, which is expressed in \dcsl, extends the conventional DDD's domain model~\cite{evans_domain-driven_2004} with the domain-specific features of UML activity diagram. Among the essential features that are supported, an activity class (\eg class \clazz{C_a} in Figure~\ref{fig:method-overview}) is defined for each unified model to represent an activity. We use the activity class as a pivot with which to define the activity graph. Each activity class is attached to an activity graph that describes the behavioral logic of the represented activity. The activity graphs are expressed in the language \agl~that will be explained in Section~\ref{sect:agl}.
+
+\begin{figure}[ht]
+	\begin{center}
+		\includegraphics[scale=0.37 %0.26
+		]{method-overview}
+	\end{center}
+	\caption{An overview of our method.} %
+	\label{fig:method-overview}
+\end{figure}
 
 Hence, conceptually our method consists in iteratively performing three steps. The first step takes as input the domain requirements, optionally expressed in some high-level models (\eg, UML class and activity diagrams), and creates a set of initial unified models and associated activity graphs. At this stage, the models and their graphs may be incomplete and, thus, need to be refined in subsequent iterations. The second step takes as input the unified models and graphs and uses MOSA to automatically generate a GUI- and module-based software. This software is presented to the domain expert in order to get feedbacks. If there are feedbacks, then the third step updates the unified models and graphs and the cycle continues. If, on the other hand, the domain expert is satisfied with the models and graphs, then the cycle ends.
 

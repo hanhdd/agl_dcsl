@@ -109,10 +109,8 @@ $S$ has the following properties:
 \item $S.\membern{preStates} = \func{first}(S).\membern{preStates}$
 \item $S.\membern{postStates} = \func{last}(S).\membern{postStates}$ 
 \item $S.\membern{fieldValSet} = \func{first}(S).\membern{fieldValSet}$
-\item $S.\membern{output} = \func{last}(S).\membern{output}$ 
+\item $S.\membern{output} = \func{last}(S).\membern{output}$ \qed
 \end{itemize}
-%
-\qed
 \end{definition}
 
 %
@@ -202,12 +200,7 @@ Clearly, SAA generalizes both atomic action and ASE: an ASE is a single-member S
 %$ (a, \{ a.\membern{postState} \}, a.\membern{fieldValSet}) $. 
 $ (a, \{ a.\membern{postState} \}) $.
 %
-Further, SAA is significantly shorter to compose than an ASE set -- all we need to do is specify the start atomic action and the desired post-states. 
-
-For example, let us consider the SAA $ (\code{newObject}, \{ \code{Created},\code{Cancelled} \}) $, which represents a common ASE set that starts with action \membern{newObject} and ends only when either the state \code{Created} or the state \code{Cancelled} is detected. The ASE set consists of the following frequently-occurring ASEs. The 
-first ASE is the one described earlier in Figure~\ref{fig:ase-example} but excludes the first action. We assume here that the module's view is already opened. The remaining ASEs model alternative scenarios in which the user wants to cancel creating the object at some point between performing the \membern{newObject} action and the \membern{createObject} action.
-%
-%\subsubsection*{Discussion} %\label{sect:module-act-discussion}
+Further, SAA is significantly shorter to compose than an ASE set -- all we need to do is specify the start atomic action and the desired post-states.
 
 \begin{figure}[ht]
 	\centering
@@ -215,6 +208,11 @@ first ASE is the one described earlier in Figure~\ref{fig:ase-example} but exclu
 	\caption{Sequences of module action as shown in Table~\ref{tab:core-atomic-actions} could be captured by a state machine.} %
 	\label{fig:statemachine-example}
 \end{figure}
+ 
+For example, let us consider the SAA $ (\code{newObject}, \{ \code{Created},\code{Cancelled} \}) $, which represents a common ASE set that starts with action \membern{newObject} and ends only when either the state \code{Created} or the state \code{Cancelled} is detected. The ASE set consists of the following frequently-occurring ASEs. The 
+first ASE is the one described earlier in Figure~\ref{fig:ase-example} but excludes the first action. We assume here that the module's view is already opened. The remaining ASEs model alternative scenarios in which the user wants to cancel creating the object at some point between performing the \membern{newObject} action and the \membern{createObject} action.
+%
+%\subsubsection*{Discussion} %\label{sect:module-act-discussion}
 
 \noindent {\bf Discussion.} We wish to stress that our definition of module action incorporates the notion of state, which is more formally modelled in another UML behavioral modeling language called Behavior State Machines (BSM) (\S{14.2}~\cite{omg_unified_2015}). The main reason is that Activity diagram and BSM are tightly linked to states and state transitions to represent behaviors. Indeed, these languages represent two sides of the same coin: the former emphasizes the actual behavior, while the latter focuses on the behavior's effects (states and state transitions). More specifically, a close inspection of the BSM's abstract syntax (\S{14.2.2}) reveals that both \clazz{State} and \membern{Transition} have associated \clazz{Behavior}(s) that describe what actually takes place when a particular state is reached or during a transition between some two states. Figure~\ref{fig:statemachine-example} shows a state machine that could allow us to capture sequences of module actions as shown in Table~\ref{tab:reachable-states}.
 
@@ -313,15 +311,6 @@ The control node $ c_k $ is not specified.
 	\label{fig:decisional-form-eg-gui}
 \end{figure}
 
-\begin{figure}%[ht]
-	\begin{center}
-		\includegraphics[scale=0.27 % 0.3
-		]{case-study/forked-form}
-	\end{center}
-	\caption{The forked pattern form.} %
-	\label{fig:forked-form}
-\end{figure}
-
 The three GUI snapshots of the example are shown in Figure~\ref{fig:decisional-form-eg-gui}. The first GUI is for student registration. The second and third GUIs are for the cases that help request is and is not requested (\resp). Similar to the GUI of the sequential pattern, the activity's GUI contains the GUIs of the three actions in separate tabs. Under both cases of the decision, the \clazz{Student} object that is created in the first action (\eg \clazz{Student}(\attribn{name}=``Nguyen Van Anh'')) is passed on to the next action. This object is then presented in the data field of the associative field \attribn{student} of the domain class referenced by this action.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -334,20 +323,28 @@ Similar to the decisional activity's template model, we consider the case that t
 %
 The AGC is very similar to that of the decisional activity's template model, except for in the second \clazz{ANode}: the reference class is \clazz{Co} (as opposed to \clazz{D}), the node type is \code{Fork} and property \attribn{serviceCls} is \clazz{DataController}. This property configuration makes explicit the fact that \clazz{Co}'s module service is available for use if needed.
 
-\subsubsection*{Example}
-The bottom of Figure~\ref{fig:forked-form} shows how the pattern is applied to another variant of the \courseman's enrolment management. The UML activity model of this variant involves performing student registration ($ e_f $) and then two support actions concurrently: payment processing ($ e_1 $) and enrolment authorisation ($ e_2 $). These actions must be completed in order for any subsequent actions to proceed.
-%
-In this example: \clazz{Ca} = \clazz{EnrolmentMgmt}, \clazz{Cf} = \clazz{Student}, \clazz{Co} = \clazz{FEnrolmentProcessing}, $ n = 2 $, \clazz{C1} = \clazz{Payment}, \clazz{C2} = \clazz{Auhorisation}.
-
-
-\begin{figure*}
+\begin{figure}%[ht]
 	\begin{center}
-		\includegraphics[scale=0.37 %0.4
+		\includegraphics[scale=0.27 % 0.3
+		]{case-study/forked-form}
+	\end{center}
+	\caption{The forked pattern form.} %
+	\label{fig:forked-form}
+\end{figure}
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[scale=0.36 %0.4
 		]{case-study/forked-form-eg-gui}
 	\end{center}
 	\caption{The forked pattern form view of enrolment management activity.} %
 	\label{fig:forked-form-eg-gui}
-\end{figure*}
+\end{figure}
+
+\subsubsection*{Example}
+The bottom of Figure~\ref{fig:forked-form} shows how the pattern is applied to another variant of the \courseman's enrolment management. The UML activity model of this variant involves performing student registration ($ e_f $) and then two support actions concurrently: payment processing ($ e_1 $) and enrolment authorisation ($ e_2 $). These actions must be completed in order for any subsequent actions to proceed.
+%
+In this example: \clazz{Ca} = \clazz{EnrolmentMgmt}, \clazz{Cf} = \clazz{Student}, \clazz{Co} = \clazz{FEnrolmentProcessing}, $ n = 2 $, \clazz{C1} = \clazz{Payment}, \clazz{C2} = \clazz{Auhorisation}.
 
 The three GUI snapshots of the example are shown in Figure~\ref{fig:forked-form-eg-gui}: one snapshot for one action. The first snapshot is for the first action \textit{student registration}. The second and third snapshots are for the two concurrent actions (\resp): \textit{making payment} and \textit{enrolment authorisation}. A difference between this pattern and the the previous two patterns is that this GUI has a 2-level containment. This 2-level containment reflects the length-2 association chain from \clazz{EnrolmentMgmt} (the activity class) to \clazz{Payment} and \clazz{Authorisation}. The first-level containment connects the activity's GUI with \clazz{Student}'s and enrolment processing's GUI. The second-level containment connects enrolment processing's GUI with \clazz{Payment}'s and \clazz{Authorisation}'s GUI.
 
@@ -392,33 +389,33 @@ The three GUI snapshots of the example are shown in Figure~\ref{fig:joined-form-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The top-left of Figure~\ref{fig:merged-form} shows the UML activity model, while the top-right shows the template configured unified model. The activity class \clazz{Ca} has associations to the domain classes \clazz{Cg} and \clazz{Cm}. These classes are referenced by the merge node and the activity node $ e_m $ (\resp). Class \clazz{Cg} has associations to the domain classes of the other nodes, namely \clazz{C1}, \clazz{Cn}, and \clazz{Ck}. Class \clazz{Cm} has associations to class \clazz{C1} and \clazz{Cn} as it knows these two classes through object passing.
+%
+Similar to the decisional activity's template model, we consider the case that class \clazz{Ck} is not a decision class. When this class is a decision class, we unfold it into the template model.
+%
+The AGC is very similar to that of the join pattern form, except for the configuration of the fourth \clazz{ANode}, which specifies that the node type be \clazz{Merge} rather than \clazz{Join}.
 
 \begin{figure*}%[ht]
-\begin{center}
-\includegraphics[scale=0.30 %0.3
-  ]{case-study/merged-form}
-\end{center}
-\caption{The merged pattern form.} %
-\label{fig:merged-form}
+	\begin{center}
+		\includegraphics[scale=0.30 %0.3
+		]{case-study/merged-form}
+	\end{center}
+	\caption{The merged pattern form.} %
+	\label{fig:merged-form}
 \end{figure*}
 
-Similar to the decisional activity's template model, we consider the case that class \clazz{Ck} is not a decision class. When this class is a decision class, we unfold it into the template model.
-
-The AGC is very similar to that of the join pattern form, except for the configuration of the fourth \clazz{ANode}, which specifies that the node type be \clazz{Merge} rather than \clazz{Join}.
-%
-\subsubsection*{Example}
-The bottom of Figure~\ref{fig:merged-form} shows how the pattern is applied to another variant of the \courseman's enrolment management activity. The UML activity model of this variant involves merging two actions, namely student class registration ($e_1$) and attending an orientation ($e_2$), to conclude at the action enrolment closure ($e_m$). The assumption here is that students can perform any combination of the two actions $e_1, e_2$. The completion of any one action will lead to enrolment closure. The action that has not yet been performed can be performed by the students at some later time.
-
-Action $e_2$ requires adding a new domain class named \clazz{Orientation} to the \Name{CourseMan}'s domain model. This class is displayed at the bottom right of Figure~\ref{fig:merged-form}. Thus, in this example: \clazz{Ca} = \clazz{EnrolmentMgmt}, $ n = 2 $, \clazz{C1} = \clazz{SClassRegistration}, \clazz{C2} = \clazz{Orientation}, \clazz{Cg} = \clazz{MgEnrolmentProcessing}, \clazz{Cm} = \clazz{EnrolmentClosure}. 
-
-\begin{figure*}%[ht]
+\begin{figure}%[ht]
 	\begin{center}
 		\includegraphics[scale=0.38 %0.4
 		]{case-study/merged-form-eg-gui}
 	\end{center}
 	\caption{The merged pattern form view of enrolment management activity.} %
 	\label{fig:merged-form-eg-gui}
-\end{figure*}
+\end{figure}
+
+\subsubsection*{Example}
+The bottom of Figure~\ref{fig:merged-form} shows how the pattern is applied to another variant of the \courseman's enrolment management activity. The UML activity model of this variant involves merging two actions, namely student class registration ($e_1$) and attending an orientation ($e_2$), to conclude at the action enrolment closure ($e_m$). The assumption here is that students can perform any combination of the two actions $e_1, e_2$. The completion of any one action will lead to enrolment closure. The action that has not yet been performed can be performed by the students at some later time.
+
+Action $e_2$ requires adding a new domain class named \clazz{Orientation} to the \Name{CourseMan}'s domain model. This class is displayed at the bottom right of Figure~\ref{fig:merged-form}. Thus, in this example: \clazz{Ca} = \clazz{EnrolmentMgmt}, $ n = 2 $, \clazz{C1} = \clazz{SClassRegistration}, \clazz{C2} = \clazz{Orientation}, \clazz{Cg} = \clazz{MgEnrolmentProcessing}, \clazz{Cm} = \clazz{EnrolmentClosure}. 
 
 The GUI snapshots of the example are shown in Figure~\ref{fig:merged-form-eg-gui}. It shows a length-2 association chain from \clazz{EnrolmentMgmt} to \clazz{SClassRegistration} and \clazz{Orientation}. 
 %The first-level containment is that between the \clazz{EnrolmentMgmt}'s GUI and \clazz{MgEnrolmentProcessing}'s and \clazz{EnrolmentClosure}'s GUI. The second-level containment is that between \clazz{MgEnrolmentProcessing}'s GUI and \clazz{SClassRegistration}'s and \clazz{Orientation}'s GUI (the first and second snapshots). 

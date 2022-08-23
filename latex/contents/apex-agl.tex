@@ -6,28 +6,23 @@
 \begin{lstrule}
 -- nodes must contain at least two Nodes
 context ActivityGraph inv:
-  not(nodes.oclIsUndefined()) and 
-  nodes->size()>=2
+  not(nodes.oclIsUndefined()) and nodes->size()>=2
 \end{lstrule}
 
 \begin{lstrule}
 -- edges must contain at least one Edge
 context ActivityGraph inv:
-  not(edges.oclIsUndefined()) and 
-  edges->size()>=1
+  not(edges.oclIsUndefined()) and edges->size()>=1
 \end{lstrule}
 
 \begin{lstrule}
--- n0 must contain at least one Node and 
--- n0 is a subset of nodes
+-- n0 must contain at least one Node and is a subset of nodes
 context ActivityGraph inv:
-  not(n0.oclIsUndefined()) and 
-  nodes->size()>=1 and nodes->includesAll(n0)
+  not(n0.oclIsUndefined()) and nodes->size()>=1 and nodes->includesAll(n0)
 \end{lstrule}
 
 \begin{lstrule}
--- (Connectedness) graph is connected (i.e. 
--- at least one path connects any two nodes)
+-- (Connectedness) graph is connected (i.e. at least one path connects any two nodes)
 context ActivityGraph inv:
   nodes->forAll(n, n' | hasPath(n, n'))
 \end{lstrule}
@@ -35,12 +30,9 @@ context ActivityGraph inv:
 \begin{lstrule}  
 context ActivityGraph  
 -- determines if there is a path 
--- (i.e. a sequence of edges) that 
--- connect n to n' (in either direction)
+-- (i.e. a sequence of edges) that connect n to n' (in either direction)
 def : hasPath(n : Node, n' : Node) : Boolean = 
-  edges->exists((n1 = n and n2 = n') or 
-                  (n1 = n' and n2 = n)) 
-  or
+  edges->exists((n1 = n and n2 = n') or (n1 = n' and n2 = n)) or 
   nodes->exists(n'' | hasPath(n,n'') and hasPath(n'',n')) 
 \end{lstrule}
 
@@ -97,13 +89,10 @@ context Node inv:
 \subsection{\clazz{Edge}}
 %\ruledef{asmruleno}{R}{edge1}
 \begin{lstrule}
--- n1 and n2 must be defined and 
--- belong to graph.nodes
+-- n1 and n2 must be defined and belong to graph.nodes
 context Edge inv:
-  not(n1.oclIsUndefined()) and 
-  not(n2.oclIsUndefined()) and 
-  graph.nodes->includes(n1) and 
-  graph.nodes->includes(n2)
+  not(n1.oclIsUndefined()) and not(n2.oclIsUndefined()) and 
+  graph.nodes->includes(n1) and graph.nodes->includes(n2)
 \end{lstrule}
 
 % pagebreak
@@ -123,11 +112,9 @@ context ModuleAct inv:
 -- contain names of domain fields of node.refCls
 context ModuleAct inv:
   (not(fieldVals.oclIsUndefined() and fieldVals->isEmpty()) implies 
-    not(fieldNames.oclIsUndefined()) and fieldNames->size() = fieldVals->size()) 
-  and 
+    not(fieldNames.oclIsUndefined()) and fieldNames->size() = fieldVals->size()) and 
   (not(fieldNames.oclIsUndefined()) implies 
-    fieldNames->asSet() = fieldNames  -- isDistinct(fieldNames)
-    and 
+    fieldNames->asSet() = fieldNames  -- isDistinct(fieldNames) and 
     fieldNames->forAll(a | node.refCls.domFields()->exists(f | f.name = a)))
 \end{lstrule}
 
@@ -148,16 +135,13 @@ context JoinNode inv:
 \subsection{\clazz{Class}} \label{apex:agl-Class}
 \begin{lstrule}
 context Class
-  -- whether or not this is a domain class 
-  -- (i.e. is defined with DClass)
+  -- whether or not this is a domain class (i.e. is defined with DClass)
   def: isDomainClass() : Boolean = 
     not(dcl.oclIsUndefined())
   
-  -- if this contains domain fields then 
-  -- return them as Set else return {} 
+  -- if this contains domain fields then return them as Set else return {} 
   def: domFields() : Set(Field) = 
-  fields->select(f | 
-    not(f.atr.oclIsUndefined())) 
+  fields->select(f | not(f.atr.oclIsUndefined())) 
 \end{lstrule}
 
 %
