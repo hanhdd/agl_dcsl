@@ -1,0 +1,161 @@
+%%% Elsevier format
+\documentclass[preprint,3p]{elsarticle}
+
+%%
+% for reviews ONLY
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+%\newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+%\newcommandx{\change}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+%\newcommandx{\info}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+%\newcommandx{\improvement}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
+%\newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}
+%
+%%
+
+%%% COMMON HEADERS
+\include{resources/header}
+% % % compact layout
+%\include{resources/headersqueezegaps-elsevier}
+%
+\usepackage{amssymb}
+\usepackage{pifont} % for circled numbers
+\include{resources/headercommon}
+
+% for the align/gather environment in math mode
+%\usepackage{amsmath}
+%
+\include{resources/headeroop}
+
+% for common drawing tools
+\include{resources/headerdrawing}
+
+%%% Paper-specific HEADERS
+%\usepackage[bookmarks]{hyperref}
+% for java code listing
+\usepackage{listings}
+\include{resources/header-javacodelisting}
+
+%%
+%\usepackage{multirow}
+%% for sub-figures
+%\usepackage{subcaption}
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\begin{document}
+
+\begin{frontmatter}
+
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+
+\title{AGL: Incorporating Behavioral Aspects into Domain-Driven Design}
+
+% author names and affiliations
+%% Group authors per affiliation:
+
+\author[addressUET,addressVNU]{Duc-Hanh Dang\corref{mycorrespondingauthor}}
+\cortext[mycorrespondingauthor]{Corresponding author}
+\address[addressUET]{Department of Software Engineering, VNU University of Engineering and Technology, Vietnam}
+\address[addressVNU]{Vietnam National University, Hanoi}
+\ead{hanhdd@vnu.edu.vn}
+
+\author[addressFE]{Duc Minh Le}
+\address[addressFE]{Department of Information Technology, Swinburne Vietnam, FPT Univeristy}
+\ead{duclm20@fe.edu.vn}
+
+\author[addressUET]{Van-Vinh Le}
+\ead{vinhskv@gmail.com}
+%
+\input{contents/abstract}
+
+% keywords
+\begin{keyword}
+Domain-driven design (DDD);  
+Module-based Architecture;
+Domain-specific language (DSL);
+UML/OCL-based domain modelling; 
+%Object-oriented programming language (OOPL);
+Attribute-oriented Programming (AtOP)
+\end{keyword}
+
+\end{frontmatter}
+
+%
+\input{contents/introduction}
+%
+\input{contents/background}
+%
+\input{contents/domainBehavior}
+
+% TODO 5: module actions
+% - rename into ``Module-Based Modelling of Domain Behaviour''
+% - express domain behavior using a high-level modelling language: Activity diagram
+% (AD contains an action language)
+% - extend module action semantics to support event signals (fuller Activity semantics)
+% - explain clearly how SAA is mapped to an activity's action
+%
+\input{contents/moduleactions}
+
+% TODO 6: agl
+% - rename to ``Module-Based Behaviour Modelling Language'' (MBML)
+% - rename implementation and GitHub link to MBML
+% - use MAct, AGraph directly in the ASM
+% - to shorten the paper (similar to the MCCL paper)
+%
+\input{contents/agl}
+%
+% + TODO 7: separate into Tool Support and Evaluation
+%\input{contents/toolandeval}
+% TODO 8: tool
+% - add Eclipse plugin and an illustration of the development process flow using this plugin
+\input{contents/tool}
+
+% TODO 9:  eval
+% - add evaluation questions
+% ? add subsection ``Threats to validity''
+% - remove Discussion (move relevant items to Threats')
+\input{contents/eval}
+
+% TODO 10: threats
+% - update
+\input{contents/threats}
+
+%
+% TODO: + related-work
+\input{contents/relatedwork}
+%
+\input{contents/conclusion}
+
+%section break
+%\vspace{1em}
+\section*{Acknowledgments}
+% + (done) TODO: ducmle
+This work is funded by the Vietnam Ministry of Education and Training under grant number B2022-NHF-01.
+%We would like to thank all the past and present students and teaching staff of the Software Engineering and Special Subject 2 course modules at Hanoi University, who have studied, used and provided useful feedbacks for \jdomainapp.
+%
+We also thank anonymous reviewers for their
+comments on the earlier version of this paper.
+
+% page break
+\pagebreak
+
+% references section
+\section*{References}
+%% Elsevier Bibliograph style style
+\bibliographystyle{elsarticle-num}
+% group (compress) citations
+\biboptions{sort&compress}
+\bibliography{resources/bib/behmod.bib}
+
+% appendices
+% for multiple appendices: \appendices, then \section, ...
+%\appendices
+% page break
+%\pagebreak
+
+\appendix
+\input{contents/apex-agl}
+
+\end{document}

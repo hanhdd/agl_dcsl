@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=latex 2022.5.6)  23 AUG 2022 10:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=latex 2022.5.6)  24 AUG 2022 16:12
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -1069,34 +1069,17 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 163.
 
 File: images//agl-cmt.eps Graphic file (type eps)
-<images//agl-cmt.eps> [26]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 218.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 218.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 218.
-
-[27] [28]
-Overfull \hbox (15.23979pt too wide) in paragraph at lines 341--342
-\T1/lmr/m/n/10 whose ex-tent is de-fined by the func-tion $[]$. Then, the map-p
-ing be-tween two fields ($[] \OMS/lmsy/m/n/10 !
- []
-
+<images//agl-cmt.eps> [26] [27]
 File: images//agl-asm.eps Graphic file (type eps)
-<images//agl-asm.eps> [29]
+ <images//agl-asm.eps> [28]
 File: images//agc-enrolmentmgmt.eps Graphic file (type eps)
- <images//agc-enrolmentmgmt.eps> [30])
-(./contents/tool.tex [31]
+
+<images//agc-enrolmentmgmt.eps> [29]) (./contents/tool.tex
 File: images//software-tool.eps Graphic file (type eps)
- <images//software-tool.eps>) (./contents/eval.tex
-[32]) (./contents/threats.tex [33]) (./contents/relatedwork.tex [34] [35])
-(./contents/conclusion.tex) [36] (./agl_dcsl.bbl
+
+<images//software-tool.eps>) (./contents/eval.tex [30]) (./contents/threats.tex
+[31]) (./contents/relatedwork.tex [32] [33]) (./contents/conclusion.tex)
+[34] (./agl_dcsl.bbl
 Underfull \hbox (badness 1590) in paragraph at lines 24--30
 [][]\T1/lmr/m/n/8 D. M. Le, D.-H. Dang, V.-H. Nguyen, Gen-er-a-tive Soft-ware M
 od-ule De-vel-op-ment for Domain-Driven De-sign
@@ -1108,20 +1091,39 @@ Underfull \hbox (badness 1571) in paragraph at lines 24--30
  and Soft-ware Tech-nol-ogy 120 (2020) 106--239.
  []
 
-[37]) (./contents/apex-agl.tex [38]) [39] (./agl_dcsl.aux)
+[35]) (./contents/apex-agl.tex [36]) (./contents/apex-agl-asm2csm.tex
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 2.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 2.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 2.
+
+[37] [38]
+Overfull \hbox (15.23979pt too wide) in paragraph at lines 123--124
+\T1/lmr/m/n/10 whose ex-tent is de-fined by the func-tion $[]$. Then, the map-p
+ing be-tween two fields ($[] \OMS/lmsy/m/n/10 !
+ []
+
+) [39] (./agl_dcsl.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `agl_dcsl.out' has not changed.
-(rerunfilecheck)             Checksum: BD17E12C5BC3C48B30408BADFC34506F;7578.
+(rerunfilecheck)             Checksum: 9A1D2BCC698D99FDEC52A63E9658A737;7555.
  ) 
 Here is how much of TeX's memory you used:
- 24576 strings out of 480248
- 449318 string characters out of 5896178
- 1054974 words of memory out of 5000000
- 41989 multiletter control sequences out of 15000+600000
- 582300 words of font info for 90 fonts, out of 8000000 for 9000
+ 24594 strings out of 480248
+ 449616 string characters out of 5896178
+ 1055972 words of memory out of 5000000
+ 41998 multiletter control sequences out of 15000+600000
+ 584268 words of font info for 96 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  99i,15n,94p,120700b,1915s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on agl_dcsl.dvi (39 pages, 362172 bytes).
+Output written on agl_dcsl.dvi (39 pages, 363560 bytes).

@@ -1,0 +1,132 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Mapping from ASM to CSM$_T$} \label{apex:agl-asm2csmt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+We explain in this section the precise transformation ASM $\rightarrow $ CSM$_T$ in terms of a set of mapping rules. Table~\ref{tab:agl-asm2csmt} lists definitions of these rules. 
+%
+Mapping rule \ruleref{M}{Same} is an identity map on \clazz{Decision}, \clazz{Join}, \clazz{ActName}, and \clazz{State}. These meta-concepts are transferred directly to CSM$_T$.
+%
+Given the additional OCL constraints that were defined previously on \clazz{MAct}, mapping rule \ruleref{M}{MAct} maps \clazz{ModuleAct} to \clazz{MAct}.
+
+\begin{table}[ht]
+	\centering
+	\caption{Rules for mapping ASM $\rightarrow$ CSM$_T$} \label{tab:agl-asm2csmt}
+	\footnotesize
+	\setlength\tabcolsep{1pt}
+	\begin{tabular}{|>{\centering\arraybackslash}m{0.8cm}|>{\centering\arraybackslash}m{8cm}|>{\centering\arraybackslash}m{7.2cm}|}\hline
+		\rowcolor{lightgray}
+		\multicolumn{1}{|c|}{\textbf{M\textit{Id}}} & 
+		\multicolumn{1}{c|}{\textbf{ASM}} &
+		\multicolumn{1}{c|}{$\mathbf{CSM_T}$} \\\hline
+		%
+		\ruledef{mruleno}{M}{Same} & \clazz{Decision}, \clazz{Join}, \clazz{ActName}, \clazz{State} & (same) \\\hline		
+		%
+		\ruledef{mruleno}{M}{MAct} & 
+		\clazz{ModuleAct} & \clazz{MAct} \\\hline
+		%
+		\ruledef{mruleno}{M}{ANode} & \clazz{Node} & \clazz{ANode}{.}(\func{excl.})\attribn{nodeType},
+		%    \attribn{actSeq}, 
+		\attribn{outClses}, \attribn{init} \\\hline
+		%
+		\ruledef{mruleno}{M}{DecisionNode} & \clazz{DecisionNode} & \objc{ANode}{\attribn{nodeType}=\code{Decision}} \\\hline
+		%
+		\ruledef{mruleno}{M}{ForkNode} & \clazz{ForkNode} & \objc{ANode}{\attribn{nodeType}=\code{Fork}} \\\hline
+		%
+		\ruledef{mruleno}{M}{JoinNode} & \clazz{JoinNode} & \objc{ANode}{\attribn{nodeType}=\code{Join}}\\\hline
+		%
+		\ruledef{mruleno}{M}{MergeNode} & \clazz{MergeNode} & \objc{ANode}{\attribn{nodeType}=\code{Merge}} \\\hline  
+		%
+		%		\ruledef{mruleno}{M}{ANode.actSeq} & \attrib{ANode}{actSeq} & \clzassoc{\_}{Node}{ModuleAct} \\\hline
+		%
+		\ruledef{mruleno}{M}{ANode.outClses} & 
+		$\funcdef{outClses}{\clazz{Node}}{\powerset{\clazz{Class}}}$ \linebreak
+		($\forall n \in \clazz{Node}. n.\attribn{out} \neq \emptyset$). %\linebreak
+		\func{outClses}($n$) = $ \{ c ~|~ c = e.n_{2}.\attribn{refCls}, $ \linebreak $e \in n.\attribn{out} \} $ & \attrib{ANode}{outClses} \\\hline
+		%
+		\ruledef{mruleno}{M}{ANode.init} & 
+		$\funcdef{isInitNode}{\clazz{Node}}{\clazz{Boolean}}$ \linebreak
+		($\forall n \in \clazz{Node}$). %\linebreak
+		\func{isInitNode}($n$) = $ (n \in n.\attribn{graph}.\attribn{n0}) $ & \attrib{ANode}{init} \\\hline
+		%
+		\ruledef{mruleno}{M}{Edge} & \clazz{Edge} & 
+		$ R_{edge}\subseteq \clazz{ANode} \times \clazz{ANode}, $ \linebreak 
+		$ R_{edge} = \{ (a_1, a_2) ~|~ $ 
+		$a_1, a_2 \in \clazz{ANode}, $ 
+		$a_1.\attribn{outClses}.\attribn{length} > 0, $ 
+		$a_2.\attribn{refCls} \in a_1.\attribn{outClses} \} $ \\\hline
+		%
+		%		\ruledef{mruleno}{M}{GraphNodes} & \attrib{AGraph}{nodes} & \clzassoc{\Bigfilleddiamond}{ActivityGraph}{Node} \\\hline
+		%		%
+		%		\ruledef{mruleno}{M}{GraphEdges} & \ruleref{M}{Edge} \& \ruleref{M}{GraphNodes} & \clzassoc{\Bigfilleddiamond}{ActivityGraph}{Edge} \\\hline
+		%
+		\ruledef{mruleno}{M}{AGraph} & 
+		\clazz{ActivityGraph} & \clazz{AGraph} \\\hline
+		%
+		\ruledef{mruleno}{M}{AGraphNodes} & 
+		\attrib{ActivityGraph}{nodes} & \attrib{AGraph}{nodes} \\\hline
+		\ruledef{mruleno}{M}{AGraphEdges} & \attrib{ActivityGraph}{edges} & 
+		$\funcdef{edges}{\clazz{AGraph}}{\clazz{ANode} \times \clazz{ANode}}$ \linebreak
+		($\forall g \in \clazz{AGraph}$). %\linebreak
+		\func{edges}($g$) =  $\{ (a_1, a_2) ~|~ a_1, a_2 \in g.\attribn{nodes}, a_2.\attribn{refCls} \in a_1.\attribn{outClses} \} $ \\\hline
+		\ruledef{mruleno}{M}{AGraphN0} & \attrib{ActivityGraph}{n0} & 
+		$\funcdef{initNodes}{\clazz{AGraph}}{\powerset{\clazz{ANode}}}$ \linebreak
+		($\forall g \in \clazz{AGraph}$). \func{initNodes}($g$) = $\{ a ~|~ a \in g.\attribn{nodes}, a.\attribn{init} = \code{true} \} $ \\\hline
+	\end{tabular}
+\end{table}
+
+Mapping rules \ruleref{M}{ANode}--\ruleref{M}{ANode.init} define the mapping for \clazz{ANode}. Specifically, \ruleref{M}{ANode} maps \clazz{Node} to the field set of \clazz{ANode} that excludes (\func{excl.}) three fields (\attribn{nodeType}, \attribn{outClses}, and \attribn{init}). 
+The other rules define mapping for these excluded fields. 
+%
+First, rules \ruleref{M}{DecisionNode}--\ruleref{M}{MergeNode} together map the four \clazz{ControlNode} subtypes to \attrib{ANode}{nodeType} (this field specifies four subsets of \clazz{ANode} objects). 
+%
+%Second, rule \ruleref{M}{ANode.actSeq} maps field \attrib{ANode}{actSeq} to the association between \clazz{Node} and \clazz{ModuleAct}.
+%
+Second, rule \ruleref{M}{ANode.outClses} maps to field \attrib{ANode}{outClses} a query function, named \func{outClses}, that returns a set of domain classes derived from the field \attrib{Node}{refCls} of the target nodes ($ n_2 $) of all the outgoing edges ($ n.\attribn{out} $) of a \clazz{Node} ($ n $). Here, \attrib{Node}{out}: \clazztemplate{Set}{\clazz{Edge}} is a derived field, whose value consists of all \clazz{Edge}s that have field \attribn{n1} equating the current node.
+%
+Third, rule \ruleref{M}{ANode.init} maps to field \attrib{ANode}{init} a boolean query function, named \func{isInitNode}, which returns \code{true} or \code{false} depending on whether a \clazz{Node} ($ n $) is the initial node of the \clazz{ActivityGraph} to which it belongs. Then, Rule \ruleref{M}{Edge} maps \clazz{Edge} to an ``edge'' relation on \clazz{ANode}, named $R_{edge}$, that returns a set of \clazz{ANode} pairs $ (a_1, a_2) $, each of which qualifies to form the (source, target) pair of an \clazz{Edge}: $a_2$'s \attribn{refCls} is one of the domain classes in $a_1$'s \attribn{outClses}.
+%
+Finally, rules \ruleref{M}{AGraph}--\ruleref{M}{AGraphN0} map \clazz{AGraph} to \clazz{ActivityGraph}. Rules \ruleref{M}{AGraph} and \ruleref{M}{AGraphNodes} map \clazz{ActivityGraph} to \clazz{AGraph} and \attrib{ActivityGraph}{nodes} to \attrib{AGraph}{nodes}, respectively. Rule \ruleref{M}{AGraphEdges} maps \attrib{ActivityGraph}{edges} to a query function, named \func{edges}, over \clazz{AGraph}, which returns a set of node tuples $(a_1, a_2)$ that form the edges. Rule \ruleref{M}{AGraphN0} maps \attrib{ActivityGraph}{n0} to another query function, named \func{initNodes} and is also over \clazz{AGraph}, which returns all the \clazz{ANode}s whose \attribn{init} = \code{true}.
+
+From the language-engineering perspective, it is important to show that the mapping ASM $ \rightarrow $ CSM$_T$ is bijective. Bijective mapping~\cite{stevens_landscape_2008} means that CSM$_T$ has the same information capacity as ASM. Mathematically~\cite{weisstein_bijective_2018}, this also means that the mapping has an inverse or `backward' mapping. It is through this inverse mapping and an CSM that is derived from the CSM$_T$ (discussed in the next section) that we can generate the activity graph of an AGC, written in the textual syntax of a host OOPL.
+%
+\begin{theorem} \label{thm:mapping-cm2cmt}
+	Mapping ASM $\rightarrow$ CSM$_T$ is bijective, \ie for every ASM's instance, there exists exactly one CSM$_T$'s instance to which it is mapped. \qed 
+\end{theorem}
+
+\begin{proof}
+	Because each mapping rule in Table~\ref{tab:agl-asm2csmt} is applied independently, if we can prove that each of them is bijective, then the entire mapping ASM $\rightarrow$ CSM$_T$ is bijective. We provide below a brief proof of each mapping rule.
+	
+	Rules \ruleref{M}{Same}--\ruleref{M}{MAct}: These are trivially bijective, because each preserves the information capacity of the relevant ASM's meta-concepts.
+	
+	Rule \ruleref{M}{ANode}: This is bijective because it preserves the information capacity of \clazz{Node}. In particular, the additional OCL constraints that we introduced in \clazz{ANode} help preserve meanings of the data types of \attrib{Node}{refCls} and \attribn{serviceCls}.
+	
+	Rule \ruleref{M}{DecisionNode}: This is bijective because of the following reasons. The node types captured in \clazz{NodeType} are unique. Thus, field \attrib{ANode}{nodeType} helps group \clazz{ANode}s into different disjoint subsets. In particular, for every \clazz{DecisionNode} $n$, there exists exactly one \clazz{ANode}, whose \attribn{nodeType} = \code{Decision} and other fields are set to the corresponding fields of $n$. 
+	
+	Rules \ruleref{M}{ForkNode}--\ruleref{M}{MergeNode}: These are bijective by the arguments similar to the one presented above for \ruleref{M}{DecisionNode}.
+	
+	Rule \ruleref{M}{ANode.outClses}: This rule shows how a new field \attrib{ANode}{outClses} is constructed from the function \func{outClses} over \clazz{Node}. To prove for this rule, we first assume there exists a derived field, \attrib{Node}{\_outClses}, whose extent is defined by the function \func{outClses}. The rule \ruleref{M}{ANode.outClses} then becomes the mapping rule \attrib{Node}{\_outClses} $ \rightarrow $ \attrib{ANode}{outClses}. This mapping rule is bijective by definition.
+	
+	Rule \ruleref{M}{ANode.init}: This rule also involves constructing a new field (\attrib{ANode}{init}), whose extent is defined by a function (\func{isInitNode}) over \clazz{Node}. The proof thus proceeds similarly to the proof presented above for rule \ruleref{M}{ANode.outClses} (\ie using a derived field).
+	
+	Rule \ruleref{M}{Edge}: We prove that for every \clazz{Edge} $ e = (n_1, n_2) $, there is (\textit{a}) one and (\textit{b}) only one pair of \clazz{ANode}s $ (a_1, a_2) \in R_{edge} $, such that $ n_1 \rightarrow a_1$ and $ n_2 \rightarrow a_2 $.
+	
+	(\textit{a}): First, we select $a_1$ from $n_1$ by applying a suitable combination of the mapping rules \ruleref{M}{ANode}--\ruleref{M}{ANode.init}. Now, by construction, we have $ a_1.\attribn{outClses} = \func{outClses}(n_1) $. Because of \clazz{Edge} $ e $ we have: $n_2.\attribn{refCls} \in \func{outClses}(n_1)$. Thus, if we select $a_2$ from $n_2$ (by applying suitable mapping rules among \ruleref{M}{ANode}--\ruleref{M}{ANode.init}) then $a_2.\attribn{refCls} = n_2.\attribn{refCls} \in a_1.\attribn{outClses}$. In other words, $ (a_1, a_2) \in R_{edge} $.
+	
+	(\textit{b}): The bijectiveness of the mapping rules \ruleref{M}{ANode}--\ruleref{M}{ANode.init} help guarantee this, because there is exactly one $ a_1 $ (\resp~$a_2$) \st $ n_1 \rightarrow a_1$ (\resp~$n_2 \rightarrow a_2$).
+	
+	Rule \ruleref{M}{AGraph}: This is bijective by definition.
+	
+	Rule \ruleref{M}{AGraphNodes}: This is bijective by definition.
+	
+	Rule \ruleref{M}{AGraphEdges}: We prove this by assuming the existence of a derived field \attrib{AGraph}{\_edges}, whose extent is defined by the function \func{edges}. Then this mapping rule trivially becomes the bijective mapping between two fields: $ \attrib{ActivityGraph}{edges} \rightarrow \attrib{AGraph}{\_edges}$.
+	
+	Rule \ruleref{M}{AGraphN0}: Similarly, this is proved by first assuming the existence of a derived field \attrib{AGraph}{\_initNodes}, whose extent is defined by the function \func{initNodes}. Then, the mapping between two fields ($ \attrib{ActivityGraph}{n0} \rightarrow \attrib{AGraph}{\_initNodes}$) is a bijective mapping.
+\end{proof}
+
+\begin{theorem} \label{theo:csmt-csm}
+	The mapping CSM$_T$ $\rightarrow$ CSM is bijective. \qed
+\end{theorem}
+%
+\begin{proof}
+	The proof of Theorem~\ref{theo:csmt-csm} is trivial as it follows directly from the fact that the CSM does not contain any new features and from the following two properties about the mapping. First,  each class in CSM$_T$ is bijectively mapped to one annotation in CSM. Second, each associative field in CSM$_T$ is bijectively mapped to an annotation property.
+\end{proof}
