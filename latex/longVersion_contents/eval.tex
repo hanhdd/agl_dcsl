@@ -1,0 +1,34 @@
+%
+\section{Evaluation}
+\label{sect:evaluation} %
+
+In this section, we discuss an evaluation of \agl. Our aim is to show that \agl~is both  essentially expressive and practically usable.
+%
+%In this paper, we focus on evaluating \agl~because it is a new language contribution of our method. 
+%
+We consider \agl~as a type of specification language and adapt the \dcsl~evaluation approach that we applied in~\cite{le_domain_2018}.
+%
+More specifically, we adapt from~\cite{lamsweerde_formal_2000} the following three criteria for evaluating \agl: expressiveness, required coding level, and constructibility. We will present our evaluation of these criteria in Sections~\ref{sect:eval-expressiveness}--\ref{sect:eval-construct}.
+%We conclude in Section~\ref{sect:eval-discussion} with a number of discussion points concerning the evaluation.
+%
+\subsection{Expressiveness} \label{sect:eval-expressiveness}
+This is the extent to which a language is able to express the properties of interest of its domain~\cite{lamsweerde_formal_2000}. We measure the expressiveness of \agl~from both structural and behavioral aspects. 
+%
+For structural aspects, the domain properties are captured as meta-concepts and associations in the language's ASM. 
+%
+For behavioral aspects, \agl~is able to express the five essential UML activity modeling patterns, as explained in Section~\ref{sect:behaviorPatterns}. Therefore, any domain behavior captured by an activity diagram with these basic constructs could be expressed in \agl.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Required Coding Level} \label{sect:eval-rcl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Required coding level (RCL) complements the expressiveness criterion in that it measures the extent to which a language allows ``...the properties of interest to be expressed without too much hard coding''~\cite{lamsweerde_formal_2000}.
+Since \agl, to our knowledge, is the first aDSL of its type, we cannot compare \agl's RCL to other languages. Thus, we will measure the \agl's RCL using the ``compactness'' of the language's CSM (see SubSection~\ref{sect:agl-csm}). This is determined based on the reduction in the number of features in the CSM through the transformation ASM $\rightarrow$ CSM$_T$. More precisely, \agl's RCL is the percentage of the number of CSM$_T$'s features over the number of ASM's. The smaller this percentage, the higher the reduction in the number of features in the CSM and, thus, the more compact the CSM.
+
+It is clear from Figures~\ref{fig:agl-abstractSyntax} and~\ref{fig:agl-csmt} that \agl's RCL $ = \frac{3}{9}$ or approximately 33\%. Specifically, Figure~\ref{fig:agl-abstractSyntax} shows that the number of meta-concepts of the ASM involved in the transformation is 9. These exclude the four meta-concepts (\clazz{ActName}, \clazz{State}, \clazz{Decision} and \clazz{Join}) that are transferred directly to CSM$_T$. On the other hand, Figure~\ref{fig:agl-csmt} shows that three meta-concepts result from the transformation (including \clazz{AGraph}, \clazz{ANode}, and \clazz{MAct}). Therefore, \agl~can have a CSM that significantly reduces the number of meta-concepts required to write an AGC to only about one third. 
+%
+\subsection{Constructibility} \label{sect:eval-construct}
+This is the extent to which a language provides ``...facilities for building complex specifications in a piecewise, incremental way''\cite{lamsweerde_formal_2000}. For \agl, the language's embedment in the host OOPL allows it to take for granted the general construction capabilities of the host language platform and those provided by modern IDEs (e.g., Eclipse). More specifically, using an IDE a developer can syntactically and statically check an AGC at compile time. In addition, she can easily import and reference a domain class in an AGC and have this AGC automatically updated (through refactoring) when the domain class is renamed or relocated.
+
+More importantly, the AGC can be constructed incrementally with the domain model. This is due to a property of our activity graph model (discussed in Section~\ref{sect:agl-abstractSyntax}) that the nodes and edges of an activity graph are mapped to the domain classes and their associations.
+
+Further, we would develop automated techniques to ease the construction of AGC. Intuitively, for example, a technique would be to generate a default AGC for an activity and to allow the developer to customize it. We plan to investigate techniques such as this as part of future work.
