@@ -157,7 +157,8 @@ For instance, node \objid{1}{Node} references the domain class \clazz{Student} (
 
 Our main objective is to construct a metamodel for the concrete syntax~(CSM) of the \agl~by a transformation from the abstract syntax ASM. The CSM takes the annotation-based form, suitable for being embedded into a host OOPL. Furthermore, we will strive for a compact CSM that uses a small set of annotations. From the practical standpoint, such a model is desirable since it will result in a compact concrete syntax, which requires less effort from the language user to construct a unified domain model. To achieve this requires two steps. First, we transform ASM into another model, called CSM$_T$, that is compact and suitable for annotation-based representation. Second, we transform CSM$_T$ into the actual annotation-based CSM.
 %
-The rest of this subsection focuses on explaining the CSM$_T$ and CSM. A detailed explanation of the transformation ASM $\rightarrow$ CSM$_T$ would be shown in \ref{apex:agl-asm2csmt}. 
+The rest of this subsection focuses on explaining the CSM$_T$ and CSM. A detailed explanation of the transformation ASM $\rightarrow$ CSM$_T$ would be shown in Appendix B of the long version\footnote{\url{http://shorturl.at/cmRST}} of this paper. 
+%Theorem~\ref{theo:csmt-csm} as shown in \ref{apex:agl-asm2csmt} ensures that \agl's CSM has the same information capacity as CSM$_T$ through the transformation.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{CSM$_T$: A Compact and Annotation-Friendly Model}
@@ -235,7 +236,7 @@ Figure~\ref{fig:agl-csm} shows the metamodel in the formm of a UML class diagram
 A key difference between CSM and CSM$_T$ is the attachment of \clazz{AGraph} to \clazz{Class}. This is represented in Figure~\ref{fig:agl-csm} by a solid line connecting the two corresponding class boxes. An \clazz{AGraph} attachment defines an AGC because it describes the instantiation of an \clazz{AGraph} object together with the associated \clazz{ANode}s and \clazz{MAct} objects.
 
 Adding the \clazz{AGraph} attachment to our definition of activity class (see Definition~\ref{def:unified-class-model}) helps form a bridge between \agl~and the unified model. More specifically, in the overall context of our method, we call any class that has an \clazz{AGraph} attachment an \textit{activity class}.
-Further, to ease discussion we will use the term \textbf{configured unified model} to refer to a unified model whose the activity class is attached with an \clazz{AGraph}. Theorem~\ref{theo:csmt-csm} as shown in \ref{apex:agl-asm2csmt} ensures that \agl's CSM has the same information capacity as CSM$_T$ through the transformation.
+Further, to ease discussion we will use the term \textbf{configured unified model} to refer to a unified model whose the activity class is attached with an \clazz{AGraph}. 
 %
 \subsubsection*{Discussion} \label{sect:agl-discussion} %
 In the current syntax, the AGC is sensibly attached to the activity class, because this class serves as the pivot for the activity graph definition.

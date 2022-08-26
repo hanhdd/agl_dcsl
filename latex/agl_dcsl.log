@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=latex 2022.6.21)  25 AUG 2022 22:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=latex 2022.5.6)  26 AUG 2022 09:05
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -964,12 +964,8 @@ n-decision and non-join com-po-nent classes, then $\OML/lmm/m/it/10 c[]; c[]; [
  []
 
 File: images//unified-model-example.eps Graphic file (type eps)
-<images//unified-model-example.eps>
-
-LaTeX Warning: Reference `sect:decisional-pattern' on page 9 undefined on input
- line 94.
-
-) [9] (./contents/moduleactions.tex [10] [11]
+<images//unified-model-example.eps>) [9] (./contents/moduleactions.tex [10]
+[11]
 Overfull \hbox (1.53456pt too wide) in paragraph at lines 105--106
 [][][][]\T1/lmr/bx/n/10 Definition 4. [][]\T1/lmr/m/it/10 An \T1/lmr/bx/it/10 a
 tomic ac-tion se-quence \T1/lmr/m/it/10 (\T1/lmr/bx/it/10 ASE\T1/lmr/m/it/10 ) 
@@ -982,9 +978,6 @@ File: images//ase-example.eps Graphic file (type eps)
 <images//ase-example.eps> [12] [13]
 File: images//statemachine-example.eps Graphic file (type eps)
  <images//statemachine-example.eps> [14]
-Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
-ine 238.
-
 [15]
 File: images//case-study/sequential-form.eps Graphic file (type eps)
  <images//case-study/sequential-form.eps>
@@ -1013,23 +1006,23 @@ Overfull \hbox (2.65536pt too wide) in paragraph at lines 109--141
 [19]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 163.
+(hyperref)                removing `math shift' on input line 164.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 163.
+(hyperref)                removing `subscript' on input line 164.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 163.
+(hyperref)                removing `math shift' on input line 164.
 
 File: images//agl-cmt.eps Graphic file (type eps)
 <images//agl-cmt.eps> [20] [21]
 File: images//agl-asm.eps Graphic file (type eps)
- <images//agl-asm.eps> [22]
+ <images//agl-asm.eps>
 File: images//agc-enrolmentmgmt.eps Graphic file (type eps)
 
-<images//agc-enrolmentmgmt.eps> [23]) (./contents/tool.tex
+<images//agc-enrolmentmgmt.eps> [22] [23]) (./contents/tool.tex
 File: images//software-tool.eps Graphic file (type eps)
 
 <images//software-tool.eps>) (./contents/eval.tex [24]) (./contents/threats.tex
@@ -1046,42 +1039,20 @@ Underfull \hbox (badness 1571) in paragraph at lines 24--30
  and Soft-ware Tech-nol-ogy 120 (2020) 106--239.
  []
 
-[29]) (./contents/apex-agl.tex [30]) (./contents/apex-agl-asm2csm.tex
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2.
-
-[31] [32]
-Overfull \hbox (15.23979pt too wide) in paragraph at lines 123--124
-\T1/lmr/m/n/10 whose ex-tent is de-fined by the func-tion $[]$. Then, the map-p
-ing be-tween two fields ($[] \OMS/lmsy/m/n/10 !
- []
-
-) [33] (./agl_dcsl.aux)
+[29]) (./contents/apex-agl.tex [30]) [31] (./agl_dcsl.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `agl_dcsl.out' has not changed.
-(rerunfilecheck)             Checksum: 5F8047A259D4B5BBD7915062AD800E81;6899.
+(rerunfilecheck)             Checksum: 7B5C0642BBA145A33C2B8D8EE47FB55F;6543.
  ) 
 Here is how much of TeX's memory you used:
- 24588 strings out of 480172
- 448138 string characters out of 5894515
- 1056441 words of memory out of 5000000
- 42009 multiletter control sequences out of 15000+600000
- 584268 words of font info for 96 fonts, out of 8000000 for 9000
- 59 hyphenation exceptions out of 8191
- 99i,15n,94p,120700b,1915s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 24426 strings out of 480248
+ 444790 string characters out of 5896178
+ 1027991 words of memory out of 5000000
+ 41852 multiletter control sequences out of 15000+600000
+ 563326 words of font info for 84 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 99i,14n,94p,120700b,1913s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on agl_dcsl.dvi (33 pages, 337588 bytes).
+Output written on agl_dcsl.dvi (31 pages, 299016 bytes).

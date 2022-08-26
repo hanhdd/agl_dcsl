@@ -218,19 +218,4 @@ M.~Balz, Embedding {Model} {Specifications} in {Object}-{Oriented} {Program}
   {Code}: {A} {Bottom}-up {Approach} for {Model}-{Based} {Software}
   {Development}, Ph.D. thesis, Universität Duisburg-Essen (Jan. 2012).
 
-\bibitem{stevens_landscape_2008}
-P.~Stevens, A {Landscape} of {Bidirectional} {Model} {Transformations}, in:
-  R.~Lämmel, J.~Visser, J.~Saraiva (Eds.), Generative and {Transformational}
-  {Techniques} in {Software} {Engineering} {II}: {International} {Summer}
-  {School}, {GTTSE} 2007, {Braga}, {Portugal}, {July} 2-7, 2007. {Revised}
-  {Papers}, Lecture {Notes} in {Computer} {Science}, Springer Berlin
-  Heidelberg, Berlin, Heidelberg, 2008, pp. 408--424.
-\newblock \href {http://dx.doi.org/10.1007/978-3-540-88643-3_10}
-  {\path{doi:10.1007/978-3-540-88643-3_10}}.
-
-\bibitem{weisstein_bijective_2018}
-E.~W. Weisstein, \href{http://mathworld.wolfram.com/Bijective.html}{Bijective}
-  (2018).
-\newline\urlprefix\url{http://mathworld.wolfram.com/Bijective.html}
-
 \end{thebibliography}

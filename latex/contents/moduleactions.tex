@@ -225,7 +225,7 @@ first ASE is the one described earlier in Figure~\ref{fig:ase-example} but exclu
 \label{sect:behaviorPatterns}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-As explained in SubSection~\ref{sect:domainBehaviors}, we employ the five essential UML activity modeling patterns as presented in~\cite{le_domain_2018} in order to express domain behaviors, that need to be incorporated for a unified domain model. This section concentrates on explaining how we can translate a behavior specification in UML activity diagram into a corresponding specification defined as a combination of pattern solutions. This paper extends each pattern solution with an AGC, i.e., an activity graph specification in the \agl. A detailed explanation of AGC and \agl~is shown in Section~\ref{sect:agl}.
+As explained in SubSection~\ref{sect:domainBehaviors}, we employ the five essential UML activity modeling patterns as presented in~\cite{le_domain_2018} in order to express domain behaviors, that need to be incorporated for a unified domain model. This section concentrates on explaining how we can translate a behavior specification in UML activity diagram into a corresponding specification defined as a combination of pattern solutions. This paper extends each pattern solution with an AGC, i.e., an activity graph specification in the \agl. A detailed explanation of AGC and \agl~is shown in Section~\ref{sect:agl}. Due to the limitation of the length of this paper, we only focus on \textit{Sequential Pattern} to illustrate the approach. The four remaining patterns, including \textit{Decisional Pattern}, \textit{Forked Pattern}, \textit{Joined Pattern}, and \textit{Merged Pattern}, would be explained in the long version\footnote{\url{http://shorturl.at/cmRST}} of this paper.
 
 We are particularly interested in the design of the \textit{pattern form}~\cite{riehle_understanding_1996, gamma_design_1994}. To keep the patterns generic, we present for each pattern form a UML activity model and a \textbf{template configured unified model} that realizes it. The template model is a `parameterized' configured unified model, in which elements of the nonannotation meta-concepts are named after the generic roles that they play. 
 %
@@ -235,18 +235,12 @@ We illustrate each pattern with a variant of the unified model for the enrolment
 
 %Please refer to~\cite{le_domain_2018, le_domain_2017} for details about the unified model and the software GUI of each example. The \courseman~software of each example is automatically generated from the configured unified model, using the software tool described in Section~\ref{sect:tool}. 
 
-\todo{Due to the limitation of the length of this paper, we only present the sequential pattern. The four remaining patterns are explained in the long version of this paper}
-
-\footnote{\url{http://www.uet.vnu.edu.vn/~hanhdd/2022infsof/longVersion_agl_dcsl.pdf}}.
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Sequential Pattern Form} \label{sect:sequential-pattern}
+%\subsection{Sequential Pattern Form} \label{sect:sequential-pattern}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\todo{recapture pattern form image to match other figures}
 
-The top-left of Figure~\ref{fig:sequential-form} shows the UML activity model, while the top-right shows the template configured unified model.
-This model consists of three classes \clazz{Ca}, \clazz{Cs}, and \clazz{Cn}. Class \clazz{Ca} is the activity class and has two associations with the two data classes \clazz{Cs} and \clazz{Cn}. These are the referenced domain classes of the two action nodes $ e_s $ and $ e_n $, \resp
+The top-left of Figure~\ref{fig:sequential-form} shows the UML activity model for \textit{Sequential Pattern}, while the top-right shows the template configured unified model. This model consists of three classes \clazz{Ca}, \clazz{Cs}, and \clazz{Cn}. Class \clazz{Ca} is the activity class and has two associations with the two data classes \clazz{Cs} and \clazz{Cn}. These are the referenced domain classes of the two action nodes $ e_s $ and $ e_n $, \resp
 
 The AGC is given in the \clazz{AGraph}'s note box in the top-right corner of the figure. It consists of two \clazz{ANode}s. The first \clazz{ANode} specifies node $ e_s $, and the second specifies node $ e_n $. The \clazz{ANode}s are quite self-explanatory except for the three \clazz{MAct}s, which are worth some explanation. The first \clazz{MAct}'s configuration specifies the SAA \amos{newObject}{Created}). This SAA is a subset of the one presented in Section~\ref{sect:arch-saa}. It involves performing \atomact{newObject}{ NewObject} and any combination of \atomact{setDataFieldValues}{Editing} and \atomact{createObject}{Created}. Action \membern{newObject} is to prepare \clazz{Cs}' view for user to enter input. Action \membern{setDataFieldValues} is to set a view field's value from each user input (allowing user to re-enter if an error occurs). And action \membern{createObject} is to create a new \clazz{Cs}' object from the input.
 
