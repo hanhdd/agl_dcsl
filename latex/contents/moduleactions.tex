@@ -145,36 +145,42 @@ A module state $s'$ is \textbf{reachable} from an atomic action $a$ if there exi
 \end{definition}
 
 %
-\begin{table}[ht]
-	\setlength\tabcolsep{1pt}
-	\centering
-%	\footnotesize
-	\caption{The core atomic actions and their reachable states}\label{tab:reachable-states}
-	\begin{tabular}{|>{\centering\arraybackslash}m{4cm}|>{\arraybackslash}m{12cm}|}
-		%content
-		\hline
-		\rowcolor{lightgray}
-		\textbf{Actions} & \textbf{Reachable states} \\\hline
-		\membern{open} & \code{Opened}, \code{NewObject}, \code{Editing}, \code{Created}, \code{Updated}, \code{Deleted}, \code{Reset}, \code{Cancelled}\\\hline
-		\membern{newObject} & \code{NewObject}, \code{Editing}, \code{Created}, \code{Reset}, \code{Cancelled}\\\hline
-		\membern{setDataFieldValues} & \code{Editing}, \code{Created}, \code{Updated}, \code{Reset} \\\hline
-		\membern{createObject} & \code{Created} \\\hline
-		\membern{updateObject} & \code{Updated} \\\hline
-		\membern{deleteObject} & \code{Deleted} \\\hline
-		\membern{reset} & \code{Reset} \\\hline
-		\membern{cancel} & \code{Cancelled} \\\hline
-	\end{tabular}
-\end{table}
+%\begin{table}[ht]
+%	\setlength\tabcolsep{1pt}
+%	\centering
+%%	\footnotesize
+%	\caption{The core atomic actions and their reachable states}\label{tab:reachable-states}
+%	\begin{tabular}{|>{\centering\arraybackslash}m{4cm}|>{\arraybackslash}m{12cm}|}
+%		%content
+%		\hline
+%		\rowcolor{lightgray}
+%		\textbf{Actions} & \textbf{Reachable states} \\\hline
+%		\membern{open} & \code{Opened}, \code{NewObject}, \code{Editing}, \code{Created}, \code{Updated}, \code{Deleted}, \code{Reset}, \code{Cancelled}\\\hline
+%		\membern{newObject} & \code{NewObject}, \code{Editing}, \code{Created}, \code{Reset}, \code{Cancelled}\\\hline
+%		\membern{setDataFieldValues} & \code{Editing}, \code{Created}, \code{Updated}, \code{Reset} \\\hline
+%		\membern{createObject} & \code{Created} \\\hline
+%		\membern{updateObject} & \code{Updated} \\\hline
+%		\membern{deleteObject} & \code{Deleted} \\\hline
+%		\membern{reset} & \code{Reset} \\\hline
+%		\membern{cancel} & \code{Cancelled} \\\hline
+%	\end{tabular}
+%\end{table}
 
-Clearly, the post-state of an atomic action is reachable from its own action. Table~\ref{tab:reachable-states} lists the reachable states of every atomic action defined in Table~\ref{tab:core-atomic-actions}.
-The first row shows how action \membern{open} can reach all other states. This is because once the module's view is opened, it is ready to perform any of the core atomic actions (in some sequences).
-The rest of the core actions cannot reach state \code{Opened}, because this state is raised only once.
-The second row shows how action \membern{newObject} additionally cannot reach \code{Updated} and \code{Deleted}. This is because this action is reserved for creating a new object. It thus cannot also lead to updating or deleting an existing object.
-The third row shows how action \membern{setDataFieldValues} cannot reach \code{NewObject}, \code{Deleted} and \code{Cancelled}. This is because this action concerns only with inputting data and thus cannot initiate or cancel object creation, nor can it lead to object deletion.
+%Clearly, the post-state of an atomic action is reachable from its own action. Table~\ref{tab:reachable-states} lists the reachable states of every atomic action defined in Table~\ref{tab:core-atomic-actions}.
+%The first row shows how action \membern{open} can reach all other states. This is because once the module's view is opened, it is ready to perform any of the core atomic actions (in some sequences).
+%The rest of the core actions cannot reach state \code{Opened}, because this state is raised only once.
+%The second row shows how action \membern{newObject} additionally cannot reach \code{Updated} and \code{Deleted}. This is because this action is reserved for creating a new object. It thus cannot also lead to updating or deleting an existing object.
+%The third row shows how action \membern{setDataFieldValues} cannot reach \code{NewObject}, \code{Deleted} and \code{Cancelled}. This is because this action concerns only with inputting data and thus cannot initiate or cancel object creation, nor can it lead to object deletion.
+%%
+%The last five rows of the table show that the corresponding five actions each has only one reachable state, which are their own states. These actions are ``stubs'', in the sense that they terminate all the ASEs that lead to them.
+
+Clearly, the post-state of an atomic action is reachable from its own action. Let us define the reachable states of atomic actions shown in Table~\ref{tab:core-atomic-actions}. First, the reachable states of action \membern{open} include \code{Opened}, \code{NewObject}, \code{Editing}, \code{Created}, \code{Updated}, \code{Deleted}, \code{Reset}, and \code{Cancelled}. This is because once the module's view is opened, it is ready to perform any of the core atomic actions (in some sequences). The rest of the core actions cannot reach state \code{Opened}, because this state is raised only once. Second, the reachable states of \membern{newObject} include \code{NewObject}, \code{Editing}, \code{Created}, \code{Reset}, and \code{Cancelled}. The action 
+\membern{newObject} additionally cannot reach \code{Updated} and \code{Deleted}. This is because this action is reserved for creating a new object. It thus cannot also lead to updating or deleting an existing object.
+Third, the reachable states of action \membern{setDataFieldValues} include \code{Editing}, \code{Created}, \code{Updated}, and \code{Reset}. The action \membern{setDataFieldValues} cannot reach \code{NewObject}, \code{Deleted} and \code{Cancelled}. This is because this action concerns only with inputting data and thus cannot initiate or cancel object creation, nor can it lead to object deletion.
 %
-The last five rows of the table show that the corresponding five actions each has only one reachable state, which are their own states. These actions are ``stubs'', in the sense that they terminate all the ASEs that lead to them.
+Finally, with the remaining five actions each has only one reachable state, which are their own states. These actions are ``stubs'', in the sense that they terminate all the ASEs that lead to them.
 
-For example, the ASE in Figure~\ref{fig:ase-example} shows that state \code{Created} is reachable from any of the three member actions that precedes the action \membern{createObject}. These include \membern{open}, \membern{newObject} and \membern{setDataFieldValues}. 
+\textit{Example}. The ASE in Figure~\ref{fig:ase-example} shows that state \code{Created} is reachable from any of the three member actions that precedes the action \membern{createObject}. These include \membern{open}, \membern{newObject} and \membern{setDataFieldValues}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Structured Atomic Action (SAA)} \label{sect:arch-saa}
@@ -202,19 +208,19 @@ $ (a, \{ a.\membern{postState} \}) $.
 %
 Further, SAA is significantly shorter to compose than an ASE set -- all we need to do is specify the start atomic action and the desired post-states.
 
-\begin{figure}[ht]
-	\centering
-	\includegraphics[scale=0.2]{statemachine-example}
-	\caption{Sequences of module action as shown in Table~\ref{tab:core-atomic-actions} could be captured by a state machine.} %
-	\label{fig:statemachine-example}
-\end{figure}
+%\begin{figure}[ht]
+%	\centering
+%	\includegraphics[scale=0.2]{statemachine-example}
+%	\caption{Sequences of module action as shown in Table~\ref{tab:core-atomic-actions} could be captured by a state machine.} %
+%	\label{fig:statemachine-example}
+%\end{figure}
  
-For example, let us consider the SAA $ (\code{newObject}, \{ \code{Created},\code{Cancelled} \}) $, which represents a common ASE set that starts with action \membern{newObject} and ends only when either the state \code{Created} or the state \code{Cancelled} is detected. The ASE set consists of the following frequently-occurring ASEs. The 
+\textit{Example}. Let us consider the SAA $ (\code{newObject}, \{ \code{Created},\code{Cancelled} \}) $, which represents a common ASE set that starts with action \membern{newObject} and ends only when either the state \code{Created} or the state \code{Cancelled} is detected. The ASE set consists of the following frequently-occurring ASEs. The 
 first ASE is the one described earlier in Figure~\ref{fig:ase-example} but excludes the first action. We assume here that the module's view is already opened. The remaining ASEs model alternative scenarios in which the user wants to cancel creating the object at some point between performing the \membern{newObject} action and the \membern{createObject} action.
 %
 %\subsubsection*{Discussion} %\label{sect:module-act-discussion}
 
-\noindent {\bf Discussion.} We wish to stress that our definition of module action incorporates the notion of state, which is more formally modelled in another UML behavioral modeling language called Behavior State Machines (BSM) (\S{14.2}~\cite{omg_unified_2015}). The main reason is that Activity diagram and BSM are tightly linked to states and state transitions to represent behaviors. Indeed, these languages represent two sides of the same coin: the former emphasizes the actual behavior, while the latter focuses on the behavior's effects (states and state transitions). More specifically, a close inspection of the BSM's abstract syntax (\S{14.2.2}) reveals that both \clazz{State} and \membern{Transition} have associated \clazz{Behavior}(s) that describe what actually takes place when a particular state is reached or during a transition between some two states. Figure~\ref{fig:statemachine-example} shows a state machine that could allow us to capture sequences of module actions as shown in Table~\ref{tab:reachable-states}.
+\noindent {\bf Discussion.} We wish to stress that our definition of module action incorporates the notion of state, which is more formally modelled in another UML behavioral modeling language called Behavior State Machines (BSM) (\S{14.2}~\cite{omg_unified_2015}). The main reason is that Activity diagram and BSM are tightly linked to states and state transitions to represent behaviors. Indeed, these languages represent two sides of the same coin: the former emphasizes the actual behavior, while the latter focuses on the behavior's effects (states and state transitions). More specifically, a close inspection of the BSM's abstract syntax (\S{14.2.2}) reveals that both \clazz{State} and \membern{Transition} have associated \clazz{Behavior}(s) that describe what actually takes place when a particular state is reached or during a transition between some two states. %Figure~\ref{fig:statemachine-example} shows a state machine that could allow us to capture sequences of module actions as shown in Table~\ref{tab:core-atomic-actions}.
 
 %Our notion of module action's pre- and post-states simply looks at the same view but from the behavior's perspective.
 
@@ -242,33 +248,34 @@ We illustrate each pattern with a variant of the unified model for the enrolment
 
 The top-left of Figure~\ref{fig:sequential-form} shows the UML activity model for \textit{Sequential Pattern}, while the top-right shows the template configured unified model. This model consists of three classes \clazz{Ca}, \clazz{Cs}, and \clazz{Cn}. Class \clazz{Ca} is the activity class and has two associations with the two data classes \clazz{Cs} and \clazz{Cn}. These are the referenced domain classes of the two action nodes $ e_s $ and $ e_n $, \resp
 
-The AGC is given in the \clazz{AGraph}'s note box in the top-right corner of the figure. It consists of two \clazz{ANode}s. The first \clazz{ANode} specifies node $ e_s $, and the second specifies node $ e_n $. The \clazz{ANode}s are quite self-explanatory except for the three \clazz{MAct}s, which are worth some explanation. The first \clazz{MAct}'s configuration specifies the SAA \amos{newObject}{Created}). This SAA is a subset of the one presented in Section~\ref{sect:arch-saa}. It involves performing \atomact{newObject}{ NewObject} and any combination of \atomact{setDataFieldValues}{Editing} and \atomact{createObject}{Created}. Action \membern{newObject} is to prepare \clazz{Cs}' view for user to enter input. Action \membern{setDataFieldValues} is to set a view field's value from each user input (allowing user to re-enter if an error occurs). And action \membern{createObject} is to create a new \clazz{Cs}' object from the input.
-
-The second and third \clazz{MAct}s together perform a similar logic over \clazz{Cn}, except for the need to break the \membern{setDataFieldValues} operation into two steps: \textit{(a)} set the \clazz{Cs} object created by the first \clazz{MAct} (and offered by $ e_s $ to $ e_n $ via its output pin) into a suitable view field of \clazz{Cn}'s view and (\textit{b)} set values of other view fields (allowing user to re-enter if an error occurs). To achieve this, the second \clazz{MAct} first specifies \amos{newObject}{NewObject}. The third \clazz{MAct} then specifies the rest of the logic. Step \textit{(a)} is performed by the operation \membern{setDataFieldValues}, which uses the field named \strq{as} to identify the view field of \clazz{Cn}'s view whose value needs to be set. Step \textit{(b)} is performed by \membern{setDataFieldValues} (as explained above) for other view fields.
-
-\begin{figure*}[ht]
+\begin{figure}[ht]
 	\begin{center}
 		\includegraphics[scale=0.33]{case-study/sequential-form}
 	\end{center}
 	\caption{The sequential pattern form.} %
 	\label{fig:sequential-form}
-\end{figure*}
+\end{figure}
+
+The AGC is given in the \clazz{AGraph}'s note box in the top-right corner of the figure. It consists of two \clazz{ANode}s. The first \clazz{ANode} specifies node $ e_s $, and the second specifies node $ e_n $. The \clazz{ANode}s are quite self-explanatory except for the three \clazz{MAct}s, which are worth some explanation. The first \clazz{MAct}'s configuration specifies the SAA \amos{newObject}{Created}). %This SAA is a subset of the one presented in Section~\ref{sect:arch-saa}. 
+It involves performing \atomact{newObject}{ NewObject} and any combination of \atomact{setDataFieldValues}{Editing} and \atomact{createObject}{Created}. Action \membern{newObject} is to prepare \clazz{Cs}' view for user to enter input. Action \membern{setDataFieldValues} is to set a view field's value from each user input (allowing user to re-enter if an error occurs). And action \membern{createObject} is to create a new \clazz{Cs}' object from the input. 
+
+The second and third \clazz{MAct}s together perform a similar logic over \clazz{Cn}, except for the need to break the \membern{setDataFieldValues} operation into two steps: \textit{(a)} set the \clazz{Cs} object created by the first \clazz{MAct} (and offered by $ e_s $ to $ e_n $ via its output pin) into a suitable view field of \clazz{Cn}'s view and (\textit{b)} set values of other view fields (allowing user to re-enter if an error occurs). To achieve this, the second \clazz{MAct} first specifies \amos{newObject}{NewObject}. The third \clazz{MAct} then specifies the rest of the logic. Step \textit{(a)} is performed by the operation \membern{setDataFieldValues}, which uses the field named \strq{as} to identify the view field of \clazz{Cn}'s view whose value needs to be set. Step \textit{(b)} is performed by \membern{setDataFieldValues} for other view fields.
 
 %
-\subsubsection*{Example}
-The bottom of Figure~\ref{fig:sequential-form} shows how the pattern is applied to a simple variant of the \courseman's enrolment management activity. The UML activity model involves performing two actions in sequence. The first action (\clazz{Student}) registers a student into course modules, while the second action (\clazz{SClassRegistration}) registers the student into a preferred class. 
+%\subsubsection*{Example}
+\textit{Example}. The bottom of Figure~\ref{fig:sequential-form} shows how the pattern is applied to a simple variant of the \courseman's enrolment management activity. The UML activity model involves performing two actions in sequence. The first action (\clazz{Student}) registers a student into course modules, while the second action (\clazz{SClassRegistration}) registers the student into a preferred class. 
 %
 In this example: \clazz{Ca} = \clazz{EnrolmentMgmt}, \clazz{Cs} = \clazz{Student}, $ n $ = 1, \clazz{C1} = \clazz{SClassRegistration}.
 
-\begin{figure*}[ht]
+\begin{figure}%[ht]
 	\begin{center}
-		\includegraphics[scale=0.5]{case-study/sequential-form-eg-gui}
+		\includegraphics[scale=0.46]{case-study/sequential-form-eg-gui}
 	\end{center}
 	\caption{The sequential pattern form view of enrolment management activity.} %
 	\label{fig:sequential-form-eg-gui}
-\end{figure*}
+\end{figure}
 
-The two GUI snapshots of the example are shown in Figure~\ref{fig:sequential-form-eg-gui}: one snapshot for the view of the one action. Each view is embedded in the \clazz{EnrolmentMgmt}'s view. The overall layout is a tab layout and the view of each associated module is contained in a tab of this layout. The left-hand-side figure shows the tab containing the \clazz{Student}'s view, while the right-hand-side one shows the tab containing the \clazz{SClassRegistration}'s view. Note, in particular, that the view field of the field \clazz{SClassRegistration}.\attribn{student} (field \attrib{Cn}{as} in the template model) is automatically set to the \objc{Student}{\attribn{name}=\strq{Nguyen~Van~Anh}}, which is created on the \clazz{Student}'s view.
+The two GUI snapshots of the example are shown in Figure~\ref{fig:sequential-form-eg-gui}: one snapshot for the view of the one action. Each view is embedded in the \clazz{EnrolmentMgmt}'s view. The overall layout is a tab layout and the view of each associated module is contained in a tab of this layout. The LHS figure shows the tab containing the \clazz{Student}'s view, while the RHS one shows the tab containing the \clazz{SClassRegistration}'s view. Note, in particular, that the view field of the field \clazz{SClassRegistration}.\attribn{student} (i.e., \attrib{Cn}{as} in the template model) is automatically set to the \objc{Student}{\attribn{name}=\strq{Nguyen~Van~Anh}}, which is created on the \clazz{Student}'s view.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{Decisional Pattern Form} \label{sect:decisional-pattern}

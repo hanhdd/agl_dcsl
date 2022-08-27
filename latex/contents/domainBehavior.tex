@@ -26,7 +26,7 @@ The figure highlights a unified model and its combination with an activity graph
 	\label{fig:method-overview}
 \end{figure}
 
-Hence, conceptually our method consists in iteratively performing three steps. The first step takes as input the domain requirements, optionally expressed in some high-level models (\eg, UML class and activity diagrams), and creates a set of initial unified models and associated activity graphs. At this stage, the models and their graphs may be incomplete and, thus, need to be refined in subsequent iterations. The second step takes as input the unified models and graphs and uses MOSA to automatically generate a GUI- and module-based software. This software is presented to the domain expert in order to get feedbacks. If there are feedbacks, then the third step updates the unified models and graphs and the cycle continues. If, on the other hand, the domain expert is satisfied with the models and graphs, then the cycle ends.
+Hence, conceptually our method consists in iteratively performing three steps. The first step takes as input the domain requirements, optionally expressed in some high-level models (e.g., UML class and activity diagrams), and creates a set of initial unified models and associated activity graphs. At this stage, the models and their graphs may be incomplete and, thus, need to be refined in subsequent iterations. The second step takes as input the unified models and graphs and uses MOSA to automatically generate a GUI- and module-based software. This software is presented to the domain expert in order to get feedbacks. If there are feedbacks, then the third step updates the unified models and graphs and the cycle continues. If, on the other hand, the domain expert is satisfied with the models and graphs, then the cycle ends.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Unified Model}
@@ -60,6 +60,14 @@ These associations play two important roles. First, they explicitly model the li
 
 The condition imposed on the fourth class pair of activity-specific association stems from the fact that there is no need to explicitly define the association between an activity class and a data class that represents the data store of an action node connected to either a merge or fork node. Such a data class is `indirectly' associated to the activity class, via two associations: one is between it and the merge or fork class (the third class pair), and the other is between the activity class and this control class (the first or second class pair).
 
+\begin{figure*}[ht]
+	\begin{center}
+		\includegraphics[scale=0.28]{unified-model-example}
+	\end{center}
+	\caption{(A: Left) The UML activity and class models of a \courseman~software variant that handles the enrollment management activity; (B: Right) The unified model that results.} %
+	\label{fig:unified-model-example}
+\end{figure*} 
+
 %\subsection{Activity Domain Model}
 \begin{definition} \label{def:unified-model}
 	A \textbf{unified model} is a \dcsl~model that realizes an unified class model as follows:
@@ -75,13 +83,6 @@ In the remainder of this paper, to ease notation we will use \textbf{activity cl
 %
 \subsection*{Example: Unified model}
 %
-\begin{figure*}[ht]
-	\begin{center}
-		\includegraphics[scale=0.28]{unified-model-example}
-	\end{center}
-	\caption{(A: Left) The UML activity and class models of a \courseman~software variant that handles the enrollment management activity; (B: Right) The unified model that results.} %
-	\label{fig:unified-model-example}
-\end{figure*} 
 
 To illustrate, Figure~\ref{fig:unified-model-example}(A) shows the UML activity and class models of a \courseman~variant that handles the enrollment management activity. In this variant, students are allowed to request help after the initial registration. The accompanied class model is extracted from the \courseman's conceptual model as shown in Figure~\ref{fig:arch-model-courseman}.
 %

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=latex 2022.5.6)  26 AUG 2022 09:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=latex 2022.6.21)  28 AUG 2022 00:39
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -948,24 +948,24 @@ File: images//dcsl-model-courseman.eps Graphic file (type eps)
 File: images//sw-arch/arch-model-courseman.eps Graphic file (type eps)
 
 <images//sw-arch/arch-model-courseman.eps> [6]) (./contents/domainBehavior.tex
-[7]
 File: images//method-overview.eps Graphic file (type eps)
- <images//method-overview.eps> [8]
+
+<images//method-overview.eps> [7] [8]
+File: images//unified-model-example.eps Graphic file (type eps)
+ <images//unified-model-example.eps>
 
 LaTeX Font Warning: Font shape `T1/lmr/m/scit' undefined
-(Font)              using `T1/lmr/m/scsl' instead on input line 65.
+(Font)              using `T1/lmr/m/scsl' instead on input line 73.
 
 
-Overfull \hbox (6.18755pt too wide) in paragraph at lines 69--70
+Overfull \hbox (6.18755pt too wide) in paragraph at lines 77--78
 [][]\T1/lmr/m/it/10 let $\OML/lmm/m/it/10 c[]; [] ; c[] \OMS/lmsy/m/n/10 2 f\OM
 L/lmm/m/it/10 c[]; [] ; c[]\OMS/lmsy/m/n/10 g$ \T1/lmr/m/it/10 re-al-ize the no
 n-decision and non-join com-po-nent classes, then $\OML/lmm/m/it/10 c[]; c[]; [
 ] ; c[]$
  []
 
-File: images//unified-model-example.eps Graphic file (type eps)
-<images//unified-model-example.eps>) [9] (./contents/moduleactions.tex [10]
-[11]
+[9]) (./contents/moduleactions.tex [10] [11]
 Overfull \hbox (1.53456pt too wide) in paragraph at lines 105--106
 [][][][]\T1/lmr/bx/n/10 Definition 4. [][]\T1/lmr/m/it/10 An \T1/lmr/bx/it/10 a
 tomic ac-tion se-quence \T1/lmr/m/it/10 (\T1/lmr/bx/it/10 ASE\T1/lmr/m/it/10 ) 
@@ -976,58 +976,52 @@ $\OML/lmm/m/it/10 S \OT1/lmr/m/n/10 = (\OML/lmm/m/it/10 a[]; [] ; a[]\OT1/lmr/m
 
 File: images//ase-example.eps Graphic file (type eps)
 <images//ase-example.eps> [12] [13]
-File: images//statemachine-example.eps Graphic file (type eps)
- <images//statemachine-example.eps> [14]
-[15]
 File: images//case-study/sequential-form.eps Graphic file (type eps)
  <images//case-study/sequential-form.eps>
+[14]
 File: images//case-study/sequential-form-eg-gui.eps Graphic file (type eps)
-
-<images//case-study/sequential-form-eg-gui.eps>) (./contents/agl.tex [16]
+ <images//case-study/sequential-form-eg-gui.eps>) (./contents/agl.tex
+[15]
 File: images//agl-cm.eps Graphic file (type eps)
-
-<images//agl-cm.eps> [17] [18]
+ <images//agl-cm.eps> [16] [17]
 File: images//activity-graph-example.eps Graphic file (type eps)
  <images//activity-graph-example.eps>
-Overfull \hbox (6.09454pt too wide) in paragraph at lines 113--113
+Overfull \hbox (6.09454pt too wide) in paragraph at lines 114--114
  []|[]\T1/lmr/bx/n/8 Node- 
  []
 
 
-Overfull \hbox (4.60532pt too wide) in paragraph at lines 124--124
+Overfull \hbox (4.60532pt too wide) in paragraph at lines 125--125
  []|[]\T1/lmr/bx/n/8 Edge- 
  []
 
 
-Overfull \hbox (2.65536pt too wide) in paragraph at lines 109--141
+Overfull \hbox (2.65536pt too wide) in paragraph at lines 110--142
  [][] 
  []
 
-[19]
+[18]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 164.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 164.
+(hyperref)                removing `math shift' on input line 165.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 164.
+(hyperref)                removing `subscript' on input line 165.
 
-File: images//agl-cmt.eps Graphic file (type eps)
-<images//agl-cmt.eps> [20] [21]
-File: images//agl-asm.eps Graphic file (type eps)
- <images//agl-asm.eps>
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 165.
+
+File: images//agl-cmt-csm.eps Graphic file (type eps)
+<images//agl-cmt-csm.eps> [19] [20]
 File: images//agc-enrolmentmgmt.eps Graphic file (type eps)
-
-<images//agc-enrolmentmgmt.eps> [22] [23]) (./contents/tool.tex
+ <images//agc-enrolmentmgmt.eps> [21])
+(./contents/tool.tex [22]
 File: images//software-tool.eps Graphic file (type eps)
-
-<images//software-tool.eps>) (./contents/eval.tex [24]) (./contents/threats.tex
-[25]) (./contents/relatedwork.tex [26] [27]) (./contents/conclusion.tex)
-[28] (./agl_dcsl.bbl
+ <images//software-tool.eps>) (./contents/eval.tex
+[23]) (./contents/threats.tex [24]) (./contents/relatedwork.tex [25] [26])
+(./contents/conclusion.tex) (./agl_dcsl.bbl
 Underfull \hbox (badness 1590) in paragraph at lines 24--30
 [][]\T1/lmr/m/n/8 D. M. Le, D.-H. Dang, V.-H. Nguyen, Gen-er-a-tive Soft-ware M
 od-ule De-vel-op-ment for Domain-Driven De-sign
@@ -1039,20 +1033,20 @@ Underfull \hbox (badness 1571) in paragraph at lines 24--30
  and Soft-ware Tech-nol-ogy 120 (2020) 106--239.
  []
 
-[29]) (./contents/apex-agl.tex [30]) [31] (./agl_dcsl.aux)
+[27]) [28] (./agl_dcsl.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `agl_dcsl.out' has not changed.
-(rerunfilecheck)             Checksum: 7B5C0642BBA145A33C2B8D8EE47FB55F;6543.
+(rerunfilecheck)             Checksum: 788EA80A1DBE6F8CE5A00EC50E046AA9;5780.
  ) 
 Here is how much of TeX's memory you used:
- 24426 strings out of 480248
- 444790 string characters out of 5896178
- 1027991 words of memory out of 5000000
- 41852 multiletter control sequences out of 15000+600000
+ 24277 strings out of 480172
+ 442766 string characters out of 5894515
+ 787913 words of memory out of 5000000
+ 41715 multiletter control sequences out of 15000+600000
  563326 words of font info for 84 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
- 99i,14n,94p,120700b,1913s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 59 hyphenation exceptions out of 8191
+ 99i,14n,94p,102978b,1909s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on agl_dcsl.dvi (31 pages, 299016 bytes).
+Output written on agl_dcsl.dvi (28 pages, 258528 bytes).

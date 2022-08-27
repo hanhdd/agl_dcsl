@@ -58,7 +58,8 @@ I1 and R1 are needed to incorporate activity graph into MOSA. R2 is a safe restr
 % + Node:
 %   + serviceCls: add OCL constraint on ModuleService.methods, whose names match those of the associated ModuleActs
 
-We define the abstract syntax of \agl~with a metamodel as shown in Figure~\ref{fig:agl-abstractSyntax}. The well-formedness OCL rules of this model are presented in~\ref{apex:agl-rules}. To unify the notation with the unified model, in the text we will express the concepts of this model using the equivalent \dcsl's terms (see Section~\ref{sect:bg-dcsl}). This is possible because the model only contains elements (class, attribute, one-one and one-many associations and generalization) that are expressible by \dcsl.
+We define the abstract syntax of \agl~with a metamodel as shown in Figure~\ref{fig:agl-abstractSyntax}. The well-formedness OCL rules of this model are presented in Appendix A of the long version\footnote{\url{http://shorturl.at/cmRST}} of this paper. %~\ref{apex:agl-rules}. 
+To unify the notation with the unified model, in the text we will express the concepts of this model using the equivalent \dcsl's terms (see Section~\ref{sect:bg-dcsl}). This is possible because the model only contains elements (class, attribute, one-one and one-many associations and generalization) that are expressible by \dcsl.
 %
 The following paragraphs describe the main meta-concepts of the ASM. Note that we use an enumeration called \clazz{ActName} and an enumeration called \clazz{State} to represent the action names and the union of pre-states and post-states (\resp). \clazz{State}, in particular, represents both normal states and concurrent states (see Section~\ref{sect:arch-atomic-action}).
 %
@@ -75,7 +76,7 @@ The two fields \attrib{ModuleAct}{fieldNames} and  \attribn{fieldVals}  together
 \item[\clazz{Node}.] This represents activity nodes and has four fields. Field \attribn{label} realizes the node label. 
 %Field \attribn{out} is derived from the association \clzassoc{hasSrc}{Edge}{Node}, which records the outgoing edges from a \clazz{Node}. 
 The next two fields specify the \textbf{referenced (abbrv. \textit{ref}) software module}, i.e., the module that is referenced by this node. Specifically, field \attribn{refCls} (typed \clazztpl{Class}{\clazz{DomainClass}}) specifies the domain class of the \textit{ref} module. We call this class the \textit{ref} domain class. Here, we assume \clazztpl{Class}{\clazz{DomainClass}} represents the Domain Class concept of \dcsl~(see Section~\ref{sect:bg-dcsl}).
-
+%
 Field \attribn{serviceCls} (typed \clazztpl{Class}{\clazz{ModuleService}}) specifies the actual \clazz{ModuleService} class of the \textit{ref} software module. 
 A default module service class for action nodes that we developed as part of the \jdomainapp~framework~\cite{le_jdomainapp_2017} is a class named \clazz{DataController}.
 It is through a module service object of \attribn{serviceCls} that the current \clazz{Node} is able to perform the \clazz{ModuleAct}s specified by the field \attribn{actSeq}. This field is an associative field that realizes the the association from \clazz{Node} to \clazz{ModuleAct}.
@@ -84,8 +85,8 @@ It is through a module service object of \attribn{serviceCls} that the current \
 \item[\clazz{ControlNode}.] This is an abstract sub-type of \clazz{Node} that represents the control nodes of the activity graph. This class is used to specify behavior of control nodes and to capture the state of its execution. We specialize class \clazz{ControlNode} into the four sub-types: \clazz{DecisionNode}, \clazz{ForkNode}, \clazz{JoinNode}, and \clazz{MergeNode}. 
 In particular, class \clazz{DecisionNode} references an interface named \clazz{Decision}, which provides a method (named \membern{evaluate}) for evaluating the decision logic. Similarly, class \clazz{JoinNode} references interface \clazz{Join}, which has a method (named \membern{transf}) for transforming the input tokens into output ones (if needed).
 Further, class \clazz{JoinNode} has a field named \attribn{pre}, which is a derived field that realizes the source \clazz{Node}s of the activity edges connecting to a \clazz{JoinNode}.
-
-Actual implementations of the interfaces \clazz{Decision} and \clazz{Join} are provided in the corresponding decision and join classes (\resp) in the unified model.
+%
+Actual implementations of the interface \clazz{Decision} w.r.t \clazz{Join} is provided in the corresponding decision w.r.t join classes in the unified model.
 %
 %\subsubsection*{\clazz{Edge}} \label{sect:agl-cm-edge}
 \item[\clazz{Edge}.] This represents activity edges. It has two associative fields \attribn{n1} and \attribn{n2}, which realize the two associations to \clazz{Node}. Field \attribn{n1} captures the source node, while field \attribn{n2} captures the target one. Intuitively, there is a correspondence between an \clazz{Edge} and an association between the two domain classes that are referenced by the source and target nodes of the edge.
@@ -165,16 +166,16 @@ The rest of this subsection focuses on explaining the CSM$_T$ and CSM. A detaile
 %\label{sect:agl-csmt}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-Figure~\ref{fig:agl-csmt} shows an annotation-friendly version of the ASM, called CM$_T$, which consists of three meta-concepts: activity graph (\clazz{AGraph}), activity node (\clazz{ANode}), and module action (\clazz{MAct}). To ease discussion later about the annotation-based CSM, we add to the figure the default value notation of the optional domain field (i.e., field with \attrib{DAttr}{optional} = \code{true}). The default value is written within a pair of brackets that immediately follow the field's data type.
+Figure~\ref{fig:agl-csm}(A) shows an annotation-friendly version of the ASM, called CM$_T$, which consists of three meta-concepts: activity graph (\clazz{AGraph}), activity node (\clazz{ANode}), and module action (\clazz{MAct}). To ease discussion later about the annotation-based CSM, we add to the figure the default value notation of the optional domain field (i.e., field with \attrib{DAttr}{optional} = \code{true}). The default value is written within a pair of brackets that immediately follow the field's data type.
 %
 We briefly describe below the three meta-concepts of CSM$_T$. The precise meaning of these meta-concepts will be explained through a transformation that we define in the next section. 
 
 \begin{figure*}[ht]
 	\begin{center}
-		\includegraphics[scale=0.4]{agl-cmt}
+		\includegraphics[scale=0.4]{agl-cmt-csm}
 	\end{center}
-	\caption{CSM$_T$: a compact and annotation-friendly model.} %
-	\label{fig:agl-csmt}
+	\caption{(A:LHR) CSM$_T$: a compact and annotation-friendly model; (B:RHS) The concrete syntax model (CSM) of \agl.} %
+	\label{fig:agl-csm}
 \end{figure*}
 
 % TODO:   + validation function
@@ -209,7 +210,8 @@ context Node inv:
   not(outClses.oclIsUndefined()) implies outClses->forAll(isDomainClass())
 \end{lstrule}
 
-Note that we cannot explicitly define the data types of \attrib{ANode}{refCls} and \attribn{outClses} as parameterized types of \clazz{DomainClass}, because this class only exists in the ASM and not in the actual annotation-based model. We compensate for this information loss in the two data types by two OCL constraints on \clazz{ANode} for the two fields. Both constraints (listed immediately above) make use of a boolean function named \func{isDomainClass}. This function, which is defined as part of the ASM's library rules in~\ref{apex:agl-Class}, is invoked on a class to check if it is attached to a \clazz{DClass} element. 
+Note that we cannot explicitly define the data types of \attrib{ANode}{refCls} and \attribn{outClses} as parameterized types of \clazz{DomainClass}, because this class only exists in the ASM and not in the actual annotation-based model. We compensate for this information loss in the two data types by two OCL constraints on \clazz{ANode} for the two fields. Both constraints (listed immediately above) make use of a boolean function named \func{isDomainClass}. This function, which is defined as part of the ASM's library rules in Appendix A.6 of the long version\footnote{\url{http://shorturl.at/cmRST}} of this paper, %~\ref{apex:agl-Class}, 
+is invoked on a class to check if it is attached to a \clazz{DClass} element. 
 %
 %\subsubsection*{\clazz{AGraph}} \label{sect:agl-cmt-agraph}
 \item[\clazz{AGraph}.] Class \clazz{AGraph} is simplified from \clazz{ActivityGraph} by having just one associative field for \clazz{ANode}. To further simplify this graph and ease its configuration, we replace the field \attrib{ActivityGraph}{n0} by a new boolean-typed field \attrib{ANode}{init}. We reconstruct \attrib{ActivityGraph}{n0} from all \clazz{ANode}s that have \attribn{init} = \code{true}.
@@ -223,15 +225,15 @@ Note that we cannot explicitly define the data types of \attrib{ANode}{refCls} a
 
 Although CSM$_T$ is suitable for OOPL's representation, it is still not yet natively in that form. Our next step, therefore, is to transform it into a CSM that is ``embedded'' into OOPL. This CSM is constructed from the following three OOPL meta-concepts that were discussed in Section~\ref{sect:bg-dcsl}: class, annotation, and property.
 
-\begin{figure*}[ht]
-	\begin{center}
-		\includegraphics[scale=0.4]{agl-asm}
-	\end{center}
-	\caption{The concrete syntax model (CSM) of \agl.} %
-	\label{fig:agl-csm}
-\end{figure*}
+%\begin{figure*}[ht]
+%	\begin{center}
+%		\includegraphics[scale=0.4]{agl-asm}
+%	\end{center}
+%	\caption{The concrete syntax model (CSM) of \agl.} %
+%	\label{fig:agl-csm}
+%\end{figure*}
 
-Figure~\ref{fig:agl-csm} shows the metamodel in the formm of a UML class diagram for ASM. In this, the three meta-classes in CSM$_T$ are transformed into three annotations of the same name. The annotations are represented in the figure as 2-part grey-coloured boxes, the association lines as grey lines. Each domain field is transformed into an annotation property. The non-associative domain fields are transformed directly into properties and so, to ease reading, we use `\dots' to represent these properties. We only highlight in the figure two properties of the two associative fields \attrib{AGraph}{nodes} and \attrib{ANode}{actSeq}. 
+Figure~\ref{fig:agl-csm}(B) shows the metamodel in the form of a UML class diagram for ASM. In this, the three meta-classes in CSM$_T$ are transformed into three annotations of the same name. The annotations are represented in the figure as 2-part grey-coloured boxes, the association lines as grey lines. Each domain field is transformed into an annotation property. The non-associative domain fields are transformed directly into properties and so, to ease reading, we use `\dots' to represent these properties. We only highlight in the figure two properties of the two associative fields \attrib{AGraph}{nodes} and \attrib{ANode}{actSeq}. 
 
 A key difference between CSM and CSM$_T$ is the attachment of \clazz{AGraph} to \clazz{Class}. This is represented in Figure~\ref{fig:agl-csm} by a solid line connecting the two corresponding class boxes. An \clazz{AGraph} attachment defines an AGC because it describes the instantiation of an \clazz{AGraph} object together with the associated \clazz{ANode}s and \clazz{MAct} objects.
 
