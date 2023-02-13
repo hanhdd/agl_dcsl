@@ -3,7 +3,7 @@
 The unified model is linked to an activity graph, which models the generic graph structure that is common to all activities. This activity graph incorporates module action to specialize the behavior of its nodes.
 In the terminology of the DDD's layer architecture~\cite{evans_domain-driven_2004}, the activity graph is positioned at the application layer, because it coordinates the behaviors of the modules owning the domain classes in the unified model in order to perform the overall activity's behavior.
 
-From the language engineering's perspective, we argue that the same benefits that are gained in unified domain modeling with \dcsl~can be attained for activity graphs if we develop a horizontal aDSL for them. We call this aDSL \abbrv{activity graph language}{\agl}.
+From the language engineering perspective, we argue that the same benefits that are gained in unified domain modeling with \dcsl~can be attained for activity graphs if we develop a horizontal aDSL for them. We call this aDSL \abbrv{activity graph language}{\agl}.
 The language is used to create activity graphs by \textit{configuring} them directly on the domain model using annotations. We call a model that conforms to \agl~an \abbrv{activity graph configuration}{AGC}.
 
 Adapting the meta-modeling approach for DSLs~\cite{kleppe_software_2008}, we specify \agl~in terms of an \textit{abstract syntax meta-model} (ASM) and an annotation-based textual \textit{concrete syntax model (CSM)}. We also briefly discuss the semantics of \agl, relative to the activity graph and module action.
@@ -28,7 +28,7 @@ We describe the \agl's domain requirements in terms of the following inclusion (
   \item[X3.] activity edge (\S{15.2.3.3}, pg.~373) is without guards.
 \end{itemize}
 
-I1 and R1 are needed to incorporate activity graph into MOSA. R2 is a safe restriction because, according to the specification, value specification is mainly used for specifying conditions on decision node. X1 and X2 concern the use of variables. According to the UML specification, variable is alternative to using object flow. The exclusion of edge guards in X3 is not a limitation of our approach. It is a deliberate omission at this stage when we want to focus on supporting the core structure of the activity graph. We plan to remove X3 in future work.
+I1 and R1 are needed to incorporate the activity graph into MOSA. R2 is a safe restriction because, according to the specification, value specification is mainly used for specifying conditions on decision nodes. X1 and X2 concern the use of variables. According to the UML specification, variable is an alternative to using object flow. The exclusion of edge guards in X3 is not a limitation of our approach. It is a deliberate omission at this stage when we want to focus on supporting the core structure of the activity graph. We plan to remove X3 in future work.
 %
 %\subsection{Conceptual Model (CM)} \label{sect:agl-conceptual-model}
 % TODO: + CM
@@ -70,7 +70,7 @@ The following paragraphs describe the main meta-concepts of the ASM. Note that w
 The two fields \attrib{ModuleAct}{fieldNames} and  \attribn{fieldVals}  together realize the attribute \membern{fieldValSet} of the action, as follows: each pair $ (f,v) $ in \membern{fieldValSet} is constructed by taking $f$ from \attribn{fieldNames} and $v$ from the corresponding element of \attribn{fieldVals}.
 %
 %\subsubsection*{\clazz{ActivityGraph}}\label{sect:agl-cm-activity-graph}
-\item[\clazz{ActivityGraph}.] This represents activity graphs and has three fields: \attribn{nodes}, \attribn{edges}, and \attribn{n0}. The first two fields are associative fields that realize the associations to \clazz{Node} and \clazz{Edge} (\resp). Field \attribn{n0} realizes a sub-set of nodes that are the start nodes of the graph. The starting nodes are the ones that are invoked first when the graph is executed.
+\item[\clazz{ActivityGraph}.] This represents activity graphs and has three fields: \attribn{nodes}, \attribn{edges}, and \attribn{n0}. The first two fields are associative fields that realize the associations to \clazz{Node} and \clazz{Edge} (\resp). Field \attribn{n0} realizes a subset of nodes that are the start nodes of the graph. The starting nodes are the ones that are invoked first when the graph is executed.
 %
 %\subsubsection*{\clazz{Node}} \label{sect:agl-cm-ctrl-node}
 \item[\clazz{Node}.] This represents activity nodes and has four fields. Field \attribn{label} realizes the node label. 
@@ -79,14 +79,14 @@ The next two fields specify the \textbf{referenced (abbrv. \textit{ref}) softwar
 %
 Field \attribn{serviceCls} (typed \clazztpl{Class}{\clazz{ModuleService}}) specifies the actual \clazz{ModuleService} class of the \textit{ref} software module. 
 A default module service class for action nodes that we developed as part of the \jdomainapp~framework~\cite{le_jdomainapp_2017} is a class named \clazz{DataController}.
-It is through a module service object of \attribn{serviceCls} that the current \clazz{Node} is able to perform the \clazz{ModuleAct}s specified by the field \attribn{actSeq}. This field is an associative field that realizes the the association from \clazz{Node} to \clazz{ModuleAct}.
+It is through a module service object of \attribn{serviceCls} that the current \clazz{Node} is able to perform the \clazz{ModuleAct}s specified by the field \attribn{actSeq}. This field is an associative field that realizes the association from \clazz{Node} to \clazz{ModuleAct}.
 %
 %\subsubsection*{\clazz{ControlNode}} \label{sect:agl-control-node}
-\item[\clazz{ControlNode}.] This is an abstract sub-type of \clazz{Node} that represents the control nodes of the activity graph. This class is used to specify behavior of control nodes and to capture the state of its execution. We specialize class \clazz{ControlNode} into the four sub-types: \clazz{DecisionNode}, \clazz{ForkNode}, \clazz{JoinNode}, and \clazz{MergeNode}. 
+\item[\clazz{ControlNode}.] This is an abstract sub-type of \clazz{Node} that represents the control nodes of the activity graph. This class is used to specify the behavior of control nodes and to capture the state of its execution. We specialize class \clazz{ControlNode} into the four sub-types: \clazz{DecisionNode}, \clazz{ForkNode}, \clazz{JoinNode}, and \clazz{MergeNode}. 
 In particular, class \clazz{DecisionNode} references an interface named \clazz{Decision}, which provides a method (named \membern{evaluate}) for evaluating the decision logic. Similarly, class \clazz{JoinNode} references interface \clazz{Join}, which has a method (named \membern{transf}) for transforming the input tokens into output ones (if needed).
 Further, class \clazz{JoinNode} has a field named \attribn{pre}, which is a derived field that realizes the source \clazz{Node}s of the activity edges connecting to a \clazz{JoinNode}.
 %
-Actual implementations of the interface \clazz{Decision} w.r.t \clazz{Join} is provided in the corresponding decision w.r.t join classes in the unified model.
+Actual implementations of the interface \clazz{Decision} w.r.t \clazz{Join} are provided in the corresponding decision w.r.t join classes in the unified model.
 %
 %\subsubsection*{\clazz{Edge}} \label{sect:agl-cm-edge}
 \item[\clazz{Edge}.] This represents activity edges. It has two associative fields \attribn{n1} and \attribn{n2}, which realize the two associations to \clazz{Node}. Field \attribn{n1} captures the source node, while field \attribn{n2} captures the target one. Intuitively, there is a correspondence between an \clazz{Edge} and an association between the two domain classes that are referenced by the source and target nodes of the edge.
@@ -151,12 +151,12 @@ The right-hand side of Figure~\ref{fig:activity-graph-example} is an activity gr
 %Other example graphs that include control notes are mentioned in SubSection~\ref{sect:incorporatePatterns}.
 Tables~\ref{tab:activity-graph-example}(A) and (B) list the states of the nodes and edges (\resp) of the activity graph. Table~\ref{tab:activity-graph-example}(C) lists the \clazz{ModuleAct} objects that are referenced by the \clazz{Node}s in Table~\ref{tab:activity-graph-example}(A). A \clazz{ModuleAct} object represents an SAA. Each table column lists the values of a representative field of an object.
 %
-For instance, node \objid{1}{Node} references the domain class \clazz{Student} (hence also references \clazz{ModuleStudent}) and has \membern{serviceCls} = \clazz{DataController}. It also references object \objid{1}{ModuleAct}. The \membern{refCls}'s value of each node is depicted in the figure by a dashed curve (labelled \strq{refCls}) that connects the node to the referenced domain class in the unified model.
+For instance, node \objid{1}{Node} references the domain class \clazz{Student} (hence also references \clazz{ModuleStudent}) and has \membern{serviceCls} = \clazz{DataController}. It also references object \objid{1}{ModuleAct}. The \membern{refCls}'s value of each node is depicted in the figure by a dashed curve (labeled \strq{refCls}) that connects the node to the referenced domain class in the unified model.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Concrete Syntax Model~(CSM)} \label{sect:agl-asm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Our main objective is to construct a metamodel for the concrete syntax~(CSM) of the \agl~by a transformation from the abstract syntax ASM. The CSM takes the annotation-based form, suitable for being embedded into a host OOPL. Furthermore, we will strive for a compact CSM that uses a small set of annotations. From the practical standpoint, such a model is desirable since it will result in a compact concrete syntax, which requires less effort from the language user to construct a unified domain model. To achieve this requires two steps. First, we transform ASM into another model, called CSM$_T$, that is compact and suitable for annotation-based representation. Second, we transform CSM$_T$ into the actual annotation-based CSM.
+Our main objective is to construct a metamodel for the concrete syntax~(CSM) of the \agl~by a transformation from the abstract syntax ASM. The CSM takes the annotation-based form, suitable for being embedded into a host OOPL. Furthermore, we will strive for a compact CSM that uses a small set of annotations. From a practical standpoint, such a model is desirable since it will result in a compact concrete syntax, which requires less effort from the language used to construct a unified domain model. To achieve this requires two steps. First, we transform ASM into another model, called CSM$_T$, that is compact and suitable for annotation-based representation. Second, we transform CSM$_T$ into the actual annotation-based CSM.
 %
 The rest of this subsection focuses on explaining the CSM$_T$ and CSM. A detailed explanation of the transformation ASM $\rightarrow$ CSM$_T$ would be shown in Appendix B of the long version\footnote{\url{http://shorturl.at/cmRST}} of this paper. 
 %Theorem~\ref{theo:csmt-csm} as shown in \ref{apex:agl-asm2csmt} ensures that \agl's CSM has the same information capacity as CSM$_T$ through the transformation.
@@ -183,7 +183,7 @@ Note that due to the restrictions on the data type of annotation property, field
 %
 \begin{description}
 %\subsubsection*{\clazz{MAct}} %\label{sect:agl-csmt-mact}
-\item[\clazz{MAct}.] \clazz{MAct} realizes \clazz{ModuleAct} using only the data types that are supported by annotation. Specifically, the data types of \attrib{MAct}{preStates} and \attribn{pstStates} (the latter is short for \attribn{postStates}) are arrays of \clazz{State}. The default values of these fields are an empty array (\code{[]}), which do not mean that they are not specified. An empty array in this case means that it takes the default state value of action as specified in Table~\ref{tab:core-atomic-actions} of Section~\ref{sect:arch-atomic-action}.
+\item[\clazz{MAct}.] \clazz{MAct} realizes \clazz{ModuleAct} using only the data types that are supported by annotation. Specifically, the data types of \attrib{MAct}{preStates} and \attribn{pstStates} (the latter is short for \attribn{postStates}) are arrays of \clazz{State}. The default values of these fields are an empty array (\code{[]}), which do not mean that they are not specified. An empty array in this case means that it takes the default state value of the action as specified in Table~\ref{tab:core-atomic-actions} of Section~\ref{sect:arch-atomic-action}.
 The following additional OCL constraints help ensure that the two fields contain unique values, which are required to match the \clazz{Set} data type of the two corresponding fields of \clazz{ModuleAct}.
 % TODO: + MAct
 % + OCL constraint on preStates, pstStates
@@ -194,12 +194,12 @@ context Node inv:
   not(pstStates.oclIsUndefined()) implies pstStates->asSet() = pstStates
 \end{lstrule}
 
-As for the two fields \attrib{MAct}{fieldNames} and \attribn{fieldVals}, they also take an array type. This is equivalent to the \clazz{Seq} data type of the two corresponding fields of \clazz{ModuleAct}. Note that \attribn{fieldVals} is typed \clazz{String[]}, i.e., the value objects, if specified, need to be written explicitly as a string. Fortunately, this is not at all troublesome, because \attribn{fieldVals} is only required if the value objects are specified by the user. For many cases, however, the values come from another action or an external system. In these cases, \clazz{fieldVals} need not be specified and can take the default value of an empty array.
+As for the two fields \attrib{MAct}{fieldNames} and \attribn{fieldVals}, they also take an array type. This is equivalent to the \clazz{Seq} data type of the two corresponding fields of \clazz{ModuleAct}. Note that \attribn{fieldVals} is typed \clazz{String[]}, i.e., the value objects, if specified, need to be written explicitly as a string. Fortunately, this is not at all troublesome, because \attribn{fieldVals} is only required if the value objects are specified by the user. In many cases, however, the values come from another action or an external system. In these cases, \clazz{fieldVals} need not be specified and can take the default value of an empty array.
 
 Last but not least, field \attrib{MAct}{output} is typed \clazz{String} and has the default value of an empty string (\strq{}). This field is added only for completeness. It always takes the default value, because the output value of a module action is never specified by the user. It is generated from within the system.
 %
 %\subsubsection*{\clazz{ANode}} \label{sect:agl-cmt-anode}
-\item[\clazz{ANode}.] Class \clazz{ANode} both represents \clazz{Node} and \clazz{Edge} and merges the entire \clazz{ControlNode} type hierarchy. To achieve the former, we add to \clazz{ANode} a new field, named \membern{outClses}, that captures the \textit{ref} domain classes of the target nodes of the outgoing edges of a node. To achieve the latter, we add to \clazz{ANode} a field named \attribn{nodeType}, whose data type is the enumeration \clazz{NodeType}. This enumeration specifies all the pre-defined node types, including action and the control types.
+\item[\clazz{ANode}.] Class \clazz{ANode} both represents \clazz{Node} and \clazz{Edge} and merges the entire \clazz{ControlNode} type hierarchy. To achieve the former, we add to \clazz{ANode} a new field, named \membern{outClses}, that captures the \textit{ref} domain classes of the target nodes of the outgoing edges of a node. To achieve the latter, we add to \clazz{ANode} a field named \attribn{nodeType}, whose data type is the enumeration \clazz{NodeType}. This enumeration specifies all the pre-defined node types, including action and control types.
 
 %TODO: + ANode
 % + add extra OCL constraints for the above
@@ -233,12 +233,12 @@ Although CSM$_T$ is suitable for OOPL's representation, it is still not yet nati
 %	\label{fig:agl-csm}
 %\end{figure*}
 
-Figure~\ref{fig:agl-csm}(B) shows the metamodel in the form of a UML class diagram for ASM. In this, the three meta-classes in CSM$_T$ are transformed into three annotations of the same name. The annotations are represented in the figure as 2-part grey-coloured boxes, the association lines as grey lines. Each domain field is transformed into an annotation property. The non-associative domain fields are transformed directly into properties and so, to ease reading, we use `\dots' to represent these properties. We only highlight in the figure two properties of the two associative fields \attrib{AGraph}{nodes} and \attrib{ANode}{actSeq}. 
+Figure~\ref{fig:agl-csm}(B) shows the metamodel in the form of a UML class diagram for ASM. In this, the three meta-classes in CSM$_T$ are transformed into three annotations of the same name. The annotations are represented in the figure as 2-part grey-colored boxes, the association lines as grey lines. Each domain field is transformed into an annotation property. The non-associative domain fields are transformed directly into properties and so, to ease reading, we use `\dots' to represent these properties. We only highlight in the figure two properties of the two associative fields \attrib{AGraph}{nodes} and \attrib{ANode}{actSeq}. 
 
 A key difference between CSM and CSM$_T$ is the attachment of \clazz{AGraph} to \clazz{Class}. This is represented in Figure~\ref{fig:agl-csm} by a solid line connecting the two corresponding class boxes. An \clazz{AGraph} attachment defines an AGC because it describes the instantiation of an \clazz{AGraph} object together with the associated \clazz{ANode}s and \clazz{MAct} objects.
 
 Adding the \clazz{AGraph} attachment to our definition of activity class (see Definition~\ref{def:unified-class-model}) helps form a bridge between \agl~and the unified model. More specifically, in the overall context of our method, we call any class that has an \clazz{AGraph} attachment an \textit{activity class}.
-Further, to ease discussion we will use the term \textbf{configured unified model} to refer to a unified model whose the activity class is attached with an \clazz{AGraph}. 
+Further, to ease discussion we will use the term \textbf{configured unified model} to refer to a unified model whose activity class is attached with an \clazz{AGraph}. 
 %
 \subsubsection*{Discussion} \label{sect:agl-discussion} %
 In the current syntax, the AGC is sensibly attached to the activity class, because this class serves as the pivot for the activity graph definition.
@@ -247,7 +247,7 @@ An alternative annotation-based syntax would be to not define the \clazz{ANode}s
 
 However, this syntax has several limitations. First, we need extra properties in order to keep track of which \clazz{ANode}s belong to which \clazz{AGraph}. For example, we need two new properties \attrib{AGraph}{id} and \attrib{ANode}{graph}, the values of which in the same \clazz{AGraph} are equal. 
 Second, it is more difficult to read, understand, and validate the AGC. This is because the AGC is not in one place but is scattered around in different parts of the domain model.
-Third, we would unnecessarily complicate the component classes with \clazz{ANode} specifications, which in turn would hinder their use and understandability. These classes should only be concerned with the domain logics, not the mechanics of the activity graph that executes them.
+Third, we would unnecessarily complicate the component classes with \clazz{ANode} specifications, which in turn would hinder their use and understandability. These classes should only be concerned with the domain logic, not the mechanics of the activity graph that executes them.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Annotation-Based Textual Concrete Syntax} 
@@ -277,7 +277,7 @@ As can be seen from the figure, the \clazz{AGraph} element is configured with it
 
 Because ASM, CSM$_T$, and the \agl's CSM have the same information capacity, we can discuss the \agl's semantics using any of these models. We choose ASM because it has a clearer conceptual structure. Based on this structure (see Figure~\ref{fig:agl-abstractSyntax}), we argue that the \agl's semantics is an extension of the core UML activity graph semantics to incorporate \clazz{ModuleAct} as a type of execution node. Indeed, Figure~\ref{fig:agl-abstractSyntax} shows that ASM consists in \clazz{ModuleAct} (positioned at the top of the figure) and the UML activity graph, scoped by the inclusion, exclusion and restriction clauses in Section~\ref{sect:agl-abstractSyntax}. The semantics of \clazz{ModuleAct} was discussed in Section~\ref{sect:actSemantics}, while the semantics of UML activity graph is defined informally in the UML specification~\cite{omg_unified_2015} itself and formally in~\cite{daw_extensible_2015}.
 
-We conclude this section with an updated definition of the software generated in MOSA. This definition makes precise the general notion of module-based software that we introduced in Section~\ref{sect:bg-arch} and takes into account the combination of unified model and activity graph. It highlights the sub-set of modules that owns the activity classes and how these modules trigger the execution of the activity graphs of the associated activities.
+We conclude this section with an updated definition of the software generated in MOSA. This definition makes precise the general notion of module-based software that we introduced in Section~\ref{sect:bg-arch} and takes into account the combination of a unified model and an activity graph. It highlights the sub-set of modules that owns the activity classes and how these modules trigger the execution of the activity graphs of the associated activities.
 %
 \begin{definition} \label{def:software}
 Given a unified model $D$ that contains a non-empty set of activity classes, each of which is attached to an AGC describing the activity graph logic of an activity in the UML activity model of the domain. A software generated in MOSA \wrt $D$ consists in a set of modules, each of which owns a domain class in $D$ and the behavior of the \code{newObject} action of every owner module of an activity class includes the logic described by the activity graph that is configured by the AGC attached to that class. \qed
