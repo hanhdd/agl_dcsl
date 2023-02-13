@@ -9,7 +9,7 @@ Using the unified model at the core of a MOSA model requires defining for the mo
 We consider these actions as forming a module interface, which is represented by a UML interface named  \clazz{ModuleService}. In this way the behavior of a module can be defined. Section~\ref{sect:actSemantics} presents a formal action-based semantics of modules.
 
 %- (Module Interaction Patterns)
-In order to incorporate domain behaviors in terms of module interactions into a domain model, we propose to employ the five essential UML activity modeling patterns as presented in~\cite{le_domain_2018} to represent such behaviors. In other word, our pattern-based approach could support domain behaviors that are specified by a UML activity with basic constructs corresponding to these patterns. We named the patterns after these five elementary activity flows: sequential, decisional, forked, joined and merged. This paper extends each pattern solution with a specification of the activity graph in the \agl~that is explained in Section~\ref{sect:agl}. 
+In order to incorporate domain behaviors in terms of module interactions into a domain model, we propose to employ the five essential UML activity modeling patterns as presented in~\cite{le_domain_2018} to represent such behaviors. In other words, our pattern-based approach could support domain behaviors that are specified by a UML activity with basic constructs corresponding to these patterns. We named the patterns after these five elementary activity flows: sequential, decisional, forked, joined and merged. This paper extends each pattern solution with a specification of the activity graph in the \agl~that is explained in Section~\ref{sect:agl}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Module Action Semantics}
@@ -18,7 +18,7 @@ In order to incorporate domain behaviors in terms of module interactions into a 
 
 This section provides a formal definition of \textit{module action}.
 %, which is suitable for use with the activity graph language \agl~that we propose in Section~\ref{sect:agl}. 
-Our definition focuses on describing the structure of module action and its pre- and post-states. We base our formalism on the UML Action language (\S{16}\footnote{We use `\S{}' to denote both Chapter and Section, which is interpreted from the context.}~\cite{omg_unified_2015}), which incorporates the notion of state. State is argued to be an intrinsic part of behavioral specification (\S{14}~\cite{omg_unified_2015}).
+Our definition focuses on describing the structure of module action and its pre- and post-states. We base our formalism on the UML Action language~\cite{omg_unified_2015}, which incorporates the notion of state. State is an intrinsic part of behavioral specification~\cite{omg_unified_2015}.
 %
 We recursively define module action by beginning with the most primitive type of action called \textit{atomic action}. We then combine these actions to form \textit{atomic action sequence} and, more generally, \textit{structured atomic action}.
 
@@ -36,7 +36,7 @@ Atomic action is characterised by:
 \begin{itemize}
 \item \membern{name}: the action name.
 %
-\item \membern{preStates} (for \membern{localPrecondition}~\cite{omg_unified_2015}): the states at which a current module must be in in order for this action to proceed.
+\item \membern{preStates} (for \membern{localPrecondition}~\cite{omg_unified_2015}): the states at which a current module must be in order for this action to proceed.
 %
 \item \membern{postStates} (for \membern{localPostcondition}~\cite{omg_unified_2015}): the states at which the action completes its execution on a current module.
 %
@@ -50,7 +50,7 @@ Thus, we denote by $ a = (o,s,i) $ an atomic action $a$ whose \membern{name}, \m
 \end{itemize} \qed
 \end{definition}
 
-Note the followings about the above definition. 
+Note the following about the above definition. 
 First, we use module states to abstract from the local pre- and post-conditions of each action. This abstraction enables us to flexibly combine actions based on states to construct more complex ones. A \textbf{module state} abstracts from the states of the model, view and controller components of a module as these components handle a module action. Certain module states can occur concurrently, resulting in what we call \textbf{concurrent state}s. We write these states using the operator `+'. 
 The \membern{postStates} of primitive action consists of a single state, while that of more complex actions (discussed in Section~\ref{sect:arch-saa}) consists of multiple states.
 
@@ -85,11 +85,11 @@ Third, the action output consists of at most one type, which is the domain class
 
 %
 Table~\ref{tab:core-atomic-actions} lists definitions of the core atomic actions. %
-For exposition purpose, we divide the actions into two groups. %
+For exposition purposes, we divide the actions into two groups. %
 The first group includes actions that concern the overall operational context of the module.
 The actions in this group include \membern{open}, \membern{newObject}, \membern{setDataFieldValues}, \membern{reset}, and \membern{cancel}. The post-states of these actions consist of the following states: \code{Opened}, \code{NewObject}, \code{Editing}, \code{Reset}, and \code{Cancelled} (\resp). 
 %
-The second group include three essential domain object manipulation actions: \membern{createObject}, \membern{updateObject}, and \membern{deleteObject}. The post-states of these actions include the following states: \code{Created}, \code{Updated}, and \code{Deleted} (\resp).
+The second group includes three essential domain object manipulation actions: \membern{createObject}, \membern{updateObject}, and \membern{deleteObject}. The post-states of these actions include the following states: \code{Created}, \code{Updated}, and \code{Deleted} (\resp).
 %
 %We will illustrate the atomic actions in various examples that will be presented later in this paper.
 
@@ -138,7 +138,7 @@ For example, the ASE of \clazz{ModuleStudent} (shown in Figure~\ref{fig:ase-exam
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Reachable States} \label{sect:arch-reachable-states}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The definition of ASE gives rise to a notion of \textit{reachable state}, which is a module state that is reachable from a given action. We discuss this notion below and use it in the subsequent subsection to define a more generic action composition.
+The definition of ASE gives rise to the notion of \textit{reachable state}, which is a module state that is reachable from a given action. We discuss this notion below and use it in the subsequent subsection to define a more generic action composition.
 %
 \begin{definition} \label{def:reachable-state}
 A module state $s'$ is \textbf{reachable} from an atomic action $a$ if there exists at least one ASE whose first member action is $a$ and whose post-state is $s'$. Action $a$ is called the \textbf{source action} of $s'$. \qed
@@ -174,13 +174,13 @@ A module state $s'$ is \textbf{reachable} from an atomic action $a$ if there exi
 %%
 %The last five rows of the table show that the corresponding five actions each has only one reachable state, which are their own states. These actions are ``stubs'', in the sense that they terminate all the ASEs that lead to them.
 
-Clearly, the post-state of an atomic action is reachable from its own action. Let us define the reachable states of atomic actions shown in Table~\ref{tab:core-atomic-actions}. First, the reachable states of action \membern{open} include \code{Opened}, \code{NewObject}, \code{Editing}, \code{Created}, \code{Updated}, \code{Deleted}, \code{Reset}, and \code{Cancelled}. This is because once the module's view is opened, it is ready to perform any of the core atomic actions (in some sequences). The rest of the core actions cannot reach state \code{Opened}, because this state is raised only once. Second, the reachable states of \membern{newObject} include \code{NewObject}, \code{Editing}, \code{Created}, \code{Reset}, and \code{Cancelled}. The action 
+Clearly, the post-state of an atomic action is reachable from its own action. Let us define the reachable states of atomic actions shown in Table~\ref{tab:core-atomic-actions}. First, the reachable states of action \membern{open} include \code{Opened}, \code{NewObject}, \code{Editing}, \code{Created}, \code{Updated}, \code{Deleted}, \code{Reset}, and \code{Cancelled}. This is because once the module's view is opened, it is ready to perform any of the core atomic actions (in some sequences). The rest of the core actions cannot reach the state \code{Opened}, because this state is raised only once. Second, the reachable states of \membern{newObject} include \code{NewObject}, \code{Editing}, \code{Created}, \code{Reset}, and \code{Cancelled}. The action 
 \membern{newObject} additionally cannot reach \code{Updated} and \code{Deleted}. This is because this action is reserved for creating a new object. It thus cannot also lead to updating or deleting an existing object.
-Third, the reachable states of action \membern{setDataFieldValues} include \code{Editing}, \code{Created}, \code{Updated}, and \code{Reset}. The action \membern{setDataFieldValues} cannot reach \code{NewObject}, \code{Deleted} and \code{Cancelled}. This is because this action concerns only with inputting data and thus cannot initiate or cancel object creation, nor can it lead to object deletion.
+Third, the reachable states of action \membern{setDataFieldValues} include \code{Editing}, \code{Created}, \code{Updated}, and \code{Reset}. The action \membern{setDataFieldValues} cannot reach \code{NewObject}, \code{Deleted} and \code{Cancelled}. This is because this action concerns only input data and thus cannot initiate or cancel object creation, nor can it lead to object deletion.
 %
-Finally, with the remaining five actions each has only one reachable state, which are their own states. These actions are ``stubs'', in the sense that they terminate all the ASEs that lead to them.
+Finally, with the remaining five actions each has only one reachable state, which is their own states These actions are ``stubs'', in the sense that they terminate all the ASEs that lead to them.
 
-\textit{Example}. The ASE in Figure~\ref{fig:ase-example} shows that state \code{Created} is reachable from any of the three member actions that precedes the action \membern{createObject}. These include \membern{open}, \membern{newObject} and \membern{setDataFieldValues}. 
+\textit{Example}. The ASE in Figure~\ref{fig:ase-example} shows that state \code{Created} is reachable from any of the three member actions that precede the action \membern{createObject}. These include \membern{open}, \membern{newObject} and \membern{setDataFieldValues}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Structured Atomic Action (SAA)} \label{sect:arch-saa}
@@ -215,12 +215,12 @@ Further, SAA is significantly shorter to compose than an ASE set -- all we need 
 %	\label{fig:statemachine-example}
 %\end{figure}
  
-\textit{Example}. Let us consider the SAA $ (\code{newObject}, \{ \code{Created},\code{Cancelled} \}) $, which represents a common ASE set that starts with action \membern{newObject} and ends only when either the state \code{Created} or the state \code{Cancelled} is detected. The ASE set consists of the following frequently-occurring ASEs. The 
+\textit{Example}. Let us consider the SAA $ (\code{newObject}, \{ \code{Created},\code{Cancelled} \}) $, which represents a common ASE set that starts with the action \membern{newObject} and ends only when either the state \code{Created} or the state \code{Cancelled} is detected. The ASE set consists of the following frequently-occurring ASEs. The 
 first ASE is the one described earlier in Figure~\ref{fig:ase-example} but excludes the first action. We assume here that the module's view is already opened. The remaining ASEs model alternative scenarios in which the user wants to cancel creating the object at some point between performing the \membern{newObject} action and the \membern{createObject} action.
 %
 %\subsubsection*{Discussion} %\label{sect:module-act-discussion}
 
-\noindent {\bf Discussion.} We wish to stress that our definition of module action incorporates the notion of state, which is more formally modelled in another UML behavioral modeling language called Behavior State Machines (BSM) (\S{14.2}~\cite{omg_unified_2015}). The main reason is that Activity diagram and BSM are tightly linked to states and state transitions to represent behaviors. Indeed, these languages represent two sides of the same coin: the former emphasizes the actual behavior, while the latter focuses on the behavior's effects (states and state transitions). More specifically, a close inspection of the BSM's abstract syntax (\S{14.2.2}) reveals that both \clazz{State} and \membern{Transition} have associated \clazz{Behavior}(s) that describe what actually takes place when a particular state is reached or during a transition between some two states. %Figure~\ref{fig:statemachine-example} shows a state machine that could allow us to capture sequences of module actions as shown in Table~\ref{tab:core-atomic-actions}.
+\noindent {\bf Discussion.} We wish to stress that our definition of module action incorporates the notion of state, which is more formally modeled in another UML behavioral modeling language called Behavior State Machines (BSM) (\S{14.2}~\cite{omg_unified_2015}). The main reason is that the Activity diagram and BSM are tightly linked to states and state transitions to represent behaviors. Indeed, these languages represent two sides of the same coin: the former emphasizes the actual behavior, while the latter focuses on the behavior's effects (states and state transitions). More specifically, a close inspection of the BSM's abstract syntax (\S{14.2.2}) reveals that both \clazz{State} and \membern{Transition} have associated \clazz{Behavior}(s) that describe what actually takes place when a particular state is reached or during a transition between some two states. %Figure~\ref{fig:statemachine-example} shows a state machine that could allow us to capture sequences of module actions as shown in Table~\ref{tab:core-atomic-actions}.
 
 %Our notion of module action's pre- and post-states simply looks at the same view but from the behavior's perspective.
 
@@ -231,9 +231,9 @@ first ASE is the one described earlier in Figure~\ref{fig:ase-example} but exclu
 \label{sect:behaviorPatterns}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-As explained in SubSection~\ref{sect:domainBehaviors}, we employ the five essential UML activity modeling patterns as presented in~\cite{le_domain_2018} in order to express domain behaviors, that need to be incorporated for a unified domain model. This section concentrates on explaining how we can translate a behavior specification in UML activity diagram into a corresponding specification defined as a combination of pattern solutions. This paper extends each pattern solution with an AGC, i.e., an activity graph specification in the \agl. A detailed explanation of AGC and \agl~is shown in Section~\ref{sect:agl}. Due to the limitation of the length of this paper, we only focus on \textit{Sequential Pattern} to illustrate the approach. The four remaining patterns, including \textit{Decisional Pattern}, \textit{Forked Pattern}, \textit{Joined Pattern}, and \textit{Merged Pattern}, would be explained in the long version\footnote{\url{http://shorturl.at/cmRST}} of this paper.
+As explained in SubSection~\ref{sect:domainBehaviors}, we employ the five essential UML activity modeling patterns as presented in~\cite{le_domain_2018} in order to express domain behaviors, that need to be incorporated for a unified domain model. This section concentrates on explaining how we can translate a behavior specification in the UML activity diagram into a corresponding specification defined as a combination of pattern solutions. This paper extends each pattern solution with an AGC, i.e., an activity graph specification in the \agl. A detailed explanation of AGC and \agl~is shown in Section~\ref{sect:agl}. Due to the limitation of the length of this paper, we only focus on the \textit{Sequential Pattern} to illustrate the approach. The four remaining patterns, including \textit{Decisional Pattern}, \textit{Forked Pattern}, \textit{Joined Pattern}, and \textit{Merged Pattern}, would be explained in the long version\footnote{\url{http://shorturl.at/cmRST}} of this paper.
 
-We are particularly interested in the design of the \textit{pattern form}~\cite{riehle_understanding_1996, gamma_design_1994}. To keep the patterns generic, we present for each pattern form a UML activity model and a \textbf{template configured unified model} that realizes it. The template model is a `parameterized' configured unified model, in which elements of the nonannotation meta-concepts are named after the generic roles that they play. 
+We are particularly interested in the design of the \textit{pattern form}~\cite{riehle_understanding_1996, gamma_design_1994}. To keep the patterns generic, we present for each pattern form a UML activity model and a \textbf{template configured unified model} that realizes it. The template model is a `parameterized' configured unified model, in which elements of the non-annotation meta-concepts are named after the generic roles that they play. 
 %
 For brevity, we will omit all associative fields and base domain methods from the model's diagram.
 
@@ -257,7 +257,7 @@ The top-left of Figure~\ref{fig:sequential-form} shows the UML activity model fo
 \end{figure}
 
 The AGC is given in the \clazz{AGraph}'s note box in the top-right corner of the figure. It consists of two \clazz{ANode}s. The first \clazz{ANode} specifies node $ e_s $, and the second specifies node $ e_n $. The \clazz{ANode}s are quite self-explanatory except for the three \clazz{MAct}s, which are worth some explanation. The first \clazz{MAct}'s configuration specifies the SAA \amos{newObject}{Created}). %This SAA is a subset of the one presented in Section~\ref{sect:arch-saa}. 
-It involves performing \atomact{newObject}{ NewObject} and any combination of \atomact{setDataFieldValues}{Editing} and \atomact{createObject}{Created}. Action \membern{newObject} is to prepare \clazz{Cs}' view for user to enter input. Action \membern{setDataFieldValues} is to set a view field's value from each user input (allowing user to re-enter if an error occurs). And action \membern{createObject} is to create a new \clazz{Cs}' object from the input. 
+It involves performing \atomact{newObject}{ NewObject} and any combination of \atomact{setDataFieldValues}{Editing} and \atomact{createObject}{Created}. Action \membern{newObject} is to prepare \clazz{Cs}' view for the user to enter input. Action \membern{setDataFieldValues} is to set a view field's value from each user input (allowing the user to re-enter if an error occurs). And action \membern{createObject} is to create a new \clazz{Cs}' object from the input. 
 
 The second and third \clazz{MAct}s together perform a similar logic over \clazz{Cn}, except for the need to break the \membern{setDataFieldValues} operation into two steps: \textit{(a)} set the \clazz{Cs} object created by the first \clazz{MAct} (and offered by $ e_s $ to $ e_n $ via its output pin) into a suitable view field of \clazz{Cn}'s view and (\textit{b)} set values of other view fields (allowing user to re-enter if an error occurs). To achieve this, the second \clazz{MAct} first specifies \amos{newObject}{NewObject}. The third \clazz{MAct} then specifies the rest of the logic. Step \textit{(a)} is performed by the operation \membern{setDataFieldValues}, which uses the field named \strq{as} to identify the view field of \clazz{Cn}'s view whose value needs to be set. Step \textit{(b)} is performed by \membern{setDataFieldValues} for other view fields.
 
