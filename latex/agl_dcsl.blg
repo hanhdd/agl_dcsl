@@ -1,49 +1,54 @@
-This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
+This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: agl_dcsl.aux
+Reallocating 'name_of_file' (item size: 1) to 15 items.
 The style file: elsarticle-num.bst
+Reallocating 'name_of_file' (item size: 1) to 25 items.
 Database file #1: resources/bib/behmod.bib
+Warning--empty author and editor in aprende_OpenXava_2011
+Warning--empty year in aprende_OpenXava_2011
+Warning--empty pages in dhingra2016performance
 Warning--empty journal in beck_manifesto_2017
 Warning--empty pages in cepa_representing_2005
-You've used 41 entries,
+You've used 47 entries,
             2937 wiz_defined-function locations,
-            917 strings with 12383 characters,
-and the built_in function-call counts, 13449 in all, are:
-= -- 1256
-> -- 364
-< -- 29
-+ -- 143
-- -- 102
-* -- 846
-:= -- 1672
-add.period$ -- 51
-call.type$ -- 41
-change.case$ -- 45
+            944 strings with 13292 characters,
+and the built_in function-call counts, 15009 in all, are:
+= -- 1396
+> -- 397
+< -- 30
++ -- 158
+- -- 111
+* -- 939
+:= -- 1862
+add.period$ -- 57
+call.type$ -- 47
+change.case$ -- 50
 chr.to.int$ -- 42
-cite$ -- 43
-duplicate$ -- 497
-empty$ -- 1627
-format.name$ -- 131
-if$ -- 3607
+cite$ -- 52
+duplicate$ -- 558
+empty$ -- 1837
+format.name$ -- 143
+if$ -- 4034
 int.to.chr$ -- 0
-int.to.str$ -- 41
-missing$ -- 47
-newline$ -- 141
-num.names$ -- 47
-pop$ -- 378
+int.to.str$ -- 47
+missing$ -- 53
+newline$ -- 160
+num.names$ -- 52
+pop$ -- 426
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 936
+skip$ -- 1052
 stack$ -- 0
-substring$ -- 657
-swap$ -- 163
-text.length$ -- 15
+substring$ -- 720
+swap$ -- 174
+text.length$ -- 16
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 2
-while$ -- 113
-width$ -- 43
-write$ -- 369
-(There were 2 warnings)
+warning$ -- 5
+while$ -- 125
+width$ -- 49
+write$ -- 416
+(There were 5 warnings)
