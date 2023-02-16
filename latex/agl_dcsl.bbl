@@ -115,6 +115,32 @@ A.~v. Lamsweerde, Formal {Specification}: {A} {Roadmap}, in: Proceedings of the
   {Conference} on {The} {Future} of {Software} {Engineering}, {ICSE} '00, ACM,
   New York, NY, USA, 2000, pp. 147--159.
 
+\bibitem{thakur2019role}
+R.~N. Thakur, U.~Pandey, The role of model-view controller in object oriented
+  software development, Nepal Journal of Multidisciplinary Research 2~(2)
+  (2019) 1--6.
+
+\bibitem{haywood2013apache}
+D.~Haywood, Apache isis-developing domain-driven java apps, Methods \& Tools:
+  Practical knowledge source for software development professionals 21~(2)
+  (2013) 40--59.
+
+\bibitem{aprende_OpenXava_2011}
+\href{https://books.google.com.vn/books?id=5GnQcZvDkbkC}{Aprende OpenXava con
+  ejemplos}, Javier Paniza.
+\newline\urlprefix\url{https://books.google.com.vn/books?id=5GnQcZvDkbkC}
+
+\bibitem{dhingra2016performance}
+N.~Dhingra, D.~E. Abdelmoghith, D.~H.~T. Mouftah, Performance evaluation of jpa
+  based orm techniques, in: Proceedings of 2nd International Conference on
+  Computer Science Networks and Information Technology, Heldon 27th-28th Aug,
+  2016.
+
+\bibitem{pllana2018performance}
+B.~Pllana, Performance analysis of java persistence api providers, in:
+  Conference Book of Proceedings, 2018, p. 100.
+
+
 \bibitem{larman_applying_2004}
 C.~Larman, Applying {UML} and {Patterns}: {An} {Introduction} to
   {Object}-{Oriented} {Analysis} and {Design} and {Iterative} {Development},
