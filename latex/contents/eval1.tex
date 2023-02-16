@@ -1,0 +1,159 @@
+\section{Evaluation}
+\label{sect:evaluation} %
+
+In this section, we discuss an evaluation of \agl. Our aim is to show that \agl~is both  essentially expressive and practically usable.
+%
+%In this paper, we focus on evaluating \agl~because it is a new language contribution of our method. 
+%
+We consider \agl~as a type of specification language and adapt the \dcsl~evaluation approach that we applied in~\cite{le_domain_2018}.
+%
+More specifically, we adapt from~\cite{lamsweerde_formal_2000} the following three criteria for evaluating \agl: expressiveness, required coding level, and constructibility. We will present our evaluation of these criteria in Sections~\ref{sect:eval-expressiveness}--\ref{sect:eval-construct}. We then describe a real-world software development case study which we have developed using the implemented components. Having demonstrated the applicability of our method to developing real-world software, let us now turn our attention to two other core evaluation questions:
+\begin{itemize}
+	\item How well does our method perform against a construct to represent domain behaviors?
+	\item What is the \agl~integrated semantics of structural and behavioral aspects of a domain model?
+\end{itemize}
+We answer this question by defining a formal evaluation framework for a mechanism to incorporate such domain behaviors into a \dcsl~specified domain model. We present this framework in the remainder of this section. 
+
+We consider \agl~as a specification language and adapt from \cite{thakur2019role}~the following three criteria for evaluating it: expressiveness, required coding level, and constructiability. Constructability is evaluated separately from the other two criteria. We discuss how the AGL’s concepts and terms are mapped to the DDD patterns. Further, we compare \agl~to incorporate such domain behaviors into a \dcsl~specified domain model of two DDD frameworks and to the commonly-used third-party annotation sets: ApacheIsis \cite{haywood2013apache}~is labelled AL, while OpenXAVA \cite{aprende_OpenXava_2011}~is XL.
+We use AGL’s terms as the base for evaluation because, as will be explained shortly below, we analyzed the relevant technical documentations of AL, XL, and DDD patterns to identify the language constructs that are either the same as or equivalent to the primitives or combinations thereof that make up each term. We also made some effort in our analysis to quantify the correspondences.
+
+\subsection{Expressiveness} \label{sect:eval-expressiveness}
+This is the extent to which a language is able to express the properties of interest of its domain~\cite{lamsweerde_formal_2000}. We measure the expressiveness of \agl~from both structural and behavioral aspects. 
+%
+For structural aspects, the domain properties are captured as meta-concepts and associations in the language's ASM. 
+%
+For behavioral aspects, \agl~is able to express the five essential UML activity modeling patterns (Sequential, Decisional, Forked , Joined and Merged), as explained in Section~\ref{sect:behaviorPatterns}. Any domain behavior captured by an activity diagram with these basic constructs could be expressed in \agl.
+
+
+We wish to emphasize that our expressiveness evaluation be interpreted only in terms of the essential language features, not in terms of all the features. The aforementioned aspects and criteria correspond to the generic and essential terms that are used in the relevant modeling and OOPL literatures. Structural and behavioral modeling are two core modeling aspects supported by UML. The structural modeling criteria are primitive domain terms that are derived directly from the four core OOPL’s meta concepts. The activity domain class criterion is key to behavioral modeling using UML activity diagram.
+\begin{table}[]
+	\setlength\tabcolsep{1pt}
+	\centering
+%	\footnotesize
+	\caption{The expressiveness Aspects and Unified model properties}\label{tab:expressiveness}
+	\begin{tabular}{|l|l|}
+		\hline
+		\multicolumn{1}{|c|}{\textbf{Aspects}}                                                                         & \multicolumn{1}{c|}{\textbf{Unified model properties}}                                                                                                                                                                                                          \\ \hline
+		Structural modeling                                                                                            & \begin{tabular}[c]{@{}l@{}}four DCSL’s terms (see Domain Models in the Annotation-Based Domain \\ Specific Language \dcsl see Section~\ref{sect:bg-dcsl}: domain class,\\domain field, associative field and domain method\end{tabular} \\ \hline
+		Behavioral modeling                                                                                            & \begin{tabular}[c]{@{}l@{}}Unified model (see Definition~\ref{def:unified-model}), Module Action Semantics see Section~\ref{sect:actSemantics}\end{tabular}                                                                                        \\ \hline
+		Language definition                                                                                            & Constraint, structural mapping                                                                                                                                                                                                                                  \\ \hline
+		\begin{tabular}[c]{@{}l@{}}Incorporate the domain behaviors\end{tabular} & Activity Graph Configuration (AGC) see Section~\ref{sect:agl}                                                                                                                                                                                                           \\ \hline
+	\end{tabular}
+\end{table}
+We consider four modeling aspects and within each identify the unified model properties of interest. Table~\ref{tab:expressiveness} lists the aspects and unified model properties. A single expressiveness criteria that we use to judge each property is coverage.
+
+\subsubsection*{Comparing AGL to DDD patterns}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[]
+	\setlength\tabcolsep{1pt}
+	\centering
+	%\footnotesize
+	\caption{(A-left) Comparing AGL to DDD patterns; (B-right) Comparing AGL to AL and XL}
+	\label{tab:expressiveness-comparing}
+	\begin{tabular}{llllllll}
+		\hline
+		\multicolumn{1}{c}{\textbf{Aspects}}                                         & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}AGL concepts \\ and terms\end{tabular}}} & \multicolumn{1}{c}{\textbf{DDD patterns}}                      & \multicolumn{1}{c}{\textbf{Aspects}}                                         & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Expressiveness\\  criteria\end{tabular}}} & \multicolumn{1}{c}{\textbf{AGL}} & \multicolumn{1}{c}{\textbf{AL}} & \multicolumn{1}{c}{\textbf{XL}} \\ \hline
+		\begin{tabular}[c]{@{}l@{}}Structural  modeling\end{tabular}               & Domain Class                                                                                   & \begin{tabular}[c]{@{}l@{}}Entity and\\ Aggregate\end{tabular} & \begin{tabular}[c]{@{}l@{}}Structural \\  modeling\end{tabular}               & Domain Class                                                                                    & \multicolumn{1}{c}{1/1}          & \multicolumn{1}{c}{1/1}         & \multicolumn{1}{c}{0/1}         \\ 
+		& Domain field                                                                                   &                                                                & \begin{tabular}[c]{@{}l@{}}Domain  Field\end{tabular}                      & 8/8                                                                                             & 4/8                              & 5/8                             &                                 \\ 
+		& Associative Field                                                                              &                                                                & \begin{tabular}[c]{@{}l@{}}Associative Field\end{tabular}                  & 7/7                                                                                             & 0/7                              & 1/7                             &                                 \\ 
+		& Domain Method                                                                                  &                                                                & \begin{tabular}[c]{@{}l@{}}Domain Method\end{tabular}                      & 
+		Yes                                                                                            & No                                & No                               &                                 \\ 
+		& \begin{tabular}[c]{@{}l@{}}Immutable \\ Domain Class\end{tabular}                              & Value Object                                                   &                                                                              &                                                                                                 &                                  &                                 &                                 \\ 
+		\begin{tabular}[c]{@{}l@{}}Behavioral modeling\end{tabular}                & Activity Class                                                                                 & Service                                                        & Domain Class                                                                 & Activity Class                                                                                  & Yes                                & No                               & No                               \\ 
+		\begin{tabular}[c]{@{}l@{}}Language definition\end{tabular}                & Yes                                                                                              & No                                                              & \begin{tabular}[c]{@{}l@{}}Language \\ definition\end{tabular}               & \begin{tabular}[c]{@{}l@{}}Constraint,, \\ structural\\ mapping\end{tabular}                    & Yes                                & No                               & Yes                               \\ 
+		\begin{tabular}[c]{@{}l@{}}Incorporate the\\domain behaviors\end{tabular} & Unified model                                                                                              & No                                                              & \begin{tabular}[c]{@{}l@{}}Incorporate the\\domain behaviors\end{tabular} & \begin{tabular}[c]{@{}l@{}}Activity graph\\ configuration\end{tabular}                          & Yes                                & No                               & No                               \\ \hline
+	\end{tabular}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The first four rows of Table~\ref{tab:expressiveness-comparing}(A) show a mapping between AGL’s concepts and terms and the related DDD patterns discussed in \cite{evans_domain-driven_2004, vernon_implementing_2013}. The AGL terms form a detailed design language Section \ref{sect:agl}, which realizes the high-level design structures described in the DDD patterns. Specifically, the AGL concepts and terms are mapped to two DDD patterns (Entity and Aggregate). Concept Activity class is mapped to the Service pattern. Two rows the last of the table, show a key difference: while we define AGL to combined model as unified domain model as a design language, the DDD patterns do not constitute a language.
+\subsubsection*{Comparing to DDD frameworks}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[]
+	\setlength\tabcolsep{1pt}
+	\centering
+	%\footnotesize
+	\caption{(Comparing the expressiveness of AGL to AL, XL}
+	\label{tab:Comparing-the-expressiveness}
+	\begin{tabular}{|l|l|l|}
+		\hline
+		\multicolumn{1}{|c|}{\textbf{AGL}} & \multicolumn{1}{c|}{\textbf{AL}}                                                            & \multicolumn{1}{c|}{\textbf{XL}}                                                       \\ \hline
+		DClass                             & -                                                                                           & -                                                                                      \\ \hline
+		Mutable                            & Property.editing                                                                            & -                                                                                      \\ \hline
+		DAttr                              &                                                                                             &                                                                                        \\ \hline
+		Unique                             & -                                                                                        & -                                                                                      \\ \hline
+		optional                           & \begin{tabular}[c]{@{}l@{}}jdo.Column.allowsNull,\\ (Property.optionality)\end{tabular} & Required                                                                               \\ \hline
+		id                                 & jdo.PrimaryKey.value                                                                        & jpa.Id                                                                                 \\ \hline
+		auto                               & -                                                                                           & -                                                                                  \\ \hline
+		length                             & \begin{tabular}[c]{@{}l@{}}jdo.Column.length,\\  (Property.maxLength)\end{tabular}          & -                                                                 \\ \hline
+		min                                & -                                                                                           & Min(v).value                                                                           \\ \hline
+		max                                & -                                                                                           & Max(v).value                                                                           \\ \hline
+		DAssoc                             &                                                                                             &                                                                                        \\ \hline
+		ascName                            & -                                                                                           & \begin{tabular}[c]{@{}l@{}}jpa.OneToMany, jpa.ManyToOne,\\ jpa.ManyToMany\end{tabular} \\ \hline
+		ascType                            & -                                                                                           & -                                                                                      \\ \hline
+		role                               & -                                                                                           & -                                                                                      \\ \hline
+		endType                            & -                                                                                           & -                                                                                      \\ \hline
+		associate.type                     & -                                                                                           & -                                                                                      \\ \hline
+		associate.cardMin                  & -                                                                                           & -                                                                                      \\ \hline
+		associate.cardMax                  & -                                                                                           & -                                                                                      \\ \hline
+		DOpt                               &                                                                                             &                                                                                        \\ \hline
+		type                               & -                                                                                           & -                                                                                      \\ \hline
+		requires                           & -                                                                                           & -                                                                                      \\ \hline
+		effects                            & -                                                                                           & -                                                                                      \\ \hline
+		AttrRef                            & -                                                                                           & -                                                                                      \\ \hline
+		value                              & -                                                                                           & -                                                                                      \\ \hline
+		AGraph                             & -                                                                                           & -                                                                                      \\ \hline
+		ANode                              & -                                                                                           & -                                                                                      \\ \hline
+		nodes                              &                                                                                             &                                                                                        \\ \hline
+		refCls                             &                                                                                             &                                                                                        \\ \hline
+		ServiceCls                         &                                                                                             &                                                                                        \\ \hline
+		outClses                           &                                                                                             &                                                                                        \\ \hline
+		MAct                               & -                                                                                           & -                                                                                      \\ \hline
+		actSeq                             &                                                                                             &                                                                                        \\ \hline
+	\end{tabular}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Table~\ref{tab:expressiveness-comparing}(B) presents the evaluation table between AGL and AL and XL. The fractions in the table are ratios of the number of essential properties of the meta-attribute involved in a AGL’s term/concept that are supported by AL or XL. The denominator of a ratio is the total number of essential properties. For example, the ratio 4/8 for AL w.r.t the term Domain Field means that AL only supports 4 out of the total of 8 properties of the meta-attribute \attribn{DAttr} (used in Domain Field). The four AL’s properties are: Column.allows Null, Property.editing, Primary Key.value, and Column.length Table~\ref{tab:expressiveness-comparing}(B) shows that AGL is more expressive than AL and XL in both structural and behavioral modeling aspects (Class model and activity model). The AGL languages support structural modeling and support behavioral modeling using unified model.  These two languages (AL, XL) only partially support structural modeling and they do not support behavioral modeling using the activity domain class. AL and XL’s support for Associative Field is very limited compared to AGL.
+
+
+Table~\ref{tab:Comparing-the-expressiveness} detailed comparison data table, the ratio 4/8 for AL w.r.t the term Domain Field means that AL only supports 4 out of the total of 8 properties of the meta-attribute DAttr (used in Domain Field). The four AL’s properties are: Column.allowsNull, Property.editing, PrimaryKey.value, and Column.length.
+%
+%
+\subsection{Required Coding Level} \label{sect:eval-rcl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Required coding level (RCL) complements the expressiveness criterion in that it measures the extent to which a language allows ``...the properties of interest to be expressed without too much hard coding''~\cite{lamsweerde_formal_2000}.
+Since \agl, to our knowledge, is the first aDSL of its type, we cannot compare \agl's RCL to other languages. Thus, we measure the \agl's RCL using the ``compactness'' of the language's CSM (see SubSection~\ref{sect:agl-csm}). This is determined based on the reduction in the number of features in the CSM through the transformation ASM $\rightarrow$ CSM$_T$. More precisely, \agl's RCL is the percentage of the number of CSM$_T$'s features over the number of ASM's. The smaller this percentage, the higher the reduction in the number of features in the CSM and, thus, the more compact the CSM.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{table}[]
+	\setlength\tabcolsep{1pt}
+	\centering
+	%\footnotesize
+	\caption{(A-left) Summary of max-locs for AGL, AL and XL; (B-right) Summary of typical-locs for AGL, AL and XL}
+	\label{tab:Required-Coding-Level}
+\begin{tabular}{|c|cccc|c|cccc|c|c|}
+	\hline
+	& \multicolumn{4}{c|}{Max-locs criterira}                                                                                                                                                                                                                                                                             & \textit{\textbf{}}      & \multicolumn{4}{c|}{Typical-locs criteria}                                                                                                                                                                                                                     &                                                                    & \textit{\textbf{}}      \\ \hline
+	& \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Domain \\ Class\end{tabular}} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Domain\\ Field\end{tabular}} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Associative\\  Field\end{tabular}} & \begin{tabular}[c]{@{}c@{}}Unified \\ Domain\\  model\end{tabular} & \textit{\textbf{Total}} & \multicolumn{1}{c|}{}             & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Domain \\ Class\end{tabular}} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Domain \\ Field\end{tabular}} & \begin{tabular}[c]{@{}c@{}}Associative\\  Field\end{tabular} & \begin{tabular}[c]{@{}c@{}}Unified \\ Domain\\  model\end{tabular} & \textit{\textbf{Total}} \\ \hline
+	\textbf{AGL} & \multicolumn{1}{c|}{1}                                                       & \multicolumn{1}{c|}{3}                                                      & \multicolumn{1}{c|}{7}                                                            & 1                                                                  & 12                      & \multicolumn{1}{c|}{\textbf{AGL}} & \multicolumn{1}{c|}{1}                                                       & \multicolumn{1}{c|}{1}                                                       & 7                                                            & 1                                                                  & 10                      \\ \hline
+	\textbf{AL}  & \multicolumn{1}{c|}{2}                                                       & \multicolumn{1}{c|}{4}                                                      & \multicolumn{1}{c|}{0}                                                            & 0                                                                  & 6                       & \multicolumn{1}{c|}{\textbf{AL}}  & \multicolumn{1}{c|}{2}                                                       & \multicolumn{1}{c|}{1}                                                       & 0                                                            & 0                                                                  & 3                       \\ \hline
+	\textbf{XL}  & \multicolumn{1}{c|}{2}                                                       & \multicolumn{1}{c|}{6}                                                      & \multicolumn{1}{c|}{1}                                                            & 0                                                                  & 9                       & \multicolumn{1}{c|}{\textbf{XL}}  & \multicolumn{1}{c|}{2}                                                       & \multicolumn{1}{c|}{1}                                                       & 1                                                            & 0                                                                  & 4
+	                       \\ \hline
+\end{tabular}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+Table~\ref{tab:Required-Coding-Level}(A) and (B) respectively show the values of max-locs and typical-locs for the three underlying AGL’s terms that are supported by AL and XL. The last columns of the tables show the total values. It can be observed from both tables that, compared to AL and XL, AGL has the highest total max-locs (12) and typical locs (10). However, a closer inspection shows that the AGL’s subtotals for Domain Class and Domain Field (4 and 2 resp.)
+are actually lower than the corresponding subtotals for AL (6 and 3) and XL (9 and 4). Hence, the single contributing factor to AGL having the two highest totals is the set of 7 mandatory properties needed to express Associative Field. Since all 7 properties are essential for representing this type of field, we conclude that the increase in AGL’s required coding level is a reasonable price to pay for the extra expressiveness that the language enjoys over AL and XL.
+
+It is clear from Figures~\ref{fig:agl-abstractSyntax} and~\ref{fig:agl-csm}(A) that \agl's RCL $ = \frac{3}{9}$ or approximately 33\%. Specifically, Figure~\ref{fig:agl-abstractSyntax} shows that the number of meta-concepts of the ASM involved in the transformation is nice. These exclude the four meta-concepts (\clazz{ActName}, \clazz{State}, \clazz{Decision} and \clazz{Join}) that are transferred directly to CSM$_T$. On the other hand, Figure~\ref{fig:agl-csm}(A) shows that three meta-concepts result from the transformation (including \clazz{AGraph}, \clazz{ANode}, and \clazz{MAct}). Therefore, \agl~can have a CSM that significantly reduces the number of meta-concepts required to write an AGC to only about one-third. 
+%
+\subsection{Constructibility} \label{sect:eval-construct}
+This is the extent to which a language provides ``... facilities for building complex specifications in a piecewise, incremental way''\cite{lamsweerde_formal_2000}. For \agl, the language's embedment in the host OOPL allows it to take for granted the general construction capabilities of the host language platform and those provided by modern IDEs (e.g., Eclipse). More specifically, using an IDE a developer can syntactically and statically check an AGC at compile time. In addition, she can easily import and reference a domain class in an AGC and have this AGC automatically updated (through refactoring) when the domain class is renamed or relocated.
+
+More importantly, the AGC can be constructed incrementally with the domain model. This is due to a property of our activity graph model (discussed in Section~\ref{sect:agl-abstractSyntax}) that the nodes and edges of an activity graph are mapped to the domain classes and their associations.
+
+Further, we would develop automated techniques to ease the construction of AGC. Intuitively, for example, a technique would be to generate a default AGC for an activity and to allow the developer to customize it. We plan to investigate techniques such as this as part of future work.
+%
+\subsection{Behavior incorporate} \label{sect:eval-behavior-incorporate}
+In the AGL language designed to perform the overall activity’s behavior in Section~\ref{sect:agl} and used to create activity graphs by configuring them directly on the domain model using annotations.
