@@ -2,7 +2,53 @@
 \label{sect:tool} %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 We realized our method as a tool in a Java software framework that we reported in previous works~\cite{le_domain_2018}. The tool is available at the git repository\footnote{\url{https://github.com/jdomainapp/jda-mbsl}}. The software tool was implemented in a Java-based software framework~\cite{le_jdomainapp_2017}. A basic development procedure follows the method flow presented in Figure~\ref{fig:software-tool}. It takes as input a configured unified model and semi-automatically generates as the output an interactive software prototype. This prototype is used by the development team to develop the domain model and, once this is completed, may also be reused to develop the production software.
+%
 
+
+Based on the above method of deploying the source code, we arrange the CourseMan program source code by packages and name these packages after the names of the modules. Figure~\ref{fig:struct-tool} below depicts the program's source code package structure diagram. The comment boxes to the right of the figure explain the main directories of the source code structure.
+%
+\begin{figure*}[ht]
+	\centering
+	\includegraphics[scale=0.4]{struct-tool}
+	\caption{Structure diagram of the program source code} %
+	\label{fig:struct-tool}
+\end{figure*}
+%
+
+\textit{Example: AGC of Decisional Pattern}: the Code show entire AGC is defined by an AGraph element, attached to the activity class EnrolmentMgmt of the unified model:
+\begin{verbatim}
+	/**Activity graph configuration */
+	@AGraph(nodes={
+		@ANode(refCls=Student.class, serviceCls=DataController.class, outClses={DHelpOrSClass.class}, init=true, 
+		actSeq={
+			// create new and wait until a new object is created
+			@MAct(actName=MethodName.newObject, endStates={AppState.Created})
+		}),
+		@ANode(refCls=DHelpOrSClass.class, nodeType=NodeType.Decision, 
+		outClses={HelpRequest.class, SClassRegistration.class}),
+		@ANode(refCls=HelpRequest.class, serviceCls=DataController.class 
+		//,outClses={SClassRegistration.class}
+		,actSeq={
+			// prepare to create new
+			@MAct(actName=MethodName.newObject, endStates={AppState.NewObject}),  
+			// set value for HelpDesk.Student
+			@MAct(actName=MethodName.setDataFieldValues, attribNames={HelpRequest.A_student}, endStates={AppState.Created}),  
+		}),
+		@ANode(refCls=SClassRegistration.class, serviceCls=DataController.class, 
+		actSeq={
+			//prepare to create new
+			@MAct(actName=MethodName.newObject, endStates={AppState.NewObject}),  
+			// set value for SClassRegistration.Student
+			@MAct(actName=MethodName.setDataFieldValues, attribNames={SClassRegistration.A_student}, endStates={AppState.Created}),  
+		})
+	})
+	/**END: activity graph configuration */
+\end{verbatim}
+
+Conceptually, the tool consists of three key components: model manager, view manager, and object manager. First, the \textbf{model manager} is responsible for registering the configured unified model and making it accessible to other components. 
+Second, the \textbf{view manager} is responsible for (1) automatically generating the entire GUI of the software from the unified model and (2) for handling the user interaction performed on this GUI. The GUI consists of a set of object UIs (one for each module's view), and a desktop for organising these UIs. For example, Figure~\ref{fig:software-tool} shows the generated GUI for one variant of the \courseman~unified model. The GUI contains three object UIs for \clazz{ModuleEnrolmentMgmt}, \clazz{ModuleStudent}, and \clazz{ModuleEnrolment}.
+%Later in the Section~\ref{sect:eval-expressiveness}, we will demonstrate how the tool is used to generate 
+Several other variants of the \courseman~unified model, as mentioned in Section~\ref{sect:behaviorPatterns}, could also be generated. 
 \begin{figure*}[ht]
 	\centering
 	\includegraphics[scale=0.4]{software-tool}
@@ -10,10 +56,4 @@ We realized our method as a tool in a Java software framework that we reported i
 		(2-4) the object UIs of \clazz{EnrolmentMgmt}, \clazz{Student}, and \clazz{Enrolment}.} %
 	\label{fig:software-tool}
 \end{figure*}
-
-Conceptually, the tool consists of three key components: model manager, view manager, and object manager. First, the \textbf{model manager} is responsible for registering the configured unified model and making it accessible to other components. 
-Second, the \textbf{view manager} is responsible for (1) automatically generating the entire GUI of the software from the unified model and (2) for handling the user interaction performed on this GUI. The GUI consists of a set of object UIs (one for each module's view), and a desktop for organising these UIs. For example, Figure~\ref{fig:software-tool} shows the generated GUI for one variant of the \courseman~unified model. The GUI contains three object UIs for \clazz{ModuleEnrolmentMgmt}, \clazz{ModuleStudent}, and \clazz{ModuleEnrolment}.
-%Later in the Section~\ref{sect:eval-expressiveness}, we will demonstrate how the tool is used to generate 
-Several other variants of the \courseman~unified model, as mentioned in Section~\ref{sect:behaviorPatterns}, could also be generated. 
-
 Third, the \textbf{object manager} is responsible for managing the run-time object pool of each domain class and for providing a generic object storage component for storing/retrieving the objects to/from external storage. As of this writing, the tool supports both file-based and relational database storage. The relational data model is automatically generated from the unified model the first time the software is run.
