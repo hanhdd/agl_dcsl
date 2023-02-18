@@ -57,11 +57,11 @@ We consider four modeling aspects and within each identify the unified model pro
 		& Domain field                                                                                   &                                                                & \begin{tabular}[c]{@{}l@{}}Domain  Field\end{tabular}                      & 8/8                                                                                             & 4/8                              & 5/8                             &                                 \\ 
 		& Associative Field                                                                              &                                                                & \begin{tabular}[c]{@{}l@{}}Associative Field\end{tabular}                  & 7/7                                                                                             & 0/7                              & 1/7                             &                                 \\ 
 		& Domain Method                                                                                  &                                                                & \begin{tabular}[c]{@{}l@{}}Domain Method\end{tabular}                      & 
-		Yes                                                                                            & No                                & No                               &                                 \\ 
+		\ding{51}                                                                                             & \ding{56}                                 & \ding{56}                                &                                 \\ 
 		& \begin{tabular}[c]{@{}l@{}}Immutable \\ Domain Class\end{tabular}                              & Value Object                                                   &                                                                              &                                                                                                 &                                  &                                 &                                 \\ 
-		\begin{tabular}[c]{@{}l@{}}Behavioral modeling\end{tabular}                & Activity Class                                                                                 & Service                                                        & Domain Class                                                                 & Activity Class                                                                                  & Yes                                & No                               & No                               \\ 
-		\begin{tabular}[c]{@{}l@{}}Language definition\end{tabular}                & Yes                                                                                              & No                                                              & \begin{tabular}[c]{@{}l@{}}Language \\ definition\end{tabular}               & \begin{tabular}[c]{@{}l@{}}Constraint,, \\ structural\\ mapping\end{tabular}                    & Yes                                & No                               & Yes                               \\ 
-		\begin{tabular}[c]{@{}l@{}}Incorporate the\\domain behaviors\end{tabular} & Unified model                                                                                              & No                                                              & \begin{tabular}[c]{@{}l@{}}Incorporate the\\domain behaviors\end{tabular} & \begin{tabular}[c]{@{}l@{}}Activity graph\\ configuration\end{tabular}                          & Yes                                & No                               & No                               \\ \hline
+		\begin{tabular}[c]{@{}l@{}}Behavioral modeling\end{tabular}                & Activity Class                                                                                 & Service                                                        & Domain Class                                                                 & Activity Class                                                                                  & \ding{51}                               & \ding{56}                               & \ding{56}                                \\ 
+		\begin{tabular}[c]{@{}l@{}}Language definition\end{tabular}                & \ding{51}                                                                                               & \ding{56}                                                           & \begin{tabular}[c]{@{}l@{}}Language \\ definition\end{tabular}               & \begin{tabular}[c]{@{}l@{}}Constraint,, \\ structural\\ mapping\end{tabular}                    & \ding{51}                                & \ding{56}                               & \ding{56}                                 \\ 
+		\begin{tabular}[c]{@{}l@{}}Incorporate the\\domain behaviors\end{tabular} & Unified model                                                                                              & \ding{56}                                                             & \begin{tabular}[c]{@{}l@{}}Incorporate the\\domain behaviors\end{tabular} & \begin{tabular}[c]{@{}l@{}}Activity graph\\ configuration\end{tabular}                          & \ding{51}                                 & \ding{56}                                & \ding{56}                               \\ \hline
 	\end{tabular}
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -72,14 +72,14 @@ The first four rows of Table~\ref{tab:expressiveness-comparing}(A) show a mappin
 	\setlength\tabcolsep{1pt}
 	\centering
 	%\footnotesize
-	\caption{(Comparing the expressiveness of AGL to AL, XL}
+	\caption{Comparing the expressiveness of AGL to AL, XL}
 	\label{tab:Comparing-the-expressiveness}
 	\begin{tabular}{|l|l|l|}
 		\hline
 		\multicolumn{1}{|c|}{\textbf{AGL}} & \multicolumn{1}{c|}{\textbf{AL}}                                                            & \multicolumn{1}{c|}{\textbf{XL}}                                                       \\ \hline
 		DClass                             & -                                                                                           & -                                                                                      \\ \hline
 		Mutable                            & Property.editing                                                                            & -                                                                                      \\ \hline
-		DAttr                              &                                                                                             &                                                                                        \\ \hline
+		DAttr                              &             -                                                                                &                                                                                        \\ \hline
 		Unique                             & -                                                                                        & -                                                                                      \\ \hline
 		optional                           & \begin{tabular}[c]{@{}l@{}}jdo.Column.allowsNull,\\ (Property.optionality)\end{tabular} & Required                                                                               \\ \hline
 		id                                 & jdo.PrimaryKey.value                                                                        & jpa.Id                                                                                 \\ \hline
@@ -87,7 +87,7 @@ The first four rows of Table~\ref{tab:expressiveness-comparing}(A) show a mappin
 		length                             & \begin{tabular}[c]{@{}l@{}}jdo.Column.length,\\  (Property.maxLength)\end{tabular}          & -                                                                 \\ \hline
 		min                                & -                                                                                           & Min(v).value                                                                           \\ \hline
 		max                                & -                                                                                           & Max(v).value                                                                           \\ \hline
-		DAssoc                             &                                                                                             &                                                                                        \\ \hline
+		DAssoc                             &   -                                                                                          &    -                                                                                    \\ \hline
 		ascName                            & -                                                                                           & \begin{tabular}[c]{@{}l@{}}jpa.OneToMany, jpa.ManyToOne,\\ jpa.ManyToMany\end{tabular} \\ \hline
 		ascType                            & -                                                                                           & -                                                                                      \\ \hline
 		role                               & -                                                                                           & -                                                                                      \\ \hline
@@ -95,7 +95,7 @@ The first four rows of Table~\ref{tab:expressiveness-comparing}(A) show a mappin
 		associate.type                     & -                                                                                           & -                                                                                      \\ \hline
 		associate.cardMin                  & -                                                                                           & -                                                                                      \\ \hline
 		associate.cardMax                  & -                                                                                           & -                                                                                      \\ \hline
-		DOpt                               &                                                                                             &                                                                                        \\ \hline
+		DOpt                               &     -                                                                                        &    -                                                                                    \\ \hline
 		type                               & -                                                                                           & -                                                                                      \\ \hline
 		requires                           & -                                                                                           & -                                                                                      \\ \hline
 		effects                            & -                                                                                           & -                                                                                      \\ \hline
@@ -103,19 +103,20 @@ The first four rows of Table~\ref{tab:expressiveness-comparing}(A) show a mappin
 		value                              & -                                                                                           & -                                                                                      \\ \hline
 		AGraph                             & -                                                                                           & -                                                                                      \\ \hline
 		ANode                              & -                                                                                           & -                                                                                      \\ \hline
-		nodes                              &                                                                                             &                                                                                        \\ \hline
-		refCls                             &                                                                                             &                                                                                        \\ \hline
-		ServiceCls                         &                                                                                             &                                                                                        \\ \hline
-		outClses                           &                                                                                             &                                                                                        \\ \hline
-		MAct                               & -                                                                                           & -                                                                                      \\ \hline
-		actSeq                             &                                                                                             &                                                                                        \\ \hline
+		MAct                               & 
+		\begin{tabular}[c]{@{}l@{}}	defined by the controllers:\\only CRUD and reporting
+	
+ \end{tabular} 	
+		
+		                                                                                         &\begin{tabular}[c]{@{}l@{}} direct mapping from the domain\\ object model into the UI                    \end{tabular} 	                                                                                  \\ \hline
 	\end{tabular}
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Table~\ref{tab:expressiveness-comparing}(B) presents the evaluation table between AGL and AL and XL. The fractions in the table are ratios of the number of essential properties of the meta-attribute involved in a AGL’s term/concept that are supported by AL or XL. The denominator of a ratio is the total number of essential properties. For example, the ratio 4/8 for AL w.r.t the term Domain Field means that AL only supports 4 out of the total of 8 properties of the meta-attribute \attribn{DAttr} (used in Domain Field). The four AL’s properties are: Column.allows Null, Property.editing, Primary Key.value, and Column.length Table~\ref{tab:expressiveness-comparing}(B) shows that AGL is more expressive than AL and XL in both structural and behavioral modeling aspects (Class model and activity model). The AGL languages support structural modeling and support behavioral modeling using unified model.  These two languages (AL, XL) only partially support structural modeling and they do not support behavioral modeling using the activity domain class. AL and XL’s support for Associative Field is very limited compared to AGL.
-
-
-Table~\ref{tab:Comparing-the-expressiveness} detailed comparison data table, the ratio 4/8 for AL w.r.t the term Domain Field means that AL only supports 4 out of the total of 8 properties of the meta-attribute DAttr (used in Domain Field). The four AL’s properties are: Column.allowsNull, Property.editing, PrimaryKey.value, and Column.length.
+In the comparison in Table~\ref{tab:expressiveness-comparing}(B), we compared and contrasted AGL with a subset of the combined annotation set of the above annotation sets that are supported by AL and XL. The fractions in the table are ratios of the number of essential properties of the meta-attribute involved in a AGL’s term/concept that are supported by AL or XL.
+%
+AL and XL support the use of third-party annotation sets, which between them include Java Persistence API (JPA)~\cite{keith2011pro}, Java Data Objects (JDO)~\cite{ezzio2008using}, Hibernate Validator (HV)~\cite{validator2009hibernate} and Bean Validation (BV)~\cite{beanvalidation3}. 
+%
+The denominator of a ratio is the total number of essential properties. For example, in the Table~\ref{tab:Comparing-the-expressiveness} detailed comparison data table, the ratio 4/8 for AL w.r.t the term Domain Field means that AL only supports 4 out of the total of 8 properties of the meta-attribute DAttr (used in Domain Field). The four AL’s properties are: Column.allowsNull, Property.editing, PrimaryKey.value, and Column.length. Table~\ref{tab:expressiveness-comparing}(B) shows that AGL is more expressive than AL and XL in both structural and behavioral modeling aspects (Class model and activity model). The AGL languages support structural modeling and support behavioral modeling using unified model.  These two languages (AL, XL) only partially support structural modeling and they do not support behavioral modeling using the activity domain class. AL and XL’s support for Associative Field is very limited compared to AGL.
 %
 %
 \subsection{Required Coding Level} \label{sect:eval-rcl}
@@ -152,8 +153,23 @@ It is clear from Figures~\ref{fig:agl-abstractSyntax} and~\ref{fig:agl-csm}(A) t
 This is the extent to which a language provides ``... facilities for building complex specifications in a piecewise, incremental way''\cite{lamsweerde_formal_2000}. For \agl, the language's embedment in the host OOPL allows it to take for granted the general construction capabilities of the host language platform and those provided by modern IDEs (e.g., Eclipse). More specifically, using an IDE a developer can syntactically and statically check an AGC at compile time. In addition, she can easily import and reference a domain class in an AGC and have this AGC automatically updated (through refactoring) when the domain class is renamed or relocated.
 
 More importantly, the AGC can be constructed incrementally with the domain model. This is due to a property of our activity graph model (discussed in Section~\ref{sect:agl-abstractSyntax}) that the nodes and edges of an activity graph are mapped to the domain classes and their associations.
+%
+However, the reflection mapping conforms to Node objects, Edge objects of the activity graph in Figure~\ref{fig:unified-model-example} and ModuleAct objects for example in Table~\ref{tab:activity-graph-example}.
 
 Further, we would develop automated techniques to ease the construction of AGC. Intuitively, for example, a technique would be to generate a default AGC for an activity and to allow the developer to customize it. We plan to investigate techniques such as this as part of future work.
 %
 \subsection{Behavior incorporate} \label{sect:eval-behavior-incorporate}
+%
+%
 In the AGL language designed to perform the overall activity’s behavior in Section~\ref{sect:agl} and used to create activity graphs by configuring them directly on the domain model using annotations.
+\subsection*{AGL:}
+AGL provides the technically with requirements specification, the analysis results are in terms of structure (Class model), in terms of behavior (Activity model) to implement and put into OOPt programming.
+input the domain requirements, optionally expressed in some high-level models (e.g., UML class and activity diagrams), and creates a set of initial unified models and associated activity graphs.
+AGL  Language allow  Combining structural and behavioral by code:
+The behavior is built and modified during the design phase
+\subsection*{OpenXava:}
+Application behavior is defined by the controllers, actions and associate them to modules or entities. The behavior referred to in the impliment phase and the possibility of tailoring the behavior to fit your user expectations
+The standard OpenXava behavior is only a starting point~\ref{panizaopenxava}
+\subsection*{ApacheIsis:}
+Apache Isis is an implementation and direct mapping from the domain object model into the UI.
+
