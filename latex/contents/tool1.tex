@@ -19,7 +19,8 @@ Based on the above method of deploying the source code, we arrange the CourseMan
 \begin{verbatim}
 	/**Activity graph configuration */
 	@AGraph(nodes={
-		@ANode(refCls=Student.class, serviceCls=DataController.class, outClses={DHelpOrSClass.class}, init=true, 
+		@ANode(refCls=Student.class, serviceCls=DataController.class,
+		outClses={DHelpOrSClass.class}, init=true, 
 		actSeq={
 			// create new and wait until a new object is created
 			@MAct(actName=MethodName.newObject, endStates={AppState.Created})
@@ -32,14 +33,16 @@ Based on the above method of deploying the source code, we arrange the CourseMan
 			// prepare to create new
 			@MAct(actName=MethodName.newObject, endStates={AppState.NewObject}),  
 			// set value for HelpDesk.Student
-			@MAct(actName=MethodName.setDataFieldValues, attribNames={HelpRequest.A_student}, endStates={AppState.Created}),  
+			@MAct(actName=MethodName.setDataFieldValues, attribNames={HelpRequest.A_student},
+			endStates={AppState.Created}),  
 		}),
 		@ANode(refCls=SClassRegistration.class, serviceCls=DataController.class, 
 		actSeq={
 			//prepare to create new
 			@MAct(actName=MethodName.newObject, endStates={AppState.NewObject}),  
 			// set value for SClassRegistration.Student
-			@MAct(actName=MethodName.setDataFieldValues, attribNames={SClassRegistration.A_student}, endStates={AppState.Created}),  
+			@MAct(actName=MethodName.setDataFieldValues, attribNames={SClassRegistration.A_student},
+			endStates={AppState.Created}),  
 		})
 	})
 	/**END: activity graph configuration */
