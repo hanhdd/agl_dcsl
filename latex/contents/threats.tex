@@ -23,10 +23,14 @@ more expressive domain modeling requirements. We discuss in~\cite{le_domain_2018
 \textbf{\textit{The selection of the unified modeling patterns}} used in our expressiveness evaluation is based on the UML class and activity modeling languages that we currently use to construct the configured unified model. A question then arises as to the adaptability of our method to other behavioral modeling languages (\eg state machine and sequence diagram). We plan to investigate this as part of future work.
 %
 \subsection{Construct validity}
-"~This aspect of validity reflect to what extent the operational measures that are studied really represent what the researcher have in mind and what is investigated according to the research questions"
-In our case study, we have assumed that there are no misinterpretations of the process requirements that would lead to unsatisfactory Figure 10: The composition of the configured unified model in terms of the unified model and an activity
-graph mode
-
-.
+In our case study, we have assumed that there are no misinterpretations of the domain requirements that would lead to unsatisfactory. In practice, the designer and domain expert would need to work closely with each other to ensure that the models are satisfactory.
+Our method helped mitigate the threat of misinterpretation by allowing combined the class model with a behavioral model (e.g. a UML activity
+diagram) into domain models constructing a configured unified domain model within a domain-driven architecture.
 %
-
+\subsection{Internal validity}
+A concern with the internal validity of our case study is whether the CourseMan requirements sufficiently cover the activity graph that were discussed in Section~\ref{fig:agl-abstractSyntax}. We incorporate in our definition of  metamodel ASM for the abstract syntax of AGL and create a table Node objects, Edge objects, ModuleAct objects of the activity graph.  We translate a behavior specification in the UML activity diagram into a corresponding specification defined as a combination of pattern solutions (Domain behavior patterns) with an AGC provide transparent support for these. Our view is that although these are not the only design patterns in the five essential UML activity modeling patterns, our pattern-based approach could support domain behaviors that are specified by a UML activity with basic constructs corresponding to these patterns.
+%
+\subsection{External validity}
+Threats to external validity of our method include those that impact how our method is applicable to the development of other MSA-based and DDD-based software that have similar characteristics. The first threat stems from a fact that our method is applicable to systems that are designed based on MDSA (a combination of MSA and DDD). The second threat is the generality of the case study. One would argue whether or not the case study that we selected is representative of the real-world ones.
+%
+we approach the modeling patterns helps mitigate this threat because it is based on two well-known software design principles to keep the patterns generic, for each pattern form a UML activity model and a template configured unified model that realizes it has similar characteristics would be handled in the same way.
