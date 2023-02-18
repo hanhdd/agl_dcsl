@@ -2,12 +2,22 @@
 \label{sect:case-study} %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-In this section, we present a relatively complex case study, named ProcessMan (process management). The aim is to investigate how our proposed software development method is applied to develop software for a real-world problem domain. A key objective is to construct a process model of AGL from both structural and behavioral aspects that are sufficiently expressive for the domain requirements. As an educational institution, the core processes are teaching subjects (a.k.a course modules) to students every semester and formally assessing the students’ performances. Conceptually, a process is a sequence of tasks, each of which is a sequence of actions. A process is created once, by an organization unit, and is periodically applied to the same unit and possibly to other organizational units that have similar needs. For certain processes, task and action would need to be specialized in order to specify more details
-Figure~\ref{fig:case-study} shows the domain model that expresses the ProcessMan’s requirements. The model consists of four domain modules. As shown in the figure, the domain module process structure consists of three domain classes (Process, Task, Action) that together describe the general structure of a process, and two other domain classes (Task4Subject, Action4Subject) that describe a specialized structure for the teaching and assessment processes. Task4Subject specializes Task, while Action4Subject specializes Action. The reason that we only specialize Task and Action and not Process is because class Process suffices for use as a common abstraction for all types of processes. At the process level, there is no real distinction between the processes.
-
+In this section, we present a relatively complex case study, named OrderMan (Order management). The aim is to investigate how our proposed software development method is applied to develop software for a real-world problem domain. A key objective is to construct a process model of AGL from both structural and behavioral aspects that are sufficiently expressive for the domain requirements. 
 \begin{figure*}[ht]
 	\centering
-	\includegraphics[scale=0.8]{case-study}
-	\caption{the model execution of process management} %
+	\includegraphics[scale=1.0]{case-study}
+	\caption{the Process Order} %
 	\label{fig:case-study}
+\end{figure*}
+
+
+Figure~\ref{fig:case-study} shows the UML model Process Order expresses the OrderMan’s requirements. The model consists of the five essential UML activity modeling patterns (Sequential, Decisional, Forked , Joined and Merged).
+
+
+In the Figure~\ref{fig:case-study-incorporate} the developers use DCSL and AGL to create/update the configured unified model and then generate the software from this model.
+\begin{figure*}[ht]
+	\centering
+	\includegraphics[scale=0.5]{case-study-incorporate}
+	\caption{(LHS) The the unified model; (RHS) The Node objects, Edge objects of the activity graph and ModuleAct objects that are referenced by the Nodes} %
+	\label{fig:case-study-incorporate}
 \end{figure*}
