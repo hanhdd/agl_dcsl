@@ -172,7 +172,7 @@ We briefly describe below the three meta-concepts of CSM$_T$. The precise meanin
 
 \begin{figure*}[ht]
 	\begin{center}
-		\includegraphics[scale=0.7]{agl-cmt-csm}
+		\includegraphics[scale=0.75]{agl-cmt-csm}
 	\end{center}
 	\caption{(A) CSM$_T$: a compact and annotation-friendly model, (B) The concrete syntax model (CSM) of AGL} %
 	\label{fig:agl-csm}
@@ -235,7 +235,7 @@ Although CSM$_T$ is suitable for OOPL's representation, it is still not yet nati
 
 Figure~\ref{fig:agl-csm}(B) shows the metamodel in the form of a UML class diagram for ASM. In this, the three meta-classes in CSM$_T$ are transformed into three annotations of the same name. The annotations are represented in the figure as 2-part grey-colored boxes, the association lines as grey lines. Each domain field is transformed into an annotation property. The non-associative domain fields are transformed directly into properties and so, to ease reading, we use `\dots' to represent these properties. We only highlight in the figure two properties of the two associative fields \attrib{AGraph}{nodes} and \attrib{ANode}{actSeq}. 
 
-A key difference between CSM and CSM$_T$ is the attachment of \clazz{AGraph} to \clazz{Class}. This is represented in Figure~\ref{fig:agl-csm} by a solid line connecting the two corresponding class boxes. An \clazz{AGraph} attachment defines an AGC because it describes the instantiation of an \clazz{AGraph} object together with the associated \clazz{ANode}s and \clazz{MAct} objects.
+A key difference between CSM and CSM$_T$ is the attachment of \clazz{AGraph} to \clazz{Class}. This is represented in Figure~\ref{fig:agl-csm}(B) by a solid line connecting the two corresponding class boxes. An \clazz{AGraph} attachment defines an AGC because it describes the instantiation of an \clazz{AGraph} object together with the associated \clazz{ANode}s and \clazz{MAct} objects.
 
 Adding the \clazz{AGraph} attachment to our definition of activity class (see Definition~\ref{def:unified-class-model}) helps form a bridge between \agl~and the unified model. More specifically, in the overall context of our method, we call any class that has an \clazz{AGraph} attachment an \textit{activity class}.
 Further, to ease discussion we will use the term \textbf{configured unified model} to refer to a unified model whose activity class is attached with an \clazz{AGraph}. 
