@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2023.2.11)  19 FEB 2023 01:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2023.2.11)  19 FEB 2023 02:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1354,24 +1354,8 @@ File: images//struct-tool-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: images//struct-tool-eps-converted-to.pdf  used on inpu
 t line 12.
 (pdftex.def)             Requested size: 317.98236pt x 375.79733pt.
-
-Overfull \hbox (77.99841pt too wide) in paragraph at lines 46--46
-[]\T1/lmtt/m/n/10 @ANode(refCls=Student.class, serviceCls=DataController.class,
- outClses={DHelpOrSClass.class}, init=true,[] 
- []
-
-[24 <./images//case-study-incorporate-eps-converted-to.pdf>]
-Overfull \hbox (119.99829pt too wide) in paragraph at lines 46--46
-[]\T1/lmtt/m/n/10 @MAct(actName=MethodName.setDataFieldValues, attribNames={Hel
-pRequest.A_student}, endStates={AppState.Created}),[] 
- []
-
-
-Overfull \hbox (156.74818pt too wide) in paragraph at lines 46--46
-[]\T1/lmtt/m/n/10 @MAct(actName=MethodName.setDataFieldValues, attribNames={SCl
-assRegistration.A_student}, endStates={AppState.Created}),[] 
- []
-
+[24 <./images//case-study-incorporate-eps-converted-to.pdf>] [25 <./images//str
+uct-tool-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <images//software-tool.eps>
 (epstopdf)                    date: 2023-02-11 16:02:35
 (epstopdf)                    size: 4403399 bytes
@@ -1381,20 +1365,19 @@ Package epstopdf Info: Source file: <images//software-tool.eps>
 (epstopdf)                    size: 643448 bytes
 (epstopdf)             Command: <miktex-epstopdf --outfile=images//software-too
 l-eps-converted-to.pdf images//software-tool.eps>
-(epstopdf)             \includegraphics on input line 54.
+(epstopdf)             \includegraphics on input line 57.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex.exe (file ./images//software-tool-eps-converted-to.pdf
 ): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<images//software-tool-eps-converted-to.pdf, id=609, 789.95125pt x 560.0925pt>
+<images//software-tool-eps-converted-to.pdf, id=618, 789.95125pt x 560.0925pt>
 File: images//software-tool-eps-converted-to.pdf Graphic file (type pdf)
 <use images//software-tool-eps-converted-to.pdf>
 Package pdftex.def Info: images//software-tool-eps-converted-to.pdf  used on in
-put line 54.
+put line 57.
 (pdftex.def)             Requested size: 315.9749pt x 224.03302pt.
-) [25 <./images//struct-tool-eps-converted-to.pdf>] (contents/eval1.tex
-[26 <./images//software-tool-eps-converted-to.pdf>]
+) (contents/eval1.tex [26 <./images//software-tool-eps-converted-to.pdf>]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 29.
@@ -1422,7 +1405,7 @@ Overfull \hbox (2.20218pt too wide) in paragraph at lines 169--175
  [][] 
  []
 
-) (contents/threats.tex [30]) [31] (contents/relatedwork.tex [32])
+) (contents/threats.tex [30] [31]) (contents/relatedwork.tex [32])
 (contents/conclusion.tex) (agl_dcsl.bbl [33] [34]) [35] (agl_dcsl.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1464,7 +1447,7 @@ ublic/lm/lmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmsy6.pfb><C
 /lmtk10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C:/Progr
 am Files/MiKTeX/fonts/type1/public/lm/lmtt8.pfb><C:/Program Files/MiKTeX/fonts/
 type1/urw/zapfding/uzdr.pfb>
-Output written on agl_dcsl.pdf (35 pages, 3579429 bytes).
+Output written on agl_dcsl.pdf (35 pages, 3579360 bytes).
 PDF statistics:
  968 PDF objects out of 1000 (max. 8388607)
  194 named destinations out of 1000 (max. 500000)
