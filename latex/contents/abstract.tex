@@ -7,20 +7,22 @@
 \noindent\textit{Context:}
 Domain-driven design (DDD) aims to iteratively develop software around a realistic domain model.
 %, i.e., that can be viewed as a program from the developer's perspective.
-Recent works in DDD have been focusing on using annotation-based domain-specific languages (aDSLs) to build the domain model. However, within these works behavioral aspects, that are often represented using UML Activity and State Machine diagrams, are not explicitly captured in the domain model. 
+Recent works in DDD have been focusing on using annotation-based domain-specific languages (aDSLs) to build the domain model. However, within these works behavioral aspects, that are often represented using UML activity and state machine diagrams, are not explicitly captured in the domain model. 
 
 %A main challenge with this is how to integrate the behavioral aspects into the domain model following the DDD approach. 
 
 \noindent\textit{Objective:}
-This paper focuses on defining a novel unified domain modeling method in order to integrate behavioral aspects into domain models following the DDD approach. Specifically, we aim to develop a new aDSL, named activity graph language (\agl), that allows us to capture behavioral aspects, and then, incorporate the language with our previously-developed aDSL, named \dcsl, for a unified domain model with three important features: feasibility, productivity, and understandability.
+This paper focuses on defining a novel unified domain modeling method in order to integrate behavioral aspects into domain models following the DDD approach. Specifically, behavioral aspects as part of a unified domain model are represented using a new aDSL, named activity graph language (\agl). Such an incorporation of the \agl~and the previously-developed aDSL~(\dcsl) for a unified domain model would allow us to achieve three important features of a DDD: feasibility, productivity, and understandability.
+
+%we aim to develop a new aDSL, named activity graph language (\agl), that allows us to capture behavioral aspects, and then, incorporate the language with our previously-developed aDSL, named \dcsl, for a unified domain model with three important features: feasibility, productivity, and understandability.
 
 \noindent\textit{Method:}
-Our method consists in constructing a configured unified domain model within a domain-driven architecture. We used the annotation attachment feature of the host OOPL to attach an \agl's activity graph directly to the activity class of the unified model, thereby, creating a configured unified model. We adopt the UML/OCL meta-modeling approach to specify the abstract and concrete syntax of \agl.
+Our method consists in constructing a configured unified domain model within a domain-driven architecture. We used the annotation attachment feature of the host programming language like Java to attach \agl's activity graph directly to the activity class of the unified model, thereby, creating a configured unified model. The abstract and concrete syntax of \agl~are also defined in this work. %
 %: A compact annotation-based syntax meta-model and a formal semantics for \agl is defined. 
-We demonstrate our method with an implementation in a Java framework named \jdomainapp~and evaluate \agl~using a case study to show that it is essentially expressive and usable for real-world software. 
+We demonstrate our method with a Java framework named \jdomainapp~and evaluate \agl~using a case study to show that it is essentially expressive and usable for real-world software. 
 
 \noindent\textit{Results:}
-This work brings out (1) the \agl~as an aDSL to express the domain behaviors; (2) a mechanism to incorporate behavior aspects for a unified domain model; and (3) a unified modeling method for domain-driven software development.
+This work brings out (1) a mechanism to incorporate behavior aspects for a unified domain model, in which a new aDSL named \agl~is defined in order to capture the domain behaviors; and (2) a unified modeling method for domain-driven software development.
 
 \noindent\textit{Conclusion:}
 Our method significantly extends the state-of-the-art in DDD in two important fronts: constructing a unified domain model for both structural and behavioral aspects of domain models and bridging the gaps between model and code.
