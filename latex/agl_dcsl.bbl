@@ -17,34 +17,15 @@ E.~Evans, Domain-Driven Design: {Tackling} {Complexity} in the {Heart} of
 \bibitem{paniza_learn_2011}
 J.~Paniza, Learn {OpenXava} by {Example}, CreateSpace, Paramount, CA, 2011.
 
-\bibitem{omg_unified_2015}
-{OMG}, Unified {Modeling} {Language} version 2.5 (2015).
-
-\bibitem{le_generative_2018}
-D.~M. Le, D.-H. Dang, V.-H. Nguyen, Generative {Software} {Module}
-  {Development} for {Domain}-{Driven} {Design} with {Annotation}-{Based}
-  {Domain} {Specific} {Language}, Information and Software Technology 120
-  (2020) 106--239.
-\newblock \href {https://doi.org/10.1016/j.infsof.2019.106239}
-  {\path{doi:10.1016/j.infsof.2019.106239}}.
-
 \bibitem{le_domain_2018}
 D.~M. Le, D.-H. Dang, V.-H. Nguyen, On {Domain} {Driven} {Design} {Using}
   {Annotation}-{Based} {Domain} {Specific} {Language}, Computer Languages,
   Systems \& Structures 54 (2018) 199--235.
-\newblock \href {https://doi.org/10.1016/j.cl.2018.05.001}
+\newblock \href {http://dx.doi.org/10.1016/j.cl.2018.05.001}
   {\path{doi:10.1016/j.cl.2018.05.001}}.
 
-\bibitem{dumas_uml_2001}
-M.~Dumas, A.~H. M.~t. Hofstede, {UML} {Activity} {Diagrams} as a {Workflow}
-  {Specification} {Language}, in: M.~Gogolla, C.~Kobryn (Eds.), {UML} 2001,
-  {LNCS}, Springer, 2001, pp. 76--90.
-
-\bibitem{le_jdomainapp_2017}
-D.~M. Le, D.-H. Dang, H.~T. Vu, {jDomainApp}: {A} {Module}-{Based}
-  {Domain}-{Driven} {Software} {Framework}, in: Proc. 10th {Int}. {Symp}. on
-  {Information} and {Communication} {Technology} ({SOICT}), ACM, New York, USA,
-  2019, pp. 399--406.
+\bibitem{omg_unified_2015}
+{OMG}, Unified {Modeling} {Language} version 2.5 (2015).
 
 \bibitem{kleppe_software_2008}
 A.~Kleppe, Software {Language} {Engineering}: {Creating} {Domain}-{Specific}
@@ -53,6 +34,58 @@ A.~Kleppe, Software {Language} {Engineering}: {Creating} {Domain}-{Specific}
 
 \bibitem{omg_object_2014}
 {OMG}, Object {Constraint} {Language} {Version} 2.4 (2014).
+
+\bibitem{le_generative_2018}
+D.~M. Le, D.-H. Dang, V.-H. Nguyen, Generative {Software} {Module}
+  {Development} for {Domain}-{Driven} {Design} with {Annotation}-{Based}
+  {Domain} {Specific} {Language}, Information and Software Technology 120
+  (2020) 106--239.
+\newblock \href {http://dx.doi.org/10.1016/j.infsof.2019.106239}
+  {\path{doi:10.1016/j.infsof.2019.106239}}.
+
+\bibitem{booch_object-oriented_1986}
+G.~Booch, Object-{Oriented} {Development}, IEEE Transactions on Software
+  Engineering SE-12~(2) (1986) 211--221.
+\newblock \href {http://dx.doi.org/10.1109/TSE.1986.6312937}
+  {\path{doi:10.1109/TSE.1986.6312937}}.
+
+\bibitem{fuggetta_software_2014}
+A.~Fuggetta, E.~Di~Nitto, Software {Process}, in: Proceedings of the on
+  {Future} of {Software} {Engineering}, {FOSE} 2014, ACM, New York, NY, USA,
+  2014, pp. 1--12.
+\newblock \href {http://dx.doi.org/10.1145/2593882.2593883}
+  {\path{doi:10.1145/2593882.2593883}}.
+
+\bibitem{coutaz_pac:_1987}
+J.~Coutaz, {PAC}: {An} {Object} {Oriented} {Model} for {Dialog} {Design}, in:
+  Interact'87, Vol.~87, Elsevier, 1987, pp. 431--436.
+
+\bibitem{calvary_single-user_1997}
+G.~Calvary, J.~Coutaz, L.~Nigay, From {Single}-user {Architectural} {Design} to
+  {PAC}*: {A} {Generic} {Software} {Architecture} {Model} for {CSCW}, in: {ACM}
+  {SIGCHI} {Conf}. on {Human} {Factors} in {Computing} {Systems}, {CHI} '97,
+  ACM, New York, NY, USA, 1997, pp. 242--249.
+
+\bibitem{vernon_implementing_2013}
+V.~Vernon, Implementing {Domain}-{Driven} {Design}, 1st Edition, Addison-Wesley
+  Professional, Upper Saddle River, NJ, 2013.
+
+\bibitem{krasner_description_1988}
+G.~E. Krasner, S.~T. Pope, A {Description} of the {Model}-{View}-{Controller}
+  {User} {Interface} {Paradigm} in the {Smalltalk}-80 {System}, {J.} of
+  object-oriented programming 1~(3) (1988) 26--49.
+
+\bibitem{le_tree-based_2015}
+D.~M. Le, A {Tree}-{Based}, {Domain}-{Oriented} {Software} {Architecture} for
+  {Interactive} {Object}-{Oriented} {Applications}, in: Proc. 7th {Int}.
+  {Conf}. {Knowledge} and {Systems} {Engineering} ({KSE}), IEEE, 2015, pp.
+  19--24.
+
+\bibitem{le_jdomainapp_2017}
+D.~M. Le, D.-H. Dang, H.~T. Vu, {jDomainApp}: {A} {Module}-{Based}
+  {Domain}-{Driven} {Software} {Framework}, in: Proc. 10th {Int}. {Symp}. on
+  {Information} and {Communication} {Technology} ({SOICT}), ACM, New York, USA,
+  2019, pp. 399--406.
 
 \bibitem{nosal_language_2016}
 M.~Nosál’, M.~Sulír, J.~Juhár, Language {Composition} {Using} {Source}
@@ -92,44 +125,6 @@ M.~Balz, Embedding {Model} {Specifications} in {Object}-{Oriented} {Program}
   {Code}: {A} {Bottom}-up {Approach} for {Model}-{Based} {Software}
   {Development}, Ph.D. thesis, Universität Duisburg-Essen (Jan. 2012).
 
-\bibitem{vernon_implementing_2013}
-V.~Vernon, Implementing {Domain}-{Driven} {Design}, 1st Edition, Addison-Wesley
-  Professional, Upper Saddle River, NJ, 2013.
-
-\bibitem{krasner_description_1988}
-G.~E. Krasner, S.~T. Pope, A {Description} of the {Model}-{View}-{Controller}
-  {User} {Interface} {Paradigm} in the {Smalltalk}-80 {System}, {J.} of
-  object-oriented programming 1~(3) (1988) 26--49.
-
-\bibitem{fuggetta_software_2014}
-A.~Fuggetta, E.~Di~Nitto, Software {Process}, in: Proceedings of the on
-  {Future} of {Software} {Engineering}, {FOSE} 2014, ACM, New York, NY, USA,
-  2014, pp. 1--12.
-\newblock \href {https://doi.org/10.1145/2593882.2593883}
-  {\path{doi:10.1145/2593882.2593883}}.
-
-\bibitem{calvary_single-user_1997}
-G.~Calvary, J.~Coutaz, L.~Nigay, From {Single}-user {Architectural} {Design} to
-  {PAC}*: {A} {Generic} {Software} {Architecture} {Model} for {CSCW}, in: {ACM}
-  {SIGCHI} {Conf}. on {Human} {Factors} in {Computing} {Systems}, {CHI} '97,
-  ACM, New York, NY, USA, 1997, pp. 242--249.
-
-\bibitem{coutaz_pac:_1987}
-J.~Coutaz, {PAC}: {An} {Object} {Oriented} {Model} for {Dialog} {Design}, in:
-  Interact'87, Vol.~87, Elsevier, 1987, pp. 431--436.
-
-\bibitem{le_tree-based_2015}
-D.~M. Le, A {Tree}-{Based}, {Domain}-{Oriented} {Software} {Architecture} for
-  {Interactive} {Object}-{Oriented} {Applications}, in: Proc. 7th {Int}.
-  {Conf}. {Knowledge} and {Systems} {Engineering} ({KSE}), IEEE, 2015, pp.
-  19--24.
-
-\bibitem{booch_object-oriented_1986}
-G.~Booch, Object-{Oriented} {Development}, IEEE Transactions on Software
-  Engineering SE-12~(2) (1986) 211--221.
-\newblock \href {https://doi.org/10.1109/TSE.1986.6312937}
-  {\path{doi:10.1109/TSE.1986.6312937}}.
-
 \bibitem{riehle_understanding_1996}
 D.~Riehle, H.~Züllighoven, Understanding and {Using} {Patterns} in {Software}
   {Development}, Theory Pract. Obj. Syst. 2~(1) (1996) 3--13.
@@ -144,7 +139,7 @@ Z.~Daw, R.~Cleaveland, An {Extensible} {Operational} {Semantics} for {UML}
   {Activity} {Diagrams}, in: R.~Calinescu, B.~Rumpe (Eds.), Software
   {Engineering} and {Formal} {Methods}, no. 9276 in Lecture {Notes} in
   {Computer} {Science}, Springer International Publishing, 2015, pp. 360--368.
-\newblock \href {https://doi.org/10.1007/978-3-319-22969-0_25}
+\newblock \href {http://dx.doi.org/10.1007/978-3-319-22969-0_25}
   {\path{doi:10.1007/978-3-319-22969-0_25}}.
 
 \bibitem{lamsweerde_formal_2000}
@@ -176,7 +171,7 @@ D.~Ezzio, Using and Understanding Java Data Objects, Apress, 2008.
 
 \bibitem{validator2009hibernate}
 H.~Validator, Hibernate validator, Available on http://www. hibernate. org/412.
-  html (2009).
+  html.
 
 \bibitem{beanvalidation3}
 \href{https://beanvalidation.org/3.0/}{Jakarta bean validation 3.0} (2020).
@@ -198,13 +193,13 @@ C.~Larman, Applying {UML} and {Patterns}: {An} {Introduction} to
 \bibitem{beck_manifesto_2017}
 K.~Beck, M.~Beedle, A.~van Bennekum, A.~Cockburn, W.~Cunningham, M.~Fowler,
   J.~Grenning, J.~Highsmith, A.~Hunt, R.~Jeffries, Manifesto for {Agile}
-  {Software} {Development} (2017).
+  {Software} {Development}.
 
 \bibitem{kent_model_2002}
 S.~Kent, Model {Driven} {Engineering}, in: M.~Butler, L.~Petre, K.~Sere (Eds.),
   Integrated {Formal} {Methods}, no. 2335 in Lecture {Notes} in {Computer}
   {Science}, Springer Berlin Heidelberg, 2002, pp. 286--298.
-\newblock \href {https://doi.org/10.1007/3-540-47884-1_16}
+\newblock \href {http://dx.doi.org/10.1007/3-540-47884-1_16}
   {\path{doi:10.1007/3-540-47884-1_16}}.
 
 \bibitem{brambilla_model-driven_2012}
@@ -215,7 +210,7 @@ M.~Brambilla, J.~Cabot, {Manuel Wimmer}, Model-{Driven} {Software}
 \bibitem{folmer_architecting_2004}
 E.~Folmer, J.~Bosch, Architecting for {Usability}: {A} {Survey}, Journal of
   Systems and Software 70~(1–2) (2004) 61--78.
-\newblock \href {https://doi.org/10.1016/S0164-1212(02)00159-0}
+\newblock \href {http://dx.doi.org/10.1016/S0164-1212(02)00159-0}
   {\path{doi:10.1016/S0164-1212(02)00159-0}}.
 
 \bibitem{van_deursen_domain-specific_2000}
@@ -225,7 +220,7 @@ A.~van Deursen, P.~Klint, J.~Visser, Domain-specific {Languages}: {An}
 \bibitem{mernik_when_2005}
 M.~Mernik, J.~Heering, A.~M. Sloane, When and {How} to {Develop}
   {Domain}-specific {Languages}, ACM Comput. Surv. 37~(4) (2005) 316--344.
-\newblock \href {https://doi.org/10.1145/1118890.1118892}
+\newblock \href {http://dx.doi.org/10.1145/1118890.1118892}
   {\path{doi:10.1145/1118890.1118892}}.
 
 \bibitem{kohler_integrating_2000}
@@ -233,7 +228,7 @@ H.~J. Köhler, U.~Nickel, J.~Niere, A.~Zündorf, Integrating {UML} {Diagrams}
   for {Production} {Control} {Systems}, in: Proc. 22nd {Int}. {Conf}. on
   {Software} {Engineering}, {ICSE} '00, ACM, New York, NY, USA, 2000, pp.
   241--251.
-\newblock \href {https://doi.org/10.1145/337180.337207}
+\newblock \href {http://dx.doi.org/10.1145/337180.337207}
   {\path{doi:10.1145/337180.337207}}.
 
 \bibitem{niaz_object-oriented_2005}
@@ -244,7 +239,7 @@ I.~A. Niaz, J.~Tanaka, An {Object}-{Oriented} {Approach} to {Generate} {Java}
 \bibitem{selonen_transformations_2003}
 P.~Selonen, K.~Koskimies, M.~Sakkinen, Transformations {Between} {UML}
   {Diagrams}, JDM 14~(3) (2003) 37--55.
-\newblock \href {https://doi.org/10.4018/jdm.2003070103}
+\newblock \href {http://dx.doi.org/10.4018/jdm.2003070103}
   {\path{doi:10.4018/jdm.2003070103}}.
 
 \bibitem{warmer_model_2007}
