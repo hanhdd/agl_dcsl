@@ -8,47 +8,46 @@ Database file #1: resources/bib/behmod.bib
 Warning--empty pages in cepa_representing_2005
 Warning--empty author and editor in aprende_OpenXava_2011
 Warning--empty year in aprende_OpenXava_2011
-Warning--empty year in panizaopenxava
 Warning--empty journal in beck_manifesto_2017
-You've used 50 entries,
-            2952 wiz_defined-function locations,
-            954 strings with 13362 characters,
-and the built_in function-call counts, 15499 in all, are:
-= -- 1435
-> -- 406
-< -- 29
-+ -- 163
-- -- 113
-* -- 949
-:= -- 1930
-add.period$ -- 60
-call.type$ -- 50
-change.case$ -- 51
+You've used 49 entries,
+            2937 wiz_defined-function locations,
+            945 strings with 13174 characters,
+and the built_in function-call counts, 14893 in all, are:
+= -- 1381
+> -- 392
+< -- 28
++ -- 158
+- -- 109
+* -- 912
+:= -- 1857
+add.period$ -- 59
+call.type$ -- 49
+change.case$ -- 50
 chr.to.int$ -- 42
-cite$ -- 55
-duplicate$ -- 569
-empty$ -- 1921
-format.name$ -- 145
-if$ -- 4180
+cite$ -- 53
+duplicate$ -- 543
+empty$ -- 1833
+format.name$ -- 139
+if$ -- 4013
 int.to.chr$ -- 0
-int.to.str$ -- 50
-missing$ -- 57
-newline$ -- 170
-num.names$ -- 54
-pop$ -- 450
+int.to.str$ -- 49
+missing$ -- 56
+newline$ -- 167
+num.names$ -- 51
+pop$ -- 438
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 1099
+skip$ -- 1046
 stack$ -- 0
-substring$ -- 714
-swap$ -- 171
-text.length$ -- 15
+substring$ -- 690
+swap$ -- 162
+text.length$ -- 14
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 5
-while$ -- 126
-width$ -- 52
-write$ -- 437
-(There were 5 warnings)
+warning$ -- 4
+while$ -- 121
+width$ -- 51
+write$ -- 425
+(There were 4 warnings)
