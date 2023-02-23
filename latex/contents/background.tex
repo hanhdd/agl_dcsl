@@ -93,11 +93,10 @@ Both of them are assigned with a \clazz{DClass} element, which states that they 
 %
 The seven methods of class \clazz{Student} listed in the figure are domain methods. Each method is assigned with a \clazz{DOpt} element, which specifies the behavior type. For instance, method \clazz{genId}, whose behavior type is \code{AutoAttributeValueGen}, is additionally assigned with an \clazz{AttrRef} element, which references the name of the domain field \attrib{Student}{id}. This means that \clazz{genId} is the method that automatically generates values for \attrib{Student}{id}.
 
-%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Motivating Example} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Motivating Example and Research Questions} 
 \label{sect:bg-courseman-eg}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % ducmle: OLD
 %\begin{figure*}[ht]
@@ -149,29 +148,17 @@ As shown in the top part of the figure (with a star-like shape labeled ``?''), t
 
 \begin{figure}[th]
 	\begin{center}
-		\includegraphics[scale=0.7]{motivating-example2}
+		\includegraphics[scale=0.6]{motivating-example2}
 	\end{center}
-	\caption{UML activity diagram of \courseman models.}
-	\label{fig:motivatingExample1}
+	\caption{A UML Activity diagram to represent the enrolment management activity.}
+	\label{fig:motivatingExample2}
 \end{figure}
-%\caption{Combining structural and behavioural \courseman models.}
 
-%In practical applications, the class model is often combined with a behavioral model (\eg a UML activity diagram) to describe a unified view of the domain requirements. Throughout this paper, we will refer to this combined model as \textit{unified domain model}. For instance, the left-hand side of Figure~\ref{fig:motivatingExample1} illustrates the combination of a simple class diagram of \courseman (displayed at the bottom) and an activity diagram of the enrolment management function. This activity involves registering \clazz{Student}s, enrolling them into \clazz{CourseModule}s and registering them into \clazz{SClass}es. In addition, it would allow a \clazz{Student} to raise a \clazz{HelpRequest} during the enrolment process. 
-%The right-hand side of Figure~\ref{fig:motivatingExample2} depicts an unspecified unified domain model of the \courseman example. What this model entails and how this can be specified are the main questions that we seek to answer in this paper. We will state shortly a number of research questions relating to this model that we will specifically focus on investigating.
-In practical applications, the class model is often combined with a behavioral model (\eg a UML activity diagram) to describe a unified view of the domain requirements. Throughout this paper, we will refer to this combined model as \textit{unified domain model}. For instance, the Figure~\ref{fig:motivatingExample1} illustrates the activity diagram of the enrolment management function. This activity involves registering \clazz{Student}s, enrolling them into \clazz{CourseModule}s and registering them into \clazz{SClass}es. In addition, it would allow a \clazz{Student} to raise a \clazz{HelpRequest} during the enrolment process.
-What this model entails and how this can be specified are the main questions that we seek to answer in this paper. We will state shortly a number of research questions relating to this model that we will specifically focus on investigating.
+Figure~\ref{fig:motivatingExample2} shows a UML Activity diagram for the enrolment management activity. This activity involves registering \clazz{Student}s, enrolling them into \clazz{CourseModule}s and registering them into \clazz{SClass}es. In addition, it would allow a \clazz{Student} to raise a \clazz{HelpRequest} during the enrolment process. %
+%
+We might consider the domain behavior as a new concern that needs to be composed with the essential domain model, as shown in Figure~\ref{fig:motivatingExample}, for an executable version of the software. Since this domain behavior is currently captured in UML, we would need a further mechanism to maintain a consistency between the two models, toward composing them, normally at an implementation level. As an alternative approach for this aim, following the DDD approach introduced in our previous work~\cite{le_domain_2018}, we would consider such a behavior concern as an extension of the essential domain model for a unified domain model (i.e., a DDD with the key features, feasibility, productivity, and understandability as explained above). To achieve the goal we face two main challenges that motivates this work as follows:
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Research Questions}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-As illustrated by the motivating example, a unified domain model could be defined as a loose combination of (1)~a class diagram for a domain model, (2)~an activity diagram for domain behaviors, and (3)~OCL constraints attached to these specifications. This puts forward a need to incorporate domain behaviors into the domain model specified by the DCSL framework~\cite{le_domain_2018} for a unified model with the three features, as explained in Section~\ref{sect:bg-dcsl}, feasibility, productivity, and understandability. Note that the DCSL framework has been defined as an initial effort for the three key features by extending the class metamodel with new meta-concepts to express OCL-like constraints.
-%in the form of annotations in the host language.
-Specifically, to realize this approach, we need to tackle the following challenges:
-
-\begin{itemize}
-    \item How can we extend the DCSL framework with new constructs to represent domain behaviors that could be captured by UML activity diagrams?
-    \item How can we define a mechanism to incorporate such domain behaviors into a DCSL-specified domain model? This requires us to define an integrated semantics of structural and behavioral aspects of a domain model.
-\end{itemize}
-
-
+\begin{enumerate}
+    \item How can we extend the DCSL framework (that defines domain models within MOSA for DDD software) with new constructs to represent domain behaviors that could be captured by a UML Activity diagram?    
+    \item How can we incorporate such domain behaviors into a DCSL-specified domain model? This would require defining an integrated semantics of structural and behavioral aspects of the domain model.
+\end{enumerate}

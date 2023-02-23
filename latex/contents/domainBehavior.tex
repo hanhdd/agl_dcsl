@@ -3,23 +3,19 @@
 \label{sect:overviewApproach}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-This section presents our basic idea of incorporating behavior aspects into a domain model in order to increase its expressiveness. Within our method, structural and behavioral aspects are represented by a so-called unified model and an activity graph, respectively. They are then combined for a whole domain model.
+This section presents our basic idea of %
+%
+incorporating behavior aspects as part of a unified domain model ...
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Basic Idea}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%Modeling a software system in DDD requires a domain model to represent both structural and behavioral aspects of the system.
-%
-%Within our method, we express these using a combination of \textbf{unified domain model} and \textbf{activity graph}.
-%
-Figure~\ref{fig:method-overview} shows our proposed method.
-%, which has been refined from the method that we introduced in~\cite{le_domain_2018}. 
-The figure highlights a unified model and its combination with an activity graph. Here, we consider the unified model as an extended domain model in MOSA~\cite{le_domain_2018}. This model, which is expressed in \dcsl, extends the conventional DDD's domain model~\cite{evans_domain-driven_2004} with the domain-specific features of UML activity diagram. Among the essential features that are supported, an activity class (\eg class \clazz{C_a} in Figure~\ref{fig:method-overview}) is defined for each unified model to represent an activity. We use the activity class as a pivot with which to define the activity graph. Each activity class is attached to an activity graph that describes the behavioral logic of the represented activity. The activity graphs are expressed in the language \agl,~which is explained in Section~\ref{sect:agl}.
+Figure~\ref{fig:method-overview} shows our proposed method. The figure highlights a unified model and its combination with an activity graph. Here, we consider the unified model as an extended domain model in MOSA~\cite{le_domain_2018}. This model, which is expressed in \dcsl, extends the conventional DDD's domain model~\cite{evans_domain-driven_2004} with the domain-specific features of UML activity diagram. Among the essential features that are supported, an activity class (\eg class \clazz{C_a} in Figure~\ref{fig:method-overview}) is defined for each unified model to represent an activity. We use the activity class as a pivot with which to define the activity graph. Each activity class is attached to an activity graph that describes the behavioral logic of the represented activity. The activity graphs are expressed in the language \agl,~which is explained in Section~\ref{sect:agl}.
 
 \begin{figure}[ht]
 	\begin{center}
-		\includegraphics[scale=0.37 %0.26
+		\includegraphics[scale=0.3 %0.26
 		]{method-overview}
 	\end{center}
 	\caption{An overview of our method.} %
@@ -67,6 +63,7 @@ The condition imposed on the fourth class pair of activity-specific association 
 	\caption{(A: Left) The UML activity and class models of a \courseman~software variant that handles the enrollment management activity; (B: Right) The unified model that results.} %
 	\label{fig:unified-model-example}
 \end{figure*} 
+
 %\subsection{Activity Domain Model}
 \begin{definition} \label{def:unified-model}
 	A \textbf{unified model} is a \dcsl~model that realizes an unified class model as follows:
