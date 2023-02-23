@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2023.2.11)  23 FEB 2023 15:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2023.2.11)  23 FEB 2023 15:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1003,18 +1003,12 @@ Package epstopdf Info: Source file: <images//motivating-example2.eps>
 (epstopdf)                    size: 1941022 bytes
 (epstopdf)             Output file: <images//motivating-example2-eps-converted-
 to.pdf>
-(epstopdf)                    date: 2023-02-22 23:44:43
-(epstopdf)                    size: 353809 bytes
+(epstopdf)                    date: 2023-02-23 15:41:20
+(epstopdf)                    size: 24921 bytes
 (epstopdf)             Command: <miktex-epstopdf --outfile=images//motivating-e
 xample2-eps-converted-to.pdf images//motivating-example2.eps>
 (epstopdf)             \includegraphics on input line 152.
-runsystem(miktex-epstopdf --outfile=images//motivating-example2-eps-converted-t
-o.pdf images//motivating-example2.eps)...executed safely (allowed).
-
-Package epstopdf Info: Result file: <images//motivating-example2-eps-converted-
-to.pdf>
-(epstopdf)                    date: 2023-02-23 15:41:20
-(epstopdf)                    size: 24921 bytes.
+Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex.exe (file ./images//motivating-example2-eps-converted-
@@ -1052,20 +1046,36 @@ input line 23.
 (pdftex.def)             Requested size: 312.70338pt x 219.85796pt.
 [7 <./images//motivating-example2-eps-converted-to.pdf>] [8 <./images//method-o
 verview-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <images//unified-model-example.eps>
+(epstopdf)                    date: 2023-02-23 15:51:57
+(epstopdf)                    size: 8924700 bytes
+(epstopdf)             Output file: <images//unified-model-example-eps-converte
+d-to.pdf>
+(epstopdf)                    date: 2023-02-22 23:52:11
+(epstopdf)                    size: 126313 bytes
+(epstopdf)             Command: <miktex-epstopdf --outfile=images//unified-mode
+l-example-eps-converted-to.pdf images//unified-model-example.eps>
+(epstopdf)             \includegraphics on input line 65.
+runsystem(miktex-epstopdf --outfile=images//unified-model-example-eps-converted
+-to.pdf images//unified-model-example.eps)...executed safely (allowed).
 
-! LaTeX Error: File `motivating-example21' not found.
+Package epstopdf Info: Result file: <images//unified-model-example-eps-converte
+d-to.pdf>
+(epstopdf)                    date: 2023-02-23 15:52:43
+(epstopdf)                    size: 307391 bytes.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.65 ...egraphics[scale=0.8]{motivating-example21}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.jpg,.pdf,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
 
+pdfTeX warning: pdflatex.exe (file ./images//unified-model-example-eps-converte
+d-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> al
+lowed
+<images//unified-model-example-eps-converted-to.pdf, id=341, 558.085pt x 286.06
+876pt>
+File: images//unified-model-example-eps-converted-to.pdf Graphic file (type pdf
+)
+<use images//unified-model-example-eps-converted-to.pdf>
+Package pdftex.def Info: images//unified-model-example-eps-converted-to.pdf  us
+ed on input line 65.
+(pdftex.def)             Requested size: 446.46861pt x 228.85532pt.
 
 LaTeX Font Warning: Font shape `T1/lmr/m/scit' undefined
 (Font)              using `T1/lmr/m/scsl' instead on input line 73.
@@ -1078,7 +1088,8 @@ decision and non-join com-po-nent classes, then $\OML/lmm/m/it/10 c[]; c[]; []
 ; c[]$
  []
 
-) (contents/moduleactions.tex [9] [10] [11]
+[9 <./images//unified-model-example-eps-converted-to.pdf>])
+(contents/moduleactions.tex [10] [11]
 Overfull \hbox (1.53456pt too wide) in paragraph at lines 104--105
 [][]\T1/lmr/bx/n/10 Definition 4. []\T1/lmr/m/it/10 An \T1/lmr/bx/it/10 atomic 
 ac-tion se-quence \T1/lmr/m/it/10 (\T1/lmr/bx/it/10 ASE\T1/lmr/m/it/10 ) $\OML/
@@ -1101,7 +1112,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex.exe (file ./images//ase-example-eps-converted-to.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<images//ase-example-eps-converted-to.pdf, id=381, 282.05376pt x 508.90125pt>
+<images//ase-example-eps-converted-to.pdf, id=386, 282.05376pt x 508.90125pt>
 File: images//ase-example-eps-converted-to.pdf Graphic file (type pdf)
 <use images//ase-example-eps-converted-to.pdf>
 Package pdftex.def Info: images//ase-example-eps-converted-to.pdf  used on inpu
@@ -1124,7 +1135,7 @@ Package epstopdf Info: Output file is already uptodate.
 pdfTeX warning: pdflatex.exe (file ./images//case-study/decisional-form-eps-con
 verted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.
 5> allowed
-<images//case-study/decisional-form-eps-converted-to.pdf, id=415, 1877.0125pt x
+<images//case-study/decisional-form-eps-converted-to.pdf, id=420, 1877.0125pt x
  1149.29375pt>
 File: images//case-study/decisional-form-eps-converted-to.pdf Graphic file (typ
 e pdf)
@@ -1137,6 +1148,7 @@ Overfull \hbox (1.25198pt too wide) in paragraph at lines 289--291
  [] 
  []
 
+[14]
 Package epstopdf Info: Source file: <images//case-study/decisional-form-eg-gui.
 eps>
 (epstopdf)                    date: 2023-02-11 16:02:35
@@ -1150,7 +1162,7 @@ ecisional-form-eg-gui-eps-converted-to.pdf images//case-study/decisional-form-e
 g-gui.eps>
 (epstopdf)             \includegraphics on input line 316.
 Package epstopdf Info: Output file is already uptodate.
-<images//case-study/decisional-form-eg-gui-eps-converted-to.pdf, id=420, 1128.2
+<images//case-study/decisional-form-eg-gui-eps-converted-to.pdf, id=434, 1128.2
 15pt x 328.22626pt>
 File: images//case-study/decisional-form-eg-gui-eps-converted-to.pdf Graphic fi
 le (type pdf)
@@ -1163,8 +1175,8 @@ Overfull \hbox (5.84708pt too wide) in paragraph at lines 315--317
  [] 
  []
 
-[14]) (contents/agl.tex [15 <./images//case-study/decisional-form-eps-converted
--to.pdf>]
+) (contents/agl.tex [15 <./images//case-study/decisional-form-eps-converted-to.
+pdf>]
 Package epstopdf Info: Source file: <images//agl-asm.eps>
 (epstopdf)                    date: 2023-02-22 23:49:46
 (epstopdf)                    size: 5710046 bytes
@@ -1179,7 +1191,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex.exe (file ./images//agl-asm-eps-converted-to.pdf): PDF
  inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<images//agl-asm-eps-converted-to.pdf, id=443, 2979.13pt x 1585.925pt>
+<images//agl-asm-eps-converted-to.pdf, id=448, 2979.13pt x 1585.925pt>
 File: images//agl-asm-eps-converted-to.pdf Graphic file (type pdf)
 <use images//agl-asm-eps-converted-to.pdf>
 Package pdftex.def Info: images//agl-asm-eps-converted-to.pdf  used on input li
@@ -1203,7 +1215,7 @@ Package epstopdf Info: Output file is already uptodate.
 pdfTeX warning: pdflatex.exe (file ./images//activity-graph-example-eps-convert
 ed-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> a
 llowed
-<images//activity-graph-example-eps-converted-to.pdf, id=472, 1179.40625pt x 61
+<images//activity-graph-example-eps-converted-to.pdf, id=477, 1179.40625pt x 61
 1.28375pt>
 File: images//activity-graph-example-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -1253,13 +1265,13 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex.exe (file ./images//agl-cmt-csm-eps-converted-to.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<images//agl-cmt-csm-eps-converted-to.pdf, id=496, 2924.9275pt x 1533.73pt>
+<images//agl-cmt-csm-eps-converted-to.pdf, id=499, 2924.9275pt x 1533.73pt>
 File: images//agl-cmt-csm-eps-converted-to.pdf Graphic file (type pdf)
 <use images//agl-cmt-csm-eps-converted-to.pdf>
 Package pdftex.def Info: images//agl-cmt-csm-eps-converted-to.pdf  used on inpu
 t line 175.
 (pdftex.def)             Requested size: 438.7202pt x 230.04958pt.
-[19 <./images//agl-cmt-csm-eps-converted-to.pdf>] [20]
+[19] [20 <./images//agl-cmt-csm-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <images//agc-enrolmentmgmt.eps>
 (epstopdf)                    date: 2023-02-11 16:02:35
 (epstopdf)                    size: 357691 bytes
@@ -1276,14 +1288,15 @@ Package epstopdf Info: Output file is already uptodate.
 pdfTeX warning: pdflatex.exe (file ./images//agc-enrolmentmgmt-eps-converted-to
 .pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowe
 d
-<images//agc-enrolmentmgmt-eps-converted-to.pdf, id=538, 885.3075pt x 560.0925p
+<images//agc-enrolmentmgmt-eps-converted-to.pdf, id=542, 885.3075pt x 560.0925p
 t>
 File: images//agc-enrolmentmgmt-eps-converted-to.pdf Graphic file (type pdf)
 <use images//agc-enrolmentmgmt-eps-converted-to.pdf>
 Package pdftex.def Info: images//agc-enrolmentmgmt-eps-converted-to.pdf  used o
 n input line 264.
 (pdftex.def)             Requested size: 309.86226pt x 196.03531pt.
-[21]) (contents/casestudy.tex
+[21] [22 <./images//agc-enrolmentmgmt-eps-converted-to.pdf>])
+(contents/casestudy.tex
 Package epstopdf Info: Source file: <images//case-study.eps>
 (epstopdf)                    date: 2023-02-18 16:27:05
 (epstopdf)                    size: 1183002 bytes
@@ -1298,7 +1311,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex.exe (file ./images//case-study-eps-converted-to.pdf): 
 PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<images//case-study-eps-converted-to.pdf, id=557, 390.45876pt x 94.3525pt>
+<images//case-study-eps-converted-to.pdf, id=569, 390.45876pt x 94.3525pt>
 File: images//case-study-eps-converted-to.pdf Graphic file (type pdf)
 <use images//case-study-eps-converted-to.pdf>
 Package pdftex.def Info: images//case-study-eps-converted-to.pdf  used on input
@@ -1320,7 +1333,7 @@ Package epstopdf Info: Output file is already uptodate.
 pdfTeX warning: pdflatex.exe (file ./images//case-study-incorporate-eps-convert
 ed-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> a
 llowed
-<images//case-study-incorporate-eps-converted-to.pdf, id=560, 845.1575pt x 524.
+<images//case-study-incorporate-eps-converted-to.pdf, id=572, 845.1575pt x 524.
 96124pt>
 File: images//case-study-incorporate-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -1328,7 +1341,7 @@ f)
 Package pdftex.def Info: images//case-study-incorporate-eps-converted-to.pdf  u
 sed on input line 21.
 (pdftex.def)             Requested size: 422.57771pt x 262.47998pt.
-) (contents/tool1.tex [22 <./images//agc-enrolmentmgmt-eps-converted-to.pdf>]
+) (contents/tool1.tex
 Package epstopdf Info: Source file: <images//struct-tool.eps>
 (epstopdf)                    date: 2023-02-19 01:33:08
 (epstopdf)                    size: 2525443 bytes
@@ -1343,14 +1356,14 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex.exe (file ./images//struct-tool-eps-converted-to.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<images//struct-tool-eps-converted-to.pdf, id=576, 794.97pt x 939.51pt>
+<images//struct-tool-eps-converted-to.pdf, id=579, 794.97pt x 939.51pt>
 File: images//struct-tool-eps-converted-to.pdf Graphic file (type pdf)
 <use images//struct-tool-eps-converted-to.pdf>
 Package pdftex.def Info: images//struct-tool-eps-converted-to.pdf  used on inpu
 t line 12.
 (pdftex.def)             Requested size: 317.98236pt x 375.79733pt.
-[23 <./images//case-study-eps-converted-to.pdf> <./images//case-study-incorpora
-te-eps-converted-to.pdf>] [24 <./images//struct-tool-eps-converted-to.pdf>]
+[23 <./images//case-study-eps-converted-to.pdf>] [24 <./images//case-study-inco
+rporate-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <images//software-tool.eps>
 (epstopdf)                    date: 2023-02-11 16:02:35
 (epstopdf)                    size: 4403399 bytes
@@ -1366,13 +1379,14 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex.exe (file ./images//software-tool-eps-converted-to.pdf
 ): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<images//software-tool-eps-converted-to.pdf, id=602, 789.95125pt x 560.0925pt>
+<images//software-tool-eps-converted-to.pdf, id=603, 789.95125pt x 560.0925pt>
 File: images//software-tool-eps-converted-to.pdf Graphic file (type pdf)
 <use images//software-tool-eps-converted-to.pdf>
 Package pdftex.def Info: images//software-tool-eps-converted-to.pdf  used on in
 put line 57.
 (pdftex.def)             Requested size: 315.9749pt x 224.03302pt.
-) [25 <./images//software-tool-eps-converted-to.pdf>] (contents/eval1.tex
+) (contents/eval1.tex [25 <./images//struct-tool-eps-converted-to.pdf>]
+[26 <./images//software-tool-eps-converted-to.pdf>]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 29.
@@ -1386,12 +1400,11 @@ Overfull \hbox (8.64363pt too wide) in paragraph at lines 34--42
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 47.
 
-[26] [27]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 71.
 
-[28]
+[27] [28]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 129.
@@ -1413,10 +1426,10 @@ Package rerunfilecheck Info: File `agl_dcsl.out' has not changed.
 (rerunfilecheck)             Checksum: E977AD20975FFC2952AD38E0C293FA97;6658.
  ) 
 Here is how much of TeX's memory you used:
- 24987 strings out of 478582
- 457333 string characters out of 2854159
- 772846 words of memory out of 3000000
- 42457 multiletter control sequences out of 15000+600000
+ 24992 strings out of 478582
+ 457643 string characters out of 2854159
+ 768846 words of memory out of 3000000
+ 42462 multiletter control sequences out of 15000+600000
  563327 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,18n,94p,1633b,1313s stack positions out of 10000i,1000n,20000p,200000b,80000s
@@ -1445,9 +1458,9 @@ ublic/lm/lmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmsy6.pfb><C
 /fonts/type1/public/lm/lmsy8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm
 /lmtt10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmtt8.pfb><C:/Progra
 m Files/MiKTeX/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on agl_dcsl.pdf (35 pages, 3863876 bytes).
+Output written on agl_dcsl.pdf (35 pages, 4169689 bytes).
 PDF statistics:
- 951 PDF objects out of 1000 (max. 8388607)
+ 956 PDF objects out of 1000 (max. 8388607)
  182 named destinations out of 1000 (max. 500000)
- 405 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 410 words of extra memory for PDF output out of 10000 (max. 10000000)
 
