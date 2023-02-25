@@ -5,7 +5,7 @@ We realized our method as a tool in a Java software framework that we reported i
 %
 
 
-Based on the above method of deploying the source code, we arrange the CourseMan program source code by packages and name these packages after the names of the modules. Figure~\ref{fig:struct-tool} below depicts the program's source code package structure diagram. The comment boxes to the right of the figure explain the main directories of the source code structure.
+Based on the above method of deploying the source code, we arrange the OrderMan program source code by packages and name these packages after the names of the modules. Figure~\ref{fig:struct-tool} below depicts the program's source code package structure diagram. The comment boxes to the right of the figure explain the main directories of the source code structure.
 %
 \begin{figure*}[ht]
 	\centering
@@ -15,48 +15,126 @@ Based on the above method of deploying the source code, we arrange the CourseMan
 \end{figure*}
 %
 
-\textit{Example: AGC of Decisional Pattern}: the Code show entire AGC is defined by an AGraph element, attached to the activity class EnrolmentMgmt of the unified model:
+\textit{Example: AGC of Decisional Pattern}: the Code show entire AGC is defined by an AGraph element, attached to the activity class HandleOrder of the unified model:
 \begin{verbatim}
-	/**Activity graph configuration */
-	@AGraph(nodes={
-		@ANode(refCls=Student.class, serviceCls=DataController.class,
-		outClses={DHelpOrSClass.class}, init=true, 
-		actSeq={
-			// create new and wait until a new object is created
-			@MAct(actName=MethodName.newObject, endStates={AppState.Created})
-		}),
-		@ANode(refCls=DHelpOrSClass.class, nodeType=NodeType.Decision, 
-		outClses={HelpRequest.class, SClassRegistration.class}),
-		@ANode(refCls=HelpRequest.class, serviceCls=DataController.class 
-		//,outClses={SClassRegistration.class}
-		,actSeq={
-			// prepare to create new
-			@MAct(actName=MethodName.newObject, endStates={AppState.NewObject}),  
-			// set value for HelpDesk.Student
-			@MAct(actName=MethodName.setDataFieldValues, attribNames={HelpRequest.A_student},
-			endStates={AppState.Created}),  
-		}),
-		@ANode(refCls=SClassRegistration.class, serviceCls=DataController.class, 
-		actSeq={
-			//prepare to create new
-			@MAct(actName=MethodName.newObject, endStates={AppState.NewObject}),  
-			// set value for SClassRegistration.Student
-			@MAct(actName=MethodName.setDataFieldValues, attribNames={SClassRegistration.A_student},
-			endStates={AppState.Created}),  
-		})
-	})
-	/**END: activity graph configuration */
+/* Activity Graph Configuration - AGC */
+@AGraph(nodes={
+/* 1 */  
+	@ANode(label="1:CustOrder", zone="top",init=true, 
+	refCls=CustOrder.class, serviceCls=DataController.class, 
+	outNodes= {"2:AcceptOrNot"},
+	actSeq={
+		@MAct(actName=newObject, endStates={Created})
+	}),
+	/* 2: decisional */    
+	@ANode(label="2:AcceptOrNot", refCls=AcceptOrNot.class,
+	nodeType=Decision, outNodes= {"3:FillOrder", "4:EndOrder"}),
+	/* 3 */    
+	@ANode(label="3:FillOrder", zone="top", refCls=FillOrder.class,
+	serviceCls=DataController.class,
+	outNodes= {"5:CustOrder"}, nodeType=Coordinator,
+	actSeq = {
+		@MAct(actName=newObject, endStates={NewObject}),
+		@MAct(actName=setDataFieldValues, attribNames={"receivedOrder"}),
+		@MAct(actName=createObject, endStates={Created})
+	}),
+	/* 4 */    
+	@ANode(label="4:EndOrder", refCls=EndOrder.class, nodeType=Merge,
+	outNodes= {"7:CustOrder"}),
+	/* 5 */    
+	@ANode(label="5:CustOrder", zone="3:FillOrder",refCls=CustOrder.class,
+	serviceCls=DataController.class, outNodes = {"6:Delivery"},
+	actSeq = {
+		@MAct(actName=showObject, endStates = {Updated})
+	}),
+	/* 6: Fork */    
+	@ANode(label="6:Delivery", zone="3:FillOrder",refCls=Delivery.class, 
+	nodeType=Fork, outNodes= {"8:CollectPayment", "9:ShipOrder"},
+	actSeq = {
+		@MAct(actName=newObject, endStates={NewObject}),
+		@MAct(actName=createObject, endStates={Created})      
+	}
+	),
+	/* 7 */    
+	@ANode(label="7:CustOrder",zone="6:Delivery", refCls=CustOrder.class,
+	serviceCls=DataController.class, 
+	actSeq={
+		@MAct(actName=showObject),
+		@MAct(actName=updateObject, endStates = {Updated})
+	}),
+	/* 8 */    
+	@ANode(label="8:CollectPayment", zone="6:Delivery", refCls=CollectPayment.class, 
+	serviceCls=DataController.class,
+	nodeType=Coordinator, outNodes= {"10:Invoice"},
+	actSeq={
+		@MAct(actName=newObject, endStates={NewObject}),
+		@MAct(actName=setDataFieldValues, attribNames = {"receivedOrder"}),
+		@MAct(actName=createObject, endStates={Created})
+	}),
+	/* 9 */    
+	@ANode(label="9:ShipOrder", zone="6:Delivery",refCls=ShipOrder.class,
+	serviceCls=DataController.class, nodeType=Coordinator, 
+	outNodes= {"12:Shipment"},
+	actSeq={
+		@MAct(actName=newObject, endStates={NewObject}),
+		@MAct(actName=setDataFieldValues, attribNames = {"receivedOrder"},
+		endStates={Created})
+	}),
+	/* 10 */    
+	@ANode(label="10:Invoice", zone="8:CollectPayment",refCls=Invoice.class,
+	serviceCls=DataController.class, outNodes = {"11:AcceptPayment"},
+	actSeq={
+		// create new and wait until a new object is created
+		@MAct(actName=newObject, endStates={NewObject}),
+		@MAct(actName=setDataFieldValues, attribNames = {"order"}, endStates={Created})
+	}),
+	/* 11 */    
+	@ANode(label="11:AcceptPayment", zone="8:CollectPayment", refCls=AcceptPayment.class,
+	serviceCls=DataController.class, outNodes= {"14:Payment"},
+	nodeType=Coordinator,      
+	actSeq={
+		@MAct(actName=newObject, endStates={NewObject}),
+		@MAct(actName=setDataFieldValues, attribNames = {"invoice"}),
+		@MAct(actName=createObject, endStates={Created})
+	}),
+	/* 12 */    
+	@ANode(label="12:Shipment", zone="9:ShipOrder",refCls=Shipment.class,
+	serviceCls=DataController.class, outNodes = { "13:CompleteOrder" },
+	actSeq={
+		// create new and wait until a new object is created
+		@MAct(actName=newObject, endStates={NewObject}),
+		@MAct(actName=setDataFieldValues, attribNames = {"order"}, endStates={Created})
+	}),
+	/* 13 */    
+	@ANode(label="13:CompleteOrder",refCls=CompleteOrder.class, nodeType=Join,
+	outNodes= {"4:EndOrder"}),
+	/* 14 */    
+	@ANode(label="14:Payment", zone="11:AcceptPayment",refCls=Payment.class,
+	serviceCls=DataController.class, outNodes= { "15:CustOrder" },
+	actSeq={
+		@MAct(actName=newObject, endStates = {NewObject}),
+		@MAct(actName=setDataFieldValues, attribNames = {"invoice"},
+		endStates = {Created}),
+	}),
+	/* 15 */    
+	@ANode(label="15:CustOrder", zone="11:AcceptPayment",refCls=CustOrder.class,
+	serviceCls=DataController.class, outNodes= { "13:CompleteOrder" },
+	actSeq={
+		@MAct(actName=filterInput, filterType=FilterCustOrderFromPayment.class),
+		@MAct(actName=showObject, endStates = {Updated}),
+	}),
+})
 \end{verbatim}
 
 Conceptually, the tool consists of three key components: model manager, view manager, and object manager. First, the \textbf{model manager} is responsible for registering the configured unified model and making it accessible to other components. 
-Second, the \textbf{view manager} is responsible for (1) automatically generating the entire GUI of the software from the unified model and (2) for handling the user interaction performed on this GUI. The GUI consists of a set of object UIs (one for each module's view), and a desktop for organising these UIs. For example, Figure~\ref{fig:software-tool} shows the generated GUI for one variant of the \courseman~unified model. The GUI contains three object UIs for \clazz{ModuleEnrolmentMgmt}, \clazz{ModuleStudent}, and \clazz{ModuleEnrolment}.
+Second, the \textbf{view manager} is responsible for (1) automatically generating the entire GUI of the software from the unified model and (2) for handling the user interaction performed on this GUI. The GUI consists of a set of object UIs (one for each module's view), and a desktop for organising these UIs. For example, Figure~\ref{fig:software-tool} shows the generated GUI for one variant of the OrderMan unified model. The GUI contains twelve object UIs for \clazz{ModuleHandleOrder}, \clazz{ModuleCustOrder},  \clazz{ModuleFillOrder}, \clazz{ModuleOrderLine}, \clazz{ModuleCustomer}, \clazz{ModuleDelivery}, \clazz{ModuleCollectPayment}, \clazz{ModuleShipOrder},\\ \clazz{ModuleInvoice}, \clazz{ModuleShipment}, \clazz{ModuleAcceptPayment} and \clazz{ModulePayment}.
 %Later in the Section~\ref{sect:eval-expressiveness}, we will demonstrate how the tool is used to generate 
-Several other variants of the \courseman~unified model, as mentioned in Section~\ref{sect:behaviorPatterns}, could also be generated. 
+Several other variants of the OrderMan unified model, as mentioned in Section~\ref{sect:behaviorPatterns}, could also be generated. 
 \begin{figure*}[ht]
 	\centering
-	\includegraphics[scale=0.4]{software-tool}
-	\caption{The GUI of \courseman~software generated by the tool: (1) desktop, 
-		(2-4) the object UIs of \clazz{EnrolmentMgmt}, \clazz{Student}, and \clazz{Enrolment}.} %
+	\includegraphics[scale=0.5]{software-tool}
+	\caption{The GUI of OrderMan~software generated by the tool: (1) desktop, 
+		(2) the object UIs of \clazz{ModuleHandleOrder} and (3) the \clazz{ModuleCollectPayment}.} %
 	\label{fig:software-tool}
 \end{figure*}
 Third, the \textbf{object manager} is responsible for managing the run-time object pool of each domain class and for providing a generic object storage component for storing/retrieving the objects to/from external storage. As of this writing, the tool supports both file-based and relational database storage. The relational data model is automatically generated from the unified model the first time the software is run.
