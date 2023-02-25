@@ -1,0 +1,122 @@
+%
+\section{Activity graph configuration - AGC} \label{apex:agl-agc}
+%
+\begin{verbatim}
+/**Activity graph configuration */
+@AGraph(nodes={
+	/* 1 */    
+	@ANode(label="1:CustOrder", zone="top",init=true, 
+	refCls=CustOrder.class, serviceCls=DataController.class, 
+	outNodes= {"2:AcceptOrNot"},
+	actSeq={
+		// create new and wait until a new object is created
+		@MAct(actName=newObject, endStates={Created})
+	}),
+	/* 2: decisional */    
+	@ANode(label="2:AcceptOrNot", 
+	refCls=AcceptOrNot.class, nodeType=Decision, 
+	outNodes= {"3:FillOrder", "4:EndOrder"}),
+	/* 3 */    
+	@ANode(label="3:FillOrder", zone="top", refCls=FillOrder.class,
+	serviceCls=DataController.class,
+	outNodes= {"5:CustOrder"},
+	nodeType=Coordinator,
+	actSeq = {
+		@MAct(actName=newObject, endStates={NewObject}),
+		@MAct(actName=setDataFieldValues, attribNames={"receivedOrder"}),
+		@MAct(actName=createObject, endStates={Created})
+	}),
+	/* 4 */    
+	@ANode(label="4:EndOrder", refCls=EndOrder.class, 
+	nodeType=Merge, outNodes= {"7:CustOrder"}),
+	/* 5 */    
+	@ANode(label="5:CustOrder", zone="3:FillOrder",refCls=CustOrder.class,
+	serviceCls=DataController.class,
+	outNodes = {"6:Delivery"},
+	actSeq = {
+		@MAct(actName=showObject, endStates = {Updated})
+	}),
+	/* 6: Fork */    
+	@ANode(label="6:Delivery", zone="3:FillOrder",refCls=Delivery.class, 
+	nodeType=Fork, outNodes= {"8:CollectPayment", "9:ShipOrder"},
+	actSeq = {
+		@MAct(actName=newObject, endStates={NewObject}),
+		@MAct(actName=createObject, endStates={Created})      
+	}
+	),
+	/* 7 */    
+	@ANode(label="7:CustOrder",zone="6:Delivery", refCls=CustOrder.class,
+	serviceCls=DataController.class, 
+	actSeq={
+		@MAct(actName=showObject),
+		@MAct(actName=updateObject, endStates = {Updated})
+	}),
+	/* 8 */    
+	@ANode(label="8:CollectPayment", zone="6:Delivery",refCls=CollectPayment.class, 
+	serviceCls=DataController.class,
+	nodeType=Coordinator,
+	outNodes= {"10:Invoice"},
+	actSeq={
+		@MAct(actName=newObject, endStates={NewObject}),
+		@MAct(actName=setDataFieldValues, attribNames = {"receivedOrder"}),
+		@MAct(actName=createObject, endStates={Created})
+	}),
+	/* 9 */    
+	@ANode(label="9:ShipOrder", zone="6:Delivery",refCls=ShipOrder.class,
+	serviceCls=DataController.class,
+	nodeType=Coordinator,
+	outNodes= {"12:Shipment"},
+	actSeq={
+		@MAct(actName=newObject, endStates={NewObject}),
+		@MAct(actName=setDataFieldValues, attribNames = {"receivedOrder"}, endStates={Created})
+	}),
+	/* 10 */    
+	@ANode(label="10:Invoice", zone="8:CollectPayment",refCls=Invoice.class,
+	serviceCls=DataController.class, 
+	outNodes = {"11:AcceptPayment"},
+	actSeq={
+		// create new and wait until a new object is created
+		@MAct(actName=newObject, endStates={NewObject}),
+		@MAct(actName=setDataFieldValues, attribNames = {"order"}, endStates={Created})
+	}),
+	/* 11 */    
+	@ANode(label="11:AcceptPayment", zone="8:CollectPayment",refCls=AcceptPayment.class,
+	serviceCls=DataController.class,
+	outNodes= {"14:Payment"},
+	nodeType=Coordinator,      
+	actSeq={
+		@MAct(actName=newObject, endStates={NewObject}),
+		@MAct(actName=setDataFieldValues, attribNames = {"invoice"}),
+		@MAct(actName=createObject, endStates={Created})
+	}),
+	/* 12 */    
+	@ANode(label="12:Shipment", zone="9:ShipOrder",refCls=Shipment.class,
+	serviceCls=DataController.class,
+	outNodes = { "13:CompleteOrder" },
+	actSeq={
+		// create new and wait until a new object is created
+		@MAct(actName=newObject, endStates={NewObject}),
+		@MAct(actName=setDataFieldValues, attribNames = {"order"}, endStates={Created})
+	}),
+	/* 13 */    
+	@ANode(label="13:CompleteOrder",refCls=CompleteOrder.class, nodeType=Join, 
+	outNodes= {"4:EndOrder"}),
+	/* 14 */    
+	@ANode(label="14:Payment", zone="11:AcceptPayment",refCls=Payment.class,
+	serviceCls=DataController.class, 
+	outNodes= { "15:CustOrder" },
+	actSeq={
+		@MAct(actName=newObject, endStates = {NewObject}),
+		@MAct(actName=setDataFieldValues, attribNames = {"invoice"}, endStates = {Created}),
+	}),
+	/* 15 */    
+	@ANode(label="15:CustOrder", zone="11:AcceptPayment",refCls=CustOrder.class,
+	serviceCls=DataController.class,
+	outNodes= { "13:CompleteOrder" },
+	actSeq={
+		@MAct(actName=filterInput, filterType=FilterCustOrderFromPayment.class),
+		@MAct(actName=showObject, endStates = {Updated}),
+	}),
+})
+/**END: activity graph configuration */
+\end{verbatim}
