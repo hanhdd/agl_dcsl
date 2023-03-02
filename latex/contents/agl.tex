@@ -58,7 +58,7 @@ I1 and R1 are needed to incorporate the activity graph into MOSA. R2 is a safe r
 % + Node:
 %   + serviceCls: add OCL constraint on ModuleService.methods, whose names match those of the associated ModuleActs
 
-We define the abstract syntax of \agl~with a metamodel as shown in Figure~\ref{fig:agl-abstractSyntax}. The well-formedness OCL rules of this model are presented in Appendix A of the technical report\footnote{\url{http://shorturl.at/cmRST}} of this paper. %~\ref{apex:agl-rules}. 
+We define the abstract syntax of \agl~with a metamodel as shown in Figure~\ref{fig:agl-abstractSyntax}. The well-formedness OCL rules of this model are presented in Appendix A of the technical report\footnote{\url{https://tinyurl.com/AGLTechnical}} of this paper. %~\ref{apex:agl-rules}. 
 To unify the notation with the unified model, in the text we will express the concepts of this model using the equivalent \dcsl's terms (see Section~\ref{sect:bg-dcsl}). This is possible because the model only contains elements (class, attribute, one-one and one-many associations and generalization) that are expressible by \dcsl.
 %
 The following paragraphs describe the main meta-concepts of the ASM. Note that we use an enumeration called \clazz{ActName} and an enumeration called \clazz{State} to represent the action names and the union of pre-states and post-states (\resp). \clazz{State}, in particular, represents both normal states and concurrent states (see Section~\ref{sect:arch-atomic-action}).
@@ -210,7 +210,7 @@ context Node inv:
   not(outClses.oclIsUndefined()) implies outClses->forAll(isDomainClass())
 \end{lstrule}
 
-Note that we cannot explicitly define the data types of \attrib{ANode}{refCls} and \attribn{outClses} as parameterized types of \clazz{DomainClass}, because this class only exists in the ASM and not in the actual annotation-based model. We compensate for this information loss in the two data types by two OCL constraints on \clazz{ANode} for the two fields. Both constraints (listed immediately above) make use of a boolean function named \func{isDomainClass}. This function, which is defined as part of the ASM's library rules in Appendix A.6 of the technical report\footnote{\url{http://shorturl.at/cmRST}} of this paper, %~\ref{apex:agl-Class}, 
+Note that we cannot explicitly define the data types of \attrib{ANode}{refCls} and \attribn{outClses} as parameterized types of \clazz{DomainClass}, because this class only exists in the ASM and not in the actual annotation-based model. We compensate for this information loss in the two data types by two OCL constraints on \clazz{ANode} for the two fields. Both constraints (listed immediately above) make use of a boolean function named \func{isDomainClass}. This function, which is defined as part of the ASM's library rules in Appendix A.6 of the technical report\footnote{\url{https://tinyurl.com/AGLTechnical}} of this paper, %~\ref{apex:agl-Class}, 
 is invoked on a class to check if it is attached to a \clazz{DClass} element. 
 %
 %\subsubsection*{\clazz{AGraph}} \label{sect:agl-cmt-agraph}
