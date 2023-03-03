@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Motivating Example and Background} \label{sect:background}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-This section motivates our work by means of example and reviews the background concepts that form the basis for our discussion in this paper.
+This section motivates our work through an example and reviews the background concepts that form the basis for our discussion in this paper.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -43,7 +43,7 @@ To illustrate, the top-half of the MOSA model in Figure~\ref{fig:arch-model-cour
 %To ease discussion, we name the module classes after their domain classes using the prefix \strq{Module}.
 For example, the module class \clazz{ModuleStudent} is composed of three component classes: the domain class is \clazz{Student}, the view is \clazztemplate{View}{\clazz{Student}} and the controller is \clazztemplate{Controller}{\clazz{Student}}.
 
-We argue that MOSA captures the essence of object-oriented software design in a modular, MVC-based design structure. According to Booch~\cite{booch_object-oriented_1986}, an object-oriented software consists of objects and their interactions that are realized though behavior invocation. Given that the domain model is expressed in \dcsl, the MOSA model that has this model at its core helps produce software that possesses the essential behaviors. First, objects are instances of the domain classes in the domain model, which are represented in \dcsl~with the essential structural features. Second, interaction among the objects of a group of domain classes is performed through an event-based message passing mechanism that is managed by the owner modules of these domain classes. This mechanism, which is described in detail in~\cite{le_jdomainapp_2017}, maps events to the essential behaviors that are supported in \dcsl. The events can be triggered by the user interaction on the view of a concerned module. %
+We argue that MOSA captures the essence of object-oriented software design in a modular, MVC-based design structure. According to Booch~\cite{booch_object-oriented_1986}, an object-oriented software consists of objects and their interactions that are realized though behavior invocation. Given that the domain model is expressed in \dcsl (further explained in SubSect.~\ref{sect:bg-dcsl}), the MOSA model that has this model at its core helps produce software that possesses the essential behaviors. First, objects are instances of the domain classes in the domain model, which are represented in \dcsl~with the essential structural features. Second, interaction among the objects of a group of domain classes is performed through an event-based message passing mechanism that is managed by the owner modules of these domain classes. This mechanism, which is described in detail in~\cite{le_jdomainapp_2017}, maps events to the essential behaviors that are supported in \dcsl. The events can be triggered by the user interaction on the view of a concerned module. %
 %
 %However, in~\cite{le_domain_2018} we scoped our use of MOSA at the boundary of the domain model and assumed that this model is connected to the rest of MOSA model via an activity graph. To express this graph in the context of MOSA requires exposing the component interface of the software modules and connecting this interface to the graph. We call this interface the module interface and discuss its design in Section~\ref{sect:actSemantics}. 
 %We propose a language for expressing activity graphs in Section~\ref{sect:agl}.
@@ -72,7 +72,7 @@ We stated in~\cite{le_domain_2018} that using aDSL for DDD brings three importan
 A key feature of \name{DCSL} is that its meta-concepts model the generic domain terms that are composed of the core OOPL meta-concepts and constraints. More specifically, meta-concept \textbf{Domain Class} is composed of meta-concept \clazz{Class} and a constraint captured by an annotation named \clazz{DClass}. This constraint states whether or not the class is mutable. Similarly, meta-concept \textbf{Domain Field} is composed of meta-concept \clazz{Field} with a set of state space constraints. 
 These constraints are represented by an annotation named \clazz{DAttr}. 
 Meta-concept \textbf{Associative Field} represents Domain Field that realizes one end of an association between two domain classes. \dcsl~supports all three types of association: one-to-one (\abbr one-one), one-to-many (\abbr one-many) and many-to-many (\abbr many-many). 
-Finally, meta-concept \textbf{Domain Method} is composed of \clazz{Method} with a commonly-used constraints and behaviour types that are often imposed on instances of these meta-concepts in a domain model. The essential behavior types are represented by an annotation named \clazz{DOpt} and another annotation named \clazz{AttrRef}. The latter references the domain field that is the primary subject of a method's behavior.
+Finally, meta-concept \textbf{Domain Method} is composed of \clazz{Method} and commonly-used constraints and behavior types that are often imposed on instances of these meta-concepts in a domain model. The essential behavior types are represented by an annotation named \clazz{DOpt} and another annotation named \clazz{AttrRef}. The latter references the domain field that is the primary subject of a method's behavior.
 
 %Syntactically, we write a \dcsl~model directly using the host OOPL's syntax. For exposition purposes, however, we write this model using an extended UML graphical notation that uses a \textit{structured text box} for writing annotations. Specifically, non-annotation elements are drawn using the usual UML class diagram notation. On the other hand, the annotation elements are drawn using UML note box. Annotation assignment is represented by a dashed grey line, whose target element end is marked with the attachment symbol (\drawFilledRect[gray]{0.15cm}{0.15cm}). The note box content has the form $ A \; \{ props \} $, where $ A $ is the annotation name and $ props $ is a property listing. Each entry specifies the initialization of a property to a value. 
 %%If this value is another annotation element then this element is written using a nested, borderless note box. 
@@ -148,7 +148,7 @@ As shown in the top part of the figure (with a star-like shape labeled ``?''), t
 
 \begin{figure}[th]
 	\begin{center}
-		\includegraphics[scale=0.5]{motivating-example2}
+		\includegraphics[scale=0.4]{motivating-example2}
 	\end{center}
 	\caption{A UML Activity diagram to represent the enrolment management activity.}
 	\label{fig:motivatingExample2}
@@ -159,6 +159,6 @@ Figure~\ref{fig:motivatingExample2} shows a UML Activity diagram for the enrolme
 We might consider the domain behavior as a new concern that needs to be composed with the essential domain model, as shown in Figure~\ref{fig:motivatingExample}, for an executable version of the software. Since this domain behavior is currently captured in UML, we would need a further mechanism to maintain a consistency between the two models, toward composing them, normally at an implementation level. As an alternative approach for this aim, following the DDD approach introduced in our previous work~\cite{le_domain_2018}, we would consider such a behavior concern as an extension of the essential domain model for a unified domain model (i.e., a DDD with the key features, feasibility, productivity, and understandability as explained above). To achieve the goal we face two main challenges that motivates this work as follows:
 
 \begin{enumerate}
-    \item How can we extend the DCSL framework (that defines domain models within MOSA for DDD software) with new constructs to represent domain behaviors that could be captured by a UML Activity diagram?    
-    \item How can we incorporate such domain behaviors into a DCSL-specified domain model? This would require defining an integrated semantics of structural and behavioral aspects of the domain model.
+    \item How can we extend a domain definition language like DCSL with new constructs to represent domain behaviors (that can be captured using UML Activity diagram)?    
+    \item How can we incorporate such domain behaviors into a domain model, resulting an integrated semantics of structural and behavioral aspects of the domain model?
 \end{enumerate}

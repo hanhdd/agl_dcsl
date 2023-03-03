@@ -14,7 +14,7 @@ Based on the above method of deploying the source code, we arrange the OrderMan 
 \end{figure*}
 %
 
-\textit{Example: AGC of HendleOrder}: the Code show entire AGC is defined by an AGraph element, attached to the activity class HandleOrder of the unified model in Appendix C of the technical report~\footnote{\url{https://tinyurl.com/AGLTechnical}} of this paper.
+\textit{Example: AGC of HendleOrder}: the Code show entire AGC is defined by an AGraph element, attached to the activity class HandleOrder of the unified model in Appendix C of the technical report~\footnote{\url{http://shorturl.at/cmRST}} of this paper.
 
 Conceptually, the tool consists of three key components: model manager, view manager, and object manager. First, the \textbf{model manager} is responsible for registering the configured unified model and making it accessible to other components. 
 Second, the \textbf{view manager} is responsible for (1) automatically generating the entire GUI of the software from the unified model and (2) for handling the user interaction performed on this GUI. The GUI consists of a set of object UIs (one for each module's view), and a desktop for organising these UIs. For example, Figure~\ref{fig:software-tool} shows the generated GUI for one variant of the OrderMan unified model. The GUI contains twelve object UIs for \clazz{ModuleHandleOrder}, \clazz{ModuleCustOrder},  \clazz{ModuleFillOrder}, \clazz{ModuleOrderLine}, \clazz{ModuleCustomer}, \clazz{ModuleDelivery}, \clazz{ModuleCollectPayment}, \clazz{ModuleShipOrder},\\ \clazz{ModuleInvoice}, \clazz{ModuleShipment}, \clazz{ModuleAcceptPayment} and \clazz{ModulePayment}.

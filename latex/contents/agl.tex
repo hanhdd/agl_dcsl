@@ -58,7 +58,7 @@ I1 and R1 are needed to incorporate the activity graph into MOSA. R2 is a safe r
 % + Node:
 %   + serviceCls: add OCL constraint on ModuleService.methods, whose names match those of the associated ModuleActs
 
-We define the abstract syntax of \agl~with a metamodel as shown in Figure~\ref{fig:agl-abstractSyntax}. The well-formedness OCL rules of this model are presented in Appendix A of the technical report\footnote{\url{https://tinyurl.com/AGLTechnical}} of this paper. %~\ref{apex:agl-rules}. 
+We define the abstract syntax of \agl~with a metamodel as shown in Figure~\ref{fig:agl-abstractSyntax}. The well-formedness OCL rules of this model are presented in Appendix A of the technical report\footnote{\url{http://shorturl.at/cmRST}} of this paper. %~\ref{apex:agl-rules}. 
 To unify the notation with the unified model, in the text we will express the concepts of this model using the equivalent \dcsl's terms (see Section~\ref{sect:bg-dcsl}). This is possible because the model only contains elements (class, attribute, one-one and one-many associations and generalization) that are expressible by \dcsl.
 %
 The following paragraphs describe the main meta-concepts of the ASM. Note that we use an enumeration called \clazz{ActName} and an enumeration called \clazz{State} to represent the action names and the union of pre-states and post-states (\resp). \clazz{State}, in particular, represents both normal states and concurrent states (see Section~\ref{sect:arch-atomic-action}).
@@ -86,7 +86,7 @@ It is through a module service object of \attribn{serviceCls} that the current \
 In particular, class \clazz{DecisionNode} references an interface named \clazz{Decision}, which provides a method (named \membern{evaluate}) for evaluating the decision logic. Similarly, class \clazz{JoinNode} references interface \clazz{Join}, which has a method (named \membern{transf}) for transforming the input tokens into output ones (if needed).
 Further, class \clazz{JoinNode} has a field named \attribn{pre}, which is a derived field that realizes the source \clazz{Node}s of the activity edges connecting to a \clazz{JoinNode}.
 %
-Actual implementations of the interface \clazz{Decision} w.r.t \clazz{Join} are provided in the corresponding decision w.r.t join classes in the unified model.
+Actual implementations of the interface \clazz{Decision} (\clazz{Join}) are provided in the corresponding decision (join) classes in the unified model.
 %
 %\subsubsection*{\clazz{Edge}} \label{sect:agl-cm-edge}
 \item[\clazz{Edge}.] This represents activity edges. It has two associative fields \attribn{n1} and \attribn{n2}, which realize the two associations to \clazz{Node}. Field \attribn{n1} captures the source node, while field \attribn{n2} captures the target one. Intuitively, there is a correspondence between an \clazz{Edge} and an association between the two domain classes that are referenced by the source and target nodes of the edge.
@@ -210,7 +210,7 @@ context Node inv:
   not(outClses.oclIsUndefined()) implies outClses->forAll(isDomainClass())
 \end{lstrule}
 
-Note that we cannot explicitly define the data types of \attrib{ANode}{refCls} and \attribn{outClses} as parameterized types of \clazz{DomainClass}, because this class only exists in the ASM and not in the actual annotation-based model. We compensate for this information loss in the two data types by two OCL constraints on \clazz{ANode} for the two fields. Both constraints (listed immediately above) make use of a boolean function named \func{isDomainClass}. This function, which is defined as part of the ASM's library rules in Appendix A.6 of the technical report\footnote{\url{https://tinyurl.com/AGLTechnical}} of this paper, %~\ref{apex:agl-Class}, 
+Note that we cannot explicitly define the data types of \attrib{ANode}{refCls} and \attribn{outClses} as parameterized types of \clazz{DomainClass}, because this class only exists in the ASM and not in the actual annotation-based model. We compensate for this information loss in the two data types by two OCL constraints on \clazz{ANode} for the two fields. Both constraints (listed immediately above) make use of a boolean function named \func{isDomainClass}. This function, which is defined as part of the ASM's library rules in Appendix A.6 of the technical report\footnote{\url{http://shorturl.at/cmRST}} of this paper, %~\ref{apex:agl-Class}, 
 is invoked on a class to check if it is attached to a \clazz{DClass} element. 
 %
 %\subsubsection*{\clazz{AGraph}} \label{sect:agl-cmt-agraph}
@@ -256,7 +256,7 @@ Third, we would unnecessarily complicate the component classes with \clazz{ANode
 
 Because CSM is embedded directly into OOPL, its structure helps define the core structure of a CSM model of the \agl's textual syntax. Adapting the concrete syntax meta-modeling approach~\cite{kleppe_software_2008} to \agl, we argue that its CSM will contain, in addition to the above core, meta-concepts that help describe the structure of the BNF grammar rules. The textual syntaxes of Java and C\# are both described using this grammar.
 %
-For exposition purpose in this paper, we will textually write an AGC using the structured note box notation of \dcsl~(explained in Section~\ref{sect:bg-dcsl}). The following example will help to illustrate.
+For exposition purposes in this paper, we will textually write an AGC using the structured note box notation of \dcsl~(explained in Section~\ref{sect:bg-dcsl}). The following example will help to illustrate.
 
 \subsubsection*{Example: AGC and configured unified model}
 \begin{figure}[ht]
