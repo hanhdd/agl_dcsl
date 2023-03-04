@@ -22,10 +22,10 @@ We describe the \agl's domain requirements in terms of the following inclusion (
 \begin{itemize}%[leftmargin=15pt]
 	\item[I1.] module action (described in Section~\ref{sect:actSemantics}) as a special form of action.
 	\item[R1.] executable node performs a sequence of module actions.
-	\item[R2.] value specification (\S{15.2.3.3}, pg.~374) is only applied to decision node.
-	\item[X1.] using variable with activity (\S{15.2.3.5}, pg.~417).
-	\item[X2.] variable action (\S{16.9}, pg.~467).
-  \item[X3.] activity edge (\S{15.2.3.3}, pg.~373) is without guards.
+	\item[R2.] value specification is only applied to decision node.
+	\item[X1.] using variable with activity.
+	\item[X2.] variable action.
+  \item[X3.] activity edge is without guards.
 \end{itemize}
 
 I1 and R1 are needed to incorporate the activity graph into MOSA. R2 is a safe restriction because, according to the specification, value specification is mainly used for specifying conditions on decision nodes. X1 and X2 concern the use of variables. According to the UML specification, variable is an alternative to using object flow. The exclusion of edge guards in X3 is not a limitation of our approach. It is a deliberate omission at this stage when we want to focus on supporting the core structure of the activity graph. We plan to remove X3 in future work.
@@ -58,7 +58,7 @@ I1 and R1 are needed to incorporate the activity graph into MOSA. R2 is a safe r
 % + Node:
 %   + serviceCls: add OCL constraint on ModuleService.methods, whose names match those of the associated ModuleActs
 
-We define the abstract syntax of \agl~with a metamodel as shown in Figure~\ref{fig:agl-abstractSyntax}. The well-formedness OCL rules of this model are presented in Appendix A of the technical report\footnote{\url{http://shorturl.at/cmRST}} of this paper. %~\ref{apex:agl-rules}. 
+We define the abstract syntax of \agl~with a metamodel as shown in Figure~\ref{fig:agl-abstractSyntax}. The well-formedness OCL rules of this model are presented in Appendix A of the technical report\footnote{\url{https://tinyurl.com/AGLTechnical}} of this paper. %~\ref{apex:agl-rules}. 
 To unify the notation with the unified model, in the text we will express the concepts of this model using the equivalent \dcsl's terms (see Section~\ref{sect:bg-dcsl}). This is possible because the model only contains elements (class, attribute, one-one and one-many associations and generalization) that are expressible by \dcsl.
 %
 The following paragraphs describe the main meta-concepts of the ASM. Note that we use an enumeration called \clazz{ActName} and an enumeration called \clazz{State} to represent the action names and the union of pre-states and post-states (\resp). \clazz{State}, in particular, represents both normal states and concurrent states (see Section~\ref{sect:arch-atomic-action}).
@@ -158,7 +158,7 @@ For instance, node \objid{1}{Node} references the domain class \clazz{Student} (
 
 Our main objective is to construct a metamodel for the concrete syntax~(CSM) of the \agl~by a transformation from the abstract syntax ASM. The CSM takes the annotation-based form, suitable for being embedded into a host OOPL. Furthermore, we will strive for a compact CSM that uses a small set of annotations. From a practical standpoint, such a model is desirable since it will result in a compact concrete syntax, which requires less effort from the language used to construct a unified domain model. To achieve this requires two steps. First, we transform ASM into another model, called CSM$_T$, that is compact and suitable for annotation-based representation. Second, we transform CSM$_T$ into the actual annotation-based CSM.
 %
-The rest of this subsection focuses on explaining the CSM$_T$ and CSM. A detailed explanation of the transformation ASM $\rightarrow$ CSM$_T$ would be shown in Appendix B of the technical report\footnote{\url{http://shorturl.at/cmRST}} of this paper. 
+The rest of this subsection focuses on explaining the CSM$_T$ and CSM. A detailed explanation of the transformation ASM $\rightarrow$ CSM$_T$ would be shown in Appendix B of the technical report\footnote{\url{https://tinyurl.com/AGLTechnical}} of this paper. 
 %Theorem~\ref{theo:csmt-csm} as shown in \ref{apex:agl-asm2csmt} ensures that \agl's CSM has the same information capacity as CSM$_T$ through the transformation.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -210,7 +210,7 @@ context Node inv:
   not(outClses.oclIsUndefined()) implies outClses->forAll(isDomainClass())
 \end{lstrule}
 
-Note that we cannot explicitly define the data types of \attrib{ANode}{refCls} and \attribn{outClses} as parameterized types of \clazz{DomainClass}, because this class only exists in the ASM and not in the actual annotation-based model. We compensate for this information loss in the two data types by two OCL constraints on \clazz{ANode} for the two fields. Both constraints (listed immediately above) make use of a boolean function named \func{isDomainClass}. This function, which is defined as part of the ASM's library rules in Appendix A.6 of the technical report\footnote{\url{http://shorturl.at/cmRST}} of this paper, %~\ref{apex:agl-Class}, 
+Note that we cannot explicitly define the data types of \attrib{ANode}{refCls} and \attribn{outClses} as parameterized types of \clazz{DomainClass}, because this class only exists in the ASM and not in the actual annotation-based model. We compensate for this information loss in the two data types by two OCL constraints on \clazz{ANode} for the two fields. Both constraints (listed immediately above) make use of a boolean function named \func{isDomainClass}. This function, which is defined as part of the ASM's library rules in Appendix A.6 of the technical report\footnote{\url{https://tinyurl.com/AGLTechnical}} of this paper, %~\ref{apex:agl-Class}, 
 is invoked on a class to check if it is attached to a \clazz{DClass} element. 
 %
 %\subsubsection*{\clazz{AGraph}} \label{sect:agl-cmt-agraph}
