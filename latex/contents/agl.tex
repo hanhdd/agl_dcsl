@@ -22,10 +22,10 @@ We describe the \agl's domain requirements in terms of the following inclusion (
 \begin{itemize}%[leftmargin=15pt]
 	\item[I1.] module action (described in Section~\ref{sect:actSemantics}) as a special form of action.
 	\item[R1.] executable node performs a sequence of module actions.
-	\item[R2.] value specification is only applied to decision node.
-	\item[X1.] using variable with activity.
-	\item[X2.] variable action.
-  \item[X3.] activity edge is without guards.
+	\item[R2.] value specification~\cite[pg~\footnote{we use~'pg'~ to denote Page in the interpreted from the context }.~376]{omg_unified_2015} is only applied to decision node.
+	\item[X1.] using variable with activity~\cite[pg.~377]{omg_unified_2015}.
+	\item[X2.] variable action~\cite[pg.~470]{omg_unified_2015}.
+  \item[X3.] activity edge~\cite[pg.~375]{omg_unified_2015} is without guards.
 \end{itemize}
 
 I1 and R1 are needed to incorporate the activity graph into MOSA. R2 is a safe restriction because, according to the specification, value specification is mainly used for specifying conditions on decision nodes. X1 and X2 concern the use of variables. According to the UML specification, variable is an alternative to using object flow. The exclusion of edge guards in X3 is not a limitation of our approach. It is a deliberate omission at this stage when we want to focus on supporting the core structure of the activity graph. We plan to remove X3 in future work.
