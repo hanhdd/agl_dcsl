@@ -1,0 +1,11 @@
+%%%% default header %%%%
+%REQUIRES packages: 
+%\usepackage{xcolor}
+
+% draw a filled rectangle
+% 1: color, 2: width, 3: height
+\newcommand\drawFilledRect[3][black]{\textcolor{#1}{\rule{#2}{#3}}}
+
+% place a figure in a given position
+% (#1,#2) = (x,y); #3 = figure scale (0,1]; #4 = figure-file-name
+\newcommand\putfig[4]{\put(#1,#2){\includegraphics[scale=#3]{#4}}}
