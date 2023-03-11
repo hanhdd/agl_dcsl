@@ -68,20 +68,67 @@ Second, the \textbf{view manager} is responsible for (1) automatically generatin
 
 Third, the \textbf{object manager} is responsible for managing the run-time object pool of each domain class and for providing a generic object storage component for storing (retrieving) the objects to (from) external storage. As of this writing, the tool supports both file-based and relational database storage. The relational data model is automatically generated from the unified model the first time the software is run.
 
-\begin{lstcodeplainssm}{The activity class \clazz{HandleOrder} incorporating an \agl specification}{lst:handleOrderCls}
+\noindent\begin{minipage}{.55\textwidth}
+\begin{lstcodeplainssm}{The activity class \clazz{HandleOrder} in Java}{lst:handleOrderCls}
 /**Activity graph configuration in AGL */
 @AGraph(nodes={...	
 	/* 14 */    
-	@ANode(label = "14:Payment", zone = "11:AcceptPayment",
-		refCls = Payment.class, serviceCls = DataController.class, 
-		outNodes = {"15:CustOrder"},
+	@ANode(label="14:Payment", zone="11:AcceptPayment",
+		refCls=Payment.class, serviceCls=DataController.class, 
+		outNodes={"15:CustOrder"},
 		actSeq={
-			@MAct(actName = newObject, endStates = {NewObject}),
-			@MAct(actName = setDataFieldValues, attribNames = {"invoice"}, endStates = {Created})
+			@MAct(actName=newObject, endStates={NewObject}),
+			@MAct(actName=setDataFieldValues, attribNames={"invoice"},
+				endStates={Created})
 		}), ...
 })
 /**END: activity graph configuration */
 public class HandleOrder {...}
 \end{lstcodeplainssm}
+\end{minipage}
+\begin{minipage}{.45\textwidth}
+\begin{lstcodeplainssm}{Java implementation of the annotation \attribn{AGraph}}{lst:aGraphAnnotation}
+package jda.modules.mbsl.model.graph.meta;
 
-Listing~\ref{lst:handleOrderCls} presents part of the java code for the activity class \clazz{HandleOrder}. 
+import java.lang.annotation.*;
+import jda.modules.mbsl.model.graph.ActivityGraph;
+
+@Retention(RetentionPolicy.RUNTIME)
+@Target(value=java.lang.annotation.ElementType.TYPE)
+@Documented
+public @interface AGraph {
+	ANode[] nodes();
+}
+\end{lstcodeplainssm}	
+\end{minipage}
+
+In the rest of this section, we would further explain how an activity class can handle the execution of the activity graph \wrt its AGL specification. Let's focus on a concrete situation with the activity class~\clazz{HandleOrder}, realized as in Listing~\ref{lst:handleOrderCls}. %
+%
+When the software runs, an instance of the module ModuleHandleOrder is invoked. Based on the configuration description of this module as shown in the right window of Figure~\ref{fig:toolSupport}, an activity model (\clazz{ActivityModel}) as a composition of the object \clazz{HandleOrder} (owned by the module ModuleHandleOrder) and an activity graph \wrt the AGL specification of the activity class \clazz{HandleOrder} is created. The activity diagram could be defined because the \clazz{HandleOrder} object can be considered as an \clazz{AGrap} object (based on the annotation mechanism in Java). The definition of the annotation \clazz{AGraph} is shown as in Listing~\ref{lst:aGraphAnnotation}. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
