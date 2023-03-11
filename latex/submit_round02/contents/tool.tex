@@ -102,9 +102,11 @@ public @interface AGraph {
 \end{lstcodeplainssm}	
 \end{minipage}
 
-In the rest of this section, we would further explain how an activity class can handle the execution of the activity graph \wrt its AGL specification. Let's focus on a concrete situation with the activity class~\clazz{HandleOrder}, realized as in Listing~\ref{lst:handleOrderCls}. %
+In the rest of this section, we would further explain how a module class \wrt an activity class can handle the execution of the activity graph \wrt its AGL specification. Let's focus on a concrete situation with the  \clazz{ModuleHandleOrder} module with its activity class, \clazz{HandleOrder}, realized as in Listing~\ref{lst:handleOrderCls}. %
 %
-When the software runs, an instance of the module ModuleHandleOrder is invoked. Based on the configuration description of this module as shown in the right window of Figure~\ref{fig:toolSupport}, an activity model (\clazz{ActivityModel}) as a composition of the object \clazz{HandleOrder} (owned by the module ModuleHandleOrder) and an activity graph \wrt the AGL specification of the activity class \clazz{HandleOrder} is created. The activity diagram could be defined because the \clazz{HandleOrder} object can be considered as an \clazz{AGrap} object (based on the annotation mechanism in Java). The definition of the annotation \clazz{AGraph} is shown as in Listing~\ref{lst:aGraphAnnotation}. 
+When the software runs, an instance of the \clazz{ModuleHandleOrder} module is invoked. Based on the configuration description of this module as shown in the right window of Figure~\ref{fig:toolSupport}, an activity model (\clazz{ActivityModel}) as a composition of the \clazz{HandleOrder} object (owned by the \clazz{ModuleHandleOrder} module) and an activity graph \wrt the AGL specification of the activity class \clazz{HandleOrder} is created. The activity diagram could be defined because the \clazz{HandleOrder} object can be considered as an \clazz{AGrap} object (based on the annotation mechanism in Java). The definition of the annotation \clazz{AGraph} is shown as in Listing~\ref{lst:aGraphAnnotation}. 
+%
+The \clazz{AGraph} object allows each of its \clazz{ANode}, e.g., the \clazz{ANode} \wrt node~14 as shown in Listing~\ref{lst:handleOrderCls}, as well as the domain class referenced by the \clazz{ANode} (i.e., the \clazz{Payment} class) could be handled by the \clazz{ModuleHandleOrder} module. 
 
 
 
