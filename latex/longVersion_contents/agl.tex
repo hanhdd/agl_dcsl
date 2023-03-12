@@ -46,7 +46,7 @@ I1 and R1 are needed to incorporate activity graph into MOSA. R2 is a safe restr
 %
 \begin{figure*}[ht]
 	\begin{center}
-		\includegraphics[scale=0.15]{agl-asm}
+		\includegraphics[scale=0.7]{agl-asm}
 	\end{center}
 	\caption{The metamodel ASM for the abstract syntax of \agl.} %
 	\label{fig:agl-abstractSyntax}
@@ -91,6 +91,22 @@ Actual implementations of the interfaces \clazz{Decision} and \clazz{Join} are p
 \item[\clazz{Edge}.] This represents activity edges. It has two associative fields \attribn{n1} and \attribn{n2}, which realize the two associations to \clazz{Node}. Field \attribn{n1} captures the source node, while field \attribn{n2} captures the target one. Intuitively, there is a correspondence between an \clazz{Edge} and an association between the two domain classes that are referenced by the source and target nodes of the edge.
 \end{description}
 
+% TODO: + tab:activity-graph-example
+% + add a separate table for ModuleAct objects and reference them in the actSeq column
+%
+\subsection{Applying Domain Behavior Patterns}
+%\label{subsect:applyBehaviorPatterns}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+To obtain a concrete \agl~specification when applying a domain behavior pattern, basically, we proceed three main steps as follows:
+\begin{enumerate}
+	\item Representing the input UML Activity diagram and the template configured unified model of the pattern as activity graphs; 
+	\item Defining the matching of the template on the activity in order to define ANodes, their sequence, and domain classes referenced by them. The reference from ANodes to domain classes (expressed with the keywords \attribn{refCls} and \attribn{outCles}) provide a mapping between the input activity and the unified model; 
+	\item Defining the generic behavior (expressed by a SAA with the keywork \attribn{actSeq}) of the domain module \wrt the domain class referenced by each ANode. This helps synchronize the execution state of the activity and the current state of the unified model.
+\end{enumerate} 
+
+% We would further explain this procedure and illustrate it with an example in Section~\ref{subsect:agl-abstractSyntax}. 
+
 \begin{figure}[ht]
 	\centering
 	\includegraphics[scale=0.3]{activity-graph-example}
@@ -104,8 +120,8 @@ Actual implementations of the interfaces \clazz{Decision} and \clazz{Join} are p
 	\setlength\tabcolsep{5pt}
 	\begin{center} \footnotesize
 		\caption{(A: Top) \clazz{Node} objects, (B: Bottom-left) \clazz{Edge} objects of the activity graph in Figure~\ref{fig:activity-graph-example} and (C: Bottom-right)  
-    \clazz{ModuleAct} objects that are referenced by the \clazz{Node}s}\label{tab:activity-graph-example}
-    %
+			\clazz{ModuleAct} objects that are referenced by the \clazz{Node}s}\label{tab:activity-graph-example}
+		%
 		\begin{tabular}{|>{\centering\arraybackslash}m{0.7cm}|>{\centering\arraybackslash}m{3.5cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{2.5cm}|>{\centering\arraybackslash}m{5cm}|}
 			%content
 			\hline
@@ -116,7 +132,7 @@ Actual implementations of the interfaces \clazz{Decision} and \clazz{Join} are p
 			3 & \strq{MHelpRequest} & \clazz{HelpRequest} & \clazz{DataController} & [\objid{2}{ModuleAct}, \objid{3}{ModuleAct}]\\\hline 
 			4 & \strq{MSClassRegistration} & \clazz{SClassRegistration} & \clazz{DataController} & [\objid{4}{ModuleAct}, \objid{5}{ModuleAct}]\\\hline
 		\end{tabular} 
-    %
+		%
 		\begin{tabular}{|>{\centering\arraybackslash}m{0.7cm}|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{2cm}|}
 			%content
 			\hline
@@ -125,10 +141,10 @@ Actual implementations of the interfaces \clazz{Decision} and \clazz{Join} are p
 			1 & \objid{1}{Node} & \objid{2}{Node} \\\hline 
 			2 & \objid{2}{Node} & \objid{3}{Node} \\\hline 
 			3 & \objid{2}{Node} & \objid{4}{Node} \\\hline 
-    \end{tabular}
-    %
-    \begin{tabular}{|>{\centering\arraybackslash}m{1cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{2cm}|}
-  	  %content
+		\end{tabular}
+		%
+		\begin{tabular}{|>{\centering\arraybackslash}m{1cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{2cm}|}
+			%content
 			\hline
 			\rowcolor{lightgray}
 			\textbf{MAct-Id} & \textbf{\attribn{actName}} & \textbf{\attribn{postStates}} & \textbf{\attribn{fieldNames}} \\\hline
@@ -137,10 +153,21 @@ Actual implementations of the interfaces \clazz{Decision} and \clazz{Join} are p
 			3 & \membern{setDataFieldValues} & \set{Created} & \sets{\strq{student}} \\\hline 
 			4 & \membern{newObject} & \set{NewObject} & \\\hline 
 			5 & \membern{setDataFieldValues} & \set{Created} & \sets{\strq{student}} \\\hline 
-    \end{tabular}
+		\end{tabular}
 \end{center}\end{table*}
 
+\noindent\textbf{Example.} The right-hand side of Figure~\ref{fig:activity-graph-example} is an activity graph of the enrollment management activity of the \courseman~software variant introduced earlier in Section~\ref{sect:background}. The left-hand side of the figure is the corresponding unified model of this activity, which is repeated from Figure~\ref{fig:unified-model-example} to show links with the activity graph. 
+%We will discuss other example graphs that include control nodes later in Section~\ref{sect:eval-expressiveness}. 
+%Other example graphs that include control notes are mentioned in SubSection~\ref{sect:incorporatePatterns}.
+Tables~\ref{tab:activity-graph-example}(A) and (B) list the states of the nodes and edges (\resp) of the activity graph. Table~\ref{tab:activity-graph-example}(C) lists the \clazz{ModuleAct} objects that are referenced by the \clazz{Node}s in Table~\ref{tab:activity-graph-example}(A). A \clazz{ModuleAct} object represents an SAA. Each table column lists the values of a representative field of an object.
 %
+For instance, node \objid{1}{Node} references the domain class \clazz{Student} (hence also references \clazz{ModuleStudent}) and has \membern{serviceCls} = \clazz{DataController} (a default module service class developed as part of the \jdomainapp~framework~\cite{le_jdomainapp_2017}). The node also references object \objid{1}{ModuleAct}. The \membern{refCls}'s value of each node is depicted in the figure by a dashed curve (labeled \strq{refCls}) that connects the node to the referenced domain class in the unified model.
+
+We provide Definition~\ref{def:software} to clarify how the software is generated in MOSA. This definition makes precise the general notion of module-based software that we introduced in Section~\ref{sect:bg-arch} and takes into account the combination of a unified model and an activity graph. It highlights the sub-set of modules that owns the activity classes and how these modules trigger the execution of the activity graphs of the associated activities.
+%
+\begin{definition} \label{def:software}
+	Given a unified model $D$ that contains a non-empty set of activity classes, each of which is attached to an AGL specification describing the activity graph logic of an activity of the domain. A software generated in MOSA \wrt $D$ consists in a set of modules, each of which owns a domain class in $D$ and the behavior of the \code{newObject} action of every owner module of an activity class includes the logic described by the activity graph that is configured by the AGL specification attached to that class. \qed
+\end{definition}
 \subsubsection*{Example: Activity graph}
 % TODO: + fig:activity-graph-example
 % + add ModuleAct object for Node 1 (referenced from the table below)
@@ -170,7 +197,7 @@ We briefly describe below the three meta-concepts of CSM$_T$. The precise meanin
 
 \begin{figure*}[ht]
 	\begin{center}
-		\includegraphics[scale=0.4]{agl-cmt}
+		\includegraphics[scale=0.7]{agl-txtSyntax}
 	\end{center}
 	\caption{CSM$_T$: a compact and annotation-friendly model.} %
 	\label{fig:agl-csmt}
@@ -224,7 +251,7 @@ Although CSM$_T$ is suitable for OOPL's representation, it is still not yet nati
 
 \begin{figure*}[ht]
 	\begin{center}
-		\includegraphics[scale=0.15]{agl-cmt-csm}
+		\includegraphics[scale=0.7]{agl-cmt-csm}
 	\end{center}
 	\caption{The (A) CSMT : a compact and annotation-friendly model, (B) The concrete syntax model (CSM) of \agl.} %
 	\label{fig:agl-csm}
@@ -258,7 +285,7 @@ For exposition purpose in this paper, we will textually write an AGC using the s
 \subsubsection*{Example: AGC and configured unified model}
 \begin{figure}[ht]
 	\begin{center}
-		\includegraphics[scale=0.35]{agc-enrolmentmgmt}
+		\includegraphics[scale=0.25]{agc-enrolmentmgmt}
 	\end{center}
 	\caption{Configured unified model of the enrolment management activity: (LHS) the unified model, (RHS) the AGC written in the annotation-based concrete syntax.} %
 	\label{fig:agc-enrolmentmgmt}

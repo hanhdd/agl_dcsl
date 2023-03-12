@@ -1,15 +1,4 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Incorporating Domain Behaviors} 
-\label{sect:domainBehaviors}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%(Module Action)
-Using the unified model at the core of a MOSA model requires defining for the modules of the MOSA model a set of essential actions to manipulate the domain objects of a domain class.
-%
-We consider these actions as forming a module interface, which is represented by a UML interface named  \clazz{ModuleService}. In this way the behavior of a module can be defined. Section~\ref{sect:actSemantics} presents a formal action-based semantics of modules.
-
-%- (Module Interaction Patterns)
-In order to incorporate domain behaviors in terms of module interactions into a domain model, we propose to employ the five essential UML activity modeling patterns as presented in~\cite{le_domain_2018} to represent such behaviors. In other word, our pattern-based approach could support domain behaviors that are specified by a UML activity with basic constructs corresponding to these patterns. We named the patterns after these five elementary activity flows: sequential, decisional, forked, joined and merged. This paper extends each pattern solution with a specification of the activity graph in the \agl~that is explained in Section~\ref{sect:agl}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Module Action Semantics}
@@ -18,7 +7,7 @@ In order to incorporate domain behaviors in terms of module interactions into a 
 
 This section provides a formal definition of \textit{module action}.
 %, which is suitable for use with the activity graph language \agl~that we propose in Section~\ref{sect:agl}. 
-Our definition focuses on describing the structure of module action and its pre- and post-states. We base our formalism on the UML Action language (\S{16}\footnote{We use `\S{}' to denote both Chapter and Section, which is interpreted from the context.}~\cite{omg_unified_2015}), which incorporates the notion of state. State is argued to be an intrinsic part of behavioral specification (\S{14}~\cite{omg_unified_2015}).
+Our definition focuses on describing the structure of module action and its pre- and post-states. We base our formalism on the UML Action language~\cite{omg_unified_2015}, which incorporates the notion of state. State is argued to be an intrinsic part of behavioral specification~\cite{omg_unified_2015}.
 %
 We recursively define module action by beginning with the most primitive type of action called \textit{atomic action}. We then combine these actions to form \textit{atomic action sequence} and, more generally, \textit{structured atomic action}.
 
@@ -116,7 +105,7 @@ $S$ has the following properties:
 %
 \begin{figure}[ht]
 	\centering
-	\includegraphics[scale=0.35]{ase-example}
+	\includegraphics[scale=0.5]{ase-example}
 	\caption{An ASE that creates a new domain object of a module's domain class (typed $T$).} %
 	\label{fig:ase-example}
 \end{figure}
@@ -225,7 +214,9 @@ first ASE is the one described earlier in Figure~\ref{fig:ase-example} but exclu
 \label{sect:behaviorPatterns}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-As explained in SubSection~\ref{sect:domainBehaviors}, we employ the five essential UML activity modeling patterns as presented in~\cite{le_domain_2018} in order to express domain behaviors, that need to be incorporated for a unified domain model. This section concentrates on explaining how we can translate a behavior specification in UML activity diagram into a corresponding specification defined as a combination of pattern solutions. This paper extends each pattern solution with an AGC, i.e., an activity graph specification in the \agl. A detailed explanation of AGC and \agl~is shown in Section~\ref{sect:agl}.
+As explained in SubSection~\ref{sect:domainBehaviors}, we employ the five essential UML activity modeling patterns as presented in~\cite{le_domain_2018} in order to express domain behaviors, that need to be incorporated for a unified domain model. This section concentrates on explaining how we can translate a behavior specification in UML activity diagram into a corresponding specification defined as a combination of pattern solutions. This paper extends each pattern solution with an AGC, i.e., an activity graph specification in the \agl. A detailed explanation of AGC and \agl~is shown in Section~\ref{sect:agl}. We illustrate the approach the five patterns, including
+ \textit{Sequential Pattern},
+ \textit{Decisional Pattern},  \textit{Forked Pattern}, \textit{Joined Pattern} and \textit{Merged Pattern}.
 
 We are particularly interested in the design of the \textit{pattern form}~\cite{riehle_understanding_1996, gamma_design_1994}. To keep the patterns generic, we present for each pattern form a UML activity model and a \textbf{template configured unified model} that realizes it. The template model is a `parameterized' configured unified model, in which elements of the nonannotation meta-concepts are named after the generic roles that they play. 
 %

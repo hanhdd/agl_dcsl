@@ -27,6 +27,17 @@ The figure highlights a unified model and its combination with an activity graph
 \end{figure}
 
 Hence, conceptually our method consists in iteratively performing three steps. The first step takes as input the domain requirements, optionally expressed in some high-level models (\eg, UML class and activity diagrams), and creates a set of initial unified models and associated activity graphs. At this stage, the models and their graphs may be incomplete and, thus, need to be refined in subsequent iterations. The second step takes as input the unified models and graphs and uses MOSA to automatically generate a GUI- and module-based software. This software is presented to the domain expert in order to get feedbacks. If there are feedbacks, then the third step updates the unified models and graphs and the cycle continues. If, on the other hand, the domain expert is satisfied with the models and graphs, then the cycle ends.
+\subsection{Incorporating Domain Behaviors} 
+\label{sect:domainBehaviors}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%(Module Action)
+Using the unified model at the core of a MOSA model requires defining for the modules of the MOSA model a set of essential actions to manipulate the domain objects of a domain class.
+%
+We consider these actions as forming a module interface, which is represented by a UML interface named  \clazz{ModuleService}. In this way the behavior of a module can be defined. Section~\ref{sect:actSemantics} presents a formal action-based semantics of modules.
+
+%- (Module Interaction Patterns)
+In order to incorporate domain behaviors in terms of module interactions into a domain model, we propose to employ the five essential UML activity modeling patterns as presented in~\cite{le_domain_2018} to represent such behaviors. In other word, our pattern-based approach could support domain behaviors that are specified by a UML activity with basic constructs corresponding to these patterns. We named the patterns after these five elementary activity flows: sequential, decisional, forked, joined and merged. This paper extends each pattern solution with a specification of the activity graph in the \agl~that is explained in Section~\ref{sect:agl}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Unified Model}
@@ -77,7 +88,7 @@ In the remainder of this paper, to ease notation we will use \textbf{activity cl
 %
 \begin{figure*}[ht]
 	\begin{center}
-		\includegraphics[scale=0.28]{unified-model-example}
+		\includegraphics[scale=0.35]{unified-model-example}
 	\end{center}
 	\caption{(A: Left) The UML activity and class models of a \courseman~software variant that handles the enrollment management activity; (B: Right) The unified model that results.} %
 	\label{fig:unified-model-example}
