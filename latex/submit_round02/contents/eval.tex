@@ -3,62 +3,172 @@
 \label{sect:evaluation} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Reviewer: Section 8. The evaluation is very weak. Firstly, there are no research questions. Second, the expressiveness of AGL is argued but not evaluated. To demonstrate expressiveness, the paper could report on a couple of realistic case studies showing the extent to which AGL can capture all the necessary behaviour without resorting to code. For example, the approach seems limited to CRUD applications, so it is not clear whether more complex behaviour could be achieved without coding.
+%Reviewer: Section 8. The evaluation is very weak. Firstly, there are no research questions. Second, the expressiveness of AGL is argued but not evaluated. To demonstrate expressiveness, the paper could report on a couple of realistic case studies showing the extent to which AGL can capture all the necessary behaviour without resorting to code. For example, the approach seems limited to CRUD applications, so it is not clear whether more complex behaviour could be achieved without coding. 
 
-In this section, we discuss an evaluation of \agl. Our aim is to show that \agl~is both  essentially expressive and practically usable.
+In this section, we discuss an evaluation of \agl. We aim to point out that \agl~is both essentially expressive and practically usable. We follow the guidelines defined in~\cite{runesonGuidelinesConductingReporting2009} in order to  enhance the rigor of this experiment. The section closes a discussion with several remarks concerning the evaluation.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Research Questions}
+\label{subsect:researchQuestions} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%- How can we incorporate domain behaviors (that can be captured by UML Activity diagrams) into a domain model for a composition of both structural and behavioral aspects of the domain?
 %
-%In this paper, we focus on evaluating \agl~because it is a new language contribution of our method. 
+%- How can we extend a domain definition language like DCSL with new constructs to represent such domain behaviors?    
+
+We consider \agl incorporating \dcsl (\agldcsl) as a domain-specifying language, thus we adapt from \cite{thakur2019role}~the three criteria in order to evaluate this language: (1)~\textit{Expressiveness}: the extend to which a language is able to express the properties of interest of its domain; (2)~\textit{Required coding level}: the extent to which the language allows expressing the underlying properties of the domain without too much hard coding; (3)~\textit{Constructiability}: the extend to which the language provides facilities for building complex specifications in an piecewise, incremental way. More specifically, the research questions for this study are posed as follows.
+
+\begin{description}[labelindent=0.5cm,leftmargin=0.5cm]
 %
-We consider \agl~as a type of specification language and adapt the \dcsl~evaluation approach that we applied in~\cite{le_domain_2018}.
+\item[\textbf{RQ1.}] How well does our method perform on representing domain models, compared to the existing DDD approaches?
 %
-More specifically, we adapt from~\cite{lamsweerde_formal_2000} the following three criteria for evaluating \agl: expressiveness, required coding level, and constructibility. We will present our evaluation of these criteria in Sections~\ref{sect:eval-expressiveness}--\ref{sect:eval-construct}.
-%We conclude in Section~\ref{sect:eval-discussion} with a number of discussion points concerning the evaluation.
+\item[\textbf{RQ2.}] How much effort is required to define unified domain model in \agldcsl for generating a DDD software?
+%
+%\item[\textbf{RQ3.}] Is our method applicable to developing real-world software?
+%
+\end{description}
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Case Study Design}
+\label{subsect:caseDesign} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\noindent \textit{Setup.} We choose to analyze the development of three software applications (apps) coming from real-world needs. These apps are as follows: (1)~\courseman, (2)~\processman, and (3)~\orderman. While the third app has been explained as in Section~\ref{sect:caseStudyToolSupport}, we further explain the remaining apps as follows.	
+
+The first app is called \courseman, a software application for course management in the university. The domain \wrt the case is a relatively complex, real world problem domain and a suitable subject for the application of DDD. The domain is also a familiar and generic problem domain in the academic institutions, that has been studied in the literature~\cite{ajanovskiIntegrationCourseEnrolment2013,omahonyRecommenderSystemOnline2007,le_domain_2018}.
+
+The second app is called \processman that manages the processes of the Faculty of IT at Hanoi University for teaching subjects (a.k.a course modules) to students every semester and formally assessing the students’ performances. This app has been studied and realized in DCSL as reported in our previous work~\cite{le_generative_2018}. For this experiment, the current version of this app is developed using the AGL-based method.
+%, thus the case is only used for evaluating structural aspects. 
+
+\vspace{0.1cm}
+\noindent\textit{Measure.} For measuring expressiveness, we consider our method as a realization for the DDD patterns (\textit{Entity}, \textit{Aggregate}, \textit{Value Object} and \textit{Service}) as explained in~\cite{evans_domain-driven_2004}. Thus, we measure how our language could be mapped to the patterns. Further, we compare our language to the existing DDD approaches: (1)~the annotation-based extensions of two DDD frameworks and (2)~the commonly-used third-party annotation sets. We label the annotation-based extensions of the two frameworks as follows: ApacheIsis~\cite{apache-s.f_apache_2016} as AL and OpenXAVA~\cite{noauthor_openxava_2016} as XL. 
+
+%We could employ \agldcsl’s terms as the base for evaluation because they correspond to the essential terms that are used in the relevant modelling and OOPL literatures, and there has been no other annotation-based \agldcsl that supports a similar set of terms.
+%
+%Using the DCSL’s terms, we analysed the relevant technical documentations of AL, XL, and DDD patterns to identify the language constructs that are either the same as or equivalent to the primitives or combinations thereof that make up each term. We also made some effort in our analysis to quantify the correspondences.
+
+We evaluate \agldcsl’s expressiveness in two aspects: structural modeling and behavioral modeling. For structural modelling, similarly to our previous work on \dcsl~\cite{le_domain_2018},  we use the four \dcsl’s terms as criteria: \textit{domain class}, \textit{domain field}, \textit{associative field}, and \textit{domain method}. For behavioural modelling, we compare our language with UML Activity diagram (labeled as AD) since the diagram has been widely used to capture domain behaviors.
+
+%For behavioral aspects, \agl~is able to express the five essential UML activity modeling patterns, as explained in Section~\ref{sect:behaviorPatterns}. Therefore, any domain behavior captured by an activity diagram with these basic constructs could be expressed in \agl.
+
+%Based on the expressiveness evaluation result, we use as criteria three domain terms (domain class, domain field and associative field) that are supported by DCSL, AL and XL.
+
+For measuring required level of coding, we also evaluate it in two aspects: structural modeling and behavioral modeling. For structural modeling, we follow exactly the evaluation reported in our previous work~\cite{le_domain_2018}. We use two sub-criteria: max-locs (max number of lines of code) and typical-locs (typical number of locs). The lower the values of these the better. Since \dcsl, AL, and XL are all internal to a base OOPL, we might consider annotation property as a loc. Thus, max-locs (resp. typical-locs) is the maximum (resp. typical) number of properties needed to express a typical domain term. 
+%The typical number of properties include only properties that either do not have a default value or are typically assigned to a value different from the default. 
+For example, to specify in \dcsl a typical domain field (say \attribn{Student.name}) maximally (resp. typically) requires these (resp. one of these) three \attribn{DAttr}’s properties: length, min, max.
+
+For measuring required level of coding (RLC) from the behavioral aspect, since \agl, to the best of our knowledge, is the first aDSL of its type, we cannot compare \agl's RLC to other languages. Thus, we measure the \agl's RLC using the ``compactness'' of the language's CSM (see Section~\ref{sect:agl}). This is determined based on the reduction in the number of features in the CSM through the transformation ASM $\rightarrow$ CSM$_T$. More precisely, \agl's RLC is the percentage of the number of CSM$_T$'s features over the number of ASM's. The smaller this percentage, the higher the reduction in the number of features in the CSM and, thus, the more compact the CSM. For this evaluation, we also consider quantitative measures of the number of domain patterns (modules) that have been employed (defined) for developing the underlying apps. The more patterns are employed, the less effort required to obtain the software (by composing them).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Results}
+\label{subsect:results} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+This section explains the results of our experiment, answering the raised research questions.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Expressiveness} 
+%\subsection{Expressiveness} 
 \label{sect:eval-expressiveness}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-This is the extent to which a language is able to express the properties of interest of its domain~\cite{lamsweerde_formal_2000}. We measure the expressiveness of \agl~from both structural and behavioral aspects. 
+\noindent \textbf{RQ1. How well does our method perform on representing domain models, compared to the existing DDD approaches?}	
+
+As shown in Table~\ref{tab:eval_expr_agl}(A) our language and the existing DDD approaches (AL and XL) partly realize the DDD patterns~\cite{evans_domain-driven_2004}. Note that within DDD the notion of a service is referred to as a building block: ``When a significant process or transformation in the domain is not a natural responsibility of an ENTITY or VALUE OBJECT, add an operation to the model as standalone interface declared as a SERVICE. Define the interface in terms of the language of the model and make sure the operation name is part of the UBIQUITOUS LANGUAGE. Make the SERVICE stateless''~\cite{evans_domain-driven_2004}. The first three patterns within our method are realized by the aDSL \dcsl, while the other works realize them based on UML Class diagram enriched by OCL. The last pattern could be realized by UML Activity diagram, however, it lacks a mechanism to compose the behavioral diagrams with other structural diagrams. Services within our approach are represented as activity models, each of which consists of an activity domain class (expressed in \dcsl) and an activity graph (specified in \agl).
+
+\vspace{-0.3cm}
+\begin{table}[ht]
+	\small
+	\caption{(A-left) Criteria 1: The expressiveness criteria based on DDD patterns; 
+		(B-right) Criteria 2: The expressiveness criteria based on domain meta-concepts}
+	\label{tab:eval_expr_agl}
+	\begin{tabular}{llllllllll}
+		\hline
+		Criteria 1 & AGL+            & AL         & XL         & AD         & Criteria 2 & AGL+     & AL         & XL         & AD         \\ \hline
+		Entity \& Aggregate & DomainClass (DC)          & $\surd$ & $\surd$ & \bf{\ding{55}} & DC         & \textbf{1/1} & 1/1        & 0/1        & \bf{\ding{55}} \\
+		& DomainField (DF)         &  $\surd$         & $\surd$     & \bf{\ding{55}} & DF             & \textbf{8/8} & 4/8        & 5/8        & \bf{\ding{55}} \\
+		& AssociativeField (AF)     & $\surd$ & $\surd$ & \bf{\ding{55}} & AF    & \textbf{7/7} & 0/7        & 1/7        & \bf{\ding{55}} \\
+		& DomainMethod (DM)        & $\surd$          & $\surd$          & \bf{\ding{55}} & DM            & $\surd$            & \bf{\ding{55}} & \bf{\ding{55}} & \bf{\ding{55}} \\
+		Value Object        & ImmutableDomainClass & $\surd$ & $\surd$ & \bf{\ding{55}} & ADC & $\surd$            & \bf{\ding{55}} & \bf{\ding{55}} & $\surd$          \\
+		Service      & ActivityDomainClass (ADC) & \bf{\ding{55}} & \bf{\ding{55}} & $\surd$          &                         &              &            &            &            \\ \cline{1-10}
+	\end{tabular}
+\end{table}
+
+Table~\ref{tab:eval_expr_agl}(B) presents the evaluation table of \agldcsl and the existing DDD approaches (AL, XL and AD). Each fraction in this table is a ratio of the number of essential properties of the meta-attribute involved in the underlying meta-concept that are supported by AL or XL. The denominator of the ratio is the total number of essential properties. %
 %
-For structural aspects, the domain properties are captured as meta-concepts and associations in the language's ASM. 
+For example, the ratio 4/8 for AL \wrt the term Domain Field means that AL only supports 4 out of the total of 8 properties of the meta-attribute \clazz{DAttr} (used in Domain Field). The four AL's properties are: 
+%\clazz{Property}.\attribn{mustSatisfy},
+\clazz{Column}.\attribn{allowsNull}, 
+\clazz{Property}.\attribn{editing}, 
+\clazz{PrimaryKey}.\attribn{value}, and 
+\clazz{Column}.\attribn{length}. %
 %
-For behavioral aspects, \agl~is able to express the five essential UML activity modeling patterns, as explained in Section~\ref{sect:behaviorPatterns}. Therefore, any domain behavior captured by an activity diagram with these basic constructs could be expressed in \agl.
+Note that the ratio aims to evaluate the current works from structural aspect, thus, this evaluation step coincides with the one for \dcsl, reported in our previous work~\cite{le_domain_2018}. %
+
+Table~\ref{tab:eval_expr_agl}(B) points out that \agldcsl is more expressive than AL and XL in both structural and behavioral aspects. These two languages only partially support structural aspect and they do not support behavioral aspect. In particular, AL and XL's support for Associative Field is very limited compared to \agldcsl. AD's expressiveness of domain behaviors is better than \agl, but again the behavior model lacks an explicit connection to structural models.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Required Coding Level} \label{sect:eval-rcl}
+%\subsection{Required Coding Level} \label{sect:eval-rcl}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Reviewer: Third, compactness is evaluated by comparing the concrete and abstract syntax representations of the DSL. This is fine, although it would have been more convincing to compare with other approaches (not necessarily based on aDSLs). 
+\noindent \textbf{RQ2. How much effort is required to define unified domain model in \agldcsl for generating a DDD software?}
 
-Required coding level (RCL) complements the expressiveness criterion in that it measures the extent to which a language allows ``...the properties of interest to be expressed without too much hard coding''~\cite{lamsweerde_formal_2000}.
-Since \agl, to our knowledge, is the first aDSL of its type, we cannot compare \agl's RCL to other languages. Thus, we measure the \agl's RCL using the ``compactness'' of the language's CSM (see SubSection~\ref{sect:agl-csm}). This is determined based on the reduction in the number of features in the CSM through the transformation ASM $\rightarrow$ CSM$_T$. More precisely, \agl's RCL is the percentage of the number of CSM$_T$'s features over the number of ASM's. The smaller this percentage, the higher the reduction in the number of features in the CSM and, thus, the more compact the CSM.
+%Reviewer: Third, compactness is evaluated by comparing the concrete and abstract syntax representations of the DSL. This is fine, although it would have been more convincing to compare with other approaches (not necessarily based on aDSLs). 
 
-It is clear from Figures~\ref{fig:agl-abstractSyntax} and~\ref{fig:agl-csm}(A) that \agl's RCL $ = \frac{3}{9}$ or approximately 33\%. Specifically, Figure~\ref{fig:agl-abstractSyntax} shows that the number of meta-concepts of the ASM involved in the transformation is 9. These exclude the four meta-concepts (\clazz{ActName}, \clazz{State}, \clazz{Decision} and \clazz{Join}) that are transferred directly to CSM$_T$. On the other hand, Figure~\ref{fig:agl-csm}(A) shows that three meta-concepts result from the transformation (including \clazz{AGraph}, \clazz{ANode}, and \clazz{MAct}). Therefore, \agl~can have a CSM that significantly reduces the number of meta-concepts required to write an AGC to only about one-third. 
+It is clear from Figures~\ref{fig:agl-abstractSyntax} and~\ref{fig:agl-txtSyntax} that \agl's RCL $ = \frac{3}{10}=30\%$ (as defined in Section~\ref{subsect:caseDesign}, \agl's RLC is the percentage of the number of CSM$_T$'s features over the number of ASM's). Specifically, Figure~\ref{fig:agl-abstractSyntax} shows that the number of meta-concepts of the ASM involved in the transformation is 10. These exclude the four meta-concepts (\clazz{DomainClass}, \clazz{Module}, \clazz{ModuleService}, and \clazz{State}) that are transferred directly to CSM$_T$. On the other hand, Figure~\ref{fig:agl-txtSyntax} shows that three meta-concepts result from the transformation (including \clazz{AGraph}, \clazz{ANode}, and \clazz{MAct}). Therefore, \agl~can have a CSM that significantly reduces the number of meta-concepts required to write an \agl specification to only one-third. 
+
+{\makeatletter
+	\let\par\@@par
+	\par\parshape0
+	\everypar{}
+	\begin{wraptable}{r}{7cm}
+		\vspace{-0.4cm}
+		\caption{Statistics of Behavior Patterns and Modules\\for \courseman, \processman, and \orderman}
+		\label{tab:eval_patNum}
+		\begin{tabular}{lcc}
+			\hline
+			& Patterns & Modules \\ \hline
+			\courseman  & 3                  & 6                 \\ 
+			\processman & 5                  & 37                \\
+			\orderman   & 5                  & 13                \\ \hline
+		\end{tabular}
+	\end{wraptable}
+%
+Table~\ref{tab:eval_patNum} shows the number of domain behavior patterns (modules) that are employed (defined) for obtaining the apps \courseman, \processman, and \orderman. While the number of modules points out the complexity of the software, the number of domain behavior patterns highlights the applicability of our first catalog of the patterns as well as the less effort of the developer to manually code the software.\par
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Constructibility} 
-\label{sect:eval-construct}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-This is the extent to which a language provides ``... facilities for building complex specifications in a piecewise, incremental way''\cite{lamsweerde_formal_2000}. For \agl, the language's embedment in the host OOPL allows it to take for granted the general construction capabilities of the host language platform and those provided by modern IDEs (e.g., Eclipse). More specifically, using an IDE a developer can syntactically and statically check an AGC at compile time. In addition, she can easily import and reference a domain class in an AGC and have this AGC automatically updated (through refactoring) when the domain class is renamed or relocated.
-
-More importantly, the AGC can be constructed incrementally with the domain model. This is due to a property of our activity graph model (discussed in Section~\ref{sect:agl-abstractSyntax}) that the nodes and edges of an activity graph are mapped to the domain classes and their associations.
-
-Further, we would develop automated techniques to ease the construction of AGC. Intuitively, for example, a technique would be to generate a default AGC for an activity and to allow the developer to customize it. We plan to investigate techniques such as this as part of future work.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Discussion and Limitations} 
+\subsection{Discussion} 
 \label{sect:eval-discussion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{\textit{Integration into a software development process}} is essential for the dissemination of our method in practice. We argue that our method is particularly suited for integration into iterative \cite{larman_applying_2004} and agile~\cite{beck_manifesto_2017} development processes. In particular, the development team (which includes domain experts and developers) would use our tool to work together on developing the configured unified model in an incremental fashion: the developers use \dcsl~and \agl~to create/update the configured unified model and then generate the software from this model. The domain experts give feedback for the model via the software GUI and the update cycle continues. The generated software prototypes can be used as the intermediate releases for the final software.
+Let us conclude our evaluation with a number of remarks on the \agl-based method as follows.
 
+\textbf{\textit{Integration into a software development process}} is essential for the dissemination of our method in practice. We argue that our method is particularly suited for integration into iterative \cite{larman_applying_2004} and agile~\cite{beck_manifesto_2017} development processes. In particular, the development team (which includes domain experts and developers) would employ our tool to work together on developing the configured unified model in an incremental fashion, and then generating the software from this model. The domain experts give feedback for the model via the software GUI and the update cycle continues. The generated software prototypes can be used as the intermediate releases for the final software. %
+%
 Further, in both processes, tools and techniques from \abbrv{model-driven software engineering}{MDSE} would be applied to enhance productivity and tackle platform variability. In particular, we would apply PIM-to-PSM model transformation~\cite{kent_model_2002,brambilla_model-driven_2012} to automatically generate our configured unified model from a high-level one that is constructed using a combination of UML Class and Activity diagrams.
 
 \textbf{\textit{The usability of the software GUI}}, from the domain expert's viewpoint, plays a role in the usability of our method. Although in this paper we did not discuss this issue, we would argue in favor of two aspects of the software GUI, namely simplicity and consistency, which contribute towards its learnability~\cite{folmer_architecting_2004}. Our plan is to fully evaluate GUI usability in future work. First, the GUI design is simple because, as discussed in~\cite{le_domain_2018}, it directly reflects the domain class structure. Clearly, this is the most basic representation of the domain model. Second, the GUI is consistent in its presentation of the module view and the handling of the user actions performed on it. Consistent presentation is due to the application of the reflective layout to the views of all modules. Consistent handling is due to the fact that a common set of module actions (see Section~\ref{sect:actSemantics}) are made available on the module view.
 
-Reviewer:  I would suggest adding one paragraph discussing the generality of AGL. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Constructibility} 
+\label{sect:eval-construct}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{\textit{Constructibility}.} For \agl, the language's embedment in the host OOPL allows it to take for granted the general construction capabilities of the host language platform and those provided by modern IDEs (e.g., Eclipse). More specifically, using an IDE a developer can syntactically and statically check an \agl specification at compile time. In addition, she can easily import and reference a domain class in the AGL specification and have this specification automatically updated (through refactoring) when the domain class is renamed or relocated.
 %
-What would be the effort to implement the approach in other host languages? 
+%More importantly, the AGL specfication can be constructed incrementally with the domain model. This is due to a property of our activity graph model (discussed in Section~\ref{sect:agl}) that the nodes and edges of an activity graph are mapped to the domain classes and their associations.
 %
-What features must a host language have to allow implementing DSCL/AGL on top of it?
+Further, we would develop automated techniques to ease the construction of the AGL specification. Intuitively, for example, a technique would be to generate a default AGL specification for an activity and to allow the developer to customize it. We plan to investigate techniques such as this as part of future work.
+
+%Reviewer:  I would suggest adding one paragraph discussing the generality of AGL. 
+%What would be the effort to implement the approach in other host languages? 
+%What features must a host language have to allow implementing DSCL/AGL on top of it?
+
+\textbf{\textit{Generality}.} The core of our mechanism to incorporate behaviors for a unified domain model is to employ domain behavior patterns in MOSA. Domain behavior patterns and MOSA are basically dependent from the implementation language. Therefore, our method could be realized by another OOPL as an alternative for Java. The language should support the annotation mechanism (like in Java) so that we could implement \agldcsl on top of it.
+
+
+
+
+
+
 
