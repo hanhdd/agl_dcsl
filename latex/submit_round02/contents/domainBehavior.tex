@@ -2,23 +2,38 @@
 \section{Overview of the Proposed Approach}
 \label{sect:overviewApproach}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+{\makeatletter
+	\let\par\@@par
+	\par\parshape0
+	\everypar{}
+	\begin{wrapfigure}{r}{9.5cm}
+		\begin{center}
+			\vspace{-1cm}		\includegraphics[scale=0.32]{method-overview}
+		\end{center}
+		\vspace{-0.5cm}	
+		\caption{An overview of our method.} %
+		%\vspace{1cm}	
+		\label{fig:method-overview}
+	\end{wrapfigure}
 This section explains our basic idea of incorporating behavior aspects as part of a unified domain model.
-
-\begin{figure}[ht]
-	\begin{center}
-		\includegraphics[scale=0.32 %0.26
-		]{method-overview}
-	\end{center}
-	\caption{An overview of our method.} %
-	\label{fig:method-overview}
-\end{figure}
-
+%
+%\begin{figure}[ht]
+%	\begin{center}
+%		\includegraphics[scale=0.32 %0.26
+%		]{method-overview}
+%	\end{center}
+%	\caption{An overview of our method.} %
+%	\label{fig:method-overview}
+%\end{figure}
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Basic Idea}
+%\subsection{Basic Idea}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Figure~\ref{fig:method-overview} overviews our proposed method. This method conceptually consists in iteratively performing three steps. First, we take as input domain requirements that are captured by an essential domain model (for a structural view including domain concepts and relationships) together with domain behaviors (specified as a behavioral view with UML Activity diagrams). We then aim to represent such input domain requirements as a composition of a DCSL model for a so-called \textit{unified model} and an \agl model to represent domain behaviors. The former model (the DCSL model) is an extension of the essential model to relate this structure view with the behavior view. A detailed definition of the unified model is provided in Section~\ref{subsect:unifiedModel}. For the latter model (the \agl model), wee need to define \agl as a new aDSL to capture a semantics domain of module actions for the domain behaviors. %
+%
+Figure~\ref{fig:method-overview} overviews our proposed method. This method conceptually consists in iteratively performing three steps. First, we take as input domain requirements that are captured by an essential domain model (for a structural view with domain concepts) together with domain behaviors (specified as a behavioral view with UML Activity diagrams). We then aim to represent such input domain requirements as a composition of a DCSL model for a so-called \textit{unified model} and an \agl model to represent domain behaviors. The former one (DCSL) is an%
+\par}%
+\noindent 
+extension of the essential model to relate this structure view with the behavior view. A detailed definition of the unified model is provided in Section~\ref{subsect:unifiedModel}. For the latter one (the \agl model), we need to define \agl as a new aDSL to capture a semantics domain of module actions for the domain behaviors. %
 %This semantics domain would be more specific and narrower then the one of UML Activity diagrams. 
 A detailed explanation of this point is provided in Section~\ref{subsect:domainBehaviors} and Section~\ref{sect:actSemantics}. %
 %
@@ -94,7 +109,7 @@ In the remainder of this paper, to ease notation we will use \textbf{activity cl
 
 \begin{figure*}[ht]
 	\begin{center}
-		\includegraphics[scale=0.38]{unified-model-example}
+		\includegraphics[scale=0.78]{unified-model-example}
 	\end{center}
 	\caption{(A: Left) The UML activity and class models of a \courseman~software variant that handles the enrollment management activity; (B: Right) The unified model that results.} %
 	\label{fig:unified-model-example}
