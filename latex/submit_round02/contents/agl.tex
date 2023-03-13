@@ -38,8 +38,10 @@ I1 and R1 are needed to incorporate the activity graph into MOSA. R2 is a safe r
 	\begin{center}
 		\includegraphics[scale=0.7]{agl-asm}
 	\end{center}
+\vspace{-0.6cm}
 	\caption{A simplified metamodel for AGL's abstract syntax.} %
 	\label{fig:agl-abstractSyntax}
+	\vspace{-0.2cm}
 \end{figure*}
 
 Figure~\ref{fig:agl-abstractSyntax} depicts a simplified metamodel for \agl's abstract syntax. %
@@ -57,9 +59,7 @@ Property \attribn{serviceCls} specifies the actual \clazz{ModuleService} class o
 
 Meta-concept \clazz{ModuleAct} represents SAA-typed module actions as defined in Definition~\ref{def:saa}. Note that we use an enumeration called \clazz{ActName} and an enumeration called \clazz{State} to represent the action names and the union of pre-states and post-states (\resp). \clazz{State}, in particular, represents both normal states and concurrent states (see Section~\ref{sect:arch-atomic-action}).
 
-TODO: We need to provide well-formedness (WFRs) rules for the metamodel to obtain valid AGL models: (1) WFRs from UML metamodel for valid activity graphs; (2)~WFRs to ensure AGL models obtained as a composition of available domain behavior patterns. 
-
-Due to limited space, the well-formedness OCL rules for this model are only shown in the technical report~\cite{dang2023aglTechReport} for this paper.
+We need to provide well-formedness (WFRs) rules for the metamodel to obtain valid \agl models. They might be divided into two parts: (1) WFRs from UML metamodel for valid activity graphs; (2)~WFRs to ensure \agl models obtained as a composition of available domain behavior patterns. Figure~\ref{fig:agl-abstractSyntax} just shows two WFRs. For a full specification of the well-formedness OCL rules for this metamodel, we would refer the reader to the technical report~\cite{dang2023aglTechReport} for this paper.
 
 %
 %\begin{description}

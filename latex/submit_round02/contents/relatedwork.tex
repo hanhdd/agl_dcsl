@@ -19,7 +19,7 @@ In this paper, we extended the DDD method~\cite{evans_domain-driven_2004} to con
 
 \textbf{\textit{Behavioral modeling with UML Activity diagram.}}
 Although in his book~\cite{evans_domain-driven_2004} Evans does not explicitly mention behavioral modeling as an element of the DDD method, he does consider object behavior as an essential part of the domain model and that UML interaction diagrams would be used to model this behavior. 
-
+%
 %For example, in Chapter 2 of the book, when discussing the use of documents and diagrams (\ie models) in the ubiquitous language, Evans states the followings:
 %
 %\begin{itemize}
@@ -29,23 +29,21 @@ Although in his book~\cite{evans_domain-driven_2004} Evans does not explicitly m
 %  demonstrated with object interaction (or sequence) diagrams.''
 %%  , but they cannot be stated. So, this falls to supplemental text or conversation. In other words, UML diagrams cannot convey two of the most important aspects of a model: the meaning of concepts it represents, and what they are meant to do.
 %\end{itemize}
-
-In UML~\cite[p.~285]{omg_unified_2017}, Interaction diagrams (such as Sequence diagrams) are only one of three main diagram types that are used to model the system behavior. The other two types are State machine and Activity diagram. Although in the book, Evans only uses sequence diagrams as an example, in the ApacheIsis framework~\cite{dan_haywood_apache_2013} that directly implements the DDD's philosophy, a simple action language is used to model the object behavior. This language is arguably a specific implementation of the action sub-language~\cite[p.~441]{omg_unified_2017} of UML Activity diagram. It leverages the annotation construct of OOPL to specify a class operation with a pre-defined behavior type. 
-However, ApacheIsIs lacks support for a behavioral modeling method. Our combination of two aDSLs in this paper helps fill this gap.
-
+%
+In UML~\cite[p.~285]{omg_unified_2017}, Interaction diagrams are only one of three main diagram types that are used to model the system behavior. The other two types are State machine and Activity diagram. Although in the book, Evans only uses sequence diagrams as an example, in the ApacheIsis framework~\cite{dan_haywood_apache_2013} that directly implements the DDD's philosophy, a simple action language is used to model the object behavior. This language is arguably a specific implementation of the action sub-language~\cite[p.~441]{omg_unified_2017} of UML Activity diagram. It leverages the annotation construct of OOPL to specify a class operation with a pre-defined behavior type. However, ApacheIsIs lacks support for a behavioral modeling method. Our combination of two aDSLs in this paper helps fill this gap.
+%
 Our definition of module action in this paper incorporate the notion of state, which is more formally modeled in another UML behavioral modeling language called Behavior State Machines (BSM)~\cite[p.~305]{omg_unified_2017}. 
 As discussed in~\ref{sect:actSemantics}, our notion of module action's pre- and post-states looks at a similar view with BSM. The difference is that our notation emphasizes the actual behavior, while BSM focuses on the behavior's effects in terms of states and state transitions.
 
 %page break
 %\pagebreak
 \textbf{\textit{Unified modeling with UML diagrams.}}
-There have been works attempting to combine UML structural and behavioral diagrams to construct a system model, similar in spirit to the unified model that we proposed in this paper. Intuitively, this makes sense because the two diagram types address the two core (static and dynamic) aspects of a system. Two works~\cite{kohler_integrating_2000, niaz_object-oriented_2005} discuss combining UML class and state machine diagrams to model the system. Another work~\cite{selonen_transformations_2003} explains the relationships between UML structural and behavioural diagrams and how these relationships can be leveraged to build a complete system model. In particular, this work highlights a strong relationship between state machine (\aka statechart) and activity diagram -- an insight that we also discovered in this paper. 
+There have been works attempting to combine UML structural and behavioral diagrams to construct a system model, similar in spirit to the unified model that we proposed in this paper. Intuitively, this makes sense because the two diagram types address the two core (static and dynamic) aspects of a system. Two works~\cite{kohler_integrating_2000, niaz_object-oriented_2005} discuss combining UML class and state machine diagrams to model the system. Another work~\cite{selonen_transformations_2003} explains the relationships between UML structural and behavioural diagrams and how these relationships can be leveraged to build a complete system model. In particular, this work highlights a strong relationship between state machine and activity diagram. 
 
-Our proposed unified domain modeling is novel in that it combines UML Class and Activity diagrams by incorporating the domain-specific structure (activity class and associations) into the class diagram, thereby creating a unified model. In the spirit of the DDD's layered architecture, we separated the activity graph component of Activity diagram from the unified model and created a separate aDSL (\agl) for it. The unified model and activity graph are connected by virtue of the fact that nodes in the graph execute actions of the modules that own the domain classes in the model.
+Our proposed unified domain modeling is novel in that it combines UML Class and Activity diagrams by incorporating the domain-specific structure (activity class and associations) into the class diagram for a unified model. In the spirit of the DDD's layered architecture, we separated the activity graph component of Activity diagram from the unified model and created a separate aDSL (\agl) for it. The unified model and activity graph are connected by virtue of the fact that nodes in the graph execute actions of the modules that own the domain classes in the model.
 %
 %Conceptually, the model component of a software is the domain model. It includes a set of domain classes that capture data about the entities of interest in the application domain. The view component of a software is a set of user interface (UI) classes that are used to capture data about the domain objects. Each class presents to the user a coherent view of a domain class and to make it easy for her to interact with this view.
 %
-
 Our method is novel in the treatment of MVC. We basically use it at the `micro' level to design each software module as a self-contained MVC component. We then expose a module interface and combine it with the activity graph design.
 
 \textbf{\textit{MDSE.}}
@@ -65,8 +63,7 @@ First, we use (internal) aDSLs as opposed to external DSLs. Second, our method (
 
 %As discussed above, the existing DDD frameworks also adopt this representation.
 
-%\subsubsection*{Using AtOP for MDSE}
-With regards to the use of AtOP in MDSE, a classic model of this combination is used in the development of a model-driven development framework, called mTurnpike \cite{wada_modeling_2005}. 
+\textbf{\textit{AtOP.}} With regards to the use of AtOP in MDSE, a classic model of this combination is used in the development of a model-driven development framework, called mTurnpike \cite{wada_modeling_2005}. 
 %This framework combines AtOP with model-driven development in a top-down fashion, with an aim to define domain-specific concepts at both the modeling and programming levels. 
 %
 More recently, the work in \cite{balz_embedding_2012} proposes a bottom-up MDSE approach, which entails a formalism and a general method for defining annotation-based embedded models. 

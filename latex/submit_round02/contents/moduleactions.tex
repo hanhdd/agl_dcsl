@@ -48,6 +48,7 @@ Second, because each action concerns manipulating the values of some domain fiel
 Third, the action output consists of at most one type, which is the domain class of the current module. Further, only the object manipulation actions have this output; other actions have an empty output because they do not produce any real output value.
 % TODO: + atomic action
 % + open: preStates = {Init}
+\vspace{-0.4cm}
 \begin{table}[ht]
 	\setlength\tabcolsep{1pt}
 	\centering
@@ -99,22 +100,28 @@ $S$ has the following properties:
 \end{itemize}
 \end{definition}
 
-%
-\begin{figure}[ht]
+{\makeatletter
+	\let\par\@@par
+	\par\parshape0
+	\everypar{}
+\begin{wrapfigure}{r}{7.2cm}
+%\begin{figure}[ht]
 	\centering
-	\includegraphics[scale=0.52]{ase-example}
-	\caption{An ASE that creates a new domain object of a module's domain class (typed $T$).} %
+	\vspace{-3.2cm}
+	\includegraphics[scale=0.33]{ase-example}
+\vspace{-0.1cm}
+	\caption{An ASE to create a domain object (typed $T$).} %
+\vspace{-0.3cm}
 	\label{fig:ase-example}
-\end{figure}
+\end{wrapfigure}
 
-\noindent\textbf{Example.} Figure~\ref{fig:ase-example} shows an ASE that creates a new domain object whose type is the domain class $T$ of a module. This ASE consists in a sequence of four atomic actions and is characterised by:\\ \membern{name} = \strq{Sequence:~create~objects}, 
-\membern{fieldValSet} = \attrib{setDataFieldValues}{fieldValSet} = $\emptyset$,\\
-\membern{postStates} = \{\code{Created}\}.
-
+\noindent\textbf{Example.} Figure~\ref{fig:ase-example} shows an ASE that creates a new domain object whose type is the domain class $T$ of a module. This ASE consists in a sequence of four atomic actions and is characterised by:\\ \membern{name}=\strq{Sequence:~create~objects},\\
+\membern{fieldValSet}=\attrib{setDataFieldValues}{fieldValSet}=$\emptyset$,\\
+\membern{postStates}=\{\code{Created}\}.\\
+%
 The first atomic action is \membern{open}, which opens the view presenting the domain class. Once completed, this action raises an event with the state \code{Opened}, so that interested listeners of this event can handle. This action then leads to the execution of the second atomic action: \membern{newObject}. This sequence is valid because, as listed in Table~\ref{tab:core-atomic-actions}, \attrib{open}{postStates} $\subset$ \attrib{newObject}{preStates}. Action \membern{newObject} prepares the view so that it is ready to receive input from the user for creating a new object. Once completed, this action raises an event with state \code{NewObject}.
 %
-Because this state is contained in \attrib{setDataFieldValues}{preStates}, we place \membern{setDataFieldValues} as the third action of the ASE. This action is responsible for setting the values of all the view fields, which render the domain fields of the domain class.
-Finally, because \attrib{setDataFieldValues}{postStates} $\subset$ \attrib{createObject}{preStates} we place \membern{createObject} as the next (and final) action of the ASE. This action creates a new domain object (using values of the view fields).
+Because this state is contained in \attrib{setDataFieldValues}{preStates}, we place \membern{setDataFieldValues} as the third action of the ASE. This action is responsible for setting the values of all the view fields, which render the domain fields of the domain class. We place \membern{createObject} as the next (and final) action of the ASE since \attrib{setDataFieldValues}{postStates} $\subset$ \attrib{createObject}{preStates}. This action creates a new domain object with values of the view fields.
 
 A useful property that emerges from our notion of ASE is that there exists a natural multi-level nesting of ASE-backed behaviors along a path in the module containment tree. More specifically, an ASE $S$ is `nested' inside another ASE $S'$ if there exists an activity edge that connects a member action of $S'$ to the start action of $S$. In MOSA, $S'$ is performed on the view of a composite module, and $S$ is on the view of one of its child modules.
 %
@@ -281,8 +288,9 @@ Since the decision's logic may require knowledge of the domain classes involved 
 
 \begin{figure*}[ht]
 \begin{center}
-\includegraphics[scale=0.28]{decisional-form}
+\includegraphics[scale=0.26]{decisional-form}
 \end{center}
+\vspace{-0.4cm}
 \caption{The decisional pattern form.} %
 \label{fig:decisional-form}
 \end{figure*}
@@ -304,6 +312,7 @@ The control node $ c_k $ is not specified.
 		\includegraphics[scale=0.64
 		]{decisional-form-eg-gui}
 	\end{center}
+	\vspace{-0.5cm}
 	\caption{The decisional pattern form view of enrolment management.} %
 	\label{fig:decisional-form-eg-gui}
 \end{figure}
@@ -326,11 +335,11 @@ To obtain a concrete \agl~specification when applying a domain behavior pattern,
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[scale=0.3]{activity-graph-example}
+	\includegraphics[scale=0.28]{activity-graph-example}
 	\caption{(LHS) A repeat of the unified model shown in Figure~\ref{fig:unified-model-example}; (RHS) The activity graph of this model.} %
 	\label{fig:activity-graph-example}
 \end{figure}
-%
+
 % TODO: + tab:activity-graph-example
 % + add a separate table for ModuleAct objects and reference them in the actSeq column
 \begin{table*}[ht]
@@ -372,6 +381,7 @@ To obtain a concrete \agl~specification when applying a domain behavior pattern,
 			5 & \membern{setDataFieldValues} & \set{Created} & \sets{\strq{student}} \\\hline 
 		\end{tabular}
 \end{center}\end{table*}
+\vspace{-0.5cm}
 
 \noindent\textbf{Example.} The right-hand side of Figure~\ref{fig:activity-graph-example} is an activity graph of the enrollment management activity of the \courseman~software variant introduced earlier in Section~\ref{sect:background}. The left-hand side of the figure is the corresponding unified model of this activity, which is repeated from Figure~\ref{fig:unified-model-example} to show links with the activity graph. 
 %We will discuss other example graphs that include control nodes later in Section~\ref{sect:eval-expressiveness}. 
@@ -381,7 +391,7 @@ Tables~\ref{tab:activity-graph-example}(A) and (B) list the states of the nodes 
 For instance, node \objid{1}{Node} references the domain class \clazz{Student} (hence also references \clazz{ModuleStudent}) and has \membern{serviceCls} = \clazz{DataController} (a default module service class developed as part of the \jdomainapp~framework~\cite{le_jdomainapp_2017}). The node also references object \objid{1}{ModuleAct}. The \membern{refCls}'s value of each node is depicted in the figure by a dashed curve (labeled \strq{refCls}) that connects the node to the referenced domain class in the unified model.
 
 We provide Definition~\ref{def:software} to clarify how the software is generated in MOSA. This definition makes precise the general notion of module-based software that we introduced in Section~\ref{sect:bg-arch} and takes into account the combination of a unified model and an activity graph. It highlights the sub-set of modules that owns the activity classes and how these modules trigger the execution of the activity graphs of the associated activities.
-%
+
 \begin{definition} \label{def:software}
 	Given a unified model $D$ that contains a non-empty set of activity classes, each of which is attached to an AGL specification describing the activity graph logic of an activity of the domain. A software generated in MOSA \wrt $D$ consists in a set of modules, each of which owns a domain class in $D$ and the behavior of the \code{newObject} action of every owner module of an activity class includes the logic described by the activity graph that is configured by the AGL specification attached to that class. \qed
 \end{definition}
