@@ -1,6 +1,6 @@
 %
 \section{Related Work}\label{sect:relatedwork} %
-We position our work at the intersection between the following areas: DSL engineering, DDD, MVC architecture, model-driven software engineering (MDSE), and attribute-oriented programming (AtOP).
+We position our work at the intersection between the following areas: DSL engineering, DDD, model-driven software engineering (MDSE), and attribute-oriented programming (AtOP).
 %, and aspect-oriented software design (AOD).
 
 \textbf{\textit{DSL Engineering.}}
@@ -8,7 +8,7 @@ DSLs~\cite{van_deursen_domain-specific_2000, mernik_when_2005} can be classified
 %In principle, internal DSL has a closer relationship with the host language than external DSL. A typical internal DSL is developed using either the syntax or the language tools of the host language. 
 %In contrast, a typical external DSL has its owns syntax and thus requires a separate compiler to process. 
 %
-Our proposed \agl~is a type of fragmentary, internal, and horizontal DSL. The shared features that are captured in \agl~are those that form the activity graph domain. To the best of our knowledge, \agl~is the first aDSL that is defined for this purpose.
+Our proposed \agl~is a type of fragmentary, internal, and horizontal DSL. The shared features that are captured in \agl~are those that form the activity graph domain. As far as we know, \agl~is the first aDSL defined for this purpose.
 
 \textbf{\textit{DDD.}}
 The idea of combining DDD and DSL to raise the level of 
@@ -39,7 +39,7 @@ As discussed in~\ref{sect:actSemantics}, our notion of module action's pre- and 
 %\pagebreak
 \textbf{\textit{Unified modeling with UML diagrams.}}
 There have been works attempting to combine UML structural and behavioral diagrams to construct a system model, similar in spirit to the unified model that we proposed in this paper. Intuitively, this makes sense because the two diagram types address the two core (static and dynamic) aspects of a system. Two works~\cite{kohler_integrating_2000, niaz_object-oriented_2005} discuss combining UML class and state machine diagrams to model the system. Another work~\cite{selonen_transformations_2003} explains the relationships between UML structural and behavioural diagrams and how these relationships can be leveraged to build a complete system model. In particular, this work highlights a strong relationship between state machine and activity diagram. 
-
+%
 Our proposed unified domain modeling is novel in that it combines UML Class and Activity diagrams by incorporating the domain-specific structure (activity class and associations) into the class diagram for a unified model. In the spirit of the DDD's layered architecture, we separated the activity graph component of Activity diagram from the unified model and created a separate aDSL (\agl) for it. The unified model and activity graph are connected by virtue of the fact that nodes in the graph execute actions of the modules that own the domain classes in the model.
 %
 %Conceptually, the model component of a software is the domain model. It includes a set of domain classes that capture data about the entities of interest in the application domain. The view component of a software is a set of user interface (UI) classes that are used to capture data about the domain objects. Each class presents to the user a coherent view of a domain class and to make it easy for her to interact with this view.
@@ -49,7 +49,7 @@ Our method is novel in the treatment of MVC. We basically use it at the `micro' 
 \textbf{\textit{MDSE.}}
 The idea of combining MDSE with DSLs is formulated in \cite{kleppe_software_2008, brambilla_model-driven_2012}. This involves applying the meta-modeling process to create meta-models of software modeling languages (include both general-purpose languages and DSLs). 
 Our \agl's specification follows the pattern-based meta-modeling approach, but targets internal DSL.
-
+%
 %\subsubsection*{DSLs for Software modeling}
 Our method is similar to the method proposed in \cite{warmer_model_2007, warmer_building_2006} in the use of a combination of DSLs to build a complete software model. 
 %In these work, a 3-step method is outlined, which includes: (1) determine the software architecture, (2) develop DSLs that fit this architecture and (3) combine the DSLs by defining transformations between them. 
