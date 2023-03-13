@@ -28,7 +28,16 @@ Fill Order simply coordinates the tasks, ensuring that Update Order is performed
 	\label{fig:orderMan_actDiagram}
 \end{figure*}
 
-Figure~\ref{fig:orderMan_actDiagram}(B) highlights for each node of the activity graph (1)~the mapping from the node to a corresponding module (\wrt the domain class referenced by the \attribn{refCls}), (2)~the out nodes (\wrt the \attribn{refCls}), and (3)~the \clazz{ModuleAct} objects each of which specifies a SAA for the behavior of the module. These \clazz{ModuleAct} objects together with SAAs are listed in Figure~\ref{fig:orderMan_unifiedModel}(C). In order to obtain an \orderman software with the GUI, as shown in Figure~\ref{fig:orderManGUI}, %
+Figure~\ref{fig:orderMan_actDiagram}(B) highlights for each node of the activity graph (1)~the mapping from the node to a corresponding module (\wrt the domain class referenced by the \attribn{refCls}), (2)~the out nodes (\wrt the \attribn{refCls}), and (3)~the \clazz{ModuleAct} objects each of which specifies a SAA for the behavior of the module. 
+
+\begin{figure*}[ht]
+	\centering
+	\includegraphics[scale=0.7]{domain-model-orderman}
+	%\vspace{-0.5cm}
+	\caption{the domain model of the \orderman} %
+	\label{fig:domain-model-orderman}
+\end{figure*}
+In the Figure~\ref{fig:domain-model-orderman} show the domain model of \orderman. These \clazz{ModuleAct} objects together with SAAs are listed in Figure~\ref{fig:orderMan_unifiedModel}(C). In order to obtain an \orderman software with the GUI, as shown in Figure~\ref{fig:orderManGUI}, %
 %GUIs like the one shown in Figure~\ref{fig:decisional-form-eg-gui}, 
 
 the unified model incorporating the AGL specification (for the activity model) needs to be encoded in Java. The implemenation for \orderman is available at the git repository\footnote{\url{https://github.com/jdomainapp/orderman}}. Section~\ref{subsect:toolSupport} provides a detailed explanation of this implementation.
