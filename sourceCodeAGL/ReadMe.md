@@ -19,7 +19,7 @@ jda:root	-> the root project
 ```
 
 # Using the deployed module MBSL
-GitHub repository: https://github.com/jdomainapp/jda-mbsl
+GitHub repository: https://github.com/hanhdd/agl_dcsl/tree/main/sourceCodeAGL
 1. Download the deployed module MBSL: jda-mbsl into the Jdomainapp folder
 2. Unzip it into the Jdomainapp folder
 The content of Jdomainapp folder needs to look like this:
