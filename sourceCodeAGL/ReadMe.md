@@ -10,6 +10,7 @@ A repository for tool AGL: Incorporating Behavioral Aspects into Domain-Driven D
 # Project structure
 ### Tool implementation in the jDomainApp framework.
    ![Tool implementation in the jDOMAINAPP framework](docs/images/struct-tool1.png)
+    ![Illustration for the JDomainApp-based realization and usability of AGL](docs/images/toolSupport.png)
 ```
 jda:root	-> the root project
   common  -> module-common: (base) module used by other modules
