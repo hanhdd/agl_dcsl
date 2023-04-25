@@ -10,6 +10,7 @@ A repository for tool AGL: Incorporating Behavioral Aspects into Domain-Driven D
 # Project structure
 ### Tool implementation in the jDomainApp framework.
    ![Tool implementation in the jDOMAINAPP framework](docs/images/struct-tool1.png)
+    ![Illustration for the JDomainApp-based realization and usability of AGL](docs/images/toolSupport.png)
 ```
 jda:root	-> the root project
   common  -> module-common: (base) module used by other modules
@@ -19,7 +20,7 @@ jda:root	-> the root project
 ```
 
 # Using the deployed module MBSL
-GitHub repository: https://github.com/jdomainapp/jda-mbsl
+GitHub repository: https://github.com/hanhdd/agl_dcsl/tree/main/sourceCodeAGL
 1. Download the deployed module MBSL: jda-mbsl into the Jdomainapp folder
 2. Unzip it into the Jdomainapp folder
 The content of Jdomainapp folder needs to look like this:
