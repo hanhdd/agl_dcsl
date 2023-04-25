@@ -1,0 +1,99 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>jda.example</groupId>
+  <artifactId>jda-eg-orderman</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <name>OrderMan</name>
+  <description>Order Management</description>
+  
+  <properties>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+    <jda.version>5.4-SNAPSHOT</jda.version>
+   </properties>
+
+  <repositories>
+    <!-- local repo for special (unpublished) jars. Use script bin/mvn-deploy-local.bash 
+      to install jar file to this repo -->
+    <repository>
+      <id>local-maven-repo</id>
+      <url>file://local-maven-repo</url>
+    </repository>
+    <!--JDA package repository: deployed on GitHub  -->
+    
+    <repository>
+      <id>github-jda</id>
+      <name>JDA: GitHub Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/jdomainapp/jda</url>
+    </repository>
+    
+  </repositories>
+  
+ <dependencies>
+  <!-- JDA -->
+  <dependency>
+    <groupId>jda</groupId>
+    <artifactId>jda-main</artifactId>
+    <version>${jda.version}</version>
+  </dependency>
+  <dependency>
+    <groupId>jda</groupId>
+    <artifactId>jda-main</artifactId>
+    <version>${jda.version}</version>
+    <type>test-jar</type>
+    <scope>test</scope>
+  </dependency>
+  <dependency>
+    <groupId>jda</groupId>
+    <artifactId>jda-common</artifactId>
+    <version>${jda.version}</version>
+  </dependency>
+  <dependency>
+    <groupId>jda</groupId>
+    <artifactId>jda-dcsl</artifactId>
+    <version>${jda.version}</version>
+  </dependency>
+  <!--JDA-mbsl: a.k.a AGL-->
+  <dependency>
+    <groupId>jda.modules</groupId>
+    <artifactId>jda-mbsl</artifactId>
+    <version>${jda.version}</version>
+  </dependency>
+  
+  <!-- IN-MEMORY JAVA COMPILER -->
+  <dependency>
+    <groupId>org.mdkt.compiler</groupId>
+    <artifactId>InMemoryJavaCompiler</artifactId>
+    <version>1.3.0</version>
+  </dependency>
+
+  <!-- DERBY: embedded DB -->
+  <dependency>
+    <groupId>org.apache.derby</groupId>
+    <artifactId>derby</artifactId>
+    <version>10.15.2.0</version>
+  </dependency>
+  <dependency>
+    <groupId>org.apache.derby</groupId>
+    <artifactId>derbyclient</artifactId>
+    <version>10.15.2.0</version>
+  </dependency>
+  <dependency>
+    <groupId>org.apache.derby</groupId>
+    <artifactId>derbynet</artifactId>
+    <version>10.15.2.0</version>
+  </dependency>
+   <!-- local-maven-repo: JSCALEDHTMLTEXTPANE -->
+   <dependency>
+    <groupId>jscaledhtmltextpane</groupId>
+    <artifactId>jscaledhtmltextpane</artifactId>
+    <version>unknown</version>
+  </dependency>
+  <!-- local-maven-repo: SCROLALBLEDESKTOP -->
+  <dependency>
+    <groupId>scrollabledesktop</groupId>
+    <artifactId>scrollabledesktop</artifactId>
+    <version>unknown</version>
+  </dependency>
+</dependencies>
+</project>
