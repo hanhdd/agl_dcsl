@@ -30,10 +30,10 @@ This section explains our basic idea of incorporating behavioral aspects as part
 %\subsection{Basic Idea}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-Figure~\ref{fig:method-overview} overviews our proposed method. This method conceptually consists in iteratively performing three steps. First, we take as input domain requirements which are captured by an essential domain model (for a structural view with domain concepts) together with domain behaviors (specified as a behavioral view with UML Activity diagrams). We then aim to represent such input domain requirements as a composition of a DCSL model for a so-called \textit{unified model} and an \agl model to represent domain behaviors. The former one (DCSL) is an%
+Figure~\ref{fig:method-overview} overviews our proposed method. This method conceptually consists of iteratively performing three steps. First, we take as input domain requirements which are captured by an essential domain model (for a structural view with domain concepts) together with domain behaviors (specified as a behavioral view with UML Activity diagrams). We then aim to represent such input domain requirements as a composition of a DCSL model (named the unified model) and an AGL model (named the activity graph model) to represent domain behaviors.
 \par}%
 \noindent 
-extension of the essential model to relate this structure view with the behavioral view. A detailed definition of the unified model is provided in Section~\ref{subsect:unifiedModel}. For the \agl model, we need to define \agl as a new aDSL to capture a semantics domain of module actions for the domain behaviors. %
+The former one (DCSL) is an extension of the essential model to relate this structure view with the behavioral view. A detailed definition of the unified model is provided in Section~\ref{subsect:unifiedModel}. For the \agl model, we need to define \agl as a new aDSL to capture a semantics domain of module actions for the domain behaviors. %
 %This semantics domain would be more specific and narrower then the one of UML Activity diagrams. 
 A detailed explanation of this point is provided in Section~\ref{subsect:domainBehaviors} and Section~\ref{sect:actSemantics}. %
 %
@@ -58,7 +58,7 @@ First, each module class that owns a corresponding domain class  is defined with
 Second, domain behaviors are considered as collaborations among modules in MOSA: Each module collaboration is on the one hand coordinated by a composite module (in MOSA), on the other hand, captured by a corresponding activity model. Specifically, we map each of the activity models, e.g., the enrolment management in \courseman as depicted in Figure~\ref{fig:motivatingExample2}, to a new domain class (referred to as an activity class that is owned by a corresponding activity module, e.g., the \clazz{ModuleEnrolmentMgmt} in \courseman). The containment tree of the composite module allows promoting it as the main module for managing the entire activity.
 
 %- (Module Interaction Patterns)
-Within the proposed mechanism, basically, we could employ UML Activity diagrams to represent domain behaviors but we need to restrict them for a semantics domain corresponding to the behavioral semantics of the composite module (coordinating collaboration among moudules). To define such a semantics domain we employ a pattern-based approach: Domain behaviors are specified using the UML Activity diagram with basic constructs corresponding to the five essential activity modeling patterns as presented in~\cite{le_domain_2018}. We named the patterns after these five elementary activity flows: \textit{sequential}, \textit{decisional}, \textit{forked}, \textit{joined} and \textit{merged}. Further explanation for this point is provided in Section~\ref{sect:behaviorPatterns}.
+Within the proposed mechanism, basically, we could employ UML Activity diagrams to represent domain behaviors but we need to restrict them for a semantics domain corresponding to the behavioral semantics of the composite module (coordinating collaboration among modules). To define such a semantics domain we employ a pattern-based approach: Domain behaviors are specified using the UML Activity diagram with basic constructs corresponding to the five essential activity modeling patterns as presented in~\cite{le_domain_2018}. We named the patterns after these five elementary activity flows: \textit{sequential}, \textit{decisional}, \textit{forked}, \textit{joined} and \textit{merged}. Further explanation for this point is provided in Section~\ref{sect:behaviorPatterns}.
 %This paper extends each pattern solution with a specification of the activity graph in the \agl~that is explained in Section~\ref{sect:agl}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -109,7 +109,7 @@ In the remainder of this paper, to ease notation we will use \textbf{activity cl
 
 \begin{figure*}[ht]
 	\begin{center}
-		\includegraphics[scale=0.78]{unified-model-example}
+		\includegraphics[scale=0.73]{unified-model-example}
 	\end{center}
 	\caption{(A: Left) The UML activity and class models of a \courseman~software variant that handles the enrollment management activity; (B: Right) The unified model that results.} %
 	\label{fig:unified-model-example}
