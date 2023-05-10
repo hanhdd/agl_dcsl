@@ -1,0 +1,15 @@
+%
+\section{Conclusion}\label{sect:conclusion} %
+%TODO + conclusion (to revise)
+In this paper, we proposed a unified modeling method for developing object-oriented domain-driven software. Our method consists in constructing a configured unified domain model in the MOSA architecture. The unified model is an extension of the conventional domain model to incorporates the domain-specific features of the UML Activity diagram. It is expressed in \dcsl, which is an aDSL that we developed in previous work. To use the unified model at the core layer of MOSA, we developed another aDSL named \agl~to express the domain behaviors for a unified model. We used the annotation attachment feature of the host OOPL to attach an \agl's activity graph directly to the activity class of the unified model, thereby creating a configured unified model.
+We systematically developed a compact annotation-based syntax of \agl~using UML/OCL and a transformation from the conceptual model of the activity graph domain.
+%
+We implemented our method as part of a Java framework and evaluated \agl~to show that it is essentially expressive and practically suitable for designing real-world software. 
+%We showed how the tool is able to take an unified model as input and generate a software prototype as the output.
+
+We argue that our method significantly extends the state-of-the-art in DDD on two important fronts: bridging the gaps between model and code and constructing a unified domain model. Our proposed aDSLs are horizontal DSLs that can be used to support different real-world software domains.
+%
+Our plan for future work includes
+%(1) developing horizontal aDSLs for other technical domains (\eg security \etc) and integrating them into our architecture; 
+developing an Eclipse plug-in for the method and developing graphical visual syntaxes for \dcsl~and \agl.
+%; and (3) evaluating our method using large-scale, industrial software domains.
