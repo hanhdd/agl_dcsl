@@ -98,7 +98,8 @@
 @article{booch_object-oriented_1986,
 	title = {Object-{Oriented} {Development}},
 	volume = {SE-12},
-	issn = {0098-5589},	
+	issn = {0098-5589},
+	doi = {10.1109/TSE.1986.6312937},
 	abstract = {Object-oriented development is a partial-lifecycle software development method in which the decomposition of a system is based upon the concept of an object. This method is fundamentally different from traditional functional approaches to design and serves to help manage the complexity of massive software-intensive systems. The author examines the process of object-oriented development as well as the influences upon this approach from advances in abstraction mechanisms, programming languages, and hardware. The concept of an object is central to object-oriented development and so the properties of an object are discussed. The mapping of object-oriented techniques to Ada using a design case study is considered.},
 	number = {2},
 	journal = {IEEE Transactions on Software Engineering},
@@ -287,12 +288,16 @@ In OpenXava you only have to write the domain classes in plain Java to get a web
 	title = {Generative {Software} {Module} {Development} for {Domain}-{Driven} {Design} with {Annotation}-{Based} {Domain} {Specific} {Language}},
 	volume = {120},
 	issn = {0950-5849},
+	doi = {10.1016/j.infsof.2019.106239},
+	abstract = {Context: Object-oriented domain-driven design (DDD) aims to iteratively develop software around a realistic model of the application domain, which both thoroughly captures the domain requirements and is technically feasible for implementation. The main focus of recent work in DDD has been on using a form of annotation-based domain specific language (aDSL), internal to an object-oriented programming language, to build the domain model. However, these work do not consider software modules as first-class objects and thus lack a method for their development. Objective: In this paper, we tackle software module development with the DDD method by adopting a generative approach that uses aDSL. To achieve this, we first extend a previous work on module-based software architecture with three enhancements that make it amenable to generative development. We then treat module configurations as first-class objects and define an aDSL, named MCCL, to express module configuration classes. To improve productivity, we define function MCCGen to automatically generate each configuration class from the module’s domain class. Method:We define our method as a refinement of an aDSL-based software development method from a previous work. We apply meta-modelling with UML/OCL to define MCCL and implement MCCL in a Java software framework. We evaluate the applicability of our method using a case study and formally define an evaluation framework for module generativity. We also analyse the correctness and performance of function MCCGen. Results:MCCL is an aDSL for module configurations. Our evaluation shows MCCL is applicable to complex problem domains. Further, the MCCs and software modules can be generated with a high and quantifiable degree of automation. Conclusion:Our method bridges an important gap in DDD with a software module development method that uses a novel aDSL with a module-based software architecture and a generative technique for module configuration.},
+	language = {en},
 	journal = {Information and Software Technology},
 	author = {Le, Duc Minh and Dang, Duc-Hanh and Nguyen, Viet-Ha},
 	month = apr,
 	year = {2020},
 	keywords = {Attribute-oriented Programming (AtOP), Domain-driven design (DDD), Domain-specific language (DSL), Object-oriented programming language (OOPL), UML-based domain modelling, Module-based architecture},
-	pages = {106--239}
+	pages = {106--239},
+	file = {Le et al. - 2020 - Generative Software Module Development for Domain-.pdf:/data/docs/refman/storage/LNQGLFCL/Le et al. - 2020 - Generative Software Module Development for Domain-.pdf:application/pdf;ScienceDirect Snapshot:/data/docs/refman/storage/C5HQH8EC/S0950584919302563.html:text/html},
 }
 
 
@@ -343,6 +348,7 @@ In OpenXava you only have to write the domain classes in plain Java to get a web
 	volume = {14},
 	copyright = {Access limited to members},
 	issn = {1063-8016 DOI: 10.4018/jdm.2003070103},
+	doi = {10.4018/jdm.2003070103},
 	abstract = {Transformations Between UML Diagrams: 10.4018/jdm.2003070103: The Unified Modeling Language (UML) provides various diagram types for describing a system from different perspectives or abstraction levels. Hence, UML},
 	language = {en},
 	number = {3},
@@ -365,11 +371,12 @@ In OpenXava you only have to write the domain classes in plain Java to get a web
 	file = {Niaz and Tanaka - 2005 - An Object-Oriented Approach to Generate Java Code .pdf:/data/docs/refman/storage/JQLIJASL/Niaz and Tanaka - 2005 - An Object-Oriented Approach to Generate Java Code .pdf:application/pdf}
 }
 
-@misc{omg_unified_2017,
-	title = {Unified {Modeling} {Language} version 2.5.1},
-	author = {{OMG}},
-	year = {2017}
+@misc{omg_unified_2015,
+  title={Unified Modeling Language 2.5. 1},
+  author={Object Management Group, B},
+  year={2017}
 }
+
 
 @book{gosling_java_2014,
 	address = {Upper Saddle River, NJ},
@@ -417,7 +424,10 @@ In OpenXava you only have to write the domain classes in plain Java to get a web
 }
 
 @book{vernon_implementing_2013,
+	address = {Upper Saddle River, NJ},
+	edition = {1st},
 	title = {Implementing {Domain}-{Driven} {Design}},
+	isbn = {978-0-321-83457-7},
 	abstract = {“For software developers of all experience levels looking to improve their results, and design and implement domain-driven enterprise applications consistently with the best current state of professional practice,  Implementing Domain-Driven Design  will impart a treasure trove of knowledge hard won within the DDD and enterprise application architecture communities over the last couple decades.” –Randy Stafford, Architect At-Large, Oracle Coherence Product Development   “This book is a must-read for anybody looking to put DDD into practice.” –Udi Dahan, Founder of NServiceBus       Implementing Domain-Driven Design  presents a top-down approach to understanding domain-driven design (DDD) in a way that fluently connects strategic patterns to fundamental tactical programming tools. Vaughn Vernon couples guided approaches to implementation with modern architectures, highlighting the importance and value of focusing on the business domain while balancing technical considerations.   Building on Eric Evans’ seminal book, Domain-Driven Design, the author presents practical DDD techniques through examples from familiar domains. Each principle is backed up by realistic Java examples–all applicable to C\# developers–and all content is tied together by a single case study: the delivery of a large-scale Scrum-based SaaS system for a multitenant environment.   The author takes you far beyond “DDD-lite” approaches that embrace DDD solely as a technical toolset, and shows you how to fully leverage DDD’s “strategic design patterns” using Bounded Context, Context Maps, and the Ubiquitous Language. Using these techniques and examples, you can reduce time to market and improve quality, as you build software that is more flexible, more scalable, and more tightly aligned to business goals.   Coverage includes  Getting started the right way with DDD, so you can rapidly gain value from it Using DDD within diverse architectures, including Hexagonal, SOA, REST, CQRS, Event-Driven, and Fabric/Grid-Based Appropriately designing and applying Entities–and learning when to use Value Objects instead Mastering DDD’s powerful new Domain Events technique Designing Repositories for ORM, NoSQL, and other databases},
 	language = {English},
 	publisher = {Addison-Wesley Professional},
@@ -993,7 +1003,8 @@ transformations between models and code are usually unidirectional for code gene
 	title = {Architecting for {Usability}: {A} {Survey}},
 	volume = {70},
 	issn = {0164-1212},
-	shorttitle = {Architecting for usability},	
+	shorttitle = {Architecting for usability},
+	doi = {10.1016/S0164-1212(02)00159-0},
 	abstract = {Over the years the software engineering community has increasingly realized the important role software architecture plays in fulfilling the quality requirements of a system. The quality attributes of a software system are, to a large extent determined by the system’s software architecture. In recent years, the software engineering community has developed various tools and techniques that allow for design for quality attributes, such as performance or maintainability, at the software architecture level. We believe this design approach can be applied not only to “traditional” quality attributes such as performance or maintainability but also to usability. This survey explores the feasibility of such a design approach. Current practice is surveyed from the perspective of a software architect. Are there any design methods that allow for design for usability at the architectural level? Are there any evaluation tools that allow assessment of architectures for their support of usability? What is usability? A framework is presented which visualizes these three research questions. Usability should drive design at all stages, but current usability engineering practice fails to fully achieve this goal. Our survey shows that there are no design techniques or assessment tools that allow for design for usability at the architectural level.},
 	number = {1–2},
 	urldate = {2016-03-18},
@@ -1112,72 +1123,17 @@ transformations between models and code are usually unidirectional for code gene
   year={2009},
   publisher={Springer}
 }
-
-@techreport{dang2023aglTechReport,
-	author      = {Duc-Hanh Dang and Duc Minh Le and Van-Vinh Le},
-	title       = "{AGL: A DSL for a Unified Domain Model}",
-	institution = {VNU University of Engineering and Technology, Vietnam},
-	url = {https://tinyurl.com/AGLTechnical}},
-	year = {2023}
+@article{ajanovski2013integration,
+  title={Integration of a course enrolment and class timetable scheduling in a student information system},
+  author={Ajanovski, Vangel},
+  journal={International Journal of Database Management Systems (IJDMS)},
+  year={2013},
+  publisher={AIRCCSE}
 }
-
-@article{runesonGuidelinesConductingReporting2009,
-	title = {Guidelines for Conducting and Reporting Case Study Research in Software Engineering},
-	author = {Runeson, Per and H{\"o}st, Martin},
-	year = {2009},
-	month = apr,
-	journal = {Empirical Software Engineering},
-	volume = {14},
-	number = {2},
-	pages = {131--164}
-}
-
-@article{ajanovskiIntegrationCourseEnrolment2013,
-	title = {Integration of a course enrolment and class timetable scheduling in a student information system},
-	volume = {5},
-	number = {1},
-	urldate = {2023-03-12},
-	journal = {International Journal of Database Management Systems},
-	author = {Ajanovski, Vangel},
-	month = feb,
-	year = {2013},
-	pages = {85--95}
-}
-
-@inproceedings{omahonyRecommenderSystemOnline2007,
-	title = {A Recommender System for On-Line Course Enrolment: An Initial Study},
-	booktitle = {Proc. {{Int}}. {{Conf}}. {{Recommender}} Systems ({{RecSys}})},
-	author = {O'Mahony, Michael P. and Smyth, Barry},
-	year = {2007},
-	month = oct,
-	pages = {133--136},
-	publisher = {{Association for Computing Machinery}}
-}
-
-@book{bettini_implementing_2016,
-	edition = {2nd Revised edition},
-	title = {Implementing {Domain}-{Specific} {Languages} with {Xtext} and {Xtend}},
-	publisher = {Packt Publishing},
-	author = {Bettini, Lorenzo},
-	month = aug,
-	year = {2016}
-}
-
-@inproceedings{combemale_language_2017,
-	title = {Language {Engineering} with the {GEMOC} {Studio}},		
-	booktitle = {2017 {Int}. {Conf}. {Software} {Architecture} {Workshops} ({ICSAW})},
-	publisher = {IEEE},
-	author = {Combemale, Benoit and Barais, Olivier and Wortmann, Andreas},
-	month = apr,
-	year = {2017},	
-	pages = {189--191}
-}
-
-@book{rumpe_monticore_2021,
-	title = {{MontiCore} {Language} {Workbench} and {Library} {Handbook}},
-	isbn = {978-3-8440-8010-0},
-	shorttitle = {{MontiCore} {Language} {Workbench} and {Library} {Handbook}},	
-	publisher = {Shaker Verlag},
-	author = {Rumpe, Bernhard and Hölldobler, Katrin and Kautz, Oliver},
-	year = {2021}	
+@inproceedings{o2007recommender,
+  title={A recommender system for on-line course enrolment: an initial study},
+  author={O'Mahony, Michael P and Smyth, Barry},
+  booktitle={Proceedings of the 2007 ACM conference on Recommender systems},
+  pages={133--136},
+  year={2007}
 }

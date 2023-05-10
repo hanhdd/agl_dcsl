@@ -3,12 +3,11 @@
 \label{sect:actSemantics}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-This section provides a formal definition of \textit{module action} that is based on the UML Action language~\cite{omg_unified_2017}. %
+This section provides a formal definition of \textit{module action}.
 %, which is suitable for use with the activity graph language \agl~that we propose in Section~\ref{sect:agl}. 
-Our definition focuses on describing the structure of module action and its pre- and post-states. %
-%State is an intrinsic part of behavioral specification~\cite{omg_unified_2017}.
+Our definition focuses on describing the structure of module action and its pre- and post-states. We base our formalism on the UML Action language~\cite{omg_unified_2015}, which incorporates the notion of state. State is an intrinsic part of behavioral specification~\cite{omg_unified_2015}.
 %
-We recursively define module action by beginning with the most primitive type of action called \textit{atomic action}. We then combine these actions to form \textit{atomic action sequence} and, more generally, \textit{structured atomic action}, resulting in a precise specification of the behavior semantics of modules in MOSA. 
+We recursively define module action by beginning with the most primitive type of action called \textit{atomic action}. We then combine these actions to form \textit{atomic action sequence} and, more generally, \textit{structured atomic action}.
 
 %\subsection{A Formalism for Module Action} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -17,17 +16,18 @@ We recursively define module action by beginning with the most primitive type of
 Although each module is different, we observe that there exists a set of primitive behaviors that underlie all modules. We capture these primitive behaviors in what we term \textit{atomic actions}.
 %
 \begin{definition} \label{def:atomic-action}
-An \textbf{atomic action} is a smallest meaningful module behavior provided to an actor (which is either a human or another module/system) through the view for manipulating the domain objects of the domain class.
+An \textbf{atomic action} is a smallest meaningful module behavior provided to a user (which is either a human or another module/system) through the view for manipulating the domain objects of the domain class.
+
 %
 Atomic action is characterised by: 
 \begin{itemize}
 \item \membern{name}: the action name.
 %
-\item \membern{preStates} (for \membern{localPrecondition}~\cite{omg_unified_2017}): the states at which a current module must be in order for this action to proceed.
+\item \membern{preStates} (for \membern{localPrecondition}~\cite{omg_unified_2015}): the states at which a current module must be in order for this action to proceed.
 %
-\item \membern{postStates} (for \membern{localPostcondition}~\cite{omg_unified_2017}): the states at which the action completes its execution on a current module.
+\item \membern{postStates} (for \membern{localPostcondition}~\cite{omg_unified_2015}): the states at which the action completes its execution on a current module.
 %
-\item \membern{fieldValSet} (for \membern{input}~\cite{omg_unified_2017}): captures the input of the action. It is a set of pairs $(f,v)$ where $f$ is the name of a domain field of the domain class, and $v$ is the value assigned to this field by the action. 
+\item \membern{fieldValSet} (for \membern{input}~\cite{omg_unified_2015}): captures the input of the action. It is a set of pairs $(f,v)$ where $f$ is the name of a domain field of the domain class, and $v$ is the value assigned to this field by the action. 
 %
 \item \membern{output}: the domain class for object manipulation actions and empty for all other actions.
 
@@ -48,7 +48,6 @@ Second, because each action concerns manipulating the values of some domain fiel
 Third, the action output consists of at most one type, which is the domain class of the current module. Further, only the object manipulation actions have this output; other actions have an empty output because they do not produce any real output value.
 % TODO: + atomic action
 % + open: preStates = {Init}
-\vspace{-0.4cm}
 \begin{table}[ht]
 	\setlength\tabcolsep{1pt}
 	\centering
@@ -84,13 +83,13 @@ Note from Table~\ref{tab:core-atomic-actions} that only action \membern{setDataF
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Atomic Action Sequence (ASE)} \label{sect:arch-ase}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-In practice, the core atomic actions are combined in sequence to form more useful behavior. This behavior, which we call \textit{atomic action sequence}, corresponds with an interaction scenario. We model this sequence using structured action of UML Activity diagram~\cite{omg_unified_2017}. %
+In practice, the core atomic actions are combined in sequence to form more useful behavior. This behavior, which we call \textit{atomic action sequence}, corresponds with an interaction scenario. We model this sequence using structured action of UML Activity diagram~\cite{omg_unified_2015}.
 %
 We denote by $ \func{first}$ and $ \func{last}$ two functions that return the first and last elements (\resp) in a sequence.
 %
 \begin{definition} \label{def:ase}
-An \abbrv{atomic action sequence}{ASE} $S = (a_1,\dots,a_n)$ is a module action iff $a_i.\membern{postStates} \subseteq a_{i+1}.\membern{preStates} ~(\forall a_i, a_{i+1} \in S)$. %
-%
+An \abbrv{atomic action sequence}{ASE} $S = (a_1,\dots,a_n)$ is a module action iff $a_i.\membern{postStates} \subseteq a_{i+1}.\membern{preStates} ~(\forall a_i, a_{i+1} \in S)$.
+
 $S$ has the following properties:
 \begin{itemize}
 \item $S.\membern{preStates} = \func{first}(S).\membern{preStates}$
@@ -100,34 +99,29 @@ $S$ has the following properties:
 \end{itemize}
 \end{definition}
 
-{\makeatletter
-	\let\par\@@par
-	\par\parshape0
-	\everypar{}
-\begin{wrapfigure}{r}{7.2cm}
-%\begin{figure}[ht]
+%
+\begin{figure}[ht]
 	\centering
-	\vspace{-3.2cm}
-	\includegraphics[scale=0.33]{ase-example}
-\vspace{-0.1cm}
-	\caption{An ASE to create a domain object (typed $T$).} %
-\vspace{-0.3cm}
+	\includegraphics[scale=0.8]{ase-example}
+	\caption{An ASE that creates a new domain object of a module's domain class (typed $T$).} %
 	\label{fig:ase-example}
-\end{wrapfigure}
+\end{figure}
 
-\noindent\textbf{Example.} Figure~\ref{fig:ase-example} shows an ASE that creates a new domain object whose type is the domain class $T$ of a module. This ASE consists in a sequence of four atomic actions and is characterised by:\\ \membern{name}=\strq{Sequence:~create~objects},\\
-\membern{fieldValSet}=\attrib{setDataFieldValues}{fieldValSet}=$\emptyset$,\\
-\membern{postStates}=\{\code{Created}\}.\\
+For example, Figure~\ref{fig:ase-example} shows an ASE that creates a new domain object whose type is the domain class $T$ of a module. This ASE consists in a sequence of four atomic actions and is characterised by:\\
 %
-The first atomic action is \membern{open}, which opens the view presenting the domain class. Once completed, this action raises an event with the state \code{Opened}, so that interested listeners of this event can handle. This action then leads to the execution of the second atomic action: \membern{newObject}. This sequence is valid because, as listed in Table~\ref{tab:core-atomic-actions}, \attrib{open}{postStates} $\subset$ \attrib{newObject}{preStates}. Action \membern{newObject} prepares the view so that it is ready to receive input from the user for creating a new object. Once completed, this action raises an event with state \code{NewObject}.
+$~~~~~~$\membern{name} = \strq{Sequence:~create~objects}, \membern{postStates} = \{\code{Created}\},\\ % and
+$~~~~~~$\membern{fieldValSet} = \attrib{setDataFieldValues}{fieldValSet} = $\emptyset$.
+
+\noindent The first atomic action is \membern{open}, which opens the view presenting the domain class. Once completed, this action raises an event with the state \code{Opened}, so that interested listeners of this event can handle. This action then leads to the execution of the second atomic action: \membern{newObject}. This sequence is valid because, as listed in Table~\ref{tab:core-atomic-actions}, \attrib{open}{postStates} $\subset$ \attrib{newObject}{preStates}. Action \membern{newObject} prepares the view so that it is ready to receive input from the user for creating a new object. Once completed, this action raises an event with state \code{NewObject}.
 %
-Because this state is contained in \attrib{setDataFieldValues}{preStates}, we place \membern{setDataFieldValues} as the third action of the ASE. This action is responsible for setting the values of all the view fields, which render the domain fields of the domain class. We place \membern{createObject} as the next (and final) action of the ASE since \attrib{setDataFieldValues}{postStates} $\subset$ \attrib{createObject}{preStates}. This action creates a new domain object with values of the view fields.
+Because this state is contained in \attrib{setDataFieldValues}{preStates}, we place \membern{setDataFieldValues} as the third action of the ASE. This action is responsible for setting the values of all the view fields, which render the domain fields of the domain class.
+Finally, because \attrib{setDataFieldValues}{postStates} $\subset$ \attrib{createObject}{preStates} we place \membern{createObject} as the next (and final) action of the ASE. This action creates a new domain object (using values of the view fields).
 
 A useful property that emerges from our notion of ASE is that there exists a natural multi-level nesting of ASE-backed behaviors along a path in the module containment tree. More specifically, an ASE $S$ is `nested' inside another ASE $S'$ if there exists an activity edge that connects a member action of $S'$ to the start action of $S$. In MOSA, $S'$ is performed on the view of a composite module, and $S$ is on the view of one of its child modules.
 %
 For example, the ASE of \clazz{ModuleStudent} (shown in Figure~\ref{fig:ase-example}) has a nested ASE which is performed on the child module of type \clazz{ModuleEnrolment}. The ASE of \clazz{ModuleStudent} itself is nested inside that of \clazz{ModuleSClass}, thereby creating a 2-level nesting.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsection{Reachable States} \label{sect:arch-reachable-states}
+\subsection{Reachable States} \label{sect:arch-reachable-states}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 The definition of ASE gives rise to the notion of \textit{reachable state}, which is a module state that is reachable from a given action. We discuss this notion below and use it in the subsequent subsection to define a more generic action composition.
 %
@@ -171,7 +165,7 @@ Third, the reachable states of action \membern{setDataFieldValues} include \code
 %
 Finally, with the remaining five actions each has only one reachable state, which is their own states. These actions are ``stubs'', in the sense that they terminate all the ASEs that lead to them.
 
-\noindent\textbf{Example}. The ASE in Figure~\ref{fig:ase-example} shows that state \code{Created} is reachable from any of the three member actions that precede the action \membern{createObject}. These include \membern{open}, \membern{newObject} and \membern{setDataFieldValues}. 
+\textit{Example}. The ASE in Figure~\ref{fig:ase-example} shows that state \code{Created} is reachable from any of the three member actions that precede the action \membern{createObject}. These include \membern{open}, \membern{newObject} and \membern{setDataFieldValues}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Structured Atomic Action (SAA)} \label{sect:arch-saa}
@@ -192,12 +186,12 @@ More generally, we observe that a set of related ASEs form a \textit{structured 
   %Abstractly, we write $ A = (a, \{ s_{1},\dots,s_{n} \}) $. \qed
 \end{definition}
 
-Clearly, SAA generalizes both atomic action and ASE: An ASE is a single-member SAA, while an atomic action $ a $ is the SAA 
+Clearly, SAA generalizes both atomic action and ASE: an ASE is a single-member SAA, while an atomic action $ a $ is the SAA 
 %
 %$ (a, \{ a.\membern{postState} \}, a.\membern{fieldValSet}) $. 
 $ (a, \{ a.\membern{postState} \}) $.
 %
-Further, SAA is significantly shorter to compose than an ASE set: All we need to do is specify the start atomic action and the desired post-states.
+Further, SAA is significantly shorter to compose than an ASE set -- all we need to do is specify the start atomic action and the desired post-states.
 
 %\begin{figure}[ht]
 %	\centering
@@ -206,12 +200,12 @@ Further, SAA is significantly shorter to compose than an ASE set: All we need to
 %	\label{fig:statemachine-example}
 %\end{figure}
  
-\noindent\textbf{Example}. Let us consider the SAA $ (\code{newObject}, \{ \code{Created},\code{Cancelled} \}) $, which represents a common ASE set that starts with the action \membern{newObject} and ends only when either the state \code{Created} or the state \code{Cancelled} is detected. The ASE set consists of the following frequently-occurring ASEs. The 
+\textit{Example}. Let us consider the SAA $ (\code{newObject}, \{ \code{Created},\code{Cancelled} \}) $, which represents a common ASE set that starts with the action \membern{newObject} and ends only when either the state \code{Created} or the state \code{Cancelled} is detected. The ASE set consists of the following frequently-occurring ASEs. The 
 first ASE is the one described earlier in Figure~\ref{fig:ase-example} but excludes the first action. We assume here that the module's view is already opened. The remaining ASEs model alternative scenarios in which the user wants to cancel creating the object at some point between performing the \membern{newObject} action and the \membern{createObject} action.
 %
 %\subsubsection*{Discussion} %\label{sect:module-act-discussion}
 
-%\noindent {\bf Discussion.} We wish to stress that our definition of module action incorporates the notion of state, which is more formally modeled in another UML behavioral modeling language called Behavior State Machines (BSM) (\S{14.2}~\cite{omg_unified_2017}). The main reason is that the Activity diagram and BSM are tightly linked to states and state transitions to represent behaviors. Indeed, these languages represent two sides of the same coin: the former emphasizes the actual behavior, while the latter focuses on the behavior's effects (states and state transitions). More specifically, a close inspection of the BSM's abstract syntax (\S{14.2.2}~\cite{omg_unified_2017}) reveals that both \clazz{State} and \membern{Transition} have associated \clazz{Behavior}(s) that describe what actually takes place when a particular state is reached or during a transition between some two states. %Figure~\ref{fig:statemachine-example} shows a state machine that could allow us to capture sequences of module actions as shown in Table~\ref{tab:core-atomic-actions}.
+%\noindent {\bf Discussion.} We wish to stress that our definition of module action incorporates the notion of state, which is more formally modeled in another UML behavioral modeling language called Behavior State Machines (BSM) (\S{14.2}~\cite{omg_unified_2015}). The main reason is that the Activity diagram and BSM are tightly linked to states and state transitions to represent behaviors. Indeed, these languages represent two sides of the same coin: the former emphasizes the actual behavior, while the latter focuses on the behavior's effects (states and state transitions). More specifically, a close inspection of the BSM's abstract syntax (\S{14.2.2}~\cite{omg_unified_2015}) reveals that both \clazz{State} and \membern{Transition} have associated \clazz{Behavior}(s) that describe what actually takes place when a particular state is reached or during a transition between some two states. %Figure~\ref{fig:statemachine-example} shows a state machine that could allow us to capture sequences of module actions as shown in Table~\ref{tab:core-atomic-actions}.
 
 %Our notion of module action's pre- and post-states simply looks at the same view but from the behavior's perspective.
 
@@ -222,23 +216,13 @@ first ASE is the one described earlier in Figure~\ref{fig:ase-example} but exclu
 \label{sect:behaviorPatterns}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-This section focuses on explaining our pattern-based approach for incorporating domain behaviors into a domain model. Each domain behavior, that could be captured at a high-level description using an UML activity diagram together with domain-model based statements, is translated into a specification with two parts: (1)~part of the unified model with new activity classes; and (2)~the activity graph logic of the input activity and the mappings to connect the activity with the unified model. We realize such a translation by applying a domain behavior pattern. The first catalog of domain behavior patterns is defined corresponding to the five essential UML activity modeling patterns~\cite{le_domain_2018}, as restrictions to sharpen AGL's semantics domain.
-%as explained in Section~\ref{subsect:domainBehaviors}. 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\subsection{Specifying Domain Behavior Patterns}
-%\label{subsect:specifyBehaviorPatterns}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+As explained in Section~\ref{subsect:domainBehaviors}, we employ the five essential UML activity modeling patterns as presented in~\cite{le_domain_2018} in order to express domain behaviors, that need to be incorporated for a unified domain model. This section concentrates on explaining how we can translate a behavior specification in the UML Activity diagram into a corresponding specification defined as a combination of pattern solutions. This paper extends each pattern solution with an AGC, i.e., an activity graph specification in the \agl. A detailed explanation of AGC and \agl~is shown in Section~\ref{sect:agl}. Due to the limitation of the length of this paper, we only focus on the \textit{Decisional Pattern} to illustrate the approach. The four remaining patterns, including \textit{Sequential Pattern}, \textit{Forked Pattern}, \textit{Joined Pattern}, and \textit{Merged Pattern}, would be explained in the technical report\footnote{\url{https://tinyurl.com/AGLTechnical}} of this paper.
 
 We are particularly interested in the design of the \textit{pattern form}~\cite{riehle_understanding_1996, gamma_design_1994}. To keep the patterns generic, we present for each pattern form a UML activity model and a \textbf{template configured unified model} that realizes it. The template model is a `parameterized' configured unified model, in which elements of the non-annotation meta-concepts are named after the generic roles that they play. 
 %
-For brevity, we will omit all associative fields and base domain methods from the model's diagram. 
-%
-Attached to the template model is an activity graph specification in the \agl~(that is further explained in Section~\ref{sect:agl}). The \agl~specification aims to specify the activity graph logic of the input activity and to maintain the synchronization of current execution states (\wrt the activity) with current states of the domain (\wrt the unified model).
+For brevity, we will omit all associative fields and base domain methods from the model's diagram.
 
-We would illustrate each pattern of our first catalog with a variant of the unified model for the enrolment management activity of \courseman. Due to the limitation of the length of this paper, we focus on the \textit{Decisional Pattern} to illustrate the approach. For a detailed explanation of the four remaining patterns, including \textit{Sequential Pattern}, \textit{Forked Pattern}, \textit{Joined Pattern}, and \textit{Merged Pattern}, we refer the reader to the technical report~\cite{dang2023aglTechReport} for this paper. 
-
-%A pattern example includes a configured unified model and one or more software GUIs. In this paper, we will focus on presenting the configured unified model and, in particular, its AGL specification. 
+We illustrate each pattern with a variant of the unified model for the enrolment management activity of \courseman. A pattern example includes a configured unified model and one or more software GUIs. In this paper, we will focus on presenting the configured unified model and, in particular, its AGC. 
 
 %Please refer to~\cite{le_domain_2018, le_domain_2017} for details about the unified model and the software GUI of each example. The \courseman~software of each example is automatically generated from the configured unified model, using the software tool described in Section~\ref{sect:tool}. 
 
@@ -288,114 +272,42 @@ Since the decision's logic may require knowledge of the domain classes involved 
 
 \begin{figure*}[ht]
 \begin{center}
-\includegraphics[scale=0.8]{decisional-form}
+\includegraphics[scale=0.35
+  ]{case-study/decisional-form}
 \end{center}
-\vspace{-0.4cm}
 \caption{The decisional pattern form.} %
 \label{fig:decisional-form}
 \end{figure*}
 
 Class \clazz{Ca} has one-many associations to the other four domain classes. 
 Note that the association to \clazz{Ck} can be used as a bridge in a larger activity model to other activity flow blocks. This association is applied differently if $ c_k $ is a decision node. In this case, \clazz{Ck} has no associations and thus the association to \clazz{Ck} is replaced by (or ``unfolded'' into) a set of associations that connect \clazz{Ca} directly to the domain classes of the model containing \clazz{Ck}.
-%
+
 In the template model, the two associations between \clazz{Cd} and \clazz{C1}, \clazz{Cn} reflect the fact that both \clazz{C1} and \clazz{Cn} know about \clazz{Cd}, due to the passing of object tokens from $ e_d $ to $ e_1 $ and $ e_n $ (via the decision node).
 
-The AGL specification for this pattern consists of five \clazz{ANode}s. The first \clazz{ANode} is to create a new \clazz{Cd} object. The second \clazz{ANode} is to run the decision logic. The third and fourth \clazz{ANode}s represent the two decision cases: the first results in creating a new \clazz{C1} object for the specified \clazz{Cd} object, the second, which is repeated for all $ n $, results in creating a new \clazz{Cn} object for the same \clazz{Cd}. The fifth \clazz{ANode} is used for the case that \clazz{Ck} is specified. It uses two variables $ k $ and $ k_{out} $, both are dependent on \clazz{Ck}. Variable $ k $ specifies the control node type, while variable $ k_{out} $ specifies the array of output domain classes of \clazz{Ck}.
+The AGC consists of five \clazz{ANode}s. The first \clazz{ANode} is to create a new \clazz{Cd} object. The second \clazz{ANode} is to run the decision logic. The third and fourth \clazz{ANode}s represent the two decision cases: the first results in creating a new \clazz{C1} object for the specified \clazz{Cd} object, the second, which is repeated for all $ n $, results in creating a new \clazz{Cn} object for the same \clazz{Cd}. The fifth \clazz{ANode} is used for the case that \clazz{Ck} is specified. It uses two variables $ k $ and $ k_{out} $, both are dependent on \clazz{Ck}. Variable $ k $ specifies the control node type, while variable $ k_{out} $ specifies the array of output domain classes of \clazz{Ck}.
+%
+%\subsubsection*{Example}
 
-\noindent\textbf{Example.} The bottom of Figure~\ref{fig:decisional-form} shows how this pattern is matched to \courseman's enrolment management activity. %
-%The configured unified model, however, is a more detailed version of the one presented in Figures~\ref{fig:unified-model-example} and~\ref{fig:agc-enrolmentmgmt}. 
+\textit{Example}
+
+
+The bottom of Figure~\ref{fig:decisional-form} shows how the pattern is applied to the variant of \courseman's enrolment management activity that we introduced in the example of Section~\ref{sect:overviewApproach}. The configured unified model, however, is a more detailed version of the one presented in Figures~\ref{fig:unified-model-example} and~\ref{fig:agc-enrolmentmgmt}. 
+
 In this example: \clazz{Ca} = \clazz{EnrolmentMgmt}, \clazz{Cd} = \clazz{Student}, \clazz{D} = \clazz{DHelpOrSClass}, $ n $ = 2, \clazz{C1} = \clazz{HelpRequest}, \clazz{C2} = \clazz{SClassRegistration}.
 The control node $ c_k $ is not specified.
 
 \begin{figure}[ht]
 	\begin{center}
-		\includegraphics[scale=0.64
-		]{decisional-form-eg-gui}
+		\includegraphics[scale=0.42
+		]{case-study/decisional-form-eg-gui}
 	\end{center}
-	\vspace{-0.5cm}
 	\caption{The decisional pattern form view of enrolment management.} %
 	\label{fig:decisional-form-eg-gui}
 \end{figure}
 
-\noindent Figure~\ref{fig:decisional-form-eg-gui} shows the three GUI snapshots of the example. The first GUI is for student registration. The second and third GUIs are for the cases that help request is and is not requested (\resp). The activity's GUI contains the GUIs of the three actions in separate tabs. Under both cases of the decision, the \clazz{Student} object that is created in the first action (\eg \clazz{Student}(\attribn{name}=``Nguyen Van Anh'')) is passed on to the next action. This object is then presented in the data field of the associative field \attribn{student} of the domain class referenced by this action.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\subsection{Applying Domain Behavior Patterns}
-%\label{subsect:applyBehaviorPatterns}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-To obtain a concrete \agl~specification when applying a domain behavior pattern, basically, we proceed three main steps as follows:
-\begin{enumerate}
-	\item Representing the input UML Activity diagram and the template configured unified model of the pattern as activity graphs; 
-	\item Defining the matching of the template on the activity in order to define ANodes, their sequence, and domain classes referenced by them. The reference from ANodes to domain classes (expressed with the keywords \attribn{refCls} and \attribn{outCles}) provide a mapping between the input activity and the unified model; 
-	\item Defining the generic behavior (expressed by a SAA with the keywork \attribn{actSeq}) of the domain module \wrt the domain class referenced by each ANode. This helps synchronize the execution state of the activity and the current state of the unified model.
-\end{enumerate} 
-
-% We would further explain this procedure and illustrate it with an example in Section~\ref{subsect:agl-abstractSyntax}. 
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[scale=0.28]{activity-graph-example}
-	\caption{(LHS) A repeat of the unified model shown in Figure~\ref{fig:unified-model-example}; (RHS) The activity graph of this model.} %
-	\label{fig:activity-graph-example}
-\end{figure}
-
-% TODO: + tab:activity-graph-example
-% + add a separate table for ModuleAct objects and reference them in the actSeq column
-\begin{table*}[ht]
-	\setlength\tabcolsep{5pt}
-	\begin{center} \footnotesize
-		\caption{(A: Top) \clazz{Node} objects, (B: Bottom-left) \clazz{Edge} objects of the activity graph in Figure~\ref{fig:activity-graph-example} and (C: Bottom-right)  
-			\clazz{ModuleAct} objects that are referenced by the \clazz{Node}s}\label{tab:activity-graph-example}
-		%
-		\begin{tabular}{|>{\centering\arraybackslash}m{0.7cm}|>{\centering\arraybackslash}m{3.5cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{2.5cm}|>{\centering\arraybackslash}m{5cm}|}
-			%content
-			\hline
-			\rowcolor{lightgray}
-			\textbf{Node-Id} & \textbf{\attribn{label}} & \textbf{\attribn{refCls}} & \textbf{\attribn{serviceCls}} & \textbf{\attribn{actSeq}} \\\hline
-			1 & \strq{MStudent} & \clazz{Student} & \clazz{DataController} & [\objid{1}{ModuleAct}]\\\hline 
-			2 & \strq{MDHelpOrSClass} & \clazz{DHelpOrSClass} & \code{null} & \code{null}\\\hline 
-			3 & \strq{MHelpRequest} & \clazz{HelpRequest} & \clazz{DataController} & [\objid{2}{ModuleAct}, \objid{3}{ModuleAct}]\\\hline 
-			4 & \strq{MSClassRegistration} & \clazz{SClassRegistration} & \clazz{DataController} & [\objid{4}{ModuleAct}, \objid{5}{ModuleAct}]\\\hline
-		\end{tabular} 
-		%
-		\begin{tabular}{|>{\centering\arraybackslash}m{0.7cm}|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{2cm}|}
-			%content
-			\hline
-			\rowcolor{lightgray}
-			\textbf{Edge-Id} & \textbf{\attribn{n1}} & \textbf{\attribn{n2}} \\\hline
-			1 & \objid{1}{Node} & \objid{2}{Node} \\\hline 
-			2 & \objid{2}{Node} & \objid{3}{Node} \\\hline 
-			3 & \objid{2}{Node} & \objid{4}{Node} \\\hline 
-		\end{tabular}
-		%
-		\begin{tabular}{|>{\centering\arraybackslash}m{1cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{2cm}|}
-			%content
-			\hline
-			\rowcolor{lightgray}
-			\textbf{MAct-Id} & \textbf{\attribn{actName}} & \textbf{\attribn{postStates}} & \textbf{\attribn{fieldNames}} \\\hline
-			1 & \membern{newObject} & \set{Created} & \\\hline 
-			2 & \membern{newObject} & \set{NewObject} & \\\hline 
-			3 & \membern{setDataFieldValues} & \set{Created} & \sets{\strq{student}} \\\hline 
-			4 & \membern{newObject} & \set{NewObject} & \\\hline 
-			5 & \membern{setDataFieldValues} & \set{Created} & \sets{\strq{student}} \\\hline 
-		\end{tabular}
-	\vspace{-0.2cm}
-\end{center}\end{table*}
-
-\noindent\textbf{Example.} The right-hand side of Figure~\ref{fig:activity-graph-example} is an activity graph of the enrollment management activity of the \courseman~software variant introduced earlier in Section~\ref{sect:background}. The left-hand side of the figure is the corresponding unified model of this activity, which is repeated from Figure~\ref{fig:unified-model-example} to show links with the activity graph. 
-%We will discuss other example graphs that include control nodes later in Section~\ref{sect:eval-expressiveness}. 
-%Other example graphs that include control notes are mentioned in SubSection~\ref{sect:incorporatePatterns}.
-Tables~\ref{tab:activity-graph-example}(A) and (B) list the states of the nodes and edges (\resp) of the activity graph. Table~\ref{tab:activity-graph-example}(C) lists the \clazz{ModuleAct} objects that are referenced by the \clazz{Node}s in Table~\ref{tab:activity-graph-example}(A). A \clazz{ModuleAct} object represents an SAA. Each table column lists the values of a representative field of an object.
-%
-For instance, node \objid{1}{Node} references the domain class \clazz{Student} (hence also references \clazz{ModuleStudent}) and has \membern{serviceCls} = \clazz{DataController} (a default module service class developed as part of the \jdomainapp~framework~\cite{le_jdomainapp_2017}). The node also references object \objid{1}{ModuleAct}. The \membern{refCls}'s value of each node is depicted in the figure by a dashed curve (labeled \strq{refCls}) that connects the node to the referenced domain class in the unified model.
-
-We provide Definition~\ref{def:software} to clarify how the software is generated in MOSA. This definition makes precise the general notion of module-based software that we introduced in Section~\ref{sect:bg-arch} and takes into account the combination of a unified model and an activity graph. It highlights the sub-set of modules that owns the activity classes and how these modules trigger the execution of the activity graphs of the associated activities.
-
-\begin{definition} \label{def:software}
-	Given a unified model $D$ that contains a non-empty set of activity classes, each of which is attached to an AGL specification describing the activity graph logic of an activity of the domain. A software generated in MOSA \wrt $D$ consists in a set of modules, each of which owns a domain class in $D$ and the behavior of the \code{newObject} action of every owner module of an activity class includes the logic described by the activity graph that is configured by the AGL specification attached to that class. \qed
-\end{definition}
-
+The three GUI snapshots of the example are shown in Figure~\ref{fig:decisional-form-eg-gui}. The first GUI is for student registration. The second and third GUIs are for the cases that help request is and is not requested (\resp).
+%Similar to the GUI of the sequential pattern,
+The activity's GUI contains the GUIs of the three actions in separate tabs. Under both cases of the decision, the \clazz{Student} object that is created in the first action (\eg \clazz{Student}(\attribn{name}=``Nguyen Van Anh'')) is passed on to the next action. This object is then presented in the data field of the associative field \attribn{student} of the domain class referenced by this action.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{Forked Pattern Form} \label{sect:forked-pattern}
