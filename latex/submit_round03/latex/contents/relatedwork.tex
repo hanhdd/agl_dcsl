@@ -1,0 +1,79 @@
+%
+\section{Related Work}\label{sect:relatedwork} %
+We position our work at the intersection between the following areas: DSL engineering, DDD, model-driven software engineering (MDSE), and attribute-oriented programming (AtOP).
+%, and aspect-oriented software design (AOD).
+
+\textbf{\textit{DSL Engineering.}}
+DSLs~\cite{van_deursen_domain-specific_2000, mernik_when_2005} can be classified based on the domain \cite{kleppe_software_2008}, as vertical or horizontal, or based on the relationship with a host language \cite{fowler_domain-specific_2010, van_deursen_domain-specific_2000, mernik_when_2005}, as internal or external. 
+%In principle, internal DSL has a closer relationship with the host language than external DSL. A typical internal DSL is developed using either the syntax or the language tools of the host language. 
+%In contrast, a typical external DSL has its owns syntax and thus requires a separate compiler to process. 
+%
+Our proposed \agl~is a type of fragmentary, internal, and horizontal DSL. The shared features that are captured in \agl~are those that form the activity graph domain. As far as we know, \agl~is the first aDSL defined for this purpose.
+
+\textbf{\textit{DDD.}}
+The idea of combining DDD and DSL to raise the level of 
+abstraction of the target code model has been advocated in~\cite{fowler_domain-specific_2010} by both the DDD's author and others. However, the work in~\cite{fowler_domain-specific_2010} does not discuss any specific solutions.
+In this paper, we extended the DDD method~\cite{evans_domain-driven_2004} to construct a unified domain model. We combine this with an activity graph model to operate in a module-based software architecture. The unified class model and the activity graph model are expressed in two aDSLs (\dcsl~and \agl, \resp).
+%%
+%On the other hand, existing DDD frameworks (ApacheIsis~\cite{dan_haywood_apache_2013} and OpenXava~\cite{paniza_learn_2011}) has only a partial support for behavioural modeling through the use of action. They lack support for a behavioural modeling method. Our combination of two aDSLs (\dcsl~and \agl) helps fills this gap. 
+
+\textbf{\textit{Behavioral modeling with UML Activity diagram.}}
+Although in his book~\cite{evans_domain-driven_2004} Evans does not explicitly mention behavioral modeling as an element of the DDD method, he does consider object behavior as an essential part of the domain model and that UML Iteraction diagrams would be used to model this behavior. 
+%
+%For example, in Chapter 2 of the book, when discussing the use of documents and diagrams (\ie models) in the ubiquitous language, Evans states the followings:
+%
+%\begin{itemize}
+%  \item ``the attributes and relationships are only half the story of an object model. But the behavior of those objects and the constraints on them are not so easily illustrated. Object interaction diagrams can illustrate some tricky hotspots in the design...''
+%  
+%  \item ``Behavioral responsibilities of an object can be hinted at through operations names, and implicitly
+%  demonstrated with object interaction (or sequence) diagrams.''
+%%  , but they cannot be stated. So, this falls to supplemental text or conversation. In other words, UML diagrams cannot convey two of the most important aspects of a model: the meaning of concepts it represents, and what they are meant to do.
+%\end{itemize}
+%
+%In UML~\cite[p.~285]{omg_unified_2017}, Interaction diagrams are only one of three main diagram types that are used to model the system behavior. The other two types are State machine and Activity diagram. 
+Although in the book, Evans only uses Sequence diagrams as an example, in the ApacheIsis framework~\cite{dan_haywood_apache_2013,apache_causeway_2023} that directly implements the DDD's philosophy, a simple action language is used to model the object behavior. This language is arguably a specific implementation of the action sub-language~\cite[p.~441]{omg_unified_2017} of UML Activity diagram. It leverages the annotation construct of OOPL to specify a class operation with a pre-defined behavioral type. However, ApacheIsIs lacks support for a behavioral modeling method. Our combination of two aDSLs in this paper helps fill this gap.
+%
+Our definition of module action in this paper incorporate the notion of state, which is more formally modeled in another UML behavioral modeling language called Behavior State Machines (BSM)~\cite[p.~305]{omg_unified_2017}. 
+As discussed in Section~\ref{sect:actSemantics}, our notion of module action's pre- and post-states looks at a similar view with BSM. The difference is that our notation emphasizes the actual behavior, while BSM focuses on the behavior's effects in terms of states and state transitions.
+
+%page break
+%\pagebreak
+\textbf{\textit{Unified modeling with UML diagrams.}}
+Recent research has attempted to combine UML structural and behavioral diagrams to construct a system model, similar in spirit to the unified domain model that we proposed in this paper. 
+%Intuitively, this makes sense because the two diagram types address the two core (static and dynamic) aspects of a system. 
+The work in~\cite{kohler_integrating_2000, niaz_object-oriented_2005} discusses combining UML class and state machine diagrams to model the system. Another work~\cite{selonen_transformations_2003} explains the relationships between UML structural and behavioural diagrams and how these relationships can be leveraged to build a complete system model. 
+%In particular, this work highlights a strong relationship between State Machine and Activity diagram. 
+%
+Our proposed unified domain modeling is novel in that it combines UML Class and Activity diagrams by incorporating the domain-specific structure (activity classses) into the Class diagram for a unified class model. 
+%In the spirit of the DDD's layered architecture, we separated the activity graph component of Activity diagram from the unified class model and created a separate aDSL (\agl) for it. 
+The unified class model and activity graph are connected by virtue of the fact that nodes in the graph execute actions of the modules that own the domain classes in the model.
+%
+%Conceptually, the model component of a software is the domain model. It includes a set of domain classes that capture data about the entities of interest in the application domain. The view component of a software is a set of user interface (UI) classes that are used to capture data about the domain objects. Each class presents to the user a coherent view of a domain class and to make it easy for her to interact with this view.
+%
+Our method is novel in the treatment of MVC. We basically use it at the `micro' level to design each software module as a self-contained MVC component. We then expose a module interface and combine it with the activity graph design.
+
+\textbf{\textit{MDSE.}}
+The idea of combining MDSE with DSLs is formulated in \cite{kleppe_software_2008, brambilla_model-driven_2012}. This involves applying the meta-modeling process to create meta-models of software modeling languages (include both general-purpose languages and DSLs). 
+Our \agl's specification follows the pattern-based meta-modeling approach, but targets internal DSL.
+%
+%\subsubsection*{DSLs for Software modeling}
+Our method is similar to the method proposed in \cite{warmer_model_2007, warmer_building_2006} in the use of a combination of DSLs to build a complete software model. 
+%In these work, a 3-step method is outlined, which includes: (1) determine the software architecture, (2) develop DSLs that fit this architecture and (3) combine the DSLs by defining transformations between them. 
+%
+However, our method differs in two technical aspects. 
+%First, our work is applicable to a more general class of architectures, which is characterised by a set of modules that interact via events. 
+%The scope of a module is comparable to that of partial model. 
+%Our module-based software architecture is a general architecture style, for which service-oriented architecture is a specialisation. 
+First, we use (internal) aDSLs as opposed to external DSLs. Second, our method (being a DDD type) clearly highlights the boundary of the domain model and, based on this, proposes to use only two aDSLs. The above work uses four DSLs and does not clearly indicate which ones are used for constructing the domain model and which are used to build other parts of the software model. 
+%Our DSLs are more technical (more generic) than the above work. Specifically, \dcsl~realises the patterns that underlie both the data contract and business class DSLs. \agl, which is defined based on the UML activity diagram sublanguage, realises the patterns that underlie both web scenario and service DSLs.
+
+%As discussed above, the existing DDD frameworks also adopt this representation.
+
+\textbf{\textit{AtOP.}} With regards to the use of AtOP in MDSE, a classic model of this combination is used in the development of a model-driven development framework, called mTurnpike \cite{wada_modeling_2005}. 
+%This framework combines AtOP with model-driven development in a top-down fashion, with an aim to define domain-specific concepts at both the modeling and programming levels. 
+%
+More recently, the work in \cite{balz_embedding_2012} proposes a bottom-up MDSE approach, which entails a formalism and a general method for defining annotation-based embedded models. 
+%
+Our method differs from both \cite{wada_modeling_2005,balz_embedding_2012} in two important ways: 
+%the support for both structural and behavioural modeling 
+(1) the combination of two aDSLs that can be used to express the unified domain model, and (2) how this model is used to automatically generate the entire software. 

@@ -1,0 +1,33 @@
+\begin{abstract}
+%Domain-driven design (DDD) aims to iteratively develop software around a realistic domain model, i.e., that can be viewed as a program from the developer's perspective. Recent works in DDD have been focusing on using annotation-based domain-specific languages (aDSLs) to build the domain model. However, within these works the behavioral aspects, often represented using UML activity diagrams and statecharts, are not explicitly captured in the domain model. A main challenge with this is how to integrate the behavioral aspects into the domain model following the DDD approach. In this paper, we propose a novel unified domain modeling method to tackle this. We employ our previously-developed aDSL, named \dcsl, in order to express the unified domain model. We integrate \dcsl with a new aDSL, named activity graph language (\agl), to capture the behavioral aspects. These aspects are conceputally represented by UML activity diagram, in the context of a module-based DDD software architecture.
+%%The integration of the two aDSL models allows us to obtain a unified and realistic domain model as an incoporation of the behavioral models and the original domain model. 
+%%To realize our method, 
+%We define a compact annotation-based syntax meta-model and a formal semantics for \agl. We demonstrate our method with an implementation in a Java framework named \jdomainapp~and evaluate \agl~to show that it is essentially expressive and usable for real-world software.
+
+\noindent\textit{Context:}
+Domain-driven design (DDD) aims to iteratively develop software around a realistic domain model.
+%, i.e., that can be viewed as a program from the developer's perspective.
+Recent research in DDD has been focusing on using annotation-based domain-specific languages (aDSLs) to build the domain model. However, within current approaches behavioral aspects, that are often represented using UML Activity and State machine diagrams, are not explicitly captured in the domain model.
+
+%A main challenge with this is how to integrate the behavioral aspects into the domain model following the DDD approach. 
+
+\noindent\textit{Objective:}
+%This paper focuses on defining a novel unified domain modeling method in order to integrate behavioral aspects into domain models following the DDD approach. Specifically, behavioral aspects as part of a unified domain model are represented using a new aDSL, named activity graph language (\agl). Such an incorporation of the \agl~and the previously-developed aDSL~(\dcsl) for a unified domain model would allow us to achieve three important features of a DDD: feasibility, productivity, and understandability.
+%%we aim to develop a new aDSL, named activity graph language (\agl), that allows us to capture behavioral aspects, and then, incorporate the language with our previously-developed aDSL, named \dcsl, for a unified domain model with three important features: feasibility, productivity, and understandability.
+The focus of this paper is to introduce a new approach for incorporating behavioral aspects into domain models within the Domain-Driven Design (DDD) approach. The proposed approach involves using a new activity graph language~(\agl) as an aDSL for representing behavioral aspects within a unified domain model. This integration of \agl and the previously developed aDSL~(\dcsl to represent domain models) aims to achieve three important features of DDD: feasibility, productivity, and understandability.
+
+\noindent\textit{Method:}
+%Our method consists in constructing a unified domain model within a domain-driven architecture. We used the annotation attachment feature of the host programming language like Java to attach \agl's activity graph directly to the activity class of the unified class model, thereby, creating a configured unified model. The abstract and concrete syntax of \agl~are also defined in this work. %
+%%: A compact annotation-based syntax meta-model and a formal semantics for \agl is defined. 
+%We demonstrate our method with a Java framework named \jdomainapp~and evaluate \agl~using a case study to show that it is essentially expressive and usable for real-world software. 
+Our approach involves building a uniﬁed class model in \dcsl within a domain-driven architecture, which uses the annotation attachment feature of the host programming language (such as Java) to attach \agl activity graphs directly to the activity class of the uniﬁed class model, resulting in a uniﬁed domain model. In this work, we define the abstract and concrete syntax of \agl. To demonstrate our method, we use a Java framework called \jdomainapp and evaluate \agl through a case study to show that it is expressive and practical for real-world software.
+
+\noindent\textit{Results:}
+%This work brings out (1) a mechanism to incorporate behavioral aspects for a unified domain model, in which a new aDSL named \agl~is defined to represent the domain behaviors; and (2) a unified modeling method for domain-driven software development.
+This paper presents two contributions. Firstly, it proposes a mechanism to include behavioral aspects in a unified domain model by introducing a new aDSL called AGL to represent domain behaviors. Secondly, it presents a unified modeling method for domain-driven software development.
+
+\noindent\textit{Conclusion:}
+Our method significantly extends the state-of-the-art in DDD in two important fronts: constructing a unified domain model for both structural and behavioral aspects of domain models and bridging the gaps between model and code.
+%Our proposed aDSLs are horizontal DSLs which can be used to support different real-world software domains.
+%
+\end{abstract}

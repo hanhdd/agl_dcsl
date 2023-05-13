@@ -1,0 +1,28 @@
+%\newpage
+\section{Threats to Validity} \label{sect:threats}
+This section aims to identify potential threats to the validity of both our proposed method and evaluation method. We have categorized the threats into three groups of validity, as proposed by~\cite{runeson2009guidelines}: construct validity, internal validity, and external validity.
+
+\subsection{Evaluation Method}
+%
+%\subsection{Discussion} \label{sect:eval-discussion} %
+%We present below a number of remarks both generally about \agl~and our method and specifically about our evaluation.
+
+\textbf{\textit{The composition for a unified domain model}} in terms of the unified class model and an activity graph model (see Section~\ref{sect:agl}) follows a language composition approach described by Kleppe~\cite{kleppe_software_2008}. In this approach, the composition is formed by language referencing. That is, one component language (called \textit{active language}) references the elements of the other component language (called the \textit{passive language}). In our method, \agl~is the active language and \dcsl~is the passive one.
+
+\textbf{\textit{The evolution of languages}} (including both \agl~and \dcsl) is inevitable if we are to support 
+more expressive domain modeling requirements. We discuss in~\cite{le_domain_2018} how \dcsl~is currently expressive only \wrt an essential set of domain requirements that are found to commonly shape the domain class design. We argue that \dcsl~would evolve to support other structural features. For \agl, its ASM would be extended to support other activity modeling features, such as activity group~\cite[p. 405]{omg_unified_2017}.
+
+\textbf{\textit{The selection of the unified modeling patterns}} used in our expressiveness evaluation is based on UML Class and Activity diagrams that we currently use to construct the unified domain model. A question then arises as to the adaptability of our method to other UML behavioral diagrams (\eg State Machine and Sequence diagram). We plan to investigate this as part of future work.
+%
+
+\subsection{Construct validity}
+In our case study, we have assumed that there are no misinterpretations of the domain requirements that would lead to an unsatisfactory model. In practice, the designer and domain expert would need to work closely with each other to ensure that the models are satisfactory.
+Our method helped mitigate the threat of misinterpretation by allowing the combination of a domain class model with a behavioral model (e.g., a UML Activity diagram), which constructed a unified domain model within a domain-driven architecture.
+%
+\subsection{Internal validity}
+Internal validity threats refer to factors that may affect the accuracy and reliability of our results. One potential threat is the translation process from a high-level domain specification, expressed using UML Class and Activity diagrams, to an \agldcsl specification. To address this, we provided a guideline in Section~\ref{sect:behaviorPatterns} for applying domain behavior patterns. Another possible threat is that the available domain behavior patterns may not cover the input UML Activity diagrams. To mitigate this, we evaluated our method on three complex apps (\courseman, \processman, and \orderman) and plan to supplement our pattern catalog with additional patterns that can be applied to other types of complex apps. Additionally, we acknowledge that errors may occur during the implementation of \agldcsl with the Java framework \jdomainapp. To address this, we thoroughly tested and reviewed the code, and have made it available online for the community to use and report any issues.
+
+%We translate a behavioral specification in a UML Activity diagram into a corresponding one defined as a combination of pattern solutions (domain behavior patterns), expressed by an \agldcsl specification. Our view is that although these are not the only design patterns in the five essential UML activity modeling patterns, our pattern-based approach could support domain behaviors that are specified by a UML Activity with basic constructs corresponding to these patterns.
+
+\subsection{External validity}
+Threats to the external validity of our method include those that affect its applicability to the development of other MSA-based~\cite{Newman:15:MS} and DDD-based software with similar characteristics. The first threat stems from the fact that our method is designed for systems based on MDSA (a combination of MSA and DDD). The second threat concerns the generality of our case study. One could argue whether the case study we selected is representative of real-world scenarios. However, our pattern-based approach helps mitigate this threat because it is based on the well-known software design principle of keeping patterns generic.
