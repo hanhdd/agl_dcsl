@@ -7,25 +7,29 @@ Table~\ref{tab:Comparing-the-expressiveness} presents the evaluation table of \a
 % \usepackage[table,xcdraw]{xcolor}
 % If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
 %%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{minipage}{\textwidth}
+	\begin{table*}[ht]
 	\centering
 	\caption{Comparing the expressiveness of AGL to AL, XL} \label{tab:Comparing-the-expressiveness}
-	
+	\footnotesize
+	\setlength\tabcolsep{1pt}
+\end{table*}
+\begin{minipage}{\textwidth}
+	\centering
+
 	\begin{tabular}{|rccl|}
 		\hline
 		\multicolumn{1}{|c|}{\textbf{AGL}}      & \multicolumn{1}{c|}{\textbf{AL}}                                                                                   & \multicolumn{1}{c|}{\textbf{XL}}                                                                                       & \textbf{Essential properties} \\ \hline
 		\multicolumn{4}{|l|}{\cellcolor[HTML]{DAE8FC}DClass}                                                                                                                                                                                                                                                                  \\ \hline
 		\multicolumn{1}{|r|}{Mutable}           & \multicolumn{1}{c|}{DomainObject.editing}                                                                          & \multicolumn{1}{c|}{-}                                                                                                 & \multicolumn{1}{c|}{P1}       \\ \hline
 		\multicolumn{4}{|l|}{\cellcolor[HTML]{DAE8FC}DAttr}                                                                                                                                                                                                                                                                   \\ \hline
-		\multicolumn{1}{|r|}{unique}            & \multicolumn{1}{c|}{-$^(\footnote{AL supports property Property.mustSatisfy which may be used to implement the constraint.}$^)}                                                                                         & \multicolumn{1}{c|}{-}                                                                                                 & \multicolumn{1}{c|}{P2}       \\ \hline
-		\multicolumn{1}{|r|}{optional}          & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}jdo$^(\footnote{Java Data Objects (JDO)~\cite{JDO_Annotations_Reference2021} }$^).Column.allowsNull,\\ (Property.optionality)\end{tabular}}   & \multicolumn{1}{c|}{Required}                                                                                          & \multicolumn{1}{c|}{P3}       \\ \hline
+		\multicolumn{1}{|r|}{unique}            & \multicolumn{1}{c|}{-$^($\footnote{AL supports property Property.mustSatisfy which may be used to implement the constraint.}$^)$}                                                                                         & \multicolumn{1}{c|}{-}                                                                                                 & \multicolumn{1}{c|}{P2}       \\ \hline
+		\multicolumn{1}{|r|}{optional}          & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}jdo$^($\footnote{Java Data Objects (JDO)~\cite{JDO_Annotations_Reference2021}}$^)$.Column.allowsNull,\\ (Property.optionality)\end{tabular}}   & \multicolumn{1}{c|}{Required}                                                                                          & \multicolumn{1}{c|}{P3}       \\ \hline
 		\multicolumn{1}{|r|}{mutable}           & \multicolumn{1}{c|}{Property.editing}                                                                              & \multicolumn{1}{c|}{-}                                                                                                 & \multicolumn{1}{c|}{P1}       \\ \hline
 		\multicolumn{1}{|r|}{id}                & \multicolumn{1}{c|}{jdo.PrimaryKey.value}                                                                          & \multicolumn{1}{c|}{jpa.Id}                                                                                            & \multicolumn{1}{c|}{P4}       \\ \hline
-		\multicolumn{1}{|r|}{auto}              & \multicolumn{1}{c|}{-}                                                                                             & \multicolumn{1}{c|}{-$^(\footnote{XL supports property ha.Formula that may be use to implement formula for value generation function.}$^)}                                                                                            & \multicolumn{1}{c|}{P5}       \\ \hline
-		\multicolumn{1}{|r|}{length}            & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}jdo.Column.length,\\ (Property.maxLength)\end{tabular}}             & \multicolumn{1}{c|}{jpa$^(\footnote{Java Persistence API (JPA)~\cite{Java_Persistence_API2013}}$^).Column.length}                                                                             & \multicolumn{1}{c|}{P6}       \\ \hline
-		\multicolumn{1}{|r|}{min}               & \multicolumn{1}{c|}{-}                                                                                             & \multicolumn{1}{c|}{Min$^(\footnote{\label{bv}Bean Validator (BV)~\cite{Jakarta_Bean_Validation}}$^).value}                                                                                      & \multicolumn{1}{c|}{P7}       \\ \hline
-		\multicolumn{1}{|r|}{max}               & \multicolumn{1}{c|}{-}                                                                                             & \multicolumn{1}{c|}{Max$^($^\ref{bv}$^).value}                                                                                      & \multicolumn{1}{c|}{P8}       \\ \hline
+		\multicolumn{1}{|r|}{auto}              & \multicolumn{1}{c|}{-}                                                                                             & \multicolumn{1}{c|}{-$^($\footnote{XL supports property ha.Formula that may be use to implement formula for value generation function.}$^)$}                                                                                            & \multicolumn{1}{c|}{P5}       \\ \hline
+		\multicolumn{1}{|r|}{length}            & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}jdo.Column.length,\\ (Property.maxLength)\end{tabular}}             & \multicolumn{1}{c|}{jpa$^($\footnote{Java Persistence API (JPA)~\cite{Java_Persistence_API2013}}$^)$.Column.length}                                                                             & \multicolumn{1}{c|}{P6}       \\ \hline
+		\multicolumn{1}{|r|}{min}               & \multicolumn{1}{c|}{-}                                                                                             & \multicolumn{1}{c|}{Min$^($\footnote{\label{beanvalidate}Bean Validator (BV)~\cite{Jakarta_Bean_Validation}}$^)$.value}                                                                                      & \multicolumn{1}{c|}{P7}       \\ \hline
+		\multicolumn{1}{|r|}{max}               & \multicolumn{1}{c|}{-}                                                                                             & \multicolumn{1}{c|}{Max$^{(\ref{beanvalidate})}$.value}                                                                                      & \multicolumn{1}{c|}{P8}       \\ \hline
 		\multicolumn{4}{|l|}{\cellcolor[HTML]{DAE8FC}DAssoc}                                                                                                                                                                                                                                                                  \\ \hline
 		\multicolumn{1}{|r|}{ascName}           & \multicolumn{1}{c|}{-}                                                                                             & \multicolumn{1}{c|}{-}                                                                                                 &                               \\ \hline
 		\multicolumn{1}{|r|}{ascType}           & \multicolumn{1}{c|}{-}                                                                                             & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}jpa.OneToMany,\\ jpa.ManyToOne,\\ jpa.ManyToMany\end{tabular}}          &                               \\ \hline
@@ -44,6 +48,7 @@ Table~\ref{tab:Comparing-the-expressiveness} presents the evaluation table of \a
 	\end{tabular}
 	
 \end{minipage}
+
 	
 	In the Table~\ref{tab:eval_expr_agl} points out that \agldcsl is more expressive than AL and XL in both structural and behavioral aspects. These two languages only partially support structural aspect and they do not support behavioral aspect. In particular, AL and XL's support for Associative Field is very limited compared to \agldcsl. AD's expressiveness of domain behaviors is better than \agl, but again the behavior model lacks an explicit connection to structural models.
 	
@@ -63,8 +68,9 @@ Table~\ref{tab:Comparing-the-expressiveness} presents the evaluation table of \a
 	The ratio 4/8 for AL \wrt the term Domain Field means that AL only supports 4 out of the total of 8 properties of the meta-attribute \clazz{DAttr} (used in Domain Field). 
 	
 	Note that the ratio aims to evaluate the current works from structural aspect, thus, this evaluation step coincides with the one for \dcsl, reported in our previous work~\cite{le_domain_2018}. %
+	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\textit{Example}
+	\noindent\textbf{Example}
 	\begin{enumerate}
 		\item Class Payment is immutable, i.e. all objects of this class are immutable~\attrib{DClass}{mutable=true}.
 		\item Field Student.name is mutable, i.e. its value can be changed~\attrib{DAttr}{mutable=true}.
